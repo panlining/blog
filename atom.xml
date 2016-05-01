@@ -4,14 +4,24 @@
   <title><![CDATA[彼得潘]]></title>
   <link href="afun.me/atom.xml" rel="self"/>
   <link href="afun.me/"/>
-  <updated>2016-04-29T10:49:47+08:00</updated>
+  <updated>2016-05-01T14:13:00+08:00</updated>
   <id>afun.me/</id>
   <author>
     <name><![CDATA[]]></name>
     
   </author>
-  <generator uri="http://www.mweb.im">MWeb</generator>
+  <generator uri="http://www.coderforart.com/">CoderForArt</generator>
 
+  
+  <entry>
+    <title type="html"><![CDATA[帮助命令]]></title>
+    <link href="afun.me/14620832968215.html"/>
+    <updated>2016-05-01T14:14:56+08:00</updated>
+    <id>afun.me/14620832968215.html</id>
+    <content type="html"><![CDATA[
+
+]]></content>
+  </entry>
   
   <entry>
     <title type="html"><![CDATA[文件搜索命令]]></title>
