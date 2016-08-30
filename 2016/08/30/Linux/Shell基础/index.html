@@ -1,0 +1,674 @@
+<!doctype html>
+
+
+
+  
+
+
+<html class="theme-next pisces use-motion">
+<head>
+  <meta charset="UTF-8"/>
+<meta http-equiv="X-UA-Compatible" content="IE=edge,chrome=1" />
+<meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1"/>
+
+
+
+<meta http-equiv="Cache-Control" content="no-transform" />
+<meta http-equiv="Cache-Control" content="no-siteapp" />
+
+
+
+
+
+
+
+
+
+
+
+
+  
+  
+  <link href="/vendors/fancybox/source/jquery.fancybox.css?v=2.1.5" rel="stylesheet" type="text/css" />
+
+
+
+
+  
+  
+  
+  
+
+  
+    
+    
+  
+
+  
+    
+      
+    
+
+    
+  
+
+  
+
+  
+    
+      
+    
+
+    
+  
+
+  
+    
+      
+    
+
+    
+  
+
+  
+    
+    
+    <link href="//fonts.googleapis.com/css?family=Monda:300,300italic,400,400italic,700,700italic|Roboto Slab:300,300italic,400,400italic,700,700italic|Lobster Two:300,300italic,400,400italic,700,700italic|PT Mono:300,300italic,400,400italic,700,700italic&subset=latin,latin-ext" rel="stylesheet" type="text/css">
+  
+
+
+
+
+
+
+<link href="/vendors/font-awesome/css/font-awesome.min.css?v=4.4.0" rel="stylesheet" type="text/css" />
+
+<link href="/css/main.css?v=5.0.1" rel="stylesheet" type="text/css" />
+
+
+  <meta name="keywords" content="Shell,Linux," />
+
+
+
+
+
+
+
+
+  <link rel="shortcut icon" type="image/x-icon" href="/favicon.ico?v=5.0.1" />
+
+
+
+
+
+
+<meta name="description" content="一个简单的shell脚本的创建和执行12345678910111213141516171819202122cd /usr/local/sbinvim first.sh## This is my first shell script.dateecho &amp;apos;Hello World!&amp;apos;// 运行结果[root@localhost sbin]# sh 1.shSat Jul 30 13:">
+<meta property="og:type" content="article">
+<meta property="og:title" content="Shell基础">
+<meta property="og:url" content="http://yoursite.com/2016/08/30/Linux/Shell基础/index.html">
+<meta property="og:site_name" content="Echo's Blog">
+<meta property="og:description" content="一个简单的shell脚本的创建和执行12345678910111213141516171819202122cd /usr/local/sbinvim first.sh## This is my first shell script.dateecho &amp;apos;Hello World!&amp;apos;// 运行结果[root@localhost sbin]# sh 1.shSat Jul 30 13:">
+<meta property="og:updated_time" content="2016-08-30T09:55:56.000Z">
+<meta name="twitter:card" content="summary">
+<meta name="twitter:title" content="Shell基础">
+<meta name="twitter:description" content="一个简单的shell脚本的创建和执行12345678910111213141516171819202122cd /usr/local/sbinvim first.sh## This is my first shell script.dateecho &amp;apos;Hello World!&amp;apos;// 运行结果[root@localhost sbin]# sh 1.shSat Jul 30 13:">
+
+
+
+<script type="text/javascript" id="hexo.configuration">
+  var NexT = window.NexT || {};
+  var CONFIG = {
+    scheme: 'Pisces',
+    sidebar: {"position":"left","display":"post"},
+    fancybox: true,
+    motion: true,
+    duoshuo: {
+      userId: 0,
+      author: 'Author'
+    }
+  };
+</script>
+
+
+
+
+  <link rel="canonical" href="http://yoursite.com/2016/08/30/Linux/Shell基础/"/>
+
+  <title> Shell基础 | Echo's Blog </title>
+</head>
+
+<body itemscope itemtype="http://schema.org/WebPage" lang="">
+
+  
+
+
+
+
+
+
+
+
+
+
+  
+  
+    
+  
+
+  <div class="container one-collumn sidebar-position-left page-post-detail ">
+    <div class="headband"></div>
+
+    <header id="header" class="header" itemscope itemtype="http://schema.org/WPHeader">
+      <div class="header-inner"><div class="site-meta ">
+  
+
+  <div class="custom-logo-site-title">
+    <a href="/"  class="brand" rel="start">
+      <span class="logo-line-before"><i></i></span>
+      <span class="site-title">Echo's Blog</span>
+      <span class="logo-line-after"><i></i></span>
+    </a>
+  </div>
+  <p class="site-subtitle">efnwe</p>
+</div>
+
+<div class="site-nav-toggle">
+  <button>
+    <span class="btn-bar"></span>
+    <span class="btn-bar"></span>
+    <span class="btn-bar"></span>
+  </button>
+</div>
+
+<nav class="site-nav">
+  
+
+  
+    <ul id="menu" class="menu">
+      
+        
+        <li class="menu-item menu-item-home">
+          <a href="/" rel="section">
+            
+              <i class="menu-item-icon fa fa-fw fa-home"></i> <br />
+            
+            首页
+          </a>
+        </li>
+      
+        
+        <li class="menu-item menu-item-categories">
+          <a href="/categories" rel="section">
+            
+              <i class="menu-item-icon fa fa-fw fa-th"></i> <br />
+            
+            分类
+          </a>
+        </li>
+      
+        
+        <li class="menu-item menu-item-about">
+          <a href="/about" rel="section">
+            
+              <i class="menu-item-icon fa fa-fw fa-user"></i> <br />
+            
+            我
+          </a>
+        </li>
+      
+        
+        <li class="menu-item menu-item-archives">
+          <a href="/archives" rel="section">
+            
+              <i class="menu-item-icon fa fa-fw fa-archive"></i> <br />
+            
+            归档
+          </a>
+        </li>
+      
+        
+        <li class="menu-item menu-item-tags">
+          <a href="/tags" rel="section">
+            
+              <i class="menu-item-icon fa fa-fw fa-tags"></i> <br />
+            
+            标签
+          </a>
+        </li>
+      
+
+      
+    </ul>
+  
+
+  
+</nav>
+
+ </div>
+    </header>
+
+    <main id="main" class="main">
+      <div class="main-inner">
+        <div class="content-wrap">
+          <div id="content" class="content">
+            
+
+  <div id="posts" class="posts-expand">
+    
+
+  
+  
+
+  
+  
+  
+
+  <article class="post post-type-normal " itemscope itemtype="http://schema.org/Article">
+
+    
+      <header class="post-header">
+
+        
+        
+          <h1 class="post-title" itemprop="name headline">
+            
+            
+              
+                Shell基础
+              
+            
+          </h1>
+        
+
+        <div class="post-meta">
+          <span class="post-time">
+            <span class="post-meta-item-icon">
+              <i class="fa fa-calendar-o"></i>
+            </span>
+            <span class="post-meta-item-text">Veröffentlicht am</span>
+            <time itemprop="dateCreated" datetime="2016-08-30T17:50:55+08:00" content="2016-08-30">
+              2016-08-30
+            </time>
+          </span>
+
+          
+            <span class="post-category" >
+              &nbsp; | &nbsp;
+              <span class="post-meta-item-icon">
+                <i class="fa fa-folder-o"></i>
+              </span>
+              <span class="post-meta-item-text">in</span>
+              
+                <span itemprop="about" itemscope itemtype="https://schema.org/Thing">
+                  <a href="/categories/Linux-Shell/" itemprop="url" rel="index">
+                    <span itemprop="name">Linux,Shell</span>
+                  </a>
+                </span>
+
+                
+                
+
+              
+            </span>
+          
+
+          
+            
+          
+
+          
+
+          
+          
+
+          
+        </div>
+      </header>
+    
+
+
+    <div class="post-body" itemprop="articleBody">
+
+      
+      
+
+      
+        <h2 id="一个简单的shell脚本的创建和执行"><a href="#一个简单的shell脚本的创建和执行" class="headerlink" title="一个简单的shell脚本的创建和执行"></a>一个简单的shell脚本的创建和执行</h2><figure class="highlight plain"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div><div class="line">7</div><div class="line">8</div><div class="line">9</div><div class="line">10</div><div class="line">11</div><div class="line">12</div><div class="line">13</div><div class="line">14</div><div class="line">15</div><div class="line">16</div><div class="line">17</div><div class="line">18</div><div class="line">19</div><div class="line">20</div><div class="line">21</div><div class="line">22</div></pre></td><td class="code"><pre><div class="line"></div><div class="line">cd /usr/local/sbin</div><div class="line"></div><div class="line">vim first.sh</div><div class="line"></div><div class="line"></div><div class="line"></div><div class="line">## This is my first shell script.</div><div class="line"></div><div class="line">date</div><div class="line"></div><div class="line">echo &apos;Hello World!&apos;</div><div class="line"></div><div class="line"></div><div class="line"></div><div class="line">// 运行结果</div><div class="line"></div><div class="line">[root@localhost sbin]# sh 1.sh</div><div class="line"></div><div class="line">Sat Jul 30 13:42:25 CST 2016</div><div class="line"></div><div class="line">Hello World!</div></pre></td></tr></table></figure>
+<a id="more"></a>
+<h2 id="shell脚本中的变量"><a href="#shell脚本中的变量" class="headerlink" title="shell脚本中的变量"></a>shell脚本中的变量</h2><blockquote>
+<p>定义变量的格式为：变量名=变量的值。在脚本中引用变量时需要加上符号$。</p>
+</blockquote>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div><div class="line">7</div><div class="line">8</div><div class="line">9</div><div class="line">10</div><div class="line">11</div><div class="line">12</div><div class="line">13</div><div class="line">14</div><div class="line">15</div><div class="line">16</div><div class="line">17</div><div class="line">18</div><div class="line">19</div><div class="line">20</div><div class="line">21</div><div class="line">22</div><div class="line">23</div><div class="line">24</div></pre></td><td class="code"><pre><div class="line"></div><div class="line">d=`date +%H:%M:%S`    // 定义变量</div><div class="line"></div><div class="line">echo &quot;The script begin at $d.&quot;    // 双引号中的变量会被执行，单引号中的变量不会被执行</div><div class="line"></div><div class="line">echo &quot;Now we&apos;ll sleep 2 seconds.&quot;</div><div class="line"></div><div class="line">sleep 2</div><div class="line"></div><div class="line">d1=`date +%H:%M:%S`</div><div class="line"></div><div class="line">echo &quot;The script end at $d1&quot;.</div><div class="line"></div><div class="line"></div><div class="line"></div><div class="line">// 运行结果</div><div class="line"></div><div class="line">[root@localhost sbin]# sh 1.sh</div><div class="line"></div><div class="line">The script begin at 13:49:13.</div><div class="line"></div><div class="line">Now we&apos;ll sleep 2 seconds.</div><div class="line"></div><div class="line">The script end at 13:49:15.</div></pre></td></tr></table></figure>
+<h3 id="数学运算"><a href="#数学运算" class="headerlink" title="数学运算"></a>数学运算</h3><figure class="highlight plain"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div><div class="line">7</div><div class="line">8</div><div class="line">9</div><div class="line">10</div><div class="line">11</div><div class="line">12</div><div class="line">13</div><div class="line">14</div><div class="line">15</div><div class="line">16</div></pre></td><td class="code"><pre><div class="line"></div><div class="line">a=1</div><div class="line"></div><div class="line">b=2</div><div class="line"></div><div class="line">sum=$[$a+$b]</div><div class="line"></div><div class="line">echo &quot;$a+$b=$sum&quot;</div><div class="line"></div><div class="line"></div><div class="line"></div><div class="line">// 运行结果</div><div class="line"></div><div class="line">[root@localhost sbin]# sh 1.sh</div><div class="line"></div><div class="line">1+2=3</div></pre></td></tr></table></figure>
+<h3 id="和用户交互"><a href="#和用户交互" class="headerlink" title="和用户交互"></a>和用户交互</h3><blockquote>
+<p>read命令用于和用户交互，它把用户输入的字符串作为变量值。</p>
+</blockquote>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div><div class="line">7</div><div class="line">8</div><div class="line">9</div><div class="line">10</div><div class="line">11</div><div class="line">12</div><div class="line">13</div><div class="line">14</div><div class="line">15</div><div class="line">16</div><div class="line">17</div><div class="line">18</div></pre></td><td class="code"><pre><div class="line"></div><div class="line">read -p &quot;Please input a number :&quot; x</div><div class="line"></div><div class="line">read -p &apos;Please input a number :&apos; y</div><div class="line"></div><div class="line">sum=$[$x+$y]</div><div class="line"></div><div class="line">echo &apos;The sum of the two numbers is :&apos;$sum</div><div class="line"></div><div class="line"></div><div class="line"></div><div class="line">// 运行结果</div><div class="line"></div><div class="line">Please input a number :3</div><div class="line"></div><div class="line">Please input a number :4</div><div class="line"></div><div class="line">The sum of the two numbers is :7</div></pre></td></tr></table></figure>
+<h3 id="脚本预设变量"><a href="#脚本预设变量" class="headerlink" title="脚本预设变量"></a>脚本预设变量</h3><blockquote>
+<p>脚本在执行时后面可以跟一个或多个参数，这个参数就叫预设变量</p>
+</blockquote>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div><div class="line">7</div><div class="line">8</div><div class="line">9</div><div class="line">10</div><div class="line">11</div><div class="line">12</div><div class="line">13</div><div class="line">14</div><div class="line">15</div><div class="line">16</div><div class="line">17</div><div class="line">18</div><div class="line">19</div><div class="line">20</div><div class="line">21</div><div class="line">22</div><div class="line">23</div><div class="line">24</div><div class="line">25</div><div class="line">26</div><div class="line">27</div><div class="line">28</div><div class="line">29</div><div class="line">30</div></pre></td><td class="code"><pre><div class="line"></div><div class="line">// 例如脚本内容为：</div><div class="line"></div><div class="line">sum=$[$1+$2]</div><div class="line"></div><div class="line">echo $sum</div><div class="line"></div><div class="line"></div><div class="line"></div><div class="line">// 执行结果</div><div class="line"></div><div class="line">[root@localhost sbin]# sh 1.sh 1 2</div><div class="line"></div><div class="line">3</div><div class="line"></div><div class="line">// 在上面$1和$2的值就是执行时输入的1和2，另外还有一个$0，它代表脚本本身的名字。</div><div class="line"></div><div class="line"></div><div class="line"></div><div class="line">// 如：</div><div class="line"></div><div class="line">sum=$[$1+$2]</div><div class="line"></div><div class="line">echo $sum $0</div><div class="line"></div><div class="line">执行结果</div><div class="line"></div><div class="line">[root@localhost sbin]# sh 1.sh 1 2</div><div class="line"></div><div class="line">3 1.sh</div></pre></td></tr></table></figure>
+<h2 id="shell脚本中的逻辑判断"><a href="#shell脚本中的逻辑判断" class="headerlink" title="shell脚本中的逻辑判断"></a>shell脚本中的逻辑判断</h2><h3 id="不带else"><a href="#不带else" class="headerlink" title="不带else"></a>不带else</h3><figure class="highlight plain"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div><div class="line">7</div><div class="line">8</div><div class="line">9</div><div class="line">10</div><div class="line">11</div><div class="line">12</div><div class="line">13</div><div class="line">14</div><div class="line">15</div><div class="line">16</div></pre></td><td class="code"><pre><div class="line"></div><div class="line">read -p &apos;Please input your score:&apos; a</div><div class="line"></div><div class="line">if((a&lt;60));then</div><div class="line"></div><div class="line">    echo &quot;You didn&apos;t pass the exam.&quot;</div><div class="line"></div><div class="line">fi</div><div class="line"></div><div class="line">// 运行结果</div><div class="line"></div><div class="line">[root@localhost sbin]# sh 1.sh</div><div class="line"></div><div class="line">Please input your score:40</div><div class="line"></div><div class="line">You didn&apos;t pass the exam.</div></pre></td></tr></table></figure>
+<h3 id="带有else"><a href="#带有else" class="headerlink" title="带有else"></a>带有else</h3><figure class="highlight plain"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div><div class="line">7</div><div class="line">8</div><div class="line">9</div><div class="line">10</div><div class="line">11</div><div class="line">12</div><div class="line">13</div><div class="line">14</div><div class="line">15</div><div class="line">16</div><div class="line">17</div><div class="line">18</div><div class="line">19</div><div class="line">20</div><div class="line">21</div><div class="line">22</div><div class="line">23</div><div class="line">24</div><div class="line">25</div><div class="line">26</div><div class="line">27</div><div class="line">28</div><div class="line">29</div><div class="line">30</div><div class="line">31</div><div class="line">32</div><div class="line">33</div><div class="line">34</div></pre></td><td class="code"><pre><div class="line"></div><div class="line">read -p &apos;Please input your score:&apos; a</div><div class="line"></div><div class="line">if((a&lt;60));then</div><div class="line"></div><div class="line">    echo &quot;You didn&apos;t passed the exam.&quot;</div><div class="line"></div><div class="line">else</div><div class="line"></div><div class="line">    echo &quot;You passed the exam.&quot;</div><div class="line"></div><div class="line">fi</div><div class="line"></div><div class="line"></div><div class="line"></div><div class="line">// 运行结果</div><div class="line"></div><div class="line">[root@localhost sbin]# sh 1.sh</div><div class="line"></div><div class="line">Please input your score:40</div><div class="line"></div><div class="line">You didn&apos;t passed the exam.</div><div class="line"></div><div class="line">[root@localhost sbin]# sh 1.sh</div><div class="line"></div><div class="line">Please input your score:60</div><div class="line"></div><div class="line">You passed the exam.</div><div class="line"></div><div class="line">[root@localhost sbin]# sh 1.sh</div><div class="line"></div><div class="line">Please input your score:78</div><div class="line"></div><div class="line">You passed the exam.</div></pre></td></tr></table></figure>
+<h3 id="带有elif"><a href="#带有elif" class="headerlink" title="带有elif"></a>带有elif</h3><figure class="highlight plain"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div><div class="line">7</div><div class="line">8</div><div class="line">9</div><div class="line">10</div><div class="line">11</div><div class="line">12</div><div class="line">13</div><div class="line">14</div><div class="line">15</div><div class="line">16</div><div class="line">17</div><div class="line">18</div><div class="line">19</div><div class="line">20</div><div class="line">21</div><div class="line">22</div><div class="line">23</div><div class="line">24</div><div class="line">25</div><div class="line">26</div><div class="line">27</div><div class="line">28</div><div class="line">29</div><div class="line">30</div><div class="line">31</div><div class="line">32</div><div class="line">33</div><div class="line">34</div><div class="line">35</div><div class="line">36</div><div class="line">37</div><div class="line">38</div><div class="line">39</div><div class="line">40</div><div class="line">41</div><div class="line">42</div></pre></td><td class="code"><pre><div class="line"></div><div class="line">read -p &apos;Please input your score:&apos; a</div><div class="line"></div><div class="line">if((a&lt;60));then</div><div class="line"></div><div class="line">    echo &quot;You haven&apos;t passed the exam.&quot;</div><div class="line"></div><div class="line">elif((a&gt;=60))&amp;&amp;((a&lt;85));then</div><div class="line"></div><div class="line">    echo &apos;You passed the exam.&apos;</div><div class="line"></div><div class="line">else</div><div class="line"></div><div class="line">    echo &apos;Your score is very high.&apos;</div><div class="line"></div><div class="line">fi</div><div class="line"></div><div class="line"></div><div class="line"></div><div class="line">// 运行结果</div><div class="line"></div><div class="line">[root@localhost sbin]# sh 1.sh</div><div class="line"></div><div class="line">Please input your score:40</div><div class="line"></div><div class="line">You haven&apos;t passed the exam.</div><div class="line"></div><div class="line">[root@localhost sbin]# 65</div><div class="line"></div><div class="line">-bash: 65: command not found</div><div class="line"></div><div class="line">[root@localhost sbin]# sh 1.sh</div><div class="line"></div><div class="line">Please input your score:65</div><div class="line"></div><div class="line">You passed the exam.</div><div class="line"></div><div class="line">[root@localhost sbin]# sh 1.sh</div><div class="line"></div><div class="line">Please input your score:90</div><div class="line"></div><div class="line">Your score is very high.</div></pre></td></tr></table></figure>
+<blockquote>
+<p>上面介绍了if语句的结构。比较数值大小除了用(( ))的形式之外，还可以使用[ ]。但是不能直接使用&lt; &gt; 等符号了，要使用-lt(&lt;),-gt(&gt;),-le(&lt;=),-ge(&gt;=),-eq(==),-ne(!=)。</p>
+</blockquote>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div><div class="line">7</div><div class="line">8</div><div class="line">9</div><div class="line">10</div><div class="line">11</div><div class="line">12</div></pre></td><td class="code"><pre><div class="line"></div><div class="line">if [ $a -lt 5 ]; </div><div class="line"></div><div class="line">if [ $a -gt 5 ]; </div><div class="line"></div><div class="line">if [ $a -ne 5 ]; </div><div class="line"></div><div class="line"></div><div class="line"></div><div class="line">if [ $a -lt 5 ] &amp;&amp; [ $a -gt 1 ]</div><div class="line"></div><div class="line">if [ $a -lt 5 ] || [ $a -gt 1 ]</div></pre></td></tr></table></figure>
+<h3 id="与文档有关的判断"><a href="#与文档有关的判断" class="headerlink" title="与文档有关的判断"></a>与文档有关的判断</h3><figure class="highlight plain"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div><div class="line">7</div><div class="line">8</div><div class="line">9</div><div class="line">10</div><div class="line">11</div><div class="line">12</div><div class="line">13</div><div class="line">14</div><div class="line">15</div><div class="line">16</div><div class="line">17</div><div class="line">18</div><div class="line">19</div><div class="line">20</div><div class="line">21</div><div class="line">22</div></pre></td><td class="code"><pre><div class="line"></div><div class="line">-e 判断文件或目录是否存在</div><div class="line"></div><div class="line">-d 判断是不是目录以及是否存在</div><div class="line"></div><div class="line">-f 判断是不是普通文件以及是否存在</div><div class="line"></div><div class="line">-r 判断是否有读权限</div><div class="line"></div><div class="line">-w 判断是否有写权限</div><div class="line"></div><div class="line">-x 判断是否有执行权限</div><div class="line"></div><div class="line"></div><div class="line"></div><div class="line">shell脚本中的判断格式如下：</div><div class="line"></div><div class="line">if [ -e filename ];them</div><div class="line"></div><div class="line">    command</div><div class="line"></div><div class="line">fi</div></pre></td></tr></table></figure>
+<h3 id="case逻辑判断"><a href="#case逻辑判断" class="headerlink" title="case逻辑判断"></a>case逻辑判断</h3><figure class="highlight plain"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div><div class="line">7</div><div class="line">8</div><div class="line">9</div><div class="line">10</div><div class="line">11</div><div class="line">12</div><div class="line">13</div><div class="line">14</div><div class="line">15</div><div class="line">16</div><div class="line">17</div><div class="line">18</div><div class="line">19</div><div class="line">20</div><div class="line">21</div><div class="line">22</div><div class="line">23</div><div class="line">24</div><div class="line">25</div><div class="line">26</div><div class="line">27</div><div class="line">28</div><div class="line">29</div><div class="line">30</div><div class="line">31</div><div class="line">32</div><div class="line">33</div><div class="line">34</div><div class="line">35</div><div class="line">36</div><div class="line">37</div><div class="line">38</div><div class="line">39</div><div class="line">40</div><div class="line">41</div><div class="line">42</div><div class="line">43</div><div class="line">44</div><div class="line">45</div><div class="line">46</div><div class="line">47</div><div class="line">48</div><div class="line">49</div><div class="line">50</div><div class="line">51</div><div class="line">52</div><div class="line">53</div><div class="line">54</div><div class="line">55</div><div class="line">56</div><div class="line">57</div><div class="line">58</div><div class="line">59</div><div class="line">60</div><div class="line">61</div><div class="line">62</div><div class="line">63</div><div class="line">64</div><div class="line">65</div><div class="line">66</div><div class="line">67</div><div class="line">68</div><div class="line">69</div><div class="line">70</div><div class="line">71</div><div class="line">72</div><div class="line">73</div><div class="line">74</div><div class="line">75</div><div class="line">76</div></pre></td><td class="code"><pre><div class="line"></div><div class="line">// 语法格式</div><div class="line"></div><div class="line">caes 变量 in</div><div class="line"></div><div class="line">value1)</div><div class="line"></div><div class="line">    command</div><div class="line"></div><div class="line">    ;;</div><div class="line"></div><div class="line">value2)</div><div class="line"></div><div class="line">    command</div><div class="line"></div><div class="line">    ;;</div><div class="line"></div><div class="line">value3)</div><div class="line"></div><div class="line">    command</div><div class="line"></div><div class="line">    ;;</div><div class="line"></div><div class="line">*)</div><div class="line"></div><div class="line">    command</div><div class="line"></div><div class="line">    ;;</div><div class="line"></div><div class="line">esac</div><div class="line"></div><div class="line"></div><div class="line"></div><div class="line">// 示例</div><div class="line"></div><div class="line">read -p &apos;Input a number:&apos; n</div><div class="line"></div><div class="line">a=$[$n%2]</div><div class="line"></div><div class="line">case $a in</div><div class="line"></div><div class="line">1)</div><div class="line"></div><div class="line">    echo &apos;The number is odd&apos;</div><div class="line"></div><div class="line">    ;;</div><div class="line"></div><div class="line">0)</div><div class="line"></div><div class="line">    echo &apos;The number is even&apos;</div><div class="line"></div><div class="line">    ;;</div><div class="line"></div><div class="line">*)</div><div class="line"></div><div class="line">    echo &apos;It not a number&apos;</div><div class="line"></div><div class="line">    ;;</div><div class="line"></div><div class="line">esac</div><div class="line"></div><div class="line"></div><div class="line"></div><div class="line">// 运行结果</div><div class="line"></div><div class="line">[root@localhost sbin]# sh 1.sh</div><div class="line"></div><div class="line">Input a number:3</div><div class="line"></div><div class="line">The number is odd</div><div class="line"></div><div class="line">[root@localhost sbin]# sh 1.sh</div><div class="line"></div><div class="line">Input a number:4</div><div class="line"></div><div class="line">The number is even</div></pre></td></tr></table></figure>
+<h2 id="shell脚本中的循环"><a href="#shell脚本中的循环" class="headerlink" title="shell脚本中的循环"></a>shell脚本中的循环</h2><h3 id="for循环"><a href="#for循环" class="headerlink" title="for循环"></a>for循环</h3><figure class="highlight plain"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div><div class="line">7</div><div class="line">8</div><div class="line">9</div><div class="line">10</div><div class="line">11</div><div class="line">12</div><div class="line">13</div><div class="line">14</div><div class="line">15</div><div class="line">16</div><div class="line">17</div><div class="line">18</div><div class="line">19</div><div class="line">20</div><div class="line">21</div><div class="line">22</div><div class="line">23</div><div class="line">24</div><div class="line">25</div><div class="line">26</div><div class="line">27</div><div class="line">28</div><div class="line">29</div><div class="line">30</div><div class="line">31</div><div class="line">32</div><div class="line">33</div><div class="line">34</div><div class="line">35</div><div class="line">36</div><div class="line">37</div><div class="line">38</div><div class="line">39</div><div class="line">40</div></pre></td><td class="code"><pre><div class="line"></div><div class="line">// 基本格式</div><div class="line"></div><div class="line">for 变量名 in 循环的条件;do</div><div class="line"></div><div class="line">    command</div><div class="line"></div><div class="line">done</div><div class="line"></div><div class="line">// 这里的“循环的条件”可以是一组字符串或者数字（用一个或多个空格隔开），也可以是一条命令的执行结果</div><div class="line"></div><div class="line">如：</div><div class="line"></div><div class="line">for i in 1 2 3 4 a b;do echo $i;done</div><div class="line"></div><div class="line">for file in `ls`;do echo $file;done</div><div class="line"></div><div class="line"></div><div class="line"></div><div class="line">// 示例</div><div class="line"></div><div class="line">for i in `seq 1 5`;do</div><div class="line"></div><div class="line">    echo $i</div><div class="line"></div><div class="line">done</div><div class="line"></div><div class="line">// 运行结果</div><div class="line"></div><div class="line">[root@localhost sbin]# sh 1.sh</div><div class="line"></div><div class="line">1</div><div class="line"></div><div class="line">2</div><div class="line"></div><div class="line">3</div><div class="line"></div><div class="line">4</div><div class="line"></div><div class="line">5</div></pre></td></tr></table></figure>
+<h3 id="while循环"><a href="#while循环" class="headerlink" title="while循环"></a>while循环</h3><figure class="highlight plain"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div><div class="line">7</div><div class="line">8</div><div class="line">9</div><div class="line">10</div><div class="line">11</div><div class="line">12</div><div class="line">13</div><div class="line">14</div><div class="line">15</div><div class="line">16</div><div class="line">17</div><div class="line">18</div><div class="line">19</div><div class="line">20</div><div class="line">21</div><div class="line">22</div><div class="line">23</div><div class="line">24</div><div class="line">25</div><div class="line">26</div><div class="line">27</div><div class="line">28</div><div class="line">29</div><div class="line">30</div><div class="line">31</div><div class="line">32</div><div class="line">33</div><div class="line">34</div><div class="line">35</div><div class="line">36</div><div class="line">37</div><div class="line">38</div><div class="line">39</div><div class="line">40</div><div class="line">41</div><div class="line">42</div><div class="line">43</div><div class="line">44</div><div class="line">45</div><div class="line">46</div></pre></td><td class="code"><pre><div class="line"></div><div class="line">// 语法结构</div><div class="line"></div><div class="line">while 条件;do</div><div class="line"></div><div class="line">    command</div><div class="line"></div><div class="line">done</div><div class="line"></div><div class="line"></div><div class="line"></div><div class="line">a=5</div><div class="line"></div><div class="line">while [ $a -ge 1 ]; do</div><div class="line"></div><div class="line">    echo $a</div><div class="line"></div><div class="line">    a=$[$a-1]</div><div class="line"></div><div class="line">done</div><div class="line"></div><div class="line"></div><div class="line"></div><div class="line">// 运行结果</div><div class="line"></div><div class="line">[root@localhost sbin]# sh 1.sh</div><div class="line"></div><div class="line">5</div><div class="line"></div><div class="line">4</div><div class="line"></div><div class="line">3</div><div class="line"></div><div class="line">2</div><div class="line"></div><div class="line">1</div><div class="line"></div><div class="line"></div><div class="line"></div><div class="line">// 另外可以用一个冒号替代循环条件，这样可以做到死循环。</div><div class="line"></div><div class="line">while :; do</div><div class="line"></div><div class="line">    command</div><div class="line"></div><div class="line">done</div></pre></td></tr></table></figure>
+<h2 id="shell脚本中的函数"><a href="#shell脚本中的函数" class="headerlink" title="shell脚本中的函数"></a>shell脚本中的函数</h2><figure class="highlight plain"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div><div class="line">7</div><div class="line">8</div><div class="line">9</div><div class="line">10</div><div class="line">11</div><div class="line">12</div></pre></td><td class="code"><pre><div class="line"></div><div class="line">function sum()</div><div class="line"></div><div class="line">&#123;</div><div class="line"></div><div class="line">    sum=$[$1+$2]</div><div class="line"></div><div class="line">    echo $sum</div><div class="line"></div><div class="line">&#125;</div><div class="line"></div><div class="line">sum $1 $2</div></pre></td></tr></table></figure>
+
+      
+    </div>
+
+    <div>
+      
+        
+
+      
+    </div>
+
+    <div>
+      
+        
+
+      
+    </div>
+
+    <footer class="post-footer">
+      
+        <div class="post-tags">
+          
+            <a href="/tags/Shell/" rel="tag">#Shell</a>
+          
+            <a href="/tags/Linux/" rel="tag">#Linux</a>
+          
+        </div>
+      
+
+      
+        <div class="post-nav">
+          <div class="post-nav-next post-nav-item">
+            
+              <a href="/2016/08/24/note-使用Trie树结构实现敏感词汇过滤/" rel="next" title="note/使用Trie树结构实现敏感词汇过滤">
+                <i class="fa fa-chevron-left"></i> note/使用Trie树结构实现敏感词汇过滤
+              </a>
+            
+          </div>
+
+          <div class="post-nav-prev post-nav-item">
+            
+          </div>
+        </div>
+      
+
+      
+      
+    </footer>
+  </article>
+
+
+
+    <div class="post-spread">
+      
+    </div>
+  </div>
+
+
+          </div>
+          
+
+
+          
+  <div class="comments" id="comments">
+    
+  </div>
+
+
+        </div>
+        
+          
+  
+  <div class="sidebar-toggle">
+    <div class="sidebar-toggle-line-wrap">
+      <span class="sidebar-toggle-line sidebar-toggle-line-first"></span>
+      <span class="sidebar-toggle-line sidebar-toggle-line-middle"></span>
+      <span class="sidebar-toggle-line sidebar-toggle-line-last"></span>
+    </div>
+  </div>
+
+  <aside id="sidebar" class="sidebar">
+    <div class="sidebar-inner">
+
+      
+
+      
+        <ul class="sidebar-nav motion-element">
+          <li class="sidebar-nav-toc sidebar-nav-active" data-target="post-toc-wrap" >
+            Inhaltsverzeichnis
+          </li>
+          <li class="sidebar-nav-overview" data-target="site-overview">
+            Übersicht
+          </li>
+        </ul>
+      
+
+      <section class="site-overview sidebar-panel ">
+        <div class="site-author motion-element" itemprop="author" itemscope itemtype="http://schema.org/Person">
+          <img class="site-author-image" itemprop="image"
+               src="/images/avatar.jpg"
+               alt="潘潘" />
+          <p class="site-author-name" itemprop="name">潘潘</p>
+          <p class="site-description motion-element" itemprop="description">333</p>
+        </div>
+        <nav class="site-state motion-element">
+          <div class="site-state-item site-state-posts">
+            <a href="/archives">
+              <span class="site-state-item-count">5</span>
+              <span class="site-state-item-name">Artikel</span>
+            </a>
+          </div>
+
+          
+            <div class="site-state-item site-state-categories">
+              <a href="/categories">
+                <span class="site-state-item-count">2</span>
+                <span class="site-state-item-name">Kategorien</span>
+              </a>
+            </div>
+          
+
+          
+            <div class="site-state-item site-state-tags">
+              <a href="/tags">
+                <span class="site-state-item-count">4</span>
+                <span class="site-state-item-name">Tags</span>
+              </a>
+            </div>
+          
+
+        </nav>
+
+        
+
+        <div class="links-of-author motion-element">
+          
+            
+              <span class="links-of-author-item">
+                <a href="https://github.com/panlining" target="_blank" title="GitHub">
+                  
+                    <i class="fa fa-fw fa-github"></i>
+                  
+                  GitHub
+                </a>
+              </span>
+            
+              <span class="links-of-author-item">
+                <a href="https://twitter.com/your-user-name" target="_blank" title="Twitter">
+                  
+                    <i class="fa fa-fw fa-twitter"></i>
+                  
+                  Twitter
+                </a>
+              </span>
+            
+          
+        </div>
+
+        
+        
+
+        
+        
+
+      </section>
+
+      
+        <section class="post-toc-wrap motion-element sidebar-panel sidebar-panel-active">
+          <div class="post-toc">
+            
+              
+            
+            
+              <div class="post-toc-content"><ol class="nav"><li class="nav-item nav-level-2"><a class="nav-link" href="#一个简单的shell脚本的创建和执行"><span class="nav-number">1.</span> <span class="nav-text">一个简单的shell脚本的创建和执行</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#shell脚本中的变量"><span class="nav-number">2.</span> <span class="nav-text">shell脚本中的变量</span></a><ol class="nav-child"><li class="nav-item nav-level-3"><a class="nav-link" href="#数学运算"><span class="nav-number">2.1.</span> <span class="nav-text">数学运算</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#和用户交互"><span class="nav-number">2.2.</span> <span class="nav-text">和用户交互</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#脚本预设变量"><span class="nav-number">2.3.</span> <span class="nav-text">脚本预设变量</span></a></li></ol></li><li class="nav-item nav-level-2"><a class="nav-link" href="#shell脚本中的逻辑判断"><span class="nav-number">3.</span> <span class="nav-text">shell脚本中的逻辑判断</span></a><ol class="nav-child"><li class="nav-item nav-level-3"><a class="nav-link" href="#不带else"><span class="nav-number">3.1.</span> <span class="nav-text">不带else</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#带有else"><span class="nav-number">3.2.</span> <span class="nav-text">带有else</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#带有elif"><span class="nav-number">3.3.</span> <span class="nav-text">带有elif</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#与文档有关的判断"><span class="nav-number">3.4.</span> <span class="nav-text">与文档有关的判断</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#case逻辑判断"><span class="nav-number">3.5.</span> <span class="nav-text">case逻辑判断</span></a></li></ol></li><li class="nav-item nav-level-2"><a class="nav-link" href="#shell脚本中的循环"><span class="nav-number">4.</span> <span class="nav-text">shell脚本中的循环</span></a><ol class="nav-child"><li class="nav-item nav-level-3"><a class="nav-link" href="#for循环"><span class="nav-number">4.1.</span> <span class="nav-text">for循环</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#while循环"><span class="nav-number">4.2.</span> <span class="nav-text">while循环</span></a></li></ol></li><li class="nav-item nav-level-2"><a class="nav-link" href="#shell脚本中的函数"><span class="nav-number">5.</span> <span class="nav-text">shell脚本中的函数</span></a></li></ol></div>
+            
+          </div>
+        </section>
+      
+
+    </div>
+  </aside>
+
+
+        
+      </div>
+    </main>
+
+    <footer id="footer" class="footer">
+      <div class="footer-inner">
+        <div class="copyright" >
+  
+  &copy; 
+  <span itemprop="copyrightYear">2016</span>
+  <span class="with-love">
+    <i class="fa fa-heart"></i>
+  </span>
+  <span class="author" itemprop="copyrightHolder">潘潘</span>
+</div>
+
+<div class="powered-by">
+  Erstellt mit  <a class="theme-link" href="https://hexo.io">Hexo</a>
+</div>
+
+<div class="theme-info">
+  Theme -
+  <a class="theme-link" href="https://github.com/iissnan/hexo-theme-next">
+    NexT.Pisces
+  </a>
+</div>
+
+        
+
+        
+      </div>
+    </footer>
+
+    <div class="back-to-top">
+      <i class="fa fa-arrow-up"></i>
+    </div>
+  </div>
+
+  
+
+<script type="text/javascript">
+  if (Object.prototype.toString.call(window.Promise) !== '[object Function]') {
+    window.Promise = null;
+  }
+</script>
+
+
+
+
+
+
+
+
+
+  
+
+
+
+  
+  <script type="text/javascript" src="/vendors/jquery/index.js?v=2.1.3"></script>
+
+  
+  <script type="text/javascript" src="/vendors/fastclick/lib/fastclick.min.js?v=1.0.6"></script>
+
+  
+  <script type="text/javascript" src="/vendors/jquery_lazyload/jquery.lazyload.js?v=1.9.7"></script>
+
+  
+  <script type="text/javascript" src="/vendors/velocity/velocity.min.js?v=1.2.1"></script>
+
+  
+  <script type="text/javascript" src="/vendors/velocity/velocity.ui.min.js?v=1.2.1"></script>
+
+  
+  <script type="text/javascript" src="/vendors/fancybox/source/jquery.fancybox.pack.js?v=2.1.5"></script>
+
+
+  
+
+
+  <script type="text/javascript" src="/js/src/utils.js?v=5.0.1"></script>
+
+  <script type="text/javascript" src="/js/src/motion.js?v=5.0.1"></script>
+
+
+
+  
+  
+
+
+  <script type="text/javascript" src="/js/src/affix.js?v=5.0.1"></script>
+
+  <script type="text/javascript" src="/js/src/schemes/pisces.js?v=5.0.1"></script>
+
+
+
+  
+  <script type="text/javascript" src="/js/src/scrollspy.js?v=5.0.1"></script>
+<script type="text/javascript" src="/js/src/post-details.js?v=5.0.1"></script>
+
+
+
+  
+
+
+  <script type="text/javascript" src="/js/src/bootstrap.js?v=5.0.1"></script>
+
+
+
+  
+
+
+
+  
+
+
+
+
+  
+  
+
+  
+
+  
+
+  
+
+</body>
+</html>
