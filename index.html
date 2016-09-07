@@ -190,7 +190,7 @@
             
               <i class="menu-item-icon fa fa-fw fa-home"></i> <br />
             
-            首页
+            Home
           </a>
         </li>
       
@@ -200,7 +200,7 @@
             
               <i class="menu-item-icon fa fa-fw fa-th"></i> <br />
             
-            分类
+            Categories
           </a>
         </li>
       
@@ -210,7 +210,7 @@
             
               <i class="menu-item-icon fa fa-fw fa-user"></i> <br />
             
-            我
+            About
           </a>
         </li>
       
@@ -220,7 +220,7 @@
             
               <i class="menu-item-icon fa fa-fw fa-archive"></i> <br />
             
-            归档
+            Archives
           </a>
         </li>
       
@@ -230,7 +230,7 @@
             
               <i class="menu-item-icon fa fa-fw fa-tags"></i> <br />
             
-            标签
+            Tags
           </a>
         </li>
       
@@ -286,7 +286,7 @@
             <span class="post-meta-item-icon">
               <i class="fa fa-calendar-o"></i>
             </span>
-            <span class="post-meta-item-text">Veröffentlicht am</span>
+            <span class="post-meta-item-text">Posted on</span>
             <time itemprop="dateCreated" datetime="2016-09-07T17:50:55+08:00" content="2016-09-07">
               2016-09-07
             </time>
@@ -298,7 +298,7 @@
               <span class="post-meta-item-icon">
                 <i class="fa fa-folder-o"></i>
               </span>
-              <span class="post-meta-item-text">in</span>
+              <span class="post-meta-item-text">In</span>
               
                 <span itemprop="about" itemscope itemtype="https://schema.org/Thing">
                   <a href="/categories/MySQL/" itemprop="url" rel="index">
@@ -343,7 +343,10 @@
       
         
           
-            <h2 id="直接修改user表"><a href="#直接修改user表" class="headerlink" title="直接修改user表"></a>直接修改user表</h2><p>进入数据库中的mysql数据库<br>执行show tables;<br><figure class="highlight plain"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div><div class="line">7</div><div class="line">8</div><div class="line">9</div><div class="line">10</div><div class="line">11</div><div class="line">12</div><div class="line">13</div><div class="line">14</div><div class="line">15</div><div class="line">16</div><div class="line">17</div><div class="line">18</div><div class="line">19</div><div class="line">20</div><div class="line">21</div><div class="line">22</div><div class="line">23</div><div class="line">24</div><div class="line">25</div><div class="line">26</div><div class="line">27</div><div class="line">28</div><div class="line">29</div><div class="line">30</div><div class="line">31</div><div class="line">32</div><div class="line">33</div><div class="line">34</div><div class="line">35</div><div class="line">36</div></pre></td><td class="code"><pre><div class="line">mysql&gt; show tables;</div><div class="line">+---------------------------+</div><div class="line">| Tables_in_mysql           |</div><div class="line">+---------------------------+</div><div class="line">| columns_priv              |</div><div class="line">| db                        |</div><div class="line">| engine_cost               |</div><div class="line">| event                     |</div><div class="line">| func                      |</div><div class="line">| general_log               |</div><div class="line">| gtid_executed             |</div><div class="line">| help_category             |</div><div class="line">| help_keyword              |</div><div class="line">| help_relation             |</div><div class="line">| help_topic                |</div><div class="line">| innodb_index_stats        |</div><div class="line">| innodb_table_stats        |</div><div class="line">| ndb_binlog_index          |</div><div class="line">| plugin                    |</div><div class="line">| proc                      |</div><div class="line">| procs_priv                |</div><div class="line">| proxies_priv              |</div><div class="line">| server_cost               |</div><div class="line">| servers                   |</div><div class="line">| slave_master_info         |</div><div class="line">| slave_relay_log_info      |</div><div class="line">| slave_worker_info         |</div><div class="line">| slow_log                  |</div><div class="line">| tables_priv               |</div><div class="line">| time_zone                 |</div><div class="line">| time_zone_leap_second     |</div><div class="line">| time_zone_name            |</div><div class="line">| time_zone_transition      |</div><div class="line">| time_zone_transition_type |</div><div class="line">| user                      |</div><div class="line">+---------------------------+</div></pre></td></tr></table></figure></p>
+            <h2 id="直接修改user表"><a href="#直接修改user表" class="headerlink" title="直接修改user表"></a>直接修改user表</h2><p>进入数据库中的mysql数据库<br>执行 show tables;<br><figure class="highlight plain"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div><div class="line">7</div><div class="line">8</div><div class="line">9</div><div class="line">10</div><div class="line">11</div><div class="line">12</div><div class="line">13</div><div class="line">14</div><div class="line">15</div><div class="line">16</div><div class="line">17</div><div class="line">18</div><div class="line">19</div><div class="line">20</div><div class="line">21</div><div class="line">22</div><div class="line">23</div><div class="line">24</div><div class="line">25</div><div class="line">26</div><div class="line">27</div><div class="line">28</div><div class="line">29</div><div class="line">30</div><div class="line">31</div><div class="line">32</div><div class="line">33</div><div class="line">34</div><div class="line">35</div><div class="line">36</div></pre></td><td class="code"><pre><div class="line">mysql&gt; show tables;</div><div class="line">+---------------------------+</div><div class="line">| Tables_in_mysql           |</div><div class="line">+---------------------------+</div><div class="line">| columns_priv              |</div><div class="line">| db                        |</div><div class="line">| engine_cost               |</div><div class="line">| event                     |</div><div class="line">| func                      |</div><div class="line">| general_log               |</div><div class="line">| gtid_executed             |</div><div class="line">| help_category             |</div><div class="line">| help_keyword              |</div><div class="line">| help_relation             |</div><div class="line">| help_topic                |</div><div class="line">| innodb_index_stats        |</div><div class="line">| innodb_table_stats        |</div><div class="line">| ndb_binlog_index          |</div><div class="line">| plugin                    |</div><div class="line">| proc                      |</div><div class="line">| procs_priv                |</div><div class="line">| proxies_priv              |</div><div class="line">| server_cost               |</div><div class="line">| servers                   |</div><div class="line">| slave_master_info         |</div><div class="line">| slave_relay_log_info      |</div><div class="line">| slave_worker_info         |</div><div class="line">| slow_log                  |</div><div class="line">| tables_priv               |</div><div class="line">| time_zone                 |</div><div class="line">| time_zone_leap_second     |</div><div class="line">| time_zone_name            |</div><div class="line">| time_zone_transition      |</div><div class="line">| time_zone_transition_type |</div><div class="line">| user                      |</div><div class="line">+---------------------------+</div></pre></td></tr></table></figure></p>
+<p>这里可以看到最后一张user表<br>user表中记录mysql的用户信息<br>直接更改user表中对应用户的密码就可以达到更改用户密码的效果<br><figure class="highlight plain"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div></pre></td><td class="code"><pre><div class="line">update user set `password` = password(&quot;admin123&quot;) where user = &quot;root&quot;;</div><div class="line">FLUSH PRIVILEGES;</div></pre></td></tr></table></figure></p>
+<p>到这里root用户的密码就修改成为了admin123了</p>
+<h2 id="通过mysqladmin命令修改"><a href="#通过mysqladmin命令修改" class="headerlink" title="通过mysqladmin命令修改"></a>通过mysqladmin命令修改</h2><figure class="highlight plain"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div></pre></td><td class="code"><pre><div class="line">// 第一次设置密码</div><div class="line">mysqladmin -u root password admin123</div><div class="line"></div><div class="line">// 修改密码</div><div class="line">mysqladmin -u root -p admin123 password admin888</div></pre></td></tr></table></figure>
 
           
         
@@ -406,7 +409,7 @@
             <span class="post-meta-item-icon">
               <i class="fa fa-calendar-o"></i>
             </span>
-            <span class="post-meta-item-text">Veröffentlicht am</span>
+            <span class="post-meta-item-text">Posted on</span>
             <time itemprop="dateCreated" datetime="2016-08-30T17:50:55+08:00" content="2016-08-30">
               2016-08-30
             </time>
@@ -418,7 +421,7 @@
               <span class="post-meta-item-icon">
                 <i class="fa fa-folder-o"></i>
               </span>
-              <span class="post-meta-item-text">in</span>
+              <span class="post-meta-item-text">In</span>
               
                 <span itemprop="about" itemscope itemtype="https://schema.org/Thing">
                   <a href="/categories/Linux-Shell/" itemprop="url" rel="index">
@@ -465,7 +468,7 @@
           <h2 id="一个简单的shell脚本的创建和执行"><a href="#一个简单的shell脚本的创建和执行" class="headerlink" title="一个简单的shell脚本的创建和执行"></a>一个简单的shell脚本的创建和执行</h2><figure class="highlight plain"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div><div class="line">7</div><div class="line">8</div><div class="line">9</div><div class="line">10</div><div class="line">11</div><div class="line">12</div><div class="line">13</div><div class="line">14</div><div class="line">15</div><div class="line">16</div><div class="line">17</div><div class="line">18</div><div class="line">19</div><div class="line">20</div><div class="line">21</div><div class="line">22</div></pre></td><td class="code"><pre><div class="line"></div><div class="line">cd /usr/local/sbin</div><div class="line"></div><div class="line">vim first.sh</div><div class="line"></div><div class="line"></div><div class="line"></div><div class="line">## This is my first shell script.</div><div class="line"></div><div class="line">date</div><div class="line"></div><div class="line">echo &apos;Hello World!&apos;</div><div class="line"></div><div class="line"></div><div class="line"></div><div class="line">// 运行结果</div><div class="line"></div><div class="line">[root@localhost sbin]# sh 1.sh</div><div class="line"></div><div class="line">Sat Jul 30 13:42:25 CST 2016</div><div class="line"></div><div class="line">Hello World!</div></pre></td></tr></table></figure>
           <div class="post-more-link text-center">
             <a class="btn" href="/2016/08/30/Linux/Shell基础/#more" rel="contents">
-              Weiterlesen &raquo;
+              Read more &raquo;
             </a>
           </div>
         
@@ -528,7 +531,7 @@
             <span class="post-meta-item-icon">
               <i class="fa fa-calendar-o"></i>
             </span>
-            <span class="post-meta-item-text">Veröffentlicht am</span>
+            <span class="post-meta-item-text">Posted on</span>
             <time itemprop="dateCreated" datetime="2016-08-24T18:04:46+08:00" content="2016-08-24">
               2016-08-24
             </time>
@@ -628,7 +631,7 @@
             <span class="post-meta-item-icon">
               <i class="fa fa-calendar-o"></i>
             </span>
-            <span class="post-meta-item-text">Veröffentlicht am</span>
+            <span class="post-meta-item-text">Posted on</span>
             <time itemprop="dateCreated" datetime="2016-08-24T16:07:55+08:00" content="2016-08-24">
               2016-08-24
             </time>
@@ -640,7 +643,7 @@
               <span class="post-meta-item-icon">
                 <i class="fa fa-folder-o"></i>
               </span>
-              <span class="post-meta-item-text">in</span>
+              <span class="post-meta-item-text">In</span>
               
                 <span itemprop="about" itemscope itemtype="https://schema.org/Thing">
                   <a href="/categories/PHP/" itemprop="url" rel="index">
@@ -747,7 +750,7 @@
             <span class="post-meta-item-icon">
               <i class="fa fa-calendar-o"></i>
             </span>
-            <span class="post-meta-item-text">Veröffentlicht am</span>
+            <span class="post-meta-item-text">Posted on</span>
             <time itemprop="dateCreated" datetime="2016-08-24T16:07:55+08:00" content="2016-08-24">
               2016-08-24
             </time>
@@ -759,7 +762,7 @@
               <span class="post-meta-item-icon">
                 <i class="fa fa-folder-o"></i>
               </span>
-              <span class="post-meta-item-text">in</span>
+              <span class="post-meta-item-text">In</span>
               
                 <span itemprop="about" itemscope itemtype="https://schema.org/Thing">
                   <a href="/categories/PHP/" itemprop="url" rel="index">
@@ -869,7 +872,7 @@
             <span class="post-meta-item-icon">
               <i class="fa fa-calendar-o"></i>
             </span>
-            <span class="post-meta-item-text">Veröffentlicht am</span>
+            <span class="post-meta-item-text">Posted on</span>
             <time itemprop="dateCreated" datetime="2016-08-24T10:20:10+08:00" content="2016-08-24">
               2016-08-24
             </time>
@@ -986,7 +989,7 @@
           <div class="site-state-item site-state-posts">
             <a href="/archives">
               <span class="site-state-item-count">6</span>
-              <span class="site-state-item-name">Artikel</span>
+              <span class="site-state-item-name">posts</span>
             </a>
           </div>
 
@@ -994,7 +997,7 @@
             <div class="site-state-item site-state-categories">
               <a href="/categories">
                 <span class="site-state-item-count">3</span>
-                <span class="site-state-item-name">Kategorien</span>
+                <span class="site-state-item-name">categories</span>
               </a>
             </div>
           
@@ -1003,7 +1006,7 @@
             <div class="site-state-item site-state-tags">
               <a href="/tags">
                 <span class="site-state-item-count">4</span>
-                <span class="site-state-item-name">Tags</span>
+                <span class="site-state-item-name">tags</span>
               </a>
             </div>
           
@@ -1067,7 +1070,7 @@
 </div>
 
 <div class="powered-by">
-  Erstellt mit  <a class="theme-link" href="https://hexo.io">Hexo</a>
+  Powered by <a class="theme-link" href="https://hexo.io">Hexo</a>
 </div>
 
 <div class="theme-info">
