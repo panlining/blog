@@ -86,7 +86,7 @@
 <link href="/css/main.css?v=5.0.1" rel="stylesheet" type="text/css" />
 
 
-  <meta name="keywords" content="Hexo, NexT" />
+  <meta name="keywords" content="MySQL," />
 
 
 
@@ -102,13 +102,16 @@
 
 
 
-<meta property="og:type" content="website">
-<meta property="og:title" content="categories">
-<meta property="og:url" content="http://yoursite.com/categories/index.html">
+<meta name="description" content="直接修改user表进入数据库中的mysql数据库执行show tables;123456789101112131415161718192021222324252627282930313233343536mysql&amp;gt; show tables;+---------------------------+| Tables_in_mysql           |+------------------">
+<meta property="og:type" content="article">
+<meta property="og:title" content="MySql修改用户密码">
+<meta property="og:url" content="http://yoursite.com/2016/09/07/MySQL/MySql修改用户密码/index.html">
 <meta property="og:site_name" content="Echo's Blog">
-<meta property="og:updated_time" content="2016-08-24T08:02:42.000Z">
+<meta property="og:description" content="直接修改user表进入数据库中的mysql数据库执行show tables;123456789101112131415161718192021222324252627282930313233343536mysql&amp;gt; show tables;+---------------------------+| Tables_in_mysql           |+------------------">
+<meta property="og:updated_time" content="2016-09-07T10:26:53.000Z">
 <meta name="twitter:card" content="summary">
-<meta name="twitter:title" content="categories">
+<meta name="twitter:title" content="MySql修改用户密码">
+<meta name="twitter:description" content="直接修改user表进入数据库中的mysql数据库执行show tables;123456789101112131415161718192021222324252627282930313233343536mysql&amp;gt; show tables;+---------------------------+| Tables_in_mysql           |+------------------">
 
 
 
@@ -129,15 +132,9 @@
 
 
 
-  <link rel="canonical" href="http://yoursite.com/categories/"/>
+  <link rel="canonical" href="http://yoursite.com/2016/09/07/MySQL/MySql修改用户密码/"/>
 
-  <title>
-  
-
-  
-    Kategorie | Echo's Blog
-  
-</title>
+  <title> MySql修改用户密码 | Echo's Blog </title>
 </head>
 
 <body itemscope itemtype="http://schema.org/WebPage" lang="">
@@ -158,7 +155,7 @@
     
   
 
-  <div class="container one-collumn sidebar-position-left  ">
+  <div class="container one-collumn sidebar-position-left page-post-detail ">
     <div class="headband"></div>
 
     <header id="header" class="header" itemscope itemtype="http://schema.org/WPHeader">
@@ -258,16 +255,138 @@
 
   <div id="posts" class="posts-expand">
     
+
+  
+  
+
+  
+  
+  
+
+  <article class="post post-type-normal " itemscope itemtype="http://schema.org/Article">
+
     
-      <div class="category-all-page">
-        <div class="category-all-title">
-            Insgesamt 3 Kategorien
+      <header class="post-header">
+
+        
+        
+          <h1 class="post-title" itemprop="name headline">
+            
+            
+              
+                MySql修改用户密码
+              
+            
+          </h1>
+        
+
+        <div class="post-meta">
+          <span class="post-time">
+            <span class="post-meta-item-icon">
+              <i class="fa fa-calendar-o"></i>
+            </span>
+            <span class="post-meta-item-text">Veröffentlicht am</span>
+            <time itemprop="dateCreated" datetime="2016-09-07T17:50:55+08:00" content="2016-09-07">
+              2016-09-07
+            </time>
+          </span>
+
+          
+            <span class="post-category" >
+              &nbsp; | &nbsp;
+              <span class="post-meta-item-icon">
+                <i class="fa fa-folder-o"></i>
+              </span>
+              <span class="post-meta-item-text">in</span>
+              
+                <span itemprop="about" itemscope itemtype="https://schema.org/Thing">
+                  <a href="/categories/MySQL/" itemprop="url" rel="index">
+                    <span itemprop="name">MySQL</span>
+                  </a>
+                </span>
+
+                
+                
+
+              
+            </span>
+          
+
+          
+            
+          
+
+          
+
+          
+          
+
+          
         </div>
-        <div class="category-all">
-          <ul class="category-list"><li class="category-list-item"><a class="category-list-link" href="/categories/Linux-Shell/">Linux,Shell</a><span class="category-list-count">1</span></li><li class="category-list-item"><a class="category-list-link" href="/categories/MySQL/">MySQL</a><span class="category-list-count">1</span></li><li class="category-list-item"><a class="category-list-link" href="/categories/PHP/">PHP</a><span class="category-list-count">2</span></li></ul>
-        </div>
-      </div>
+      </header>
     
+
+
+    <div class="post-body" itemprop="articleBody">
+
+      
+      
+
+      
+        <h2 id="直接修改user表"><a href="#直接修改user表" class="headerlink" title="直接修改user表"></a>直接修改user表</h2><p>进入数据库中的mysql数据库<br>执行show tables;<br><figure class="highlight plain"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div><div class="line">7</div><div class="line">8</div><div class="line">9</div><div class="line">10</div><div class="line">11</div><div class="line">12</div><div class="line">13</div><div class="line">14</div><div class="line">15</div><div class="line">16</div><div class="line">17</div><div class="line">18</div><div class="line">19</div><div class="line">20</div><div class="line">21</div><div class="line">22</div><div class="line">23</div><div class="line">24</div><div class="line">25</div><div class="line">26</div><div class="line">27</div><div class="line">28</div><div class="line">29</div><div class="line">30</div><div class="line">31</div><div class="line">32</div><div class="line">33</div><div class="line">34</div><div class="line">35</div><div class="line">36</div></pre></td><td class="code"><pre><div class="line">mysql&gt; show tables;</div><div class="line">+---------------------------+</div><div class="line">| Tables_in_mysql           |</div><div class="line">+---------------------------+</div><div class="line">| columns_priv              |</div><div class="line">| db                        |</div><div class="line">| engine_cost               |</div><div class="line">| event                     |</div><div class="line">| func                      |</div><div class="line">| general_log               |</div><div class="line">| gtid_executed             |</div><div class="line">| help_category             |</div><div class="line">| help_keyword              |</div><div class="line">| help_relation             |</div><div class="line">| help_topic                |</div><div class="line">| innodb_index_stats        |</div><div class="line">| innodb_table_stats        |</div><div class="line">| ndb_binlog_index          |</div><div class="line">| plugin                    |</div><div class="line">| proc                      |</div><div class="line">| procs_priv                |</div><div class="line">| proxies_priv              |</div><div class="line">| server_cost               |</div><div class="line">| servers                   |</div><div class="line">| slave_master_info         |</div><div class="line">| slave_relay_log_info      |</div><div class="line">| slave_worker_info         |</div><div class="line">| slow_log                  |</div><div class="line">| tables_priv               |</div><div class="line">| time_zone                 |</div><div class="line">| time_zone_leap_second     |</div><div class="line">| time_zone_name            |</div><div class="line">| time_zone_transition      |</div><div class="line">| time_zone_transition_type |</div><div class="line">| user                      |</div><div class="line">+---------------------------+</div></pre></td></tr></table></figure></p>
+
+      
+    </div>
+
+    <div>
+      
+        
+
+      
+    </div>
+
+    <div>
+      
+        
+
+      
+    </div>
+
+    <footer class="post-footer">
+      
+        <div class="post-tags">
+          
+            <a href="/tags/MySQL/" rel="tag">#MySQL</a>
+          
+        </div>
+      
+
+      
+        <div class="post-nav">
+          <div class="post-nav-next post-nav-item">
+            
+              <a href="/2016/08/30/Linux/Shell基础/" rel="next" title="Shell基础">
+                <i class="fa fa-chevron-left"></i> Shell基础
+              </a>
+            
+          </div>
+
+          <div class="post-nav-prev post-nav-item">
+            
+          </div>
+        </div>
+      
+
+      
+      
+    </footer>
+  </article>
+
+
+
+    <div class="post-spread">
+      
+    </div>
   </div>
 
 
@@ -299,8 +418,17 @@
       
 
       
+        <ul class="sidebar-nav motion-element">
+          <li class="sidebar-nav-toc sidebar-nav-active" data-target="post-toc-wrap" >
+            Inhaltsverzeichnis
+          </li>
+          <li class="sidebar-nav-overview" data-target="site-overview">
+            Übersicht
+          </li>
+        </ul>
+      
 
-      <section class="site-overview sidebar-panel  sidebar-panel-active ">
+      <section class="site-overview sidebar-panel ">
         <div class="site-author motion-element" itemprop="author" itemscope itemtype="http://schema.org/Person">
           <img class="site-author-image" itemprop="image"
                src="/images/avatar.jpg"
@@ -370,6 +498,17 @@
 
       </section>
 
+      
+        <section class="post-toc-wrap motion-element sidebar-panel sidebar-panel-active">
+          <div class="post-toc">
+            
+              
+            
+            
+              <div class="post-toc-content"><ol class="nav"><li class="nav-item nav-level-2"><a class="nav-link" href="#直接修改user表"><span class="nav-number">1.</span> <span class="nav-text">直接修改user表</span></a></li></ol></div>
+            
+          </div>
+        </section>
       
 
     </div>
@@ -473,6 +612,10 @@
 
 
   
+  <script type="text/javascript" src="/js/src/scrollspy.js?v=5.0.1"></script>
+<script type="text/javascript" src="/js/src/post-details.js?v=5.0.1"></script>
+
+
 
   
 
