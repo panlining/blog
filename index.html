@@ -276,158 +276,6 @@
             
               
                 
-                <a class="post-title-link" href="/2016/09/08/MySQL/索引创建/" itemprop="url">
-                  MySql索引创建
-                </a>
-              
-            
-          </h1>
-        
-
-        <div class="post-meta">
-          <span class="post-time">
-            <span class="post-meta-item-icon">
-              <i class="fa fa-calendar-o"></i>
-            </span>
-            <span class="post-meta-item-text">Veröffentlicht am</span>
-            <time itemprop="dateCreated" datetime="2016-09-08T17:50:55+08:00" content="2016-09-08">
-              2016-09-08
-            </time>
-          </span>
-
-          
-            <span class="post-category" >
-              &nbsp; | &nbsp;
-              <span class="post-meta-item-icon">
-                <i class="fa fa-folder-o"></i>
-              </span>
-              <span class="post-meta-item-text">in</span>
-              
-                <span itemprop="about" itemscope itemtype="https://schema.org/Thing">
-                  <a href="/categories/MySQL/" itemprop="url" rel="index">
-                    <span itemprop="name">MySQL</span>
-                  </a>
-                </span>
-
-                
-                
-
-              
-            </span>
-          
-
-          
-            
-              <span class="post-comments-count">
-                &nbsp; | &nbsp;
-                <a href="/2016/09/08/MySQL/索引创建/#comments" itemprop="discussionUrl">
-                  <span class="post-comments-count ds-thread-count" data-thread-key="2016/09/08/MySQL/索引创建/" itemprop="commentsCount"></span>
-                </a>
-              </span>
-            
-          
-
-          
-
-          
-          
-
-          
-        </div>
-      </header>
-    
-
-
-    <div class="post-body" itemprop="articleBody">
-
-      
-      
-
-      
-        
-          
-            <h2 id="MySQL索引"><a href="#MySQL索引" class="headerlink" title="MySQL索引"></a>MySQL索引</h2><blockquote>
-<p>索引是根据其中一列或若干列按照一定顺序建立的列值与记录行之间的对应关系表。在列上创建了索引之后，查找数据时可以直接根据该列上的索引找到对应的位置，从而快速地找到数据。</p>
-<p>大多数情况下索引能大幅度提高查询效率，但：</p>
-<ol>
-<li><p>数据的变更（增删改）都需要维护索引，因此更多的索引意味着更多的维护成本</p>
-</li>
-<li><p>更多的索引意味着也需要更多的空间 （一本100页的书，却有50页目录？）</p>
-</li>
-<li><p>过小的表，建索引可能会更慢哦 ：）  （读个2页的宣传手册，你还先去找目录？）</p>
-</li>
-</ol>
-<p>索引是存储在文件中的，所以索引也要占用物理空间的，MySQL将一个表的索引都保存在同一个索引文件中。如果更新表中的一个值或者向表中添加或删除一行，MySQL会自动地更新索引文件，因此索引树总是和表的内容保持一致。</p>
-</blockquote>
-<h2 id="索引的分类："><a href="#索引的分类：" class="headerlink" title="索引的分类："></a>索引的分类：</h2><ul>
-<li><p>BTREE索引（常用）</p>
-<ul>
-<li><p>普通索引（INDEX)</p>
-</li>
-<li><p>唯一索引（UNIQUE)</p>
-</li>
-<li><p>主键（PRIMARY KEY)</p>
-</li>
-<li><p>全文索引（FULLTEXT)</p>
-</li>
-</ul>
-</li>
-<li><p>哈希索引（HASH)</p>
-</li>
-</ul>
-<h2 id="创建索引"><a href="#创建索引" class="headerlink" title="创建索引"></a>创建索引</h2><figure class="highlight plain"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div><div class="line">7</div><div class="line">8</div><div class="line">9</div><div class="line">10</div><div class="line">11</div><div class="line">12</div><div class="line">13</div><div class="line">14</div><div class="line">15</div><div class="line">16</div><div class="line">17</div><div class="line">18</div><div class="line">19</div><div class="line">20</div><div class="line">21</div><div class="line">22</div><div class="line">23</div><div class="line">24</div><div class="line">25</div><div class="line">26</div><div class="line">27</div><div class="line">28</div><div class="line">29</div><div class="line">30</div><div class="line">31</div><div class="line">32</div><div class="line">33</div><div class="line">34</div><div class="line">35</div><div class="line">36</div><div class="line">37</div><div class="line">38</div><div class="line">39</div><div class="line">40</div><div class="line">41</div><div class="line">42</div><div class="line">43</div><div class="line">44</div><div class="line">45</div><div class="line">46</div><div class="line">47</div><div class="line">48</div><div class="line">49</div><div class="line">50</div><div class="line">51</div><div class="line">52</div><div class="line">53</div><div class="line">54</div><div class="line">55</div><div class="line">56</div><div class="line">57</div><div class="line">58</div><div class="line">59</div></pre></td><td class="code"><pre><div class="line"></div><div class="line">// 语法</div><div class="line"></div><div class="line">使用CREATE INDEX语句创建</div><div class="line"></div><div class="line">CREATE [UNIQUE | FULLTEXT | SPATIAL] INDEX 索引名</div><div class="line"></div><div class="line">    [索引类型]</div><div class="line"></div><div class="line">    ON 表名 （索引列名 ...）</div><div class="line"></div><div class="line">    [索引选项] ...</div><div class="line"></div><div class="line">// 在这里索引列名 = 列名[(长度)] [ASC | DESC]</div><div class="line"></div><div class="line"></div><div class="line"></div><div class="line">CREATE INDEX id_name ON test_1 ( id ( 3 ) ASC);</div><div class="line"></div><div class="line">// 给test_1表的id字段创建普通索引，索引名为id_name,长度为3，按升序排序</div><div class="line"></div><div class="line"></div><div class="line"></div><div class="line">CREATE INDEX salt_age ON test_1 ( salt , age );</div><div class="line"></div><div class="line">// 给test_1表的salt和age字段创建复合索引</div><div class="line"></div><div class="line"></div><div class="line"></div><div class="line">使用ALTER TABLE语句创建</div><div class="line"></div><div class="line">ALTER TABLE xs ADD INDEX xs_xm USING BTREE(name);</div><div class="line"></div><div class="line">// 在xs表的name字段添加普通索引，索引名为xs_xm</div><div class="line"></div><div class="line"></div><div class="line"></div><div class="line">ALTER TABLE xs ADD INDEX mark(name,sex);</div><div class="line"></div><div class="line">// 在xs表的name和sex字段创建复合索引，索引名为mark</div><div class="line"></div><div class="line"></div><div class="line"></div><div class="line">ALTER TABLE test_2 ADD INDEX name(username(4),password(3));</div><div class="line">// 给test_2表创建索引名为name的复合索引，复合字段为username和password</div><div class="line"></div><div class="line"></div><div class="line"></div><div class="line">在建立表的时候创建索引</div><div class="line"></div><div class="line">mysql&gt; CREATE TABLE xs</div><div class="line">    -&gt; (</div><div class="line">    -&gt; id int(10) not null,</div><div class="line">    -&gt; username char(100) not null,</div><div class="line">    -&gt; password char(64) not null,</div><div class="line">    -&gt; score tinyint(1),</div><div class="line">    -&gt; primary key(id),</div><div class="line">    -&gt; index name(username)</div><div class="line">    -&gt; );</div></pre></td></tr></table></figure>
-<h2 id="删除索引"><a href="#删除索引" class="headerlink" title="删除索引"></a>删除索引</h2><figure class="highlight plain"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div><div class="line">7</div><div class="line">8</div><div class="line">9</div><div class="line">10</div></pre></td><td class="code"><pre><div class="line"></div><div class="line">使用DROP INDEX语句或ALTER TABLE语句删除索引</div><div class="line"></div><div class="line">DROP INDEX index_name FROM tablename</div><div class="line"></div><div class="line">ALTER TABLE tablename &#123;DROP PRIMARY KEY  // 删除主键</div><div class="line"></div><div class="line">    | DROP &#123; INDEX | KEY&#125; index_name   // 删除普通索引</div><div class="line"></div><div class="line">    | DROP FOREIGN KEY index_name &#125;  // 删除外键</div></pre></td></tr></table></figure>
-<p>查看一个表的索引创建情况：</p>
-<figure class="highlight plain"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div></pre></td><td class="code"><pre><div class="line"></div><div class="line">SHOW INDEX FROM tablename</div></pre></td></tr></table></figure>
-
-          
-        
-      
-    </div>
-
-    <div>
-      
-    </div>
-
-    <div>
-      
-    </div>
-
-    <footer class="post-footer">
-      
-
-      
-
-      
-      
-        <div class="post-eof"></div>
-      
-    </footer>
-  </article>
-
-
-    
-      
-
-  
-  
-
-  
-  
-  
-
-  <article class="post post-type-normal " itemscope itemtype="http://schema.org/Article">
-
-    
-      <header class="post-header">
-
-        
-        
-          <h1 class="post-title" itemprop="name headline">
-            
-            
-              
-                
                 <a class="post-title-link" href="/2016/09/08/MySQL/完整性约束/" itemprop="url">
                   MySql完整性约束
                 </a>
@@ -497,63 +345,149 @@
 
       
         
-          
-            <h2 id="主键约束"><a href="#主键约束" class="headerlink" title="主键约束"></a>主键约束</h2><blockquote>
+          <h2 id="主键约束"><a href="#主键约束" class="headerlink" title="主键约束"></a>主键约束</h2><blockquote>
 <p>主键就是表中的一列或多个列的一组，其值能唯一地标志表中的每一行。通过定义PRIMARY KEY约束来创建主键，而且PRIMARY KEY约束中的列不能取空值。</p>
 <p>主键可以是单列的，也可以是复合的（定义多个列为主键），但是复合主键要遵循‘最小化规则’，即：如果从这个复合主键中删除一列之后剩下的列构成的主键仍然满足唯一性原则，那么，这个复合主键就是不正确的，也就是说复合主键不应该包含任何不必要的列。</p>
 </blockquote>
-<figure class="highlight plain"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div><div class="line">7</div><div class="line">8</div><div class="line">9</div><div class="line">10</div><div class="line">11</div><div class="line">12</div><div class="line">13</div><div class="line">14</div><div class="line">15</div></pre></td><td class="code"><pre><div class="line">// 在这里创建了一个复合主键</div><div class="line"></div><div class="line">CREATE TABLE tablename(</div><div class="line"></div><div class="line">    number VARCHAR(10) NOT NULL,</div><div class="line"></div><div class="line">    name VARCHAR(8) NOT NULL,</div><div class="line"></div><div class="line">    lesson_no  VARCHAR(3),    </div><div class="line"></div><div class="line">    score TINYINT,</div><div class="line"></div><div class="line">    PRIMARY KEY (number,lesson_no,score)</div><div class="line"></div><div class="line">);</div></pre></td></tr></table></figure>
-<p>#替代键约束</p>
-<blockquote>
-<p>在关系模型中，提单件像主键一样，是表的一列或一组列，他们的值在任何时候都是唯一的。替代键是没有被选做主键的候选键。定义替代键的关键字是UNIQUE。</p>
-<p>PRIMARY KEY不允许为NULL，而UNIQUE字段的值可以取NULL，但是必须使用NULL或NOT NULL声明。</p>
-</blockquote>
-<h2 id="参照完整性约束"><a href="#参照完整性约束" class="headerlink" title="参照完整性约束"></a>参照完整性约束</h2><blockquote>
-<p>在关系型数据库中，很多规则是和表之间的关系有关的。例如order表中的user_id中的所有值必须存在于user表里中的id字段。这种类型的关系就是“参照完整性约束”。参照完整性约束是一种特殊的完整性约束，表现为一个外键。所以user表中的id字段可以定义为一个外键。</p>
-</blockquote>
-<figure class="highlight plain"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div><div class="line">7</div></pre></td><td class="code"><pre><div class="line">// 参照性定义：</div><div class="line"></div><div class="line">REFRENCE tablename [ ( 索引列名... ) ]</div><div class="line"></div><div class="line">    [ ON DELETE &#123; RESTRICT | CASCADE | SET NULL | NO ACTION&#125;]</div><div class="line"></div><div class="line">    [ ON UPDATE &#123; RESTRICT | CASCADE | SET NULL | NO ACTION&#125;]</div></pre></td></tr></table></figure>
-<blockquote>
-<p>说明：</p>
-<p>外键被定义为表的完整性约束，参照性定义中包含了外键所参照的表和列，还可以声明参照动作。这里表名叫做被参照表。而外键所在的表叫做参照表。</p>
-<p>索引列名是外键可以引用一个或多个列，外键中的所有列值在引用的类中必须全部存在。外键可以只引用主键和替代键。外键不能引用被参照表中随机的一组列，它必须是被参照表的列的一个组合，且其中的值都是唯一的。</p>
-<p>ON DELETE | ON UPDATE 可以为每个外键定义参照动作。</p>
-<p>在第一部分中，指定这个参照动作应用哪一条语句。这里有两条先关的语句，即UPDATE和DELETE</p>
-<p>在第二部分中，指定采取哪个动作。可能采取的动作是{ RESTRICT | CASCADE | SET NULL | NO ACTION}</p>
-<p>RESTRICT：当要删除或更新表中被参照列上在外键中出现的值时，拒绝对父表的删除或更新操作。</p>
-<p>CASCADE：从父表删除或更新时自动删除或更新子表中匹配的行。</p>
-<p>SET NULL：当从父表删除或更新时，设置子表中与之对应的外键列为NULL。前提是外键列没有指定NOT NULL限定词。</p>
-<p>NO ACTION：如果有一个相关的外键值在被参考的表里，删除或更新父表中主要键值的企图不被允许，和RESTRICT一样。</p>
-<p>SET DEFAULT：作用和SET NULL一样，只不过SET DEFAULT是指定子表中的外键列为默认值。</p>
-<p>如果没有指定动作，两个参照动作就会默认使用RESTRICT。</p>
-<p>外键目前只能用于那些使用InnoDB存储引擎创建的表中，对于其他类型的表，MySQL只能解析CREATE TABLE语句中的FOREIGN KEY语法，但不能使用或保存它。</p>
-</blockquote>
-<figure class="highlight plain"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div><div class="line">7</div><div class="line">8</div><div class="line">9</div><div class="line">10</div><div class="line">11</div><div class="line">12</div><div class="line">13</div><div class="line">14</div><div class="line">15</div><div class="line">16</div><div class="line">17</div><div class="line">18</div><div class="line">19</div><div class="line">20</div><div class="line">21</div><div class="line">22</div><div class="line">23</div><div class="line">24</div><div class="line">25</div><div class="line">26</div><div class="line">27</div><div class="line">28</div><div class="line">29</div><div class="line">30</div><div class="line">31</div><div class="line">32</div><div class="line">33</div><div class="line">34</div><div class="line">35</div><div class="line">36</div><div class="line">37</div><div class="line">38</div><div class="line">39</div></pre></td><td class="code"><pre><div class="line">// 创建一个order表，表中user_id字段所有的值都必须出现在user表的id字段中</div><div class="line"></div><div class="line">// 先创建user表：</div><div class="line"></div><div class="line">CREATE TABLE user(</div><div class="line"></div><div class="line">    id INT(10) UNSIGNED NOT NULL AUTO_INCREMENT,</div><div class="line"></div><div class="line">    username VARCHAR(20) NOT NULL,</div><div class="line"></div><div class="line">    password VARCHAR(100) NOT NULL,</div><div class="line"></div><div class="line">    PRIMARY KEY(id)</div><div class="line"></div><div class="line">);</div><div class="line"></div><div class="line"></div><div class="line"></div><div class="line">// 创建order表：</div><div class="line"></div><div class="line">CREATE TABLE `order`(</div><div class="line"></div><div class="line">    id INT(10) UNSIGNED NOT NULL AUTO_INCREMENT,</div><div class="line"></div><div class="line">    user_id INT(10) UNSIGNED NOT NULL,</div><div class="line"></div><div class="line">    number VARCHAR(30) NOT NULL,</div><div class="line"></div><div class="line">    PRIMARY KEY(id),</div><div class="line"></div><div class="line">    FOREIGN KEY(user_id)</div><div class="line"></div><div class="line">        REFERENCES user(id)</div><div class="line"></div><div class="line">            ON DELETE RESTRICT</div><div class="line"></div><div class="line">            ON UPDATE RESTRICT,</div><div class="line"></div><div class="line">);</div></pre></td></tr></table></figure>
-<p>指定一个外键的时候</p>
-<ul>
-<li><p>被参照表必须已经被创建。</p>
-</li>
-<li><p>必须为被参照表定义主键。</p>
-</li>
-<li><p>外键中列的数据类型必须和被参照表的主键中的列的数据类型对应相等。</p>
-</li>
-</ul>
-<h2 id="CHECK完整性约束"><a href="#CHECK完整性约束" class="headerlink" title="CHECK完整性约束"></a>CHECK完整性约束</h2><blockquote>
-<p>每个数据库中都有一些专用的完整性约束。例如：性别在男和女之间选一个，出生日期必须大于1990年1月1日等。这样的规则可以使用CHECK完整性约束来指定。</p>
-<p>CHECK完整性约束在创建表的时候定义。可以定义为列完整性约束，也可以定义为表完整性约束。</p>
-</blockquote>
-<p>语法格式：CHECK( expr )</p>
-<blockquote>
-<p>expr是一个表达式，制定需要检查的条件，在更新表数据的时候，MySQL会检查更新后的数据行是否满足CHECK的条件</p>
-</blockquote>
-<figure class="highlight plain"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div><div class="line">7</div><div class="line">8</div><div class="line">9</div><div class="line">10</div><div class="line">11</div><div class="line">12</div><div class="line">13</div><div class="line">14</div><div class="line">15</div><div class="line">16</div><div class="line">17</div></pre></td><td class="code"><pre><div class="line">CREATE TABLE student(</div><div class="line"></div><div class="line">    number CHAR(9) NOT NULL,</div><div class="line"></div><div class="line">    sex CHAR(1) NOT NULL CHECK(SEX IN(&apos;男&apos;,&apos;女&apos;),</div><div class="line"></div><div class="line">    birthday DATE NOT NULL CHECK(birthday &gt; &apos;1990-01-01&apos;),</div><div class="line"></div><div class="line">    class INT(3) NOT NULL CHECK( class in ( SELECT id FROM class)),</div><div class="line"></div><div class="line">    avg_score INT(1) NOT NULL,</div><div class="line"></div><div class="line">    best_score INT(1) NOT NULL,</div><div class="line"></div><div class="line">    CHECK ( best_score &gt; avg_score)    </div><div class="line"></div><div class="line">);</div></pre></td></tr></table></figure>
-<h2 id="命名完整性约束"><a href="#命名完整性约束" class="headerlink" title="命名完整性约束"></a>命名完整性约束</h2><blockquote>
-<p>一个SQL语句如果违反了完整性约束，则MySQL返回一条出错消息并拒绝更新，一个更新有可能会导致多个完整性约束的违反。在这种情况下，应用程序获取几条出错消息。为了确切地表示出是违反了哪一个完整性约束，可以为每个完整性约束分配一个名字，随后出错消息包含这个名字，从而使得消息对于应用程序更有意义。</p>
-</blockquote>
-<p>定义语法：CONSTRAINT [ name ]</p>
-<p>name为指定的名字，这个名字在完整性约束之前被定义，在数据库中它必须是唯一的，如果他没有被给出，则会被自动创建。只能给表的完整性约束指定名字，而无法给列的完整性约束指定名字。</p>
-<figure class="highlight plain"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div><div class="line">7</div><div class="line">8</div><div class="line">9</div><div class="line">10</div><div class="line">11</div><div class="line">12</div></pre></td><td class="code"><pre><div class="line"></div><div class="line">CREATE table student(</div><div class="line"></div><div class="line">    number VARCHAR(6) NULL,</div><div class="line"></div><div class="line">    name VARCHAR(8) NOT NULL,</div><div class="line"></div><div class="line">    birthday DATETIME NULL,</div><div class="line"></div><div class="line">    CONSTRAINT primary_key_student PRIMARY KEY(name)</div><div class="line"></div><div class="line">);</div></pre></td></tr></table></figure>
+          <div class="post-more-link text-center">
+            <a class="btn" href="/2016/09/08/MySQL/完整性约束/#more" rel="contents">
+              Weiterlesen &raquo;
+            </a>
+          </div>
+        
+      
+    </div>
+
+    <div>
+      
+    </div>
+
+    <div>
+      
+    </div>
+
+    <footer class="post-footer">
+      
+
+      
+
+      
+      
+        <div class="post-eof"></div>
+      
+    </footer>
+  </article>
+
+
+    
+      
+
+  
+  
+
+  
+  
+  
+
+  <article class="post post-type-normal " itemscope itemtype="http://schema.org/Article">
+
+    
+      <header class="post-header">
+
+        
+        
+          <h1 class="post-title" itemprop="name headline">
+            
+            
+              
+                
+                <a class="post-title-link" href="/2016/09/08/MySQL/索引创建/" itemprop="url">
+                  MySql索引创建
+                </a>
+              
+            
+          </h1>
+        
+
+        <div class="post-meta">
+          <span class="post-time">
+            <span class="post-meta-item-icon">
+              <i class="fa fa-calendar-o"></i>
+            </span>
+            <span class="post-meta-item-text">Veröffentlicht am</span>
+            <time itemprop="dateCreated" datetime="2016-09-08T17:50:55+08:00" content="2016-09-08">
+              2016-09-08
+            </time>
+          </span>
 
           
+            <span class="post-category" >
+              &nbsp; | &nbsp;
+              <span class="post-meta-item-icon">
+                <i class="fa fa-folder-o"></i>
+              </span>
+              <span class="post-meta-item-text">in</span>
+              
+                <span itemprop="about" itemscope itemtype="https://schema.org/Thing">
+                  <a href="/categories/MySQL/" itemprop="url" rel="index">
+                    <span itemprop="name">MySQL</span>
+                  </a>
+                </span>
+
+                
+                
+
+              
+            </span>
+          
+
+          
+            
+              <span class="post-comments-count">
+                &nbsp; | &nbsp;
+                <a href="/2016/09/08/MySQL/索引创建/#comments" itemprop="discussionUrl">
+                  <span class="post-comments-count ds-thread-count" data-thread-key="2016/09/08/MySQL/索引创建/" itemprop="commentsCount"></span>
+                </a>
+              </span>
+            
+          
+
+          
+
+          
+          
+
+          
+        </div>
+      </header>
+    
+
+
+    <div class="post-body" itemprop="articleBody">
+
+      
+      
+
+      
+        
+          <h2 id="MySQL索引"><a href="#MySQL索引" class="headerlink" title="MySQL索引"></a>MySQL索引</h2><blockquote>
+<p>索引是根据其中一列或若干列按照一定顺序建立的列值与记录行之间的对应关系表。在列上创建了索引之后，查找数据时可以直接根据该列上的索引找到对应的位置，从而快速地找到数据。</p>
+<p>大多数情况下索引能大幅度提高查询效率，但：</p>
+<ol>
+<li><p>数据的变更（增删改）都需要维护索引，因此更多的索引意味着更多的维护成本</p>
+</li>
+<li><p>更多的索引意味着也需要更多的空间 （一本100页的书，却有50页目录？）</p>
+</li>
+<li><p>过小的表，建索引可能会更慢哦 ：）  （读个2页的宣传手册，你还先去找目录？）</p>
+</li>
+</ol>
+<p>索引是存储在文件中的，所以索引也要占用物理空间的，MySQL将一个表的索引都保存在同一个索引文件中。如果更新表中的一个值或者向表中添加或删除一行，MySQL会自动地更新索引文件，因此索引树总是和表的内容保持一致。</p>
+</blockquote>
+          <div class="post-more-link text-center">
+            <a class="btn" href="/2016/09/08/MySQL/索引创建/#more" rel="contents">
+              Weiterlesen &raquo;
+            </a>
+          </div>
         
       
     </div>

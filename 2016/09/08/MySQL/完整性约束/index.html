@@ -112,7 +112,7 @@
 <meta property="og:description" content="主键约束
 主键就是表中的一列或多个列的一组，其值能唯一地标志表中的每一行。通过定义PRIMARY KEY约束来创建主键，而且PRIMARY KEY约束中的列不能取空值。
 主键可以是单列的，也可以是复合的（定义多个列为主键），但是复合主键要遵循‘最小化规则’，即：如果从这个复合主键中删除一列之后剩下的列构成的主键仍然满足唯一性原则，那么，这个复合主键就是不正确的，也就是说复合主键不应该包含任何不必要">
-<meta property="og:updated_time" content="2016-09-08T15:59:38.000Z">
+<meta property="og:updated_time" content="2016-09-08T16:03:09.000Z">
 <meta name="twitter:card" content="summary">
 <meta name="twitter:title" content="MySql完整性约束">
 <meta name="twitter:description" content="主键约束
@@ -350,6 +350,7 @@
 <p>主键就是表中的一列或多个列的一组，其值能唯一地标志表中的每一行。通过定义PRIMARY KEY约束来创建主键，而且PRIMARY KEY约束中的列不能取空值。</p>
 <p>主键可以是单列的，也可以是复合的（定义多个列为主键），但是复合主键要遵循‘最小化规则’，即：如果从这个复合主键中删除一列之后剩下的列构成的主键仍然满足唯一性原则，那么，这个复合主键就是不正确的，也就是说复合主键不应该包含任何不必要的列。</p>
 </blockquote>
+<a id="more"></a>
 <figure class="highlight plain"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div><div class="line">7</div><div class="line">8</div><div class="line">9</div><div class="line">10</div><div class="line">11</div><div class="line">12</div><div class="line">13</div><div class="line">14</div><div class="line">15</div></pre></td><td class="code"><pre><div class="line">// 在这里创建了一个复合主键</div><div class="line"></div><div class="line">CREATE TABLE tablename(</div><div class="line"></div><div class="line">    number VARCHAR(10) NOT NULL,</div><div class="line"></div><div class="line">    name VARCHAR(8) NOT NULL,</div><div class="line"></div><div class="line">    lesson_no  VARCHAR(3),    </div><div class="line"></div><div class="line">    score TINYINT,</div><div class="line"></div><div class="line">    PRIMARY KEY (number,lesson_no,score)</div><div class="line"></div><div class="line">);</div></pre></td></tr></table></figure>
 <p>#替代键约束</p>
 <blockquote>
@@ -431,17 +432,13 @@
         <div class="post-nav">
           <div class="post-nav-next post-nav-item">
             
-              <a href="/2016/09/07/MySQL/MySql修改用户密码/" rel="next" title="MySql修改用户密码">
-                <i class="fa fa-chevron-left"></i> MySql修改用户密码
+              <a href="/2016/09/08/MySQL/索引创建/" rel="next" title="MySql索引创建">
+                <i class="fa fa-chevron-left"></i> MySql索引创建
               </a>
             
           </div>
 
           <div class="post-nav-prev post-nav-item">
-            
-              <a href="/2016/09/08/MySQL/索引创建/" rel="prev" title="MySql索引创建">
-                MySql索引创建 <i class="fa fa-chevron-right"></i>
-              </a>
             
           </div>
         </div>
