@@ -1,0 +1,741 @@
+<!doctype html>
+
+
+
+  
+
+
+<html class="theme-next pisces use-motion">
+<head>
+  <meta charset="UTF-8"/>
+<meta http-equiv="X-UA-Compatible" content="IE=edge,chrome=1" />
+<meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1"/>
+
+
+
+<meta http-equiv="Cache-Control" content="no-transform" />
+<meta http-equiv="Cache-Control" content="no-siteapp" />
+
+
+
+
+
+
+
+
+
+
+
+
+  
+  
+  <link href="/vendors/fancybox/source/jquery.fancybox.css?v=2.1.5" rel="stylesheet" type="text/css" />
+
+
+
+
+  
+  
+  
+  
+
+  
+    
+    
+  
+
+  
+    
+      
+    
+
+    
+  
+
+  
+
+  
+    
+      
+    
+
+    
+  
+
+  
+    
+      
+    
+
+    
+  
+
+  
+    
+    
+    <link href="//fonts.googleapis.com/css?family=Monda:300,300italic,400,400italic,700,700italic|Roboto Slab:300,300italic,400,400italic,700,700italic|Lobster Two:300,300italic,400,400italic,700,700italic|PT Mono:300,300italic,400,400italic,700,700italic&subset=latin,latin-ext" rel="stylesheet" type="text/css">
+  
+
+
+
+
+
+
+<link href="/vendors/font-awesome/css/font-awesome.min.css?v=4.4.0" rel="stylesheet" type="text/css" />
+
+<link href="/css/main.css?v=5.0.1" rel="stylesheet" type="text/css" />
+
+
+  <meta name="keywords" content="MySQL," />
+
+
+
+
+
+
+
+
+  <link rel="shortcut icon" type="image/x-icon" href="/favicon.ico?v=5.0.1" />
+
+
+
+
+
+
+<meta name="description" content="主键约束
+主键就是表中的一列或多个列的一组，其值能唯一地标志表中的每一行。通过定义PRIMARY KEY约束来创建主键，而且PRIMARY KEY约束中的列不能取空值。
+主键可以是单列的，也可以是复合的（定义多个列为主键），但是复合主键要遵循‘最小化规则’，即：如果从这个复合主键中删除一列之后剩下的列构成的主键仍然满足唯一性原则，那么，这个复合主键就是不正确的，也就是说复合主键不应该包含任何不必要">
+<meta property="og:type" content="article">
+<meta property="og:title" content="MySql完整性约束">
+<meta property="og:url" content="http://yoursite.com/2016/09/08/MySQL/完整性约束/index.html">
+<meta property="og:site_name" content="潘潘's Blog">
+<meta property="og:description" content="主键约束
+主键就是表中的一列或多个列的一组，其值能唯一地标志表中的每一行。通过定义PRIMARY KEY约束来创建主键，而且PRIMARY KEY约束中的列不能取空值。
+主键可以是单列的，也可以是复合的（定义多个列为主键），但是复合主键要遵循‘最小化规则’，即：如果从这个复合主键中删除一列之后剩下的列构成的主键仍然满足唯一性原则，那么，这个复合主键就是不正确的，也就是说复合主键不应该包含任何不必要">
+<meta property="og:updated_time" content="2016-09-08T15:59:38.000Z">
+<meta name="twitter:card" content="summary">
+<meta name="twitter:title" content="MySql完整性约束">
+<meta name="twitter:description" content="主键约束
+主键就是表中的一列或多个列的一组，其值能唯一地标志表中的每一行。通过定义PRIMARY KEY约束来创建主键，而且PRIMARY KEY约束中的列不能取空值。
+主键可以是单列的，也可以是复合的（定义多个列为主键），但是复合主键要遵循‘最小化规则’，即：如果从这个复合主键中删除一列之后剩下的列构成的主键仍然满足唯一性原则，那么，这个复合主键就是不正确的，也就是说复合主键不应该包含任何不必要">
+
+
+
+<script type="text/javascript" id="hexo.configuration">
+  var NexT = window.NexT || {};
+  var CONFIG = {
+    scheme: 'Pisces',
+    sidebar: {"position":"left","display":"post"},
+    fancybox: true,
+    motion: true,
+    duoshuo: {
+      userId: 0,
+      author: 'Author'
+    }
+  };
+</script>
+
+
+
+
+  <link rel="canonical" href="http://yoursite.com/2016/09/08/MySQL/完整性约束/"/>
+
+  <title> MySql完整性约束 | 潘潘's Blog </title>
+</head>
+
+<body itemscope itemtype="http://schema.org/WebPage" lang="">
+
+  
+
+
+
+
+
+
+
+
+
+
+  
+  
+    
+  
+
+  <div class="container one-collumn sidebar-position-left page-post-detail ">
+    <div class="headband"></div>
+
+    <header id="header" class="header" itemscope itemtype="http://schema.org/WPHeader">
+      <div class="header-inner"><div class="site-meta ">
+  
+
+  <div class="custom-logo-site-title">
+    <a href="/"  class="brand" rel="start">
+      <span class="logo-line-before"><i></i></span>
+      <span class="site-title">潘潘's Blog</span>
+      <span class="logo-line-after"><i></i></span>
+    </a>
+  </div>
+  <p class="site-subtitle">其实我是个读书人</p>
+</div>
+
+<div class="site-nav-toggle">
+  <button>
+    <span class="btn-bar"></span>
+    <span class="btn-bar"></span>
+    <span class="btn-bar"></span>
+  </button>
+</div>
+
+<nav class="site-nav">
+  
+
+  
+    <ul id="menu" class="menu">
+      
+        
+        <li class="menu-item menu-item-home">
+          <a href="/" rel="section">
+            
+              <i class="menu-item-icon fa fa-fw fa-home"></i> <br />
+            
+            首页
+          </a>
+        </li>
+      
+        
+        <li class="menu-item menu-item-categories">
+          <a href="/categories" rel="section">
+            
+              <i class="menu-item-icon fa fa-fw fa-th"></i> <br />
+            
+            分类
+          </a>
+        </li>
+      
+        
+        <li class="menu-item menu-item-about">
+          <a href="/about" rel="section">
+            
+              <i class="menu-item-icon fa fa-fw fa-user"></i> <br />
+            
+            我
+          </a>
+        </li>
+      
+        
+        <li class="menu-item menu-item-archives">
+          <a href="/archives" rel="section">
+            
+              <i class="menu-item-icon fa fa-fw fa-archive"></i> <br />
+            
+            归档
+          </a>
+        </li>
+      
+        
+        <li class="menu-item menu-item-tags">
+          <a href="/tags" rel="section">
+            
+              <i class="menu-item-icon fa fa-fw fa-tags"></i> <br />
+            
+            标签
+          </a>
+        </li>
+      
+
+      
+    </ul>
+  
+
+  
+</nav>
+
+ </div>
+    </header>
+
+    <main id="main" class="main">
+      <div class="main-inner">
+        <div class="content-wrap">
+          <div id="content" class="content">
+            
+
+  <div id="posts" class="posts-expand">
+    
+
+  
+  
+
+  
+  
+  
+
+  <article class="post post-type-normal " itemscope itemtype="http://schema.org/Article">
+
+    
+      <header class="post-header">
+
+        
+        
+          <h1 class="post-title" itemprop="name headline">
+            
+            
+              
+                MySql完整性约束
+              
+            
+          </h1>
+        
+
+        <div class="post-meta">
+          <span class="post-time">
+            <span class="post-meta-item-icon">
+              <i class="fa fa-calendar-o"></i>
+            </span>
+            <span class="post-meta-item-text">Veröffentlicht am</span>
+            <time itemprop="dateCreated" datetime="2016-09-08T17:50:55+08:00" content="2016-09-08">
+              2016-09-08
+            </time>
+          </span>
+
+          
+            <span class="post-category" >
+              &nbsp; | &nbsp;
+              <span class="post-meta-item-icon">
+                <i class="fa fa-folder-o"></i>
+              </span>
+              <span class="post-meta-item-text">in</span>
+              
+                <span itemprop="about" itemscope itemtype="https://schema.org/Thing">
+                  <a href="/categories/MySQL/" itemprop="url" rel="index">
+                    <span itemprop="name">MySQL</span>
+                  </a>
+                </span>
+
+                
+                
+
+              
+            </span>
+          
+
+          
+            
+              <span class="post-comments-count">
+                &nbsp; | &nbsp;
+                <a href="/2016/09/08/MySQL/完整性约束/#comments" itemprop="discussionUrl">
+                  <span class="post-comments-count ds-thread-count" data-thread-key="2016/09/08/MySQL/完整性约束/" itemprop="commentsCount"></span>
+                </a>
+              </span>
+            
+          
+
+          
+
+          
+          
+
+          
+        </div>
+      </header>
+    
+
+
+    <div class="post-body" itemprop="articleBody">
+
+      
+      
+
+      
+        <h2 id="主键约束"><a href="#主键约束" class="headerlink" title="主键约束"></a>主键约束</h2><blockquote>
+<p>主键就是表中的一列或多个列的一组，其值能唯一地标志表中的每一行。通过定义PRIMARY KEY约束来创建主键，而且PRIMARY KEY约束中的列不能取空值。</p>
+<p>主键可以是单列的，也可以是复合的（定义多个列为主键），但是复合主键要遵循‘最小化规则’，即：如果从这个复合主键中删除一列之后剩下的列构成的主键仍然满足唯一性原则，那么，这个复合主键就是不正确的，也就是说复合主键不应该包含任何不必要的列。</p>
+</blockquote>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div><div class="line">7</div><div class="line">8</div><div class="line">9</div><div class="line">10</div><div class="line">11</div><div class="line">12</div><div class="line">13</div><div class="line">14</div><div class="line">15</div></pre></td><td class="code"><pre><div class="line">// 在这里创建了一个复合主键</div><div class="line"></div><div class="line">CREATE TABLE tablename(</div><div class="line"></div><div class="line">    number VARCHAR(10) NOT NULL,</div><div class="line"></div><div class="line">    name VARCHAR(8) NOT NULL,</div><div class="line"></div><div class="line">    lesson_no  VARCHAR(3),    </div><div class="line"></div><div class="line">    score TINYINT,</div><div class="line"></div><div class="line">    PRIMARY KEY (number,lesson_no,score)</div><div class="line"></div><div class="line">);</div></pre></td></tr></table></figure>
+<p>#替代键约束</p>
+<blockquote>
+<p>在关系模型中，提单件像主键一样，是表的一列或一组列，他们的值在任何时候都是唯一的。替代键是没有被选做主键的候选键。定义替代键的关键字是UNIQUE。</p>
+<p>PRIMARY KEY不允许为NULL，而UNIQUE字段的值可以取NULL，但是必须使用NULL或NOT NULL声明。</p>
+</blockquote>
+<h2 id="参照完整性约束"><a href="#参照完整性约束" class="headerlink" title="参照完整性约束"></a>参照完整性约束</h2><blockquote>
+<p>在关系型数据库中，很多规则是和表之间的关系有关的。例如order表中的user_id中的所有值必须存在于user表里中的id字段。这种类型的关系就是“参照完整性约束”。参照完整性约束是一种特殊的完整性约束，表现为一个外键。所以user表中的id字段可以定义为一个外键。</p>
+</blockquote>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div><div class="line">7</div></pre></td><td class="code"><pre><div class="line">// 参照性定义：</div><div class="line"></div><div class="line">REFRENCE tablename [ ( 索引列名... ) ]</div><div class="line"></div><div class="line">    [ ON DELETE &#123; RESTRICT | CASCADE | SET NULL | NO ACTION&#125;]</div><div class="line"></div><div class="line">    [ ON UPDATE &#123; RESTRICT | CASCADE | SET NULL | NO ACTION&#125;]</div></pre></td></tr></table></figure>
+<blockquote>
+<p>说明：</p>
+<p>外键被定义为表的完整性约束，参照性定义中包含了外键所参照的表和列，还可以声明参照动作。这里表名叫做被参照表。而外键所在的表叫做参照表。</p>
+<p>索引列名是外键可以引用一个或多个列，外键中的所有列值在引用的类中必须全部存在。外键可以只引用主键和替代键。外键不能引用被参照表中随机的一组列，它必须是被参照表的列的一个组合，且其中的值都是唯一的。</p>
+<p>ON DELETE | ON UPDATE 可以为每个外键定义参照动作。</p>
+<p>在第一部分中，指定这个参照动作应用哪一条语句。这里有两条先关的语句，即UPDATE和DELETE</p>
+<p>在第二部分中，指定采取哪个动作。可能采取的动作是{ RESTRICT | CASCADE | SET NULL | NO ACTION}</p>
+<p>RESTRICT：当要删除或更新表中被参照列上在外键中出现的值时，拒绝对父表的删除或更新操作。</p>
+<p>CASCADE：从父表删除或更新时自动删除或更新子表中匹配的行。</p>
+<p>SET NULL：当从父表删除或更新时，设置子表中与之对应的外键列为NULL。前提是外键列没有指定NOT NULL限定词。</p>
+<p>NO ACTION：如果有一个相关的外键值在被参考的表里，删除或更新父表中主要键值的企图不被允许，和RESTRICT一样。</p>
+<p>SET DEFAULT：作用和SET NULL一样，只不过SET DEFAULT是指定子表中的外键列为默认值。</p>
+<p>如果没有指定动作，两个参照动作就会默认使用RESTRICT。</p>
+<p>外键目前只能用于那些使用InnoDB存储引擎创建的表中，对于其他类型的表，MySQL只能解析CREATE TABLE语句中的FOREIGN KEY语法，但不能使用或保存它。</p>
+</blockquote>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div><div class="line">7</div><div class="line">8</div><div class="line">9</div><div class="line">10</div><div class="line">11</div><div class="line">12</div><div class="line">13</div><div class="line">14</div><div class="line">15</div><div class="line">16</div><div class="line">17</div><div class="line">18</div><div class="line">19</div><div class="line">20</div><div class="line">21</div><div class="line">22</div><div class="line">23</div><div class="line">24</div><div class="line">25</div><div class="line">26</div><div class="line">27</div><div class="line">28</div><div class="line">29</div><div class="line">30</div><div class="line">31</div><div class="line">32</div><div class="line">33</div><div class="line">34</div><div class="line">35</div><div class="line">36</div><div class="line">37</div><div class="line">38</div><div class="line">39</div></pre></td><td class="code"><pre><div class="line">// 创建一个order表，表中user_id字段所有的值都必须出现在user表的id字段中</div><div class="line"></div><div class="line">// 先创建user表：</div><div class="line"></div><div class="line">CREATE TABLE user(</div><div class="line"></div><div class="line">    id INT(10) UNSIGNED NOT NULL AUTO_INCREMENT,</div><div class="line"></div><div class="line">    username VARCHAR(20) NOT NULL,</div><div class="line"></div><div class="line">    password VARCHAR(100) NOT NULL,</div><div class="line"></div><div class="line">    PRIMARY KEY(id)</div><div class="line"></div><div class="line">);</div><div class="line"></div><div class="line"></div><div class="line"></div><div class="line">// 创建order表：</div><div class="line"></div><div class="line">CREATE TABLE `order`(</div><div class="line"></div><div class="line">    id INT(10) UNSIGNED NOT NULL AUTO_INCREMENT,</div><div class="line"></div><div class="line">    user_id INT(10) UNSIGNED NOT NULL,</div><div class="line"></div><div class="line">    number VARCHAR(30) NOT NULL,</div><div class="line"></div><div class="line">    PRIMARY KEY(id),</div><div class="line"></div><div class="line">    FOREIGN KEY(user_id)</div><div class="line"></div><div class="line">        REFERENCES user(id)</div><div class="line"></div><div class="line">            ON DELETE RESTRICT</div><div class="line"></div><div class="line">            ON UPDATE RESTRICT,</div><div class="line"></div><div class="line">);</div></pre></td></tr></table></figure>
+<p>指定一个外键的时候</p>
+<ul>
+<li><p>被参照表必须已经被创建。</p>
+</li>
+<li><p>必须为被参照表定义主键。</p>
+</li>
+<li><p>外键中列的数据类型必须和被参照表的主键中的列的数据类型对应相等。</p>
+</li>
+</ul>
+<h2 id="CHECK完整性约束"><a href="#CHECK完整性约束" class="headerlink" title="CHECK完整性约束"></a>CHECK完整性约束</h2><blockquote>
+<p>每个数据库中都有一些专用的完整性约束。例如：性别在男和女之间选一个，出生日期必须大于1990年1月1日等。这样的规则可以使用CHECK完整性约束来指定。</p>
+<p>CHECK完整性约束在创建表的时候定义。可以定义为列完整性约束，也可以定义为表完整性约束。</p>
+</blockquote>
+<p>语法格式：CHECK( expr )</p>
+<blockquote>
+<p>expr是一个表达式，制定需要检查的条件，在更新表数据的时候，MySQL会检查更新后的数据行是否满足CHECK的条件</p>
+</blockquote>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div><div class="line">7</div><div class="line">8</div><div class="line">9</div><div class="line">10</div><div class="line">11</div><div class="line">12</div><div class="line">13</div><div class="line">14</div><div class="line">15</div><div class="line">16</div><div class="line">17</div></pre></td><td class="code"><pre><div class="line">CREATE TABLE student(</div><div class="line"></div><div class="line">    number CHAR(9) NOT NULL,</div><div class="line"></div><div class="line">    sex CHAR(1) NOT NULL CHECK(SEX IN(&apos;男&apos;,&apos;女&apos;),</div><div class="line"></div><div class="line">    birthday DATE NOT NULL CHECK(birthday &gt; &apos;1990-01-01&apos;),</div><div class="line"></div><div class="line">    class INT(3) NOT NULL CHECK( class in ( SELECT id FROM class)),</div><div class="line"></div><div class="line">    avg_score INT(1) NOT NULL,</div><div class="line"></div><div class="line">    best_score INT(1) NOT NULL,</div><div class="line"></div><div class="line">    CHECK ( best_score &gt; avg_score)    </div><div class="line"></div><div class="line">);</div></pre></td></tr></table></figure>
+<h2 id="命名完整性约束"><a href="#命名完整性约束" class="headerlink" title="命名完整性约束"></a>命名完整性约束</h2><blockquote>
+<p>一个SQL语句如果违反了完整性约束，则MySQL返回一条出错消息并拒绝更新，一个更新有可能会导致多个完整性约束的违反。在这种情况下，应用程序获取几条出错消息。为了确切地表示出是违反了哪一个完整性约束，可以为每个完整性约束分配一个名字，随后出错消息包含这个名字，从而使得消息对于应用程序更有意义。</p>
+</blockquote>
+<p>定义语法：CONSTRAINT [ name ]</p>
+<p>name为指定的名字，这个名字在完整性约束之前被定义，在数据库中它必须是唯一的，如果他没有被给出，则会被自动创建。只能给表的完整性约束指定名字，而无法给列的完整性约束指定名字。</p>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div><div class="line">7</div><div class="line">8</div><div class="line">9</div><div class="line">10</div><div class="line">11</div><div class="line">12</div></pre></td><td class="code"><pre><div class="line"></div><div class="line">CREATE table student(</div><div class="line"></div><div class="line">    number VARCHAR(6) NULL,</div><div class="line"></div><div class="line">    name VARCHAR(8) NOT NULL,</div><div class="line"></div><div class="line">    birthday DATETIME NULL,</div><div class="line"></div><div class="line">    CONSTRAINT primary_key_student PRIMARY KEY(name)</div><div class="line"></div><div class="line">);</div></pre></td></tr></table></figure>
+
+      
+    </div>
+
+    <div>
+      
+        
+
+      
+    </div>
+
+    <div>
+      
+        
+
+      
+    </div>
+
+    <footer class="post-footer">
+      
+        <div class="post-tags">
+          
+            <a href="/tags/MySQL/" rel="tag">#MySQL</a>
+          
+        </div>
+      
+
+      
+        <div class="post-nav">
+          <div class="post-nav-next post-nav-item">
+            
+              <a href="/2016/09/07/MySQL/MySql修改用户密码/" rel="next" title="MySql修改用户密码">
+                <i class="fa fa-chevron-left"></i> MySql修改用户密码
+              </a>
+            
+          </div>
+
+          <div class="post-nav-prev post-nav-item">
+            
+              <a href="/2016/09/08/MySQL/索引创建/" rel="prev" title="MySql索引创建">
+                MySql索引创建 <i class="fa fa-chevron-right"></i>
+              </a>
+            
+          </div>
+        </div>
+      
+
+      
+      
+    </footer>
+  </article>
+
+
+
+    <div class="post-spread">
+      
+    </div>
+  </div>
+
+
+          </div>
+          
+
+
+          
+  <div class="comments" id="comments">
+    
+      <div class="ds-thread" data-thread-key="2016/09/08/MySQL/完整性约束/"
+           data-title="MySql完整性约束" data-url="http://yoursite.com/2016/09/08/MySQL/完整性约束/">
+      </div>
+    
+  </div>
+
+
+        </div>
+        
+          
+  
+  <div class="sidebar-toggle">
+    <div class="sidebar-toggle-line-wrap">
+      <span class="sidebar-toggle-line sidebar-toggle-line-first"></span>
+      <span class="sidebar-toggle-line sidebar-toggle-line-middle"></span>
+      <span class="sidebar-toggle-line sidebar-toggle-line-last"></span>
+    </div>
+  </div>
+
+  <aside id="sidebar" class="sidebar">
+    <div class="sidebar-inner">
+
+      
+
+      
+        <ul class="sidebar-nav motion-element">
+          <li class="sidebar-nav-toc sidebar-nav-active" data-target="post-toc-wrap" >
+            Inhaltsverzeichnis
+          </li>
+          <li class="sidebar-nav-overview" data-target="site-overview">
+            Übersicht
+          </li>
+        </ul>
+      
+
+      <section class="site-overview sidebar-panel ">
+        <div class="site-author motion-element" itemprop="author" itemscope itemtype="http://schema.org/Person">
+          <img class="site-author-image" itemprop="image"
+               src="/images/avatar.jpg"
+               alt="潘潘" />
+          <p class="site-author-name" itemprop="name">潘潘</p>
+          <p class="site-description motion-element" itemprop="description">读书人？</p>
+        </div>
+        <nav class="site-state motion-element">
+          <div class="site-state-item site-state-posts">
+            <a href="/archives">
+              <span class="site-state-item-count">7</span>
+              <span class="site-state-item-name">Artikel</span>
+            </a>
+          </div>
+
+          
+            <div class="site-state-item site-state-categories">
+              <a href="/categories">
+                <span class="site-state-item-count">3</span>
+                <span class="site-state-item-name">Kategorien</span>
+              </a>
+            </div>
+          
+
+          
+            <div class="site-state-item site-state-tags">
+              <a href="/tags">
+                <span class="site-state-item-count">4</span>
+                <span class="site-state-item-name">Tags</span>
+              </a>
+            </div>
+          
+
+        </nav>
+
+        
+
+        <div class="links-of-author motion-element">
+          
+            
+              <span class="links-of-author-item">
+                <a href="https://github.com/panlining" target="_blank" title="GitHub">
+                  
+                    <i class="fa fa-fw fa-github"></i>
+                  
+                  GitHub
+                </a>
+              </span>
+            
+              <span class="links-of-author-item">
+                <a href="https://twitter.com/your-user-name" target="_blank" title="Twitter">
+                  
+                    <i class="fa fa-fw fa-twitter"></i>
+                  
+                  Twitter
+                </a>
+              </span>
+            
+          
+        </div>
+
+        
+        
+
+        
+        
+
+      </section>
+
+      
+        <section class="post-toc-wrap motion-element sidebar-panel sidebar-panel-active">
+          <div class="post-toc">
+            
+              
+            
+            
+              <div class="post-toc-content"><ol class="nav"><li class="nav-item nav-level-2"><a class="nav-link" href="#主键约束"><span class="nav-number">1.</span> <span class="nav-text">主键约束</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#参照完整性约束"><span class="nav-number">2.</span> <span class="nav-text">参照完整性约束</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#CHECK完整性约束"><span class="nav-number">3.</span> <span class="nav-text">CHECK完整性约束</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#命名完整性约束"><span class="nav-number">4.</span> <span class="nav-text">命名完整性约束</span></a></li></ol></div>
+            
+          </div>
+        </section>
+      
+
+    </div>
+  </aside>
+
+
+        
+      </div>
+    </main>
+
+    <footer id="footer" class="footer">
+      <div class="footer-inner">
+        <div class="copyright" >
+  
+  &copy; 
+  <span itemprop="copyrightYear">2016</span>
+  <span class="with-love">
+    <i class="fa fa-heart"></i>
+  </span>
+  <span class="author" itemprop="copyrightHolder">潘潘</span>
+</div>
+
+<div class="powered-by">
+  Erstellt mit  <a class="theme-link" href="https://hexo.io">Hexo</a>
+</div>
+
+<div class="theme-info">
+  Theme -
+  <a class="theme-link" href="https://github.com/iissnan/hexo-theme-next">
+    NexT.Pisces
+  </a>
+</div>
+
+        
+
+        
+      </div>
+    </footer>
+
+    <div class="back-to-top">
+      <i class="fa fa-arrow-up"></i>
+    </div>
+  </div>
+
+  
+
+<script type="text/javascript">
+  if (Object.prototype.toString.call(window.Promise) !== '[object Function]') {
+    window.Promise = null;
+  }
+</script>
+
+
+
+
+
+
+
+
+
+  
+
+
+
+  
+  <script type="text/javascript" src="/vendors/jquery/index.js?v=2.1.3"></script>
+
+  
+  <script type="text/javascript" src="/vendors/fastclick/lib/fastclick.min.js?v=1.0.6"></script>
+
+  
+  <script type="text/javascript" src="/vendors/jquery_lazyload/jquery.lazyload.js?v=1.9.7"></script>
+
+  
+  <script type="text/javascript" src="/vendors/velocity/velocity.min.js?v=1.2.1"></script>
+
+  
+  <script type="text/javascript" src="/vendors/velocity/velocity.ui.min.js?v=1.2.1"></script>
+
+  
+  <script type="text/javascript" src="/vendors/fancybox/source/jquery.fancybox.pack.js?v=2.1.5"></script>
+
+
+  
+
+
+  <script type="text/javascript" src="/js/src/utils.js?v=5.0.1"></script>
+
+  <script type="text/javascript" src="/js/src/motion.js?v=5.0.1"></script>
+
+
+
+  
+  
+
+
+  <script type="text/javascript" src="/js/src/affix.js?v=5.0.1"></script>
+
+  <script type="text/javascript" src="/js/src/schemes/pisces.js?v=5.0.1"></script>
+
+
+
+  
+  <script type="text/javascript" src="/js/src/scrollspy.js?v=5.0.1"></script>
+<script type="text/javascript" src="/js/src/post-details.js?v=5.0.1"></script>
+
+
+
+  
+
+
+  <script type="text/javascript" src="/js/src/bootstrap.js?v=5.0.1"></script>
+
+
+
+  
+
+  
+    
+  
+
+  <script type="text/javascript">
+    var duoshuoQuery = {short_name:"afun"};
+    (function() {
+      var ds = document.createElement('script');
+      ds.type = 'text/javascript';ds.async = true;
+      ds.id = 'duoshuo-script';
+      ds.src = (document.location.protocol == 'https:' ? 'https:' : 'http:') + '//static.duoshuo.com/embed.js';
+      ds.charset = 'UTF-8';
+      (document.getElementsByTagName('head')[0]
+      || document.getElementsByTagName('body')[0]).appendChild(ds);
+    })();
+  </script>
+
+  
+    
+    <script src="/vendors/ua-parser-js/dist/ua-parser.min.js?v=0.7.9"></script>
+    <script src="/js/src/hook-duoshuo.js"></script>
+  
+
+
+
+
+
+
+  
+  
+
+  
+
+  
+
+  
+
+</body>
+</html>
