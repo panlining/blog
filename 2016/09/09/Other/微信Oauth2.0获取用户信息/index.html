@@ -103,24 +103,18 @@
 
 
 <meta name="description" content="认证服务号获取用户信息的方法
-如果用户在微信客户端中访问第三方网页，公众号可以通过微信网页授权机制，来获取用户基本信息，进而实现业务逻辑。
-
-1234567891011121314151617181920212223242526272829$appid=&amp;apos;wx3375481ac142cc65&amp;apos;;                        // APPID$appsecret">
+如果用户在微信客户端中访问第三方网页，公众号可以通过微信网页授权机制，来获取用户基本信息，进而实现业务逻辑。">
 <meta property="og:type" content="article">
 <meta property="og:title" content="微信Oauth2.0获取用户信息">
 <meta property="og:url" content="http://yoursite.com/2016/09/09/Other/微信Oauth2.0获取用户信息/index.html">
 <meta property="og:site_name" content="潘潘's Blog">
 <meta property="og:description" content="认证服务号获取用户信息的方法
-如果用户在微信客户端中访问第三方网页，公众号可以通过微信网页授权机制，来获取用户基本信息，进而实现业务逻辑。
-
-1234567891011121314151617181920212223242526272829$appid=&amp;apos;wx3375481ac142cc65&amp;apos;;                        // APPID$appsecret">
-<meta property="og:updated_time" content="2016-09-12T06:28:50.000Z">
+如果用户在微信客户端中访问第三方网页，公众号可以通过微信网页授权机制，来获取用户基本信息，进而实现业务逻辑。">
+<meta property="og:updated_time" content="2016-09-12T06:30:39.000Z">
 <meta name="twitter:card" content="summary">
 <meta name="twitter:title" content="微信Oauth2.0获取用户信息">
 <meta name="twitter:description" content="认证服务号获取用户信息的方法
-如果用户在微信客户端中访问第三方网页，公众号可以通过微信网页授权机制，来获取用户基本信息，进而实现业务逻辑。
-
-1234567891011121314151617181920212223242526272829$appid=&amp;apos;wx3375481ac142cc65&amp;apos;;                        // APPID$appsecret">
+如果用户在微信客户端中访问第三方网页，公众号可以通过微信网页授权机制，来获取用户基本信息，进而实现业务逻辑。">
 
 
 
@@ -201,7 +195,7 @@
             
               <i class="menu-item-icon fa fa-fw fa-home"></i> <br />
             
-            首页
+            Home
           </a>
         </li>
       
@@ -211,7 +205,7 @@
             
               <i class="menu-item-icon fa fa-fw fa-th"></i> <br />
             
-            分类
+            Categories
           </a>
         </li>
       
@@ -221,7 +215,7 @@
             
               <i class="menu-item-icon fa fa-fw fa-user"></i> <br />
             
-            我
+            About
           </a>
         </li>
       
@@ -231,7 +225,7 @@
             
               <i class="menu-item-icon fa fa-fw fa-archive"></i> <br />
             
-            归档
+            Archives
           </a>
         </li>
       
@@ -241,7 +235,7 @@
             
               <i class="menu-item-icon fa fa-fw fa-tags"></i> <br />
             
-            标签
+            Tags
           </a>
         </li>
       
@@ -294,7 +288,7 @@
             <span class="post-meta-item-icon">
               <i class="fa fa-calendar-o"></i>
             </span>
-            <span class="post-meta-item-text">Veröffentlicht am</span>
+            <span class="post-meta-item-text">Posted on</span>
             <time itemprop="dateCreated" datetime="2016-09-09T17:50:55+08:00" content="2016-09-09">
               2016-09-09
             </time>
@@ -306,7 +300,7 @@
               <span class="post-meta-item-icon">
                 <i class="fa fa-folder-o"></i>
               </span>
-              <span class="post-meta-item-text">in</span>
+              <span class="post-meta-item-text">In</span>
               
                 <span itemprop="about" itemscope itemtype="https://schema.org/Thing">
                   <a href="/categories/Wechat/" itemprop="url" rel="index">
@@ -352,6 +346,7 @@
         <h3 id="认证服务号获取用户信息的方法"><a href="#认证服务号获取用户信息的方法" class="headerlink" title="认证服务号获取用户信息的方法"></a>认证服务号获取用户信息的方法</h3><blockquote>
 <p>如果用户在微信客户端中访问第三方网页，公众号可以通过微信网页授权机制，来获取用户基本信息，进而实现业务逻辑。</p>
 </blockquote>
+<a id="more"></a>
 <figure class="highlight plain"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div><div class="line">7</div><div class="line">8</div><div class="line">9</div><div class="line">10</div><div class="line">11</div><div class="line">12</div><div class="line">13</div><div class="line">14</div><div class="line">15</div><div class="line">16</div><div class="line">17</div><div class="line">18</div><div class="line">19</div><div class="line">20</div><div class="line">21</div><div class="line">22</div><div class="line">23</div><div class="line">24</div><div class="line">25</div><div class="line">26</div><div class="line">27</div><div class="line">28</div><div class="line">29</div></pre></td><td class="code"><pre><div class="line">$appid=&apos;wx3375481ac142cc65&apos;;                        // APPID</div><div class="line">$appsecret=&apos;caaf1d359e19ad19bc10aea1e9d35206&apos;;      // APPSECRET</div><div class="line"></div><div class="line">$notifyUrl = &apos;http://&apos;.$_SERVER[&apos;HTTP_HOST&apos;].$_SERVER[&apos;REQUEST_URI&apos;];   // 回调地址，也就是我们要获取用户信息的页面</div><div class="line"></div><div class="line">// 获取code</div><div class="line">if(isset($_GET[&apos;code&apos;]))&#123;</div><div class="line">    $code=$_GET[&apos;code&apos;];</div><div class="line">&#125;else&#123;</div><div class="line">    header(&quot;Location:https://open.weixin.qq.com/connect/oauth2/authorize?appid=&#123;$appid&#125;&amp;redirect_uri=&#123;$notifyUrl&#125;&amp;response_type=code&amp;scope=snsapi_userinfo&quot;);</div><div class="line">&#125;</div><div class="line"></div><div class="line">// 获取用户openid和access_token</div><div class="line">$curlObj=curl_init();</div><div class="line">curl_setopt($curlObj,CURLOPT_URL,&quot;https://api.weixin.qq.com/sns/oauth2/access_token?appid=&#123;$appid&#125;&amp;secret=&#123;$appsecret&#125;&amp;code=&quot;.$code.&quot;&amp;grant_type=authorization_code&quot;);</div><div class="line">curl_setopt($curlObj,CURLOPT_RETURNTRANSFER,true);</div><div class="line">$outPut=curl_exec($curlObj);</div><div class="line">$res=json_decode($outPut,true);</div><div class="line">// 如果只想获取用户openid，那么到这一步就可以了</div><div class="line"></div><div class="line">// 获取用户详细信息</div><div class="line">curl_setopt($curlObj,CURLOPT_URL,&quot;https://api.weixin.qq.com/sns/userinfo?access_token=&#123;$res[&apos;access_token&apos;]&#125;&amp;openid=&#123;$res[&apos;openid&apos;]&#125;&quot;);</div><div class="line">curl_setopt($curlObj,CURLOPT_RETURNTRANSFER,true);</div><div class="line">$userInfo=curl_exec($curlObj);</div><div class="line">curl_close($curlObj);</div><div class="line">$userInfo=json_decode($userInfo,true);</div><div class="line"></div><div class="line">// 至此，用户信息已经获取到了</div><div class="line">print_r($userInfo);</div></pre></td></tr></table></figure>
       
     </div>
@@ -383,8 +378,8 @@
         <div class="post-nav">
           <div class="post-nav-next post-nav-item">
             
-              <a href="/2016/09/08/MySQL/完整性约束/" rel="next" title="MySql完整性约束">
-                <i class="fa fa-chevron-left"></i> MySql完整性约束
+              <a href="/2016/09/08/MySQL/索引创建/" rel="next" title="MySql索引创建">
+                <i class="fa fa-chevron-left"></i> MySql索引创建
               </a>
             
           </div>
@@ -442,10 +437,10 @@
       
         <ul class="sidebar-nav motion-element">
           <li class="sidebar-nav-toc sidebar-nav-active" data-target="post-toc-wrap" >
-            Inhaltsverzeichnis
+            Table of Contents
           </li>
           <li class="sidebar-nav-overview" data-target="site-overview">
-            Übersicht
+            Overview
           </li>
         </ul>
       
@@ -462,7 +457,7 @@
           <div class="site-state-item site-state-posts">
             <a href="/archives">
               <span class="site-state-item-count">9</span>
-              <span class="site-state-item-name">Artikel</span>
+              <span class="site-state-item-name">posts</span>
             </a>
           </div>
 
@@ -470,7 +465,7 @@
             <div class="site-state-item site-state-categories">
               <a href="/categories">
                 <span class="site-state-item-count">4</span>
-                <span class="site-state-item-name">Kategorien</span>
+                <span class="site-state-item-name">categories</span>
               </a>
             </div>
           
@@ -479,7 +474,7 @@
             <div class="site-state-item site-state-tags">
               <a href="/tags">
                 <span class="site-state-item-count">5</span>
-                <span class="site-state-item-name">Tags</span>
+                <span class="site-state-item-name">tags</span>
               </a>
             </div>
           
@@ -554,7 +549,7 @@
 </div>
 
 <div class="powered-by">
-  Erstellt mit  <a class="theme-link" href="https://hexo.io">Hexo</a>
+  Powered by <a class="theme-link" href="https://hexo.io">Hexo</a>
 </div>
 
 <div class="theme-info">

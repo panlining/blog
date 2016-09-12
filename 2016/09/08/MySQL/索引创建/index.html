@@ -107,10 +107,8 @@
 大多数情况下索引能大幅度提高查询效率，但：
 
 数据的变更（增删改）都需要维护索引，因此更多的索引意味着更多的维护成本
-
 更多的索引意味着也需要更多的空间 （一本100页的书，却有50页目录？）
-
-过小的表，建索引可能">
+过小的表，建索引可能会更">
 <meta property="og:type" content="article">
 <meta property="og:title" content="MySql索引创建">
 <meta property="og:url" content="http://yoursite.com/2016/09/08/MySQL/索引创建/index.html">
@@ -120,11 +118,9 @@
 大多数情况下索引能大幅度提高查询效率，但：
 
 数据的变更（增删改）都需要维护索引，因此更多的索引意味着更多的维护成本
-
 更多的索引意味着也需要更多的空间 （一本100页的书，却有50页目录？）
-
-过小的表，建索引可能">
-<meta property="og:updated_time" content="2016-09-08T16:03:01.000Z">
+过小的表，建索引可能会更">
+<meta property="og:updated_time" content="2016-09-12T06:30:20.000Z">
 <meta name="twitter:card" content="summary">
 <meta name="twitter:title" content="MySql索引创建">
 <meta name="twitter:description" content="MySQL索引
@@ -132,10 +128,8 @@
 大多数情况下索引能大幅度提高查询效率，但：
 
 数据的变更（增删改）都需要维护索引，因此更多的索引意味着更多的维护成本
-
 更多的索引意味着也需要更多的空间 （一本100页的书，却有50页目录？）
-
-过小的表，建索引可能">
+过小的表，建索引可能会更">
 
 
 
@@ -216,7 +210,7 @@
             
               <i class="menu-item-icon fa fa-fw fa-home"></i> <br />
             
-            首页
+            Home
           </a>
         </li>
       
@@ -226,7 +220,7 @@
             
               <i class="menu-item-icon fa fa-fw fa-th"></i> <br />
             
-            分类
+            Categories
           </a>
         </li>
       
@@ -236,7 +230,7 @@
             
               <i class="menu-item-icon fa fa-fw fa-user"></i> <br />
             
-            我
+            About
           </a>
         </li>
       
@@ -246,7 +240,7 @@
             
               <i class="menu-item-icon fa fa-fw fa-archive"></i> <br />
             
-            归档
+            Archives
           </a>
         </li>
       
@@ -256,7 +250,7 @@
             
               <i class="menu-item-icon fa fa-fw fa-tags"></i> <br />
             
-            标签
+            Tags
           </a>
         </li>
       
@@ -309,7 +303,7 @@
             <span class="post-meta-item-icon">
               <i class="fa fa-calendar-o"></i>
             </span>
-            <span class="post-meta-item-text">Veröffentlicht am</span>
+            <span class="post-meta-item-text">Posted on</span>
             <time itemprop="dateCreated" datetime="2016-09-08T17:50:55+08:00" content="2016-09-08">
               2016-09-08
             </time>
@@ -321,7 +315,7 @@
               <span class="post-meta-item-icon">
                 <i class="fa fa-folder-o"></i>
               </span>
-              <span class="post-meta-item-text">in</span>
+              <span class="post-meta-item-text">In</span>
               
                 <span itemprop="about" itemscope itemtype="https://schema.org/Thing">
                   <a href="/categories/MySQL/" itemprop="url" rel="index">
@@ -368,12 +362,9 @@
 <p>索引是根据其中一列或若干列按照一定顺序建立的列值与记录行之间的对应关系表。在列上创建了索引之后，查找数据时可以直接根据该列上的索引找到对应的位置，从而快速地找到数据。</p>
 <p>大多数情况下索引能大幅度提高查询效率，但：</p>
 <ol>
-<li><p>数据的变更（增删改）都需要维护索引，因此更多的索引意味着更多的维护成本</p>
-</li>
-<li><p>更多的索引意味着也需要更多的空间 （一本100页的书，却有50页目录？）</p>
-</li>
-<li><p>过小的表，建索引可能会更慢哦 ：）  （读个2页的宣传手册，你还先去找目录？）</p>
-</li>
+<li>数据的变更（增删改）都需要维护索引，因此更多的索引意味着更多的维护成本</li>
+<li>更多的索引意味着也需要更多的空间 （一本100页的书，却有50页目录？）</li>
+<li>过小的表，建索引可能会更慢哦 ：）  （读个2页的宣传手册，你还先去找目录？）</li>
 </ol>
 <p>索引是存储在文件中的，所以索引也要占用物理空间的，MySQL将一个表的索引都保存在同一个索引文件中。如果更新表中的一个值或者向表中添加或删除一行，MySQL会自动地更新索引文件，因此索引树总是和表的内容保持一致。</p>
 </blockquote>
@@ -429,16 +420,16 @@
         <div class="post-nav">
           <div class="post-nav-next post-nav-item">
             
-              <a href="/2016/09/07/MySQL/MySQL用户管理/" rel="next" title="MySQL用户管理">
-                <i class="fa fa-chevron-left"></i> MySQL用户管理
+              <a href="/2016/09/08/MySQL/完整性约束/" rel="next" title="MySql完整性约束">
+                <i class="fa fa-chevron-left"></i> MySql完整性约束
               </a>
             
           </div>
 
           <div class="post-nav-prev post-nav-item">
             
-              <a href="/2016/09/08/MySQL/完整性约束/" rel="prev" title="MySql完整性约束">
-                MySql完整性约束 <i class="fa fa-chevron-right"></i>
+              <a href="/2016/09/09/Other/微信Oauth2.0获取用户信息/" rel="prev" title="微信Oauth2.0获取用户信息">
+                微信Oauth2.0获取用户信息 <i class="fa fa-chevron-right"></i>
               </a>
             
           </div>
@@ -492,10 +483,10 @@
       
         <ul class="sidebar-nav motion-element">
           <li class="sidebar-nav-toc sidebar-nav-active" data-target="post-toc-wrap" >
-            Inhaltsverzeichnis
+            Table of Contents
           </li>
           <li class="sidebar-nav-overview" data-target="site-overview">
-            Übersicht
+            Overview
           </li>
         </ul>
       
@@ -512,7 +503,7 @@
           <div class="site-state-item site-state-posts">
             <a href="/archives">
               <span class="site-state-item-count">9</span>
-              <span class="site-state-item-name">Artikel</span>
+              <span class="site-state-item-name">posts</span>
             </a>
           </div>
 
@@ -520,7 +511,7 @@
             <div class="site-state-item site-state-categories">
               <a href="/categories">
                 <span class="site-state-item-count">4</span>
-                <span class="site-state-item-name">Kategorien</span>
+                <span class="site-state-item-name">categories</span>
               </a>
             </div>
           
@@ -529,7 +520,7 @@
             <div class="site-state-item site-state-tags">
               <a href="/tags">
                 <span class="site-state-item-count">5</span>
-                <span class="site-state-item-name">Tags</span>
+                <span class="site-state-item-name">tags</span>
               </a>
             </div>
           
@@ -604,7 +595,7 @@
 </div>
 
 <div class="powered-by">
-  Erstellt mit  <a class="theme-link" href="https://hexo.io">Hexo</a>
+  Powered by <a class="theme-link" href="https://hexo.io">Hexo</a>
 </div>
 
 <div class="theme-info">

@@ -193,7 +193,7 @@
             
               <i class="menu-item-icon fa fa-fw fa-home"></i> <br />
             
-            首页
+            Home
           </a>
         </li>
       
@@ -203,7 +203,7 @@
             
               <i class="menu-item-icon fa fa-fw fa-th"></i> <br />
             
-            分类
+            Categories
           </a>
         </li>
       
@@ -213,7 +213,7 @@
             
               <i class="menu-item-icon fa fa-fw fa-user"></i> <br />
             
-            我
+            About
           </a>
         </li>
       
@@ -223,7 +223,7 @@
             
               <i class="menu-item-icon fa fa-fw fa-archive"></i> <br />
             
-            归档
+            Archives
           </a>
         </li>
       
@@ -233,7 +233,7 @@
             
               <i class="menu-item-icon fa fa-fw fa-tags"></i> <br />
             
-            标签
+            Tags
           </a>
         </li>
       
@@ -289,7 +289,7 @@
             <span class="post-meta-item-icon">
               <i class="fa fa-calendar-o"></i>
             </span>
-            <span class="post-meta-item-text">Veröffentlicht am</span>
+            <span class="post-meta-item-text">Posted on</span>
             <time itemprop="dateCreated" datetime="2016-09-09T17:50:55+08:00" content="2016-09-09">
               2016-09-09
             </time>
@@ -301,7 +301,7 @@
               <span class="post-meta-item-icon">
                 <i class="fa fa-folder-o"></i>
               </span>
-              <span class="post-meta-item-text">in</span>
+              <span class="post-meta-item-text">In</span>
               
                 <span itemprop="about" itemscope itemtype="https://schema.org/Thing">
                   <a href="/categories/Wechat/" itemprop="url" rel="index">
@@ -345,135 +345,12 @@
 
       
         
-          
-            <h3 id="认证服务号获取用户信息的方法"><a href="#认证服务号获取用户信息的方法" class="headerlink" title="认证服务号获取用户信息的方法"></a>认证服务号获取用户信息的方法</h3><blockquote>
+          <h3 id="认证服务号获取用户信息的方法"><a href="#认证服务号获取用户信息的方法" class="headerlink" title="认证服务号获取用户信息的方法"></a>认证服务号获取用户信息的方法</h3><blockquote>
 <p>如果用户在微信客户端中访问第三方网页，公众号可以通过微信网页授权机制，来获取用户基本信息，进而实现业务逻辑。</p>
 </blockquote>
-<figure class="highlight plain"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div><div class="line">7</div><div class="line">8</div><div class="line">9</div><div class="line">10</div><div class="line">11</div><div class="line">12</div><div class="line">13</div><div class="line">14</div><div class="line">15</div><div class="line">16</div><div class="line">17</div><div class="line">18</div><div class="line">19</div><div class="line">20</div><div class="line">21</div><div class="line">22</div><div class="line">23</div><div class="line">24</div><div class="line">25</div><div class="line">26</div><div class="line">27</div><div class="line">28</div><div class="line">29</div></pre></td><td class="code"><pre><div class="line">$appid=&apos;wx3375481ac142cc65&apos;;                        // APPID</div><div class="line">$appsecret=&apos;caaf1d359e19ad19bc10aea1e9d35206&apos;;      // APPSECRET</div><div class="line"></div><div class="line">$notifyUrl = &apos;http://&apos;.$_SERVER[&apos;HTTP_HOST&apos;].$_SERVER[&apos;REQUEST_URI&apos;];   // 回调地址，也就是我们要获取用户信息的页面</div><div class="line"></div><div class="line">// 获取code</div><div class="line">if(isset($_GET[&apos;code&apos;]))&#123;</div><div class="line">    $code=$_GET[&apos;code&apos;];</div><div class="line">&#125;else&#123;</div><div class="line">    header(&quot;Location:https://open.weixin.qq.com/connect/oauth2/authorize?appid=&#123;$appid&#125;&amp;redirect_uri=&#123;$notifyUrl&#125;&amp;response_type=code&amp;scope=snsapi_userinfo&quot;);</div><div class="line">&#125;</div><div class="line"></div><div class="line">// 获取用户openid和access_token</div><div class="line">$curlObj=curl_init();</div><div class="line">curl_setopt($curlObj,CURLOPT_URL,&quot;https://api.weixin.qq.com/sns/oauth2/access_token?appid=&#123;$appid&#125;&amp;secret=&#123;$appsecret&#125;&amp;code=&quot;.$code.&quot;&amp;grant_type=authorization_code&quot;);</div><div class="line">curl_setopt($curlObj,CURLOPT_RETURNTRANSFER,true);</div><div class="line">$outPut=curl_exec($curlObj);</div><div class="line">$res=json_decode($outPut,true);</div><div class="line">// 如果只想获取用户openid，那么到这一步就可以了</div><div class="line"></div><div class="line">// 获取用户详细信息</div><div class="line">curl_setopt($curlObj,CURLOPT_URL,&quot;https://api.weixin.qq.com/sns/userinfo?access_token=&#123;$res[&apos;access_token&apos;]&#125;&amp;openid=&#123;$res[&apos;openid&apos;]&#125;&quot;);</div><div class="line">curl_setopt($curlObj,CURLOPT_RETURNTRANSFER,true);</div><div class="line">$userInfo=curl_exec($curlObj);</div><div class="line">curl_close($curlObj);</div><div class="line">$userInfo=json_decode($userInfo,true);</div><div class="line"></div><div class="line">// 至此，用户信息已经获取到了</div><div class="line">print_r($userInfo);</div></pre></td></tr></table></figure>
-          
-        
-      
-    </div>
-
-    <div>
-      
-    </div>
-
-    <div>
-      
-    </div>
-
-    <footer class="post-footer">
-      
-
-      
-
-      
-      
-        <div class="post-eof"></div>
-      
-    </footer>
-  </article>
-
-
-    
-      
-
-  
-  
-
-  
-  
-  
-
-  <article class="post post-type-normal " itemscope itemtype="http://schema.org/Article">
-
-    
-      <header class="post-header">
-
-        
-        
-          <h1 class="post-title" itemprop="name headline">
-            
-            
-              
-                
-                <a class="post-title-link" href="/2016/09/08/MySQL/完整性约束/" itemprop="url">
-                  MySql完整性约束
-                </a>
-              
-            
-          </h1>
-        
-
-        <div class="post-meta">
-          <span class="post-time">
-            <span class="post-meta-item-icon">
-              <i class="fa fa-calendar-o"></i>
-            </span>
-            <span class="post-meta-item-text">Veröffentlicht am</span>
-            <time itemprop="dateCreated" datetime="2016-09-08T17:50:55+08:00" content="2016-09-08">
-              2016-09-08
-            </time>
-          </span>
-
-          
-            <span class="post-category" >
-              &nbsp; | &nbsp;
-              <span class="post-meta-item-icon">
-                <i class="fa fa-folder-o"></i>
-              </span>
-              <span class="post-meta-item-text">in</span>
-              
-                <span itemprop="about" itemscope itemtype="https://schema.org/Thing">
-                  <a href="/categories/MySQL/" itemprop="url" rel="index">
-                    <span itemprop="name">MySQL</span>
-                  </a>
-                </span>
-
-                
-                
-
-              
-            </span>
-          
-
-          
-            
-              <span class="post-comments-count">
-                &nbsp; | &nbsp;
-                <a href="/2016/09/08/MySQL/完整性约束/#comments" itemprop="discussionUrl">
-                  <span class="post-comments-count ds-thread-count" data-thread-key="2016/09/08/MySQL/完整性约束/" itemprop="commentsCount"></span>
-                </a>
-              </span>
-            
-          
-
-          
-
-          
-          
-
-          
-        </div>
-      </header>
-    
-
-
-    <div class="post-body" itemprop="articleBody">
-
-      
-      
-
-      
-        
-          <h2 id="主键约束"><a href="#主键约束" class="headerlink" title="主键约束"></a>主键约束</h2><blockquote>
-<p>主键就是表中的一列或多个列的一组，其值能唯一地标志表中的每一行。通过定义PRIMARY KEY约束来创建主键，而且PRIMARY KEY约束中的列不能取空值。</p>
-<p>主键可以是单列的，也可以是复合的（定义多个列为主键），但是复合主键要遵循‘最小化规则’，即：如果从这个复合主键中删除一列之后剩下的列构成的主键仍然满足唯一性原则，那么，这个复合主键就是不正确的，也就是说复合主键不应该包含任何不必要的列。</p>
-</blockquote>
           <div class="post-more-link text-center">
-            <a class="btn" href="/2016/09/08/MySQL/完整性约束/#more" rel="contents">
-              Weiterlesen &raquo;
+            <a class="btn" href="/2016/09/09/Other/微信Oauth2.0获取用户信息/#more" rel="contents">
+              Read more &raquo;
             </a>
           </div>
         
@@ -536,7 +413,7 @@
             <span class="post-meta-item-icon">
               <i class="fa fa-calendar-o"></i>
             </span>
-            <span class="post-meta-item-text">Veröffentlicht am</span>
+            <span class="post-meta-item-text">Posted on</span>
             <time itemprop="dateCreated" datetime="2016-09-08T17:50:55+08:00" content="2016-09-08">
               2016-09-08
             </time>
@@ -548,7 +425,7 @@
               <span class="post-meta-item-icon">
                 <i class="fa fa-folder-o"></i>
               </span>
-              <span class="post-meta-item-text">in</span>
+              <span class="post-meta-item-text">In</span>
               
                 <span itemprop="about" itemscope itemtype="https://schema.org/Thing">
                   <a href="/categories/MySQL/" itemprop="url" rel="index">
@@ -596,18 +473,15 @@
 <p>索引是根据其中一列或若干列按照一定顺序建立的列值与记录行之间的对应关系表。在列上创建了索引之后，查找数据时可以直接根据该列上的索引找到对应的位置，从而快速地找到数据。</p>
 <p>大多数情况下索引能大幅度提高查询效率，但：</p>
 <ol>
-<li><p>数据的变更（增删改）都需要维护索引，因此更多的索引意味着更多的维护成本</p>
-</li>
-<li><p>更多的索引意味着也需要更多的空间 （一本100页的书，却有50页目录？）</p>
-</li>
-<li><p>过小的表，建索引可能会更慢哦 ：）  （读个2页的宣传手册，你还先去找目录？）</p>
-</li>
+<li>数据的变更（增删改）都需要维护索引，因此更多的索引意味着更多的维护成本</li>
+<li>更多的索引意味着也需要更多的空间 （一本100页的书，却有50页目录？）</li>
+<li>过小的表，建索引可能会更慢哦 ：）  （读个2页的宣传手册，你还先去找目录？）</li>
 </ol>
 <p>索引是存储在文件中的，所以索引也要占用物理空间的，MySQL将一个表的索引都保存在同一个索引文件中。如果更新表中的一个值或者向表中添加或删除一行，MySQL会自动地更新索引文件，因此索引树总是和表的内容保持一致。</p>
 </blockquote>
           <div class="post-more-link text-center">
             <a class="btn" href="/2016/09/08/MySQL/索引创建/#more" rel="contents">
-              Weiterlesen &raquo;
+              Read more &raquo;
             </a>
           </div>
         
@@ -657,8 +531,8 @@
             
               
                 
-                <a class="post-title-link" href="/2016/09/07/MySQL/MySQL用户管理/" itemprop="url">
-                  MySQL用户管理
+                <a class="post-title-link" href="/2016/09/08/MySQL/完整性约束/" itemprop="url">
+                  MySql完整性约束
                 </a>
               
             
@@ -670,9 +544,9 @@
             <span class="post-meta-item-icon">
               <i class="fa fa-calendar-o"></i>
             </span>
-            <span class="post-meta-item-text">Veröffentlicht am</span>
-            <time itemprop="dateCreated" datetime="2016-09-07T17:50:55+08:00" content="2016-09-07">
-              2016-09-07
+            <span class="post-meta-item-text">Posted on</span>
+            <time itemprop="dateCreated" datetime="2016-09-08T17:50:55+08:00" content="2016-09-08">
+              2016-09-08
             </time>
           </span>
 
@@ -682,7 +556,7 @@
               <span class="post-meta-item-icon">
                 <i class="fa fa-folder-o"></i>
               </span>
-              <span class="post-meta-item-text">in</span>
+              <span class="post-meta-item-text">In</span>
               
                 <span itemprop="about" itemscope itemtype="https://schema.org/Thing">
                   <a href="/categories/MySQL/" itemprop="url" rel="index">
@@ -701,8 +575,8 @@
             
               <span class="post-comments-count">
                 &nbsp; | &nbsp;
-                <a href="/2016/09/07/MySQL/MySQL用户管理/#comments" itemprop="discussionUrl">
-                  <span class="post-comments-count ds-thread-count" data-thread-key="2016/09/07/MySQL/MySQL用户管理/" itemprop="commentsCount"></span>
+                <a href="/2016/09/08/MySQL/完整性约束/#comments" itemprop="discussionUrl">
+                  <span class="post-comments-count ds-thread-count" data-thread-key="2016/09/08/MySQL/完整性约束/" itemprop="commentsCount"></span>
                 </a>
               </span>
             
@@ -726,9 +600,15 @@
 
       
         
-          
-            
-          
+          <h2 id="主键约束"><a href="#主键约束" class="headerlink" title="主键约束"></a>主键约束</h2><blockquote>
+<p>主键就是表中的一列或多个列的一组，其值能唯一地标志表中的每一行。通过定义PRIMARY KEY约束来创建主键，而且PRIMARY KEY约束中的列不能取空值。</p>
+<p>主键可以是单列的，也可以是复合的（定义多个列为主键），但是复合主键要遵循‘最小化规则’，即：如果从这个复合主键中删除一列之后剩下的列构成的主键仍然满足唯一性原则，那么，这个复合主键就是不正确的，也就是说复合主键不应该包含任何不必要的列。</p>
+</blockquote>
+          <div class="post-more-link text-center">
+            <a class="btn" href="/2016/09/08/MySQL/完整性约束/#more" rel="contents">
+              Read more &raquo;
+            </a>
+          </div>
         
       
     </div>
@@ -789,7 +669,7 @@
             <span class="post-meta-item-icon">
               <i class="fa fa-calendar-o"></i>
             </span>
-            <span class="post-meta-item-text">Veröffentlicht am</span>
+            <span class="post-meta-item-text">Posted on</span>
             <time itemprop="dateCreated" datetime="2016-09-07T17:50:55+08:00" content="2016-09-07">
               2016-09-07
             </time>
@@ -801,7 +681,7 @@
               <span class="post-meta-item-icon">
                 <i class="fa fa-folder-o"></i>
               </span>
-              <span class="post-meta-item-text">in</span>
+              <span class="post-meta-item-text">In</span>
               
                 <span itemprop="about" itemscope itemtype="https://schema.org/Thing">
                   <a href="/categories/MySQL/" itemprop="url" rel="index">
@@ -899,6 +779,125 @@
             
               
                 
+                <a class="post-title-link" href="/2016/09/07/MySQL/MySQL用户管理/" itemprop="url">
+                  MySQL用户管理
+                </a>
+              
+            
+          </h1>
+        
+
+        <div class="post-meta">
+          <span class="post-time">
+            <span class="post-meta-item-icon">
+              <i class="fa fa-calendar-o"></i>
+            </span>
+            <span class="post-meta-item-text">Posted on</span>
+            <time itemprop="dateCreated" datetime="2016-09-07T17:50:55+08:00" content="2016-09-07">
+              2016-09-07
+            </time>
+          </span>
+
+          
+            <span class="post-category" >
+              &nbsp; | &nbsp;
+              <span class="post-meta-item-icon">
+                <i class="fa fa-folder-o"></i>
+              </span>
+              <span class="post-meta-item-text">In</span>
+              
+                <span itemprop="about" itemscope itemtype="https://schema.org/Thing">
+                  <a href="/categories/MySQL/" itemprop="url" rel="index">
+                    <span itemprop="name">MySQL</span>
+                  </a>
+                </span>
+
+                
+                
+
+              
+            </span>
+          
+
+          
+            
+              <span class="post-comments-count">
+                &nbsp; | &nbsp;
+                <a href="/2016/09/07/MySQL/MySQL用户管理/#comments" itemprop="discussionUrl">
+                  <span class="post-comments-count ds-thread-count" data-thread-key="2016/09/07/MySQL/MySQL用户管理/" itemprop="commentsCount"></span>
+                </a>
+              </span>
+            
+          
+
+          
+
+          
+          
+
+          
+        </div>
+      </header>
+    
+
+
+    <div class="post-body" itemprop="articleBody">
+
+      
+      
+
+      
+        
+          
+            
+          
+        
+      
+    </div>
+
+    <div>
+      
+    </div>
+
+    <div>
+      
+    </div>
+
+    <footer class="post-footer">
+      
+
+      
+
+      
+      
+        <div class="post-eof"></div>
+      
+    </footer>
+  </article>
+
+
+    
+      
+
+  
+  
+
+  
+  
+  
+
+  <article class="post post-type-normal " itemscope itemtype="http://schema.org/Article">
+
+    
+      <header class="post-header">
+
+        
+        
+          <h1 class="post-title" itemprop="name headline">
+            
+            
+              
+                
                 <a class="post-title-link" href="/2016/08/30/Linux/Shell基础/" itemprop="url">
                   Shell基础
                 </a>
@@ -912,7 +911,7 @@
             <span class="post-meta-item-icon">
               <i class="fa fa-calendar-o"></i>
             </span>
-            <span class="post-meta-item-text">Veröffentlicht am</span>
+            <span class="post-meta-item-text">Posted on</span>
             <time itemprop="dateCreated" datetime="2016-08-30T17:50:55+08:00" content="2016-08-30">
               2016-08-30
             </time>
@@ -924,7 +923,7 @@
               <span class="post-meta-item-icon">
                 <i class="fa fa-folder-o"></i>
               </span>
-              <span class="post-meta-item-text">in</span>
+              <span class="post-meta-item-text">In</span>
               
                 <span itemprop="about" itemscope itemtype="https://schema.org/Thing">
                   <a href="/categories/Linux-Shell/" itemprop="url" rel="index">
@@ -971,7 +970,7 @@
           <h2 id="一个简单的shell脚本的创建和执行"><a href="#一个简单的shell脚本的创建和执行" class="headerlink" title="一个简单的shell脚本的创建和执行"></a>一个简单的shell脚本的创建和执行</h2><figure class="highlight plain"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div><div class="line">7</div><div class="line">8</div><div class="line">9</div><div class="line">10</div><div class="line">11</div><div class="line">12</div><div class="line">13</div><div class="line">14</div><div class="line">15</div><div class="line">16</div><div class="line">17</div><div class="line">18</div><div class="line">19</div><div class="line">20</div><div class="line">21</div><div class="line">22</div></pre></td><td class="code"><pre><div class="line"></div><div class="line">cd /usr/local/sbin</div><div class="line"></div><div class="line">vim first.sh</div><div class="line"></div><div class="line"></div><div class="line"></div><div class="line">## This is my first shell script.</div><div class="line"></div><div class="line">date</div><div class="line"></div><div class="line">echo &apos;Hello World!&apos;</div><div class="line"></div><div class="line"></div><div class="line"></div><div class="line">// 运行结果</div><div class="line"></div><div class="line">[root@localhost sbin]# sh 1.sh</div><div class="line"></div><div class="line">Sat Jul 30 13:42:25 CST 2016</div><div class="line"></div><div class="line">Hello World!</div></pre></td></tr></table></figure>
           <div class="post-more-link text-center">
             <a class="btn" href="/2016/08/30/Linux/Shell基础/#more" rel="contents">
-              Weiterlesen &raquo;
+              Read more &raquo;
             </a>
           </div>
         
@@ -1034,7 +1033,7 @@
             <span class="post-meta-item-icon">
               <i class="fa fa-calendar-o"></i>
             </span>
-            <span class="post-meta-item-text">Veröffentlicht am</span>
+            <span class="post-meta-item-text">Posted on</span>
             <time itemprop="dateCreated" datetime="2016-08-24T18:04:46+08:00" content="2016-08-24">
               2016-08-24
             </time>
@@ -1134,7 +1133,7 @@
             <span class="post-meta-item-icon">
               <i class="fa fa-calendar-o"></i>
             </span>
-            <span class="post-meta-item-text">Veröffentlicht am</span>
+            <span class="post-meta-item-text">Posted on</span>
             <time itemprop="dateCreated" datetime="2016-08-24T16:07:55+08:00" content="2016-08-24">
               2016-08-24
             </time>
@@ -1146,7 +1145,7 @@
               <span class="post-meta-item-icon">
                 <i class="fa fa-folder-o"></i>
               </span>
-              <span class="post-meta-item-text">in</span>
+              <span class="post-meta-item-text">In</span>
               
                 <span itemprop="about" itemscope itemtype="https://schema.org/Thing">
                   <a href="/categories/PHP/" itemprop="url" rel="index">
@@ -1253,7 +1252,7 @@
             <span class="post-meta-item-icon">
               <i class="fa fa-calendar-o"></i>
             </span>
-            <span class="post-meta-item-text">Veröffentlicht am</span>
+            <span class="post-meta-item-text">Posted on</span>
             <time itemprop="dateCreated" datetime="2016-08-24T10:20:10+08:00" content="2016-08-24">
               2016-08-24
             </time>
@@ -1370,7 +1369,7 @@
           <div class="site-state-item site-state-posts">
             <a href="/archives">
               <span class="site-state-item-count">9</span>
-              <span class="site-state-item-name">Artikel</span>
+              <span class="site-state-item-name">posts</span>
             </a>
           </div>
 
@@ -1378,7 +1377,7 @@
             <div class="site-state-item site-state-categories">
               <a href="/categories">
                 <span class="site-state-item-count">4</span>
-                <span class="site-state-item-name">Kategorien</span>
+                <span class="site-state-item-name">categories</span>
               </a>
             </div>
           
@@ -1387,7 +1386,7 @@
             <div class="site-state-item site-state-tags">
               <a href="/tags">
                 <span class="site-state-item-count">5</span>
-                <span class="site-state-item-name">Tags</span>
+                <span class="site-state-item-name">tags</span>
               </a>
             </div>
           
@@ -1451,7 +1450,7 @@
 </div>
 
 <div class="powered-by">
-  Erstellt mit  <a class="theme-link" href="https://hexo.io">Hexo</a>
+  Powered by <a class="theme-link" href="https://hexo.io">Hexo</a>
 </div>
 
 <div class="theme-info">
