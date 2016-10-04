@@ -86,7 +86,7 @@
 <link href="/css/main.css?v=5.0.1" rel="stylesheet" type="text/css" />
 
 
-  <meta name="keywords" content="MySQL," />
+  <meta name="keywords" content="C," />
 
 
 
@@ -102,34 +102,22 @@
 
 
 
-<meta name="description" content="MySQL索引
-索引是根据其中一列或若干列按照一定顺序建立的列值与记录行之间的对应关系表。在列上创建了索引之后，查找数据时可以直接根据该列上的索引找到对应的位置，从而快速地找到数据。
-大多数情况下索引能大幅度提高查询效率，但：
-
-数据的变更（增删改）都需要维护索引，因此更多的索引意味着更多的维护成本
-更多的索引意味着也需要更多的空间 （一本100页的书，却有50页目录？）
-过小的表，建索引可能会更">
+<meta name="description" content="局部变量：在一个函数内部定义的变量，他只是在本函数范围内有效，即只有在本函数内才能使用他们，在此函数以外是不能使用这些变量的。全局变量：全局变量是在函数之外定义的变量，从定义变量的位置开始到本源文件结束范围内有效。
+变量的存储方式有动态存储和静态存储两种方式。如果要求变量的生命周期是函数执行结束，定义变量为动态变量。如果要求变量的生命周期是整个程序执行结束，定义变量为静态变量。
+根据函数能否被其">
 <meta property="og:type" content="article">
-<meta property="og:title" content="MySql索引创建">
-<meta property="og:url" content="http://yoursite.com/2016/09/08/MySQL/索引创建/index.html">
+<meta property="og:title" content="变量">
+<meta property="og:url" content="http://yoursite.com/2016/10/04/C/变量/index.html">
 <meta property="og:site_name" content="Echo's Blog">
-<meta property="og:description" content="MySQL索引
-索引是根据其中一列或若干列按照一定顺序建立的列值与记录行之间的对应关系表。在列上创建了索引之后，查找数据时可以直接根据该列上的索引找到对应的位置，从而快速地找到数据。
-大多数情况下索引能大幅度提高查询效率，但：
-
-数据的变更（增删改）都需要维护索引，因此更多的索引意味着更多的维护成本
-更多的索引意味着也需要更多的空间 （一本100页的书，却有50页目录？）
-过小的表，建索引可能会更">
-<meta property="og:updated_time" content="2016-09-12T06:30:20.000Z">
+<meta property="og:description" content="局部变量：在一个函数内部定义的变量，他只是在本函数范围内有效，即只有在本函数内才能使用他们，在此函数以外是不能使用这些变量的。全局变量：全局变量是在函数之外定义的变量，从定义变量的位置开始到本源文件结束范围内有效。
+变量的存储方式有动态存储和静态存储两种方式。如果要求变量的生命周期是函数执行结束，定义变量为动态变量。如果要求变量的生命周期是整个程序执行结束，定义变量为静态变量。
+根据函数能否被其">
+<meta property="og:updated_time" content="2016-10-04T04:04:47.000Z">
 <meta name="twitter:card" content="summary">
-<meta name="twitter:title" content="MySql索引创建">
-<meta name="twitter:description" content="MySQL索引
-索引是根据其中一列或若干列按照一定顺序建立的列值与记录行之间的对应关系表。在列上创建了索引之后，查找数据时可以直接根据该列上的索引找到对应的位置，从而快速地找到数据。
-大多数情况下索引能大幅度提高查询效率，但：
-
-数据的变更（增删改）都需要维护索引，因此更多的索引意味着更多的维护成本
-更多的索引意味着也需要更多的空间 （一本100页的书，却有50页目录？）
-过小的表，建索引可能会更">
+<meta name="twitter:title" content="变量">
+<meta name="twitter:description" content="局部变量：在一个函数内部定义的变量，他只是在本函数范围内有效，即只有在本函数内才能使用他们，在此函数以外是不能使用这些变量的。全局变量：全局变量是在函数之外定义的变量，从定义变量的位置开始到本源文件结束范围内有效。
+变量的存储方式有动态存储和静态存储两种方式。如果要求变量的生命周期是函数执行结束，定义变量为动态变量。如果要求变量的生命周期是整个程序执行结束，定义变量为静态变量。
+根据函数能否被其">
 
 
 
@@ -150,9 +138,9 @@
 
 
 
-  <link rel="canonical" href="http://yoursite.com/2016/09/08/MySQL/索引创建/"/>
+  <link rel="canonical" href="http://yoursite.com/2016/10/04/C/变量/"/>
 
-  <title> MySql索引创建 | Echo's Blog </title>
+  <title> 变量 | Echo's Blog </title>
 </head>
 
 <body itemscope itemtype="http://schema.org/WebPage" lang="">
@@ -292,7 +280,7 @@
             
             
               
-                MySql索引创建
+                变量
               
             
           </h1>
@@ -304,8 +292,8 @@
               <i class="fa fa-calendar-o"></i>
             </span>
             <span class="post-meta-item-text">Posted on</span>
-            <time itemprop="dateCreated" datetime="2016-09-08T17:50:55+08:00" content="2016-09-08">
-              2016-09-08
+            <time itemprop="dateCreated" datetime="2016-10-04T11:23:55+08:00" content="2016-10-04">
+              2016-10-04
             </time>
           </span>
 
@@ -318,8 +306,8 @@
               <span class="post-meta-item-text">In</span>
               
                 <span itemprop="about" itemscope itemtype="https://schema.org/Thing">
-                  <a href="/categories/MySQL/" itemprop="url" rel="index">
-                    <span itemprop="name">MySQL</span>
+                  <a href="/categories/C/" itemprop="url" rel="index">
+                    <span itemprop="name">C</span>
                   </a>
                 </span>
 
@@ -334,8 +322,8 @@
             
               <span class="post-comments-count">
                 &nbsp; | &nbsp;
-                <a href="/2016/09/08/MySQL/索引创建/#comments" itemprop="discussionUrl">
-                  <span class="post-comments-count ds-thread-count" data-thread-key="2016/09/08/MySQL/索引创建/" itemprop="commentsCount"></span>
+                <a href="/2016/10/04/C/变量/#comments" itemprop="discussionUrl">
+                  <span class="post-comments-count ds-thread-count" data-thread-key="2016/10/04/C/变量/" itemprop="commentsCount"></span>
                 </a>
               </span>
             
@@ -358,37 +346,19 @@
       
 
       
-        <h2 id="MySQL索引"><a href="#MySQL索引" class="headerlink" title="MySQL索引"></a>MySQL索引</h2><blockquote>
-<p>索引是根据其中一列或若干列按照一定顺序建立的列值与记录行之间的对应关系表。在列上创建了索引之后，查找数据时可以直接根据该列上的索引找到对应的位置，从而快速地找到数据。</p>
-<p>大多数情况下索引能大幅度提高查询效率，但：</p>
-<ol>
-<li>数据的变更（增删改）都需要维护索引，因此更多的索引意味着更多的维护成本</li>
-<li>更多的索引意味着也需要更多的空间 （一本100页的书，却有50页目录？）</li>
-<li>过小的表，建索引可能会更慢哦 ：）  （读个2页的宣传手册，你还先去找目录？）</li>
-</ol>
-<p>索引是存储在文件中的，所以索引也要占用物理空间的，MySQL将一个表的索引都保存在同一个索引文件中。如果更新表中的一个值或者向表中添加或删除一行，MySQL会自动地更新索引文件，因此索引树总是和表的内容保持一致。</p>
+        <blockquote>
+<p><b>局部变量</b>：在一个函数内部定义的变量，他只是在本函数范围内有效，即只有在本函数内才能使用他们，在此函数以外是不能使用这些变量的。<br><b>全局变量</b>：全局变量是在函数之外定义的变量，从定义变量的位置开始到本源文件结束范围内有效。</p>
+<p>变量的存储方式有动态存储和静态存储两种方式。<br>如果要求变量的生命周期是函数执行结束，定义变量为<b>动态变量</b>。<br>如果要求变量的生命周期是整个程序执行结束，定义变量为<b>静态变量</b>。</p>
+<p>根据函数能否被其他文件中的函数调用，将函数定义为内部函数和外部函数</p>
+<p>如果函数不允许其他文件中的函数调用，则将该函数定义为<b>内部函数</b>。</p>
 </blockquote>
-<a id="more"></a>
-<h2 id="索引的分类："><a href="#索引的分类：" class="headerlink" title="索引的分类："></a>索引的分类：</h2><ul>
-<li><p>BTREE索引（常用）</p>
-<ul>
-<li><p>普通索引（INDEX)</p>
-</li>
-<li><p>唯一索引（UNIQUE)</p>
-</li>
-<li><p>主键（PRIMARY KEY)</p>
-</li>
-<li><p>全文索引（FULLTEXT)</p>
-</li>
-</ul>
-</li>
-<li><p>哈希索引（HASH)</p>
-</li>
-</ul>
-<h2 id="创建索引"><a href="#创建索引" class="headerlink" title="创建索引"></a>创建索引</h2><figure class="highlight plain"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div><div class="line">7</div><div class="line">8</div><div class="line">9</div><div class="line">10</div><div class="line">11</div><div class="line">12</div><div class="line">13</div><div class="line">14</div><div class="line">15</div><div class="line">16</div><div class="line">17</div><div class="line">18</div><div class="line">19</div><div class="line">20</div><div class="line">21</div><div class="line">22</div><div class="line">23</div><div class="line">24</div><div class="line">25</div><div class="line">26</div><div class="line">27</div><div class="line">28</div><div class="line">29</div><div class="line">30</div><div class="line">31</div><div class="line">32</div><div class="line">33</div><div class="line">34</div><div class="line">35</div><div class="line">36</div><div class="line">37</div><div class="line">38</div><div class="line">39</div><div class="line">40</div><div class="line">41</div><div class="line">42</div><div class="line">43</div><div class="line">44</div><div class="line">45</div><div class="line">46</div><div class="line">47</div><div class="line">48</div><div class="line">49</div><div class="line">50</div><div class="line">51</div><div class="line">52</div><div class="line">53</div><div class="line">54</div><div class="line">55</div><div class="line">56</div><div class="line">57</div><div class="line">58</div><div class="line">59</div></pre></td><td class="code"><pre><div class="line"></div><div class="line">// 语法</div><div class="line"></div><div class="line">使用CREATE INDEX语句创建</div><div class="line"></div><div class="line">CREATE [UNIQUE | FULLTEXT | SPATIAL] INDEX 索引名</div><div class="line"></div><div class="line">    [索引类型]</div><div class="line"></div><div class="line">    ON 表名 （索引列名 ...）</div><div class="line"></div><div class="line">    [索引选项] ...</div><div class="line"></div><div class="line">// 在这里索引列名 = 列名[(长度)] [ASC | DESC]</div><div class="line"></div><div class="line"></div><div class="line"></div><div class="line">CREATE INDEX id_name ON test_1 ( id ( 3 ) ASC);</div><div class="line"></div><div class="line">// 给test_1表的id字段创建普通索引，索引名为id_name,长度为3，按升序排序</div><div class="line"></div><div class="line"></div><div class="line"></div><div class="line">CREATE INDEX salt_age ON test_1 ( salt , age );</div><div class="line"></div><div class="line">// 给test_1表的salt和age字段创建复合索引</div><div class="line"></div><div class="line"></div><div class="line"></div><div class="line">使用ALTER TABLE语句创建</div><div class="line"></div><div class="line">ALTER TABLE xs ADD INDEX xs_xm USING BTREE(name);</div><div class="line"></div><div class="line">// 在xs表的name字段添加普通索引，索引名为xs_xm</div><div class="line"></div><div class="line"></div><div class="line"></div><div class="line">ALTER TABLE xs ADD INDEX mark(name,sex);</div><div class="line"></div><div class="line">// 在xs表的name和sex字段创建复合索引，索引名为mark</div><div class="line"></div><div class="line"></div><div class="line"></div><div class="line">ALTER TABLE test_2 ADD INDEX name(username(4),password(3));</div><div class="line">// 给test_2表创建索引名为name的复合索引，复合字段为username和password</div><div class="line"></div><div class="line"></div><div class="line"></div><div class="line">在建立表的时候创建索引</div><div class="line"></div><div class="line">mysql&gt; CREATE TABLE xs</div><div class="line">    -&gt; (</div><div class="line">    -&gt; id int(10) not null,</div><div class="line">    -&gt; username char(100) not null,</div><div class="line">    -&gt; password char(64) not null,</div><div class="line">    -&gt; score tinyint(1),</div><div class="line">    -&gt; primary key(id),</div><div class="line">    -&gt; index name(username)</div><div class="line">    -&gt; );</div></pre></td></tr></table></figure>
-<h2 id="删除索引"><a href="#删除索引" class="headerlink" title="删除索引"></a>删除索引</h2><figure class="highlight plain"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div><div class="line">7</div><div class="line">8</div><div class="line">9</div><div class="line">10</div></pre></td><td class="code"><pre><div class="line"></div><div class="line">使用DROP INDEX语句或ALTER TABLE语句删除索引</div><div class="line"></div><div class="line">DROP INDEX index_name FROM tablename</div><div class="line"></div><div class="line">ALTER TABLE tablename &#123;DROP PRIMARY KEY  // 删除主键</div><div class="line"></div><div class="line">    | DROP &#123; INDEX | KEY&#125; index_name   // 删除普通索引</div><div class="line"></div><div class="line">    | DROP FOREIGN KEY index_name &#125;  // 删除外键</div></pre></td></tr></table></figure>
-<p>查看一个表的索引创建情况：</p>
-<figure class="highlight plain"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div></pre></td><td class="code"><pre><div class="line"></div><div class="line">SHOW INDEX FROM tablename</div></pre></td></tr></table></figure>
+<p>定义内部函数的方法是：在函数首部的函数类型前面加关键字static。</p>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div></pre></td><td class="code"><pre><div class="line">static int sum(int a, int b)</div><div class="line">&#123;</div><div class="line"></div><div class="line">&#125;</div></pre></td></tr></table></figure>
+<blockquote>
+<p>如果函数允许被其他文件中的函数调用，则将该函数定义为<b>外部函数</b>。</p>
+</blockquote>
+<p>定义外部函数的方法是：在函数的收不的很熟类型前面不加任何关键字，或者加关键字extern。同一个C语言程序中不允许存在同名的外部函数。</p>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div></pre></td><td class="code"><pre><div class="line">[extern] int sum(int a, intb)</div><div class="line">&#123;</div><div class="line"></div><div class="line">&#125;</div></pre></td></tr></table></figure>
 
       
     </div>
@@ -411,7 +381,7 @@
       
         <div class="post-tags">
           
-            <a href="/tags/MySQL/" rel="tag">#MySQL</a>
+            <a href="/tags/C/" rel="tag">#C</a>
           
         </div>
       
@@ -420,16 +390,16 @@
         <div class="post-nav">
           <div class="post-nav-next post-nav-item">
             
-              <a href="/2016/09/08/MySQL/完整性约束/" rel="next" title="MySql完整性约束">
-                <i class="fa fa-chevron-left"></i> MySql完整性约束
+              <a href="/2016/09/27/TOOL/SVN使用钩子同步更新/" rel="next" title="SVN使用钩子同步更新">
+                <i class="fa fa-chevron-left"></i> SVN使用钩子同步更新
               </a>
             
           </div>
 
           <div class="post-nav-prev post-nav-item">
             
-              <a href="/2016/09/09/Other/微信Oauth2.0获取用户信息/" rel="prev" title="微信Oauth2.0获取用户信息">
-                微信Oauth2.0获取用户信息 <i class="fa fa-chevron-right"></i>
+              <a href="/2016/10/04/C/数组/" rel="prev" title="数组">
+                数组 <i class="fa fa-chevron-right"></i>
               </a>
             
           </div>
@@ -456,8 +426,8 @@
           
   <div class="comments" id="comments">
     
-      <div class="ds-thread" data-thread-key="2016/09/08/MySQL/索引创建/"
-           data-title="MySql索引创建" data-url="http://yoursite.com/2016/09/08/MySQL/索引创建/">
+      <div class="ds-thread" data-thread-key="2016/10/04/C/变量/"
+           data-title="变量" data-url="http://yoursite.com/2016/10/04/C/变量/">
       </div>
     
   </div>
@@ -568,7 +538,7 @@
               
             
             
-              <div class="post-toc-content"><ol class="nav"><li class="nav-item nav-level-2"><a class="nav-link" href="#MySQL索引"><span class="nav-number">1.</span> <span class="nav-text">MySQL索引</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#索引的分类："><span class="nav-number">2.</span> <span class="nav-text">索引的分类：</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#创建索引"><span class="nav-number">3.</span> <span class="nav-text">创建索引</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#删除索引"><span class="nav-number">4.</span> <span class="nav-text">删除索引</span></a></li></ol></div>
+              <p class="post-toc-empty">This post does not have a Table of Contents</p>
             
           </div>
         </section>

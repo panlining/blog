@@ -86,7 +86,7 @@
 <link href="/css/main.css?v=5.0.1" rel="stylesheet" type="text/css" />
 
 
-  <meta name="keywords" content="MySQL," />
+  <meta name="keywords" content="C,算法,查找,排序," />
 
 
 
@@ -102,34 +102,34 @@
 
 
 
-<meta name="description" content="MySQL索引
-索引是根据其中一列或若干列按照一定顺序建立的列值与记录行之间的对应关系表。在列上创建了索引之后，查找数据时可以直接根据该列上的索引找到对应的位置，从而快速地找到数据。
-大多数情况下索引能大幅度提高查询效率，但：
+<meta name="description" content="查找顺序查找
+顺序查找很基础，它对数据的排列先后次序没有任何要求。
 
-数据的变更（增删改）都需要维护索引，因此更多的索引意味着更多的维护成本
-更多的索引意味着也需要更多的空间 （一本100页的书，却有50页目录？）
-过小的表，建索引可能会更">
+折半查找
+折半查找又称为二分查找，是一种高效的查找方法。折半查找的前提是元素已经有序排列。折半查找的基本思想：查找过程中，先确定待查找元素的范围，然后逐步缩小序列范围，每次将待查找元素的序列范围缩小一半，知道找到或者找不到元素为止。
+
+12345678910111213141516171819202122232425262728">
 <meta property="og:type" content="article">
-<meta property="og:title" content="MySql索引创建">
-<meta property="og:url" content="http://yoursite.com/2016/09/08/MySQL/索引创建/index.html">
+<meta property="og:title" content="查找与排序">
+<meta property="og:url" content="http://yoursite.com/2016/10/04/C/查找与排序/index.html">
 <meta property="og:site_name" content="Echo's Blog">
-<meta property="og:description" content="MySQL索引
-索引是根据其中一列或若干列按照一定顺序建立的列值与记录行之间的对应关系表。在列上创建了索引之后，查找数据时可以直接根据该列上的索引找到对应的位置，从而快速地找到数据。
-大多数情况下索引能大幅度提高查询效率，但：
+<meta property="og:description" content="查找顺序查找
+顺序查找很基础，它对数据的排列先后次序没有任何要求。
 
-数据的变更（增删改）都需要维护索引，因此更多的索引意味着更多的维护成本
-更多的索引意味着也需要更多的空间 （一本100页的书，却有50页目录？）
-过小的表，建索引可能会更">
-<meta property="og:updated_time" content="2016-09-12T06:30:20.000Z">
+折半查找
+折半查找又称为二分查找，是一种高效的查找方法。折半查找的前提是元素已经有序排列。折半查找的基本思想：查找过程中，先确定待查找元素的范围，然后逐步缩小序列范围，每次将待查找元素的序列范围缩小一半，知道找到或者找不到元素为止。
+
+12345678910111213141516171819202122232425262728">
+<meta property="og:updated_time" content="2016-10-04T08:23:39.000Z">
 <meta name="twitter:card" content="summary">
-<meta name="twitter:title" content="MySql索引创建">
-<meta name="twitter:description" content="MySQL索引
-索引是根据其中一列或若干列按照一定顺序建立的列值与记录行之间的对应关系表。在列上创建了索引之后，查找数据时可以直接根据该列上的索引找到对应的位置，从而快速地找到数据。
-大多数情况下索引能大幅度提高查询效率，但：
+<meta name="twitter:title" content="查找与排序">
+<meta name="twitter:description" content="查找顺序查找
+顺序查找很基础，它对数据的排列先后次序没有任何要求。
 
-数据的变更（增删改）都需要维护索引，因此更多的索引意味着更多的维护成本
-更多的索引意味着也需要更多的空间 （一本100页的书，却有50页目录？）
-过小的表，建索引可能会更">
+折半查找
+折半查找又称为二分查找，是一种高效的查找方法。折半查找的前提是元素已经有序排列。折半查找的基本思想：查找过程中，先确定待查找元素的范围，然后逐步缩小序列范围，每次将待查找元素的序列范围缩小一半，知道找到或者找不到元素为止。
+
+12345678910111213141516171819202122232425262728">
 
 
 
@@ -150,9 +150,9 @@
 
 
 
-  <link rel="canonical" href="http://yoursite.com/2016/09/08/MySQL/索引创建/"/>
+  <link rel="canonical" href="http://yoursite.com/2016/10/04/C/查找与排序/"/>
 
-  <title> MySql索引创建 | Echo's Blog </title>
+  <title> 查找与排序 | Echo's Blog </title>
 </head>
 
 <body itemscope itemtype="http://schema.org/WebPage" lang="">
@@ -292,7 +292,7 @@
             
             
               
-                MySql索引创建
+                查找与排序
               
             
           </h1>
@@ -304,8 +304,8 @@
               <i class="fa fa-calendar-o"></i>
             </span>
             <span class="post-meta-item-text">Posted on</span>
-            <time itemprop="dateCreated" datetime="2016-09-08T17:50:55+08:00" content="2016-09-08">
-              2016-09-08
+            <time itemprop="dateCreated" datetime="2016-10-04T12:56:55+08:00" content="2016-10-04">
+              2016-10-04
             </time>
           </span>
 
@@ -318,8 +318,8 @@
               <span class="post-meta-item-text">In</span>
               
                 <span itemprop="about" itemscope itemtype="https://schema.org/Thing">
-                  <a href="/categories/MySQL/" itemprop="url" rel="index">
-                    <span itemprop="name">MySQL</span>
+                  <a href="/categories/C/" itemprop="url" rel="index">
+                    <span itemprop="name">C</span>
                   </a>
                 </span>
 
@@ -334,8 +334,8 @@
             
               <span class="post-comments-count">
                 &nbsp; | &nbsp;
-                <a href="/2016/09/08/MySQL/索引创建/#comments" itemprop="discussionUrl">
-                  <span class="post-comments-count ds-thread-count" data-thread-key="2016/09/08/MySQL/索引创建/" itemprop="commentsCount"></span>
+                <a href="/2016/10/04/C/查找与排序/#comments" itemprop="discussionUrl">
+                  <span class="post-comments-count ds-thread-count" data-thread-key="2016/10/04/C/查找与排序/" itemprop="commentsCount"></span>
                 </a>
               </span>
             
@@ -358,38 +358,14 @@
       
 
       
-        <h2 id="MySQL索引"><a href="#MySQL索引" class="headerlink" title="MySQL索引"></a>MySQL索引</h2><blockquote>
-<p>索引是根据其中一列或若干列按照一定顺序建立的列值与记录行之间的对应关系表。在列上创建了索引之后，查找数据时可以直接根据该列上的索引找到对应的位置，从而快速地找到数据。</p>
-<p>大多数情况下索引能大幅度提高查询效率，但：</p>
-<ol>
-<li>数据的变更（增删改）都需要维护索引，因此更多的索引意味着更多的维护成本</li>
-<li>更多的索引意味着也需要更多的空间 （一本100页的书，却有50页目录？）</li>
-<li>过小的表，建索引可能会更慢哦 ：）  （读个2页的宣传手册，你还先去找目录？）</li>
-</ol>
-<p>索引是存储在文件中的，所以索引也要占用物理空间的，MySQL将一个表的索引都保存在同一个索引文件中。如果更新表中的一个值或者向表中添加或删除一行，MySQL会自动地更新索引文件，因此索引树总是和表的内容保持一致。</p>
+        <h2 id="查找"><a href="#查找" class="headerlink" title="查找"></a>查找</h2><h3 id="顺序查找"><a href="#顺序查找" class="headerlink" title="顺序查找"></a>顺序查找</h3><blockquote>
+<p>顺序查找很基础，它对数据的排列先后次序没有任何要求。</p>
 </blockquote>
-<a id="more"></a>
-<h2 id="索引的分类："><a href="#索引的分类：" class="headerlink" title="索引的分类："></a>索引的分类：</h2><ul>
-<li><p>BTREE索引（常用）</p>
-<ul>
-<li><p>普通索引（INDEX)</p>
-</li>
-<li><p>唯一索引（UNIQUE)</p>
-</li>
-<li><p>主键（PRIMARY KEY)</p>
-</li>
-<li><p>全文索引（FULLTEXT)</p>
-</li>
-</ul>
-</li>
-<li><p>哈希索引（HASH)</p>
-</li>
-</ul>
-<h2 id="创建索引"><a href="#创建索引" class="headerlink" title="创建索引"></a>创建索引</h2><figure class="highlight plain"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div><div class="line">7</div><div class="line">8</div><div class="line">9</div><div class="line">10</div><div class="line">11</div><div class="line">12</div><div class="line">13</div><div class="line">14</div><div class="line">15</div><div class="line">16</div><div class="line">17</div><div class="line">18</div><div class="line">19</div><div class="line">20</div><div class="line">21</div><div class="line">22</div><div class="line">23</div><div class="line">24</div><div class="line">25</div><div class="line">26</div><div class="line">27</div><div class="line">28</div><div class="line">29</div><div class="line">30</div><div class="line">31</div><div class="line">32</div><div class="line">33</div><div class="line">34</div><div class="line">35</div><div class="line">36</div><div class="line">37</div><div class="line">38</div><div class="line">39</div><div class="line">40</div><div class="line">41</div><div class="line">42</div><div class="line">43</div><div class="line">44</div><div class="line">45</div><div class="line">46</div><div class="line">47</div><div class="line">48</div><div class="line">49</div><div class="line">50</div><div class="line">51</div><div class="line">52</div><div class="line">53</div><div class="line">54</div><div class="line">55</div><div class="line">56</div><div class="line">57</div><div class="line">58</div><div class="line">59</div></pre></td><td class="code"><pre><div class="line"></div><div class="line">// 语法</div><div class="line"></div><div class="line">使用CREATE INDEX语句创建</div><div class="line"></div><div class="line">CREATE [UNIQUE | FULLTEXT | SPATIAL] INDEX 索引名</div><div class="line"></div><div class="line">    [索引类型]</div><div class="line"></div><div class="line">    ON 表名 （索引列名 ...）</div><div class="line"></div><div class="line">    [索引选项] ...</div><div class="line"></div><div class="line">// 在这里索引列名 = 列名[(长度)] [ASC | DESC]</div><div class="line"></div><div class="line"></div><div class="line"></div><div class="line">CREATE INDEX id_name ON test_1 ( id ( 3 ) ASC);</div><div class="line"></div><div class="line">// 给test_1表的id字段创建普通索引，索引名为id_name,长度为3，按升序排序</div><div class="line"></div><div class="line"></div><div class="line"></div><div class="line">CREATE INDEX salt_age ON test_1 ( salt , age );</div><div class="line"></div><div class="line">// 给test_1表的salt和age字段创建复合索引</div><div class="line"></div><div class="line"></div><div class="line"></div><div class="line">使用ALTER TABLE语句创建</div><div class="line"></div><div class="line">ALTER TABLE xs ADD INDEX xs_xm USING BTREE(name);</div><div class="line"></div><div class="line">// 在xs表的name字段添加普通索引，索引名为xs_xm</div><div class="line"></div><div class="line"></div><div class="line"></div><div class="line">ALTER TABLE xs ADD INDEX mark(name,sex);</div><div class="line"></div><div class="line">// 在xs表的name和sex字段创建复合索引，索引名为mark</div><div class="line"></div><div class="line"></div><div class="line"></div><div class="line">ALTER TABLE test_2 ADD INDEX name(username(4),password(3));</div><div class="line">// 给test_2表创建索引名为name的复合索引，复合字段为username和password</div><div class="line"></div><div class="line"></div><div class="line"></div><div class="line">在建立表的时候创建索引</div><div class="line"></div><div class="line">mysql&gt; CREATE TABLE xs</div><div class="line">    -&gt; (</div><div class="line">    -&gt; id int(10) not null,</div><div class="line">    -&gt; username char(100) not null,</div><div class="line">    -&gt; password char(64) not null,</div><div class="line">    -&gt; score tinyint(1),</div><div class="line">    -&gt; primary key(id),</div><div class="line">    -&gt; index name(username)</div><div class="line">    -&gt; );</div></pre></td></tr></table></figure>
-<h2 id="删除索引"><a href="#删除索引" class="headerlink" title="删除索引"></a>删除索引</h2><figure class="highlight plain"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div><div class="line">7</div><div class="line">8</div><div class="line">9</div><div class="line">10</div></pre></td><td class="code"><pre><div class="line"></div><div class="line">使用DROP INDEX语句或ALTER TABLE语句删除索引</div><div class="line"></div><div class="line">DROP INDEX index_name FROM tablename</div><div class="line"></div><div class="line">ALTER TABLE tablename &#123;DROP PRIMARY KEY  // 删除主键</div><div class="line"></div><div class="line">    | DROP &#123; INDEX | KEY&#125; index_name   // 删除普通索引</div><div class="line"></div><div class="line">    | DROP FOREIGN KEY index_name &#125;  // 删除外键</div></pre></td></tr></table></figure>
-<p>查看一个表的索引创建情况：</p>
-<figure class="highlight plain"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div></pre></td><td class="code"><pre><div class="line"></div><div class="line">SHOW INDEX FROM tablename</div></pre></td></tr></table></figure>
-
+<h3 id="折半查找"><a href="#折半查找" class="headerlink" title="折半查找"></a>折半查找</h3><blockquote>
+<p>折半查找又称为二分查找，是一种高效的查找方法。折半查找的前提是元素已经有序排列。<br><b>折半查找的基本思想</b>：查找过程中，先确定待查找元素的范围，然后逐步缩小序列范围，每次将待查找元素的序列范围缩小一半，知道找到或者找不到元素为止。</p>
+</blockquote>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div><div class="line">7</div><div class="line">8</div><div class="line">9</div><div class="line">10</div><div class="line">11</div><div class="line">12</div><div class="line">13</div><div class="line">14</div><div class="line">15</div><div class="line">16</div><div class="line">17</div><div class="line">18</div><div class="line">19</div><div class="line">20</div><div class="line">21</div><div class="line">22</div><div class="line">23</div><div class="line">24</div><div class="line">25</div><div class="line">26</div><div class="line">27</div><div class="line">28</div><div class="line">29</div><div class="line">30</div><div class="line">31</div><div class="line">32</div><div class="line">33</div><div class="line">34</div><div class="line">35</div><div class="line">36</div><div class="line">37</div><div class="line">38</div><div class="line">39</div><div class="line">40</div><div class="line">41</div></pre></td><td class="code"><pre><div class="line">#include &lt;stdio.h&gt;</div><div class="line"></div><div class="line">int main(int argc, const char * argv[]) &#123;</div><div class="line">    </div><div class="line">    int search_num,position,arr[9]=&#123;1,3,4,8,10,14,20,26,34&#125;;</div><div class="line">    </div><div class="line">    printf(&quot;请输入要查找的值：&quot;);</div><div class="line">    </div><div class="line">    scanf(&quot;%d&quot;, &amp;search_num);</div><div class="line">    </div><div class="line">    int searchNum(int,int);</div><div class="line">    </div><div class="line">    position = serchNum(search_num, arr, 9);</div><div class="line">    </div><div class="line">    if(position == -1)&#123;</div><div class="line">        printf(&quot;集合中没有你要查找的数字\n&quot;);</div><div class="line">    &#125;else&#123;</div><div class="line">        printf(&quot;你要查找的数字在集合中的位置是：%d\n&quot;, position + 1);</div><div class="line">    &#125;</div><div class="line">    return 0;</div><div class="line">&#125;</div><div class="line"></div><div class="line">int serchNum(int value, int array[], length)</div><div class="line">&#123;</div><div class="line">    int low = 0,high,mid;</div><div class="line">    </div><div class="line">    high = length -1;</div><div class="line"></div><div class="line">    while (low &lt;= high) &#123;</div><div class="line">        mid = (low + high) / 2;</div><div class="line">        if(value == array[mid])&#123;</div><div class="line">            return mid;</div><div class="line">        &#125;else if(value &gt; array[mid])&#123;</div><div class="line">            low = mid + 1;</div><div class="line">        &#125;else&#123;</div><div class="line">            high = mid -1;</div><div class="line">        &#125;</div><div class="line">    &#125;</div><div class="line">    </div><div class="line">    return -1;</div><div class="line">&#125;</div></pre></td></tr></table></figure>
+<h2 id="排序"><a href="#排序" class="headerlink" title="排序"></a>排序</h2><h3 id="直接插入排序法"><a href="#直接插入排序法" class="headerlink" title="直接插入排序法"></a>直接插入排序法</h3><h3 id="冒泡排序法"><a href="#冒泡排序法" class="headerlink" title="冒泡排序法"></a>冒泡排序法</h3><h3 id="选择排序法"><a href="#选择排序法" class="headerlink" title="选择排序法"></a>选择排序法</h3>
       
     </div>
 
@@ -411,7 +387,13 @@
       
         <div class="post-tags">
           
-            <a href="/tags/MySQL/" rel="tag">#MySQL</a>
+            <a href="/tags/C/" rel="tag">#C</a>
+          
+            <a href="/tags/算法/" rel="tag">#算法</a>
+          
+            <a href="/tags/查找/" rel="tag">#查找</a>
+          
+            <a href="/tags/排序/" rel="tag">#排序</a>
           
         </div>
       
@@ -420,16 +402,16 @@
         <div class="post-nav">
           <div class="post-nav-next post-nav-item">
             
-              <a href="/2016/09/08/MySQL/完整性约束/" rel="next" title="MySql完整性约束">
-                <i class="fa fa-chevron-left"></i> MySql完整性约束
+              <a href="/2016/10/04/C/数组/" rel="next" title="数组">
+                <i class="fa fa-chevron-left"></i> 数组
               </a>
             
           </div>
 
           <div class="post-nav-prev post-nav-item">
             
-              <a href="/2016/09/09/Other/微信Oauth2.0获取用户信息/" rel="prev" title="微信Oauth2.0获取用户信息">
-                微信Oauth2.0获取用户信息 <i class="fa fa-chevron-right"></i>
+              <a href="/2016/10/04/C/结构/" rel="prev" title="结构">
+                结构 <i class="fa fa-chevron-right"></i>
               </a>
             
           </div>
@@ -456,8 +438,8 @@
           
   <div class="comments" id="comments">
     
-      <div class="ds-thread" data-thread-key="2016/09/08/MySQL/索引创建/"
-           data-title="MySql索引创建" data-url="http://yoursite.com/2016/09/08/MySQL/索引创建/">
+      <div class="ds-thread" data-thread-key="2016/10/04/C/查找与排序/"
+           data-title="查找与排序" data-url="http://yoursite.com/2016/10/04/C/查找与排序/">
       </div>
     
   </div>
@@ -568,7 +550,7 @@
               
             
             
-              <div class="post-toc-content"><ol class="nav"><li class="nav-item nav-level-2"><a class="nav-link" href="#MySQL索引"><span class="nav-number">1.</span> <span class="nav-text">MySQL索引</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#索引的分类："><span class="nav-number">2.</span> <span class="nav-text">索引的分类：</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#创建索引"><span class="nav-number">3.</span> <span class="nav-text">创建索引</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#删除索引"><span class="nav-number">4.</span> <span class="nav-text">删除索引</span></a></li></ol></div>
+              <div class="post-toc-content"><ol class="nav"><li class="nav-item nav-level-2"><a class="nav-link" href="#查找"><span class="nav-number">1.</span> <span class="nav-text">查找</span></a><ol class="nav-child"><li class="nav-item nav-level-3"><a class="nav-link" href="#顺序查找"><span class="nav-number">1.1.</span> <span class="nav-text">顺序查找</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#折半查找"><span class="nav-number">1.2.</span> <span class="nav-text">折半查找</span></a></li></ol></li><li class="nav-item nav-level-2"><a class="nav-link" href="#排序"><span class="nav-number">2.</span> <span class="nav-text">排序</span></a><ol class="nav-child"><li class="nav-item nav-level-3"><a class="nav-link" href="#直接插入排序法"><span class="nav-number">2.1.</span> <span class="nav-text">直接插入排序法</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#冒泡排序法"><span class="nav-number">2.2.</span> <span class="nav-text">冒泡排序法</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#选择排序法"><span class="nav-number">2.3.</span> <span class="nav-text">选择排序法</span></a></li></ol></li></ol></div>
             
           </div>
         </section>
