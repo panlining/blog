@@ -109,7 +109,7 @@
 
 定义结构的语法格式：struct 结构名称{    成员列表};
 如果在函数体外定义结构，该结构就是全局结构；如果在函数体内定义结构，该结构就是局部结构，只能在该函数体内使用此结构。
-123456789// 定义一个出生">
+123456789101112131">
 <meta property="og:type" content="article">
 <meta property="og:title" content="结构">
 <meta property="og:url" content="http://yoursite.com/2016/10/04/C/结构/index.html">
@@ -121,8 +121,8 @@
 
 定义结构的语法格式：struct 结构名称{    成员列表};
 如果在函数体外定义结构，该结构就是全局结构；如果在函数体内定义结构，该结构就是局部结构，只能在该函数体内使用此结构。
-123456789// 定义一个出生">
-<meta property="og:updated_time" content="2016-10-04T08:44:28.000Z">
+123456789101112131">
+<meta property="og:updated_time" content="2016-10-05T02:36:25.000Z">
 <meta name="twitter:card" content="summary">
 <meta name="twitter:title" content="结构">
 <meta name="twitter:description" content="C语言中，一条记录称为一个结构。
@@ -132,7 +132,7 @@
 
 定义结构的语法格式：struct 结构名称{    成员列表};
 如果在函数体外定义结构，该结构就是全局结构；如果在函数体内定义结构，该结构就是局部结构，只能在该函数体内使用此结构。
-123456789// 定义一个出生">
+123456789101112131">
 
 
 
@@ -213,7 +213,7 @@
             
               <i class="menu-item-icon fa fa-fw fa-home"></i> <br />
             
-            Home
+            HOME
           </a>
         </li>
       
@@ -223,7 +223,7 @@
             
               <i class="menu-item-icon fa fa-fw fa-th"></i> <br />
             
-            Categories
+            CATE
           </a>
         </li>
       
@@ -233,7 +233,7 @@
             
               <i class="menu-item-icon fa fa-fw fa-user"></i> <br />
             
-            About
+            ME
           </a>
         </li>
       
@@ -243,7 +243,7 @@
             
               <i class="menu-item-icon fa fa-fw fa-archive"></i> <br />
             
-            Archives
+            ARCHIVES
           </a>
         </li>
       
@@ -253,7 +253,7 @@
             
               <i class="menu-item-icon fa fa-fw fa-tags"></i> <br />
             
-            Tags
+            TAGS
           </a>
         </li>
       
@@ -306,7 +306,7 @@
             <span class="post-meta-item-icon">
               <i class="fa fa-calendar-o"></i>
             </span>
-            <span class="post-meta-item-text">Posted on</span>
+            <span class="post-meta-item-text">Veröffentlicht am</span>
             <time itemprop="dateCreated" datetime="2016-10-04T16:39:55+08:00" content="2016-10-04">
               2016-10-04
             </time>
@@ -318,7 +318,7 @@
               <span class="post-meta-item-icon">
                 <i class="fa fa-folder-o"></i>
               </span>
-              <span class="post-meta-item-text">In</span>
+              <span class="post-meta-item-text">in</span>
               
                 <span itemprop="about" itemscope itemtype="https://schema.org/Thing">
                   <a href="/categories/C/" itemprop="url" rel="index">
@@ -369,7 +369,39 @@
 </blockquote>
 <p>定义结构的语法格式：<br>struct 结构名称<br>{<br>    成员列表<br>};</p>
 <p>如果在函数体外定义结构，该结构就是全局结构；如果在函数体内定义结构，该结构就是局部结构，只能在该函数体内使用此结构。</p>
-<figure class="highlight plain"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div><div class="line">7</div><div class="line">8</div><div class="line">9</div></pre></td><td class="code"><pre><div class="line">// 定义一个出生年月的Birthday结构</div><div class="line">StructBirthday</div><div class="line">&#123;</div><div class="line">    int year;</div><div class="line">    int month;</div><div class="line">    int day;</div><div class="line">&#125;</div><div class="line"></div><div class="line">// 定义一个体检信息结构Record</div></pre></td></tr></table></figure>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div><div class="line">7</div><div class="line">8</div><div class="line">9</div><div class="line">10</div><div class="line">11</div><div class="line">12</div><div class="line">13</div><div class="line">14</div><div class="line">15</div><div class="line">16</div><div class="line">17</div></pre></td><td class="code"><pre><div class="line">// 定义一个出生年月的Birthday结构</div><div class="line">struct Birthday</div><div class="line">&#123;</div><div class="line">    int year;</div><div class="line">    int month;</div><div class="line">    int day;</div><div class="line">&#125;;</div><div class="line"></div><div class="line">// 定义一个体检信息结构Record</div><div class="line">struct Record</div><div class="line">&#123;</div><div class="line">    int number;</div><div class="line">    char name[10];</div><div class="line">    char sex[10];</div><div class="line">    float weight;</div><div class="line">    char memo[100];</div><div class="line">&#125;;</div></pre></td></tr></table></figure>
+<h2 id="结构的使用"><a href="#结构的使用" class="headerlink" title="结构的使用"></a>结构的使用</h2><blockquote>
+<p>结构只是一种用户自定义的数据类型，定义了结构后，具体使用的是该结构类型的变量、数组等。像int类型一样，具体使用的是int类型的变量、数组，而不是“int”类型本身。</p>
+<p>要使用结构，需要先定义结构，然后定义该结构类型的变量和数组。</p>
+</blockquote>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div><div class="line">7</div><div class="line">8</div><div class="line">9</div><div class="line">10</div><div class="line">11</div><div class="line">12</div><div class="line">13</div><div class="line">14</div><div class="line">15</div><div class="line">16</div><div class="line">17</div><div class="line">18</div><div class="line">19</div><div class="line">20</div><div class="line">21</div><div class="line">22</div><div class="line">23</div><div class="line">24</div></pre></td><td class="code"><pre><div class="line">// 形式1</div><div class="line">// 先定义结构</div><div class="line">struct Birthday</div><div class="line">&#123;</div><div class="line">    int year;</div><div class="line">    int month;</div><div class="line">    int day;</div><div class="line">&#125;;</div><div class="line"></div><div class="line">struct Birthday birth1, birth2;</div><div class="line">// 定义了两个Birthday结构类型的变量birth1和birth2</div><div class="line"></div><div class="line">struct Birthday birth[10];</div><div class="line">// 定义了Birthday结构类型的数组birth，该数组包括10个Birthday结构类型的元素</div><div class="line">// 每个元素都是一个Birthday结构类型的变量。</div><div class="line"></div><div class="line">// 形式2</div><div class="line">struct Birthday</div><div class="line">&#123;</div><div class="line">    int year;</div><div class="line">    int month;</div><div class="line">    int day;</div><div class="line">&#125; birth1, birth2, birth3[10];</div><div class="line">// 定义结构的同时定义了两个结构变量和一个结构数组</div></pre></td></tr></table></figure>
+<blockquote>
+<p>在使用结构类型数据中，需要用到一个新的运算符“.”，称为结构成员引用运算符。</p>
+</blockquote>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div><div class="line">7</div><div class="line">8</div><div class="line">9</div><div class="line">10</div><div class="line">11</div><div class="line">12</div><div class="line">13</div><div class="line">14</div><div class="line">15</div><div class="line">16</div><div class="line">17</div><div class="line">18</div><div class="line">19</div><div class="line">20</div><div class="line">21</div></pre></td><td class="code"><pre><div class="line">#include &lt;stdio.h&gt;</div><div class="line"></div><div class="line">struct Birthday</div><div class="line">&#123;</div><div class="line">    int year;</div><div class="line">    int month;</div><div class="line">    int day;</div><div class="line">&#125;;</div><div class="line"></div><div class="line"></div><div class="line">int main(int argc, const char * argv[]) &#123;</div><div class="line">    </div><div class="line">    struct Birthday birth; // 定义结构类型的变量</div><div class="line">    </div><div class="line">    birth.year = 1992; // 给结构类型变量赋值</div><div class="line">    birth.month = 11;</div><div class="line">    birth.day = 03;</div><div class="line">    </div><div class="line">    printf(&quot;%d年%d月%d日\n&quot;, birth.year, birth.month, birth.day);</div><div class="line">    return 0;</div><div class="line">&#125;</div></pre></td></tr></table></figure>
+<h3 id="结构的初始化"><a href="#结构的初始化" class="headerlink" title="结构的初始化"></a>结构的初始化</h3><figure class="highlight plain"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div><div class="line">7</div><div class="line">8</div><div class="line">9</div><div class="line">10</div><div class="line">11</div><div class="line">12</div><div class="line">13</div><div class="line">14</div><div class="line">15</div><div class="line">16</div></pre></td><td class="code"><pre><div class="line">struct Birthday birth = &#123;1990, 12, 03&#125;;</div><div class="line">// 跟数组一样，不能在定义结构变量的语句后，再对结构变量进行整体赋值</div><div class="line">// 比如下面的写法是错误的</div><div class="line">struct Birthday birth;</div><div class="line">birth = &#123;1990, 12, 03&#125;; // 错误写法示范</div><div class="line"></div><div class="line">// 结构数组的初始化方法如下</div><div class="line">struct Birthday birth[3] = &#123;&#123;1989, 03, 04&#125;,&#123;1985, 11, 24&#125;,&#123;1993, 03, 28&#125;&#125;;</div><div class="line"></div><div class="line">// 也可以在定义结构变量的同时进行初始化</div><div class="line">struct Birthday</div><div class="line">&#123;</div><div class="line">    int year;</div><div class="line">    int month;</div><div class="line">    int day;</div><div class="line">&#125; birth1 = &#123;1990, 2, 14&#125;, birth2[3] = &#123;&#123;1989, 03, 04&#125;,&#123;1985, 11, 24&#125;,&#123;1993, 03, 28&#125;&#125;;</div></pre></td></tr></table></figure>
+<h2 id="typedef语句"><a href="#typedef语句" class="headerlink" title="typedef语句"></a>typedef语句</h2><blockquote>
+<p>typedef关键字的作用是为数据类型起别名，经常在定义结构时使用typedef修饰。</p>
+</blockquote>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div><div class="line">7</div><div class="line">8</div><div class="line">9</div><div class="line">10</div><div class="line">11</div><div class="line">12</div><div class="line">13</div><div class="line">14</div><div class="line">15</div><div class="line">16</div><div class="line">17</div><div class="line">18</div><div class="line">19</div><div class="line">20</div><div class="line">21</div><div class="line">22</div><div class="line">23</div><div class="line">24</div><div class="line">25</div></pre></td><td class="code"><pre><div class="line">// 形式1</div><div class="line">typedef struct Birtyday</div><div class="line">&#123;</div><div class="line">    int year;</div><div class="line">    int month;</div><div class="line">    int day;</div><div class="line">&#125; Bir1, Bir2;</div><div class="line">// 上面代码的含义是：定义了名为Birthday的结构，并为结构类型起了两个别名，Bir1和Bir2</div><div class="line">// 由于使用了关键字修饰了结构的定义，所以Bir1和Bir2不是结构变量，而是结构类型的别名，也就是类型名称</div><div class="line">// 此时如果程序中药使用Birthday结构类型定义变量和数组，下面写法都是正确的</div><div class="line">struct Birthday birth1;</div><div class="line">Bir1 birth2;</div><div class="line">Bir2 birth3;</div><div class="line">struct Birthday array1[10];</div><div class="line">Bir1 array2[10];</div><div class="line"></div><div class="line">// 形式2</div><div class="line">typedef struct Birtyday</div><div class="line">&#123;</div><div class="line">    int year;</div><div class="line">    int month;</div><div class="line">    int day;</div><div class="line">&#125;;</div><div class="line">typedef Birthday Bir1,Bir2;</div><div class="line">// 先定义结构类型，再使用关键字给结构类型起别名</div></pre></td></tr></table></figure>
+<blockquote>
+<p>关键字typedef不仅可以对结构类型起别名，对其他数据类型都可以起别名</p>
+</blockquote>
+<p>typedef int interger;<br>给int类型起别名interger</p>
+<h2 id="结构和函数"><a href="#结构和函数" class="headerlink" title="结构和函数"></a>结构和函数</h2><blockquote>
+<p>把结构变量的成员作为函数的参数传递和传递一般的变量完全一样。也可以把结构变量整体作为参数传递给函数，依旧遵循实参可以改变形参，但形参不会影响实参的原则。</p>
+<p>和返回基本类型一样，函数的返回值也可以是结构类型。</p>
+</blockquote>
+<h2 id="枚举类型"><a href="#枚举类型" class="headerlink" title="枚举类型"></a>枚举类型</h2><blockquote>
+<p>所谓<b>枚举</b>是将变量可能的取值全部列出来，枚举类型变量只能取列举出来的情况之一。如果一个变量的取值只能有可能的几种情况，则可以定义为枚举类型。</p>
+</blockquote>
+<p>枚举类型的定义如下所示：<br>enum 枚举类型名称 {枚举成员列表};</p>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><div class="line">1</div></pre></td><td class="code"><pre><div class="line">enum date &#123;sun, mon, tue, wed, thu, fri, sat&#125;;</div></pre></td></tr></table></figure>
+<blockquote>
+<p>枚举成员列表中包括了该类型变量取值的情况，如果在定义中没有显式地给出这些成员的值，那么这个成员的缺省值一次为整数值：1、2、3、…、n。因此，上述sun的值为0，mon的值为1，sat的值为7.</p>
+<p>枚举类型允许在定义时改变这种缺省值<br><figure class="highlight plain"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div></pre></td><td class="code"><pre><div class="line">enum color &#123;red, yellow, green = 6, blue, white = 12, black&#125;;</div><div class="line">// 这里red和yellow的缺省值分别为0和1，green定义为6，blue则为7，white定义为12，那么black则为13</div></pre></td></tr></table></figure></p>
+<p>注意：<br>1.枚举类型中的所有枚举成员都是一个符号常量，表示一个整型数据。它们的值在定义之后是不能改变的。<br>2.在对枚举变量进行赋值时，只能采用枚举成员的名称进行操作，而不是使用该名称对应的数字。<br>3.如果确实需要讲一个数字赋值给一个枚举变量，可以通过强制类型转换将数字转换为枚举类型。<br>如：mycolor = (enum color) 7;<br>4.因为每个枚举成员都对应一个整型数值，所以可以对枚举变量进行关系运算。</p>
+</blockquote>
 
       
     </div>
@@ -462,10 +494,10 @@
       
         <ul class="sidebar-nav motion-element">
           <li class="sidebar-nav-toc sidebar-nav-active" data-target="post-toc-wrap" >
-            Table of Contents
+            Inhaltsverzeichnis
           </li>
           <li class="sidebar-nav-overview" data-target="site-overview">
-            Overview
+            Übersicht
           </li>
         </ul>
       
@@ -482,7 +514,7 @@
           <div class="site-state-item site-state-posts">
             <a href="/archives">
               <span class="site-state-item-count">15</span>
-              <span class="site-state-item-name">posts</span>
+              <span class="site-state-item-name">ATRIKEL</span>
             </a>
           </div>
 
@@ -490,7 +522,7 @@
             <div class="site-state-item site-state-categories">
               <a href="/categories">
                 <span class="site-state-item-count">6</span>
-                <span class="site-state-item-name">categories</span>
+                <span class="site-state-item-name">CATE</span>
               </a>
             </div>
           
@@ -499,7 +531,7 @@
             <div class="site-state-item site-state-tags">
               <a href="/tags">
                 <span class="site-state-item-count">13</span>
-                <span class="site-state-item-name">tags</span>
+                <span class="site-state-item-name">TAGS</span>
               </a>
             </div>
           
@@ -547,7 +579,7 @@
               
             
             
-              <div class="post-toc-content"><ol class="nav"><li class="nav-item nav-level-2"><a class="nav-link" href="#结构的定义"><span class="nav-number">1.</span> <span class="nav-text">结构的定义</span></a></li></ol></div>
+              <div class="post-toc-content"><ol class="nav"><li class="nav-item nav-level-2"><a class="nav-link" href="#结构的定义"><span class="nav-number">1.</span> <span class="nav-text">结构的定义</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#结构的使用"><span class="nav-number">2.</span> <span class="nav-text">结构的使用</span></a><ol class="nav-child"><li class="nav-item nav-level-3"><a class="nav-link" href="#结构的初始化"><span class="nav-number">2.1.</span> <span class="nav-text">结构的初始化</span></a></li></ol></li><li class="nav-item nav-level-2"><a class="nav-link" href="#typedef语句"><span class="nav-number">3.</span> <span class="nav-text">typedef语句</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#结构和函数"><span class="nav-number">4.</span> <span class="nav-text">结构和函数</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#枚举类型"><span class="nav-number">5.</span> <span class="nav-text">枚举类型</span></a></li></ol></div>
             
           </div>
         </section>
@@ -574,7 +606,7 @@
 </div>
 
 <div class="powered-by">
-  Powered by <a class="theme-link" href="https://hexo.io">Hexo</a>
+  Erstellt mit  <a class="theme-link" href="https://hexo.io">Hexo</a>
 </div>
 
 <div class="theme-info">
