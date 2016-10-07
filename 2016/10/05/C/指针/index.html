@@ -1,0 +1,729 @@
+<!doctype html>
+
+
+
+  
+
+
+<html class="theme-next pisces use-motion">
+<head>
+  <meta charset="UTF-8"/>
+<meta http-equiv="X-UA-Compatible" content="IE=edge,chrome=1" />
+<meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1"/>
+
+
+
+<meta http-equiv="Cache-Control" content="no-transform" />
+<meta http-equiv="Cache-Control" content="no-siteapp" />
+
+
+
+
+
+
+
+
+
+
+
+
+  
+  
+  <link href="/vendors/fancybox/source/jquery.fancybox.css?v=2.1.5" rel="stylesheet" type="text/css" />
+
+
+
+
+  
+  
+  
+  
+
+  
+    
+    
+  
+
+  
+    
+      
+    
+
+    
+  
+
+  
+
+  
+    
+      
+    
+
+    
+  
+
+  
+    
+      
+    
+
+    
+  
+
+  
+    
+    
+    <link href="//fonts.googleapis.com/css?family=Monda:300,300italic,400,400italic,700,700italic|Roboto Slab:300,300italic,400,400italic,700,700italic|Lobster Two:300,300italic,400,400italic,700,700italic|PT Mono:300,300italic,400,400italic,700,700italic&subset=latin,latin-ext" rel="stylesheet" type="text/css">
+  
+
+
+
+
+
+
+<link href="/vendors/font-awesome/css/font-awesome.min.css?v=4.4.0" rel="stylesheet" type="text/css" />
+
+<link href="/css/main.css?v=5.0.1" rel="stylesheet" type="text/css" />
+
+
+  <meta name="keywords" content="C,指针," />
+
+
+
+
+
+
+
+
+  <link rel="shortcut icon" type="image/x-icon" href="/favicon.ico?v=5.0.1" />
+
+
+
+
+
+
+<meta name="description" content="指针变量是一种特殊的变量，他存储的内容只能是内存地址，比如存储另一个变量的地址。">
+<meta property="og:type" content="article">
+<meta property="og:title" content="指针">
+<meta property="og:url" content="http://yoursite.com/2016/10/05/C/指针/index.html">
+<meta property="og:site_name" content="Echo's Blog">
+<meta property="og:description" content="指针变量是一种特殊的变量，他存储的内容只能是内存地址，比如存储另一个变量的地址。">
+<meta property="og:updated_time" content="2016-10-07T03:17:07.000Z">
+<meta name="twitter:card" content="summary">
+<meta name="twitter:title" content="指针">
+<meta name="twitter:description" content="指针变量是一种特殊的变量，他存储的内容只能是内存地址，比如存储另一个变量的地址。">
+
+
+
+<script type="text/javascript" id="hexo.configuration">
+  var NexT = window.NexT || {};
+  var CONFIG = {
+    scheme: 'Pisces',
+    sidebar: {"position":"left","display":"post"},
+    fancybox: true,
+    motion: true,
+    duoshuo: {
+      userId: 0,
+      author: 'Author'
+    }
+  };
+</script>
+
+
+
+
+  <link rel="canonical" href="http://yoursite.com/2016/10/05/C/指针/"/>
+
+  <title> 指针 | Echo's Blog </title>
+</head>
+
+<body itemscope itemtype="http://schema.org/WebPage" lang="">
+
+  
+
+
+
+
+
+
+
+
+
+
+  
+  
+    
+  
+
+  <div class="container one-collumn sidebar-position-left page-post-detail ">
+    <div class="headband"></div>
+
+    <header id="header" class="header" itemscope itemtype="http://schema.org/WPHeader">
+      <div class="header-inner"><div class="site-meta ">
+  
+
+  <div class="custom-logo-site-title">
+    <a href="/"  class="brand" rel="start">
+      <span class="logo-line-before"><i></i></span>
+      <span class="site-title">Echo's Blog</span>
+      <span class="logo-line-after"><i></i></span>
+    </a>
+  </div>
+  <p class="site-subtitle">其实我是个读书人</p>
+</div>
+
+<div class="site-nav-toggle">
+  <button>
+    <span class="btn-bar"></span>
+    <span class="btn-bar"></span>
+    <span class="btn-bar"></span>
+  </button>
+</div>
+
+<nav class="site-nav">
+  
+
+  
+    <ul id="menu" class="menu">
+      
+        
+        <li class="menu-item menu-item-home">
+          <a href="/" rel="section">
+            
+              <i class="menu-item-icon fa fa-fw fa-home"></i> <br />
+            
+            HOME
+          </a>
+        </li>
+      
+        
+        <li class="menu-item menu-item-categories">
+          <a href="/categories" rel="section">
+            
+              <i class="menu-item-icon fa fa-fw fa-th"></i> <br />
+            
+            CATE
+          </a>
+        </li>
+      
+        
+        <li class="menu-item menu-item-about">
+          <a href="/about" rel="section">
+            
+              <i class="menu-item-icon fa fa-fw fa-user"></i> <br />
+            
+            ME
+          </a>
+        </li>
+      
+        
+        <li class="menu-item menu-item-archives">
+          <a href="/archives" rel="section">
+            
+              <i class="menu-item-icon fa fa-fw fa-archive"></i> <br />
+            
+            ARCHIVES
+          </a>
+        </li>
+      
+        
+        <li class="menu-item menu-item-tags">
+          <a href="/tags" rel="section">
+            
+              <i class="menu-item-icon fa fa-fw fa-tags"></i> <br />
+            
+            TAGS
+          </a>
+        </li>
+      
+
+      
+    </ul>
+  
+
+  
+</nav>
+
+ </div>
+    </header>
+
+    <main id="main" class="main">
+      <div class="main-inner">
+        <div class="content-wrap">
+          <div id="content" class="content">
+            
+
+  <div id="posts" class="posts-expand">
+    
+
+  
+  
+
+  
+  
+  
+
+  <article class="post post-type-normal " itemscope itemtype="http://schema.org/Article">
+
+    
+      <header class="post-header">
+
+        
+        
+          <h1 class="post-title" itemprop="name headline">
+            
+            
+              
+                指针
+              
+            
+          </h1>
+        
+
+        <div class="post-meta">
+          <span class="post-time">
+            <span class="post-meta-item-icon">
+              <i class="fa fa-calendar-o"></i>
+            </span>
+            <span class="post-meta-item-text">Veröffentlicht am</span>
+            <time itemprop="dateCreated" datetime="2016-10-05T12:42:00+08:00" content="2016-10-05">
+              2016-10-05
+            </time>
+          </span>
+
+          
+            <span class="post-category" >
+              &nbsp; | &nbsp;
+              <span class="post-meta-item-icon">
+                <i class="fa fa-folder-o"></i>
+              </span>
+              <span class="post-meta-item-text">in</span>
+              
+                <span itemprop="about" itemscope itemtype="https://schema.org/Thing">
+                  <a href="/categories/C/" itemprop="url" rel="index">
+                    <span itemprop="name">C</span>
+                  </a>
+                </span>
+
+                
+                
+
+              
+            </span>
+          
+
+          
+            
+              <span class="post-comments-count">
+                &nbsp; | &nbsp;
+                <a href="/2016/10/05/C/指针/#comments" itemprop="discussionUrl">
+                  <span class="post-comments-count ds-thread-count" data-thread-key="2016/10/05/C/指针/" itemprop="commentsCount"></span>
+                </a>
+              </span>
+            
+          
+
+          
+
+          
+          
+
+          
+        </div>
+      </header>
+    
+
+
+    <div class="post-body" itemprop="articleBody">
+
+      
+      
+
+      
+        <blockquote>
+<p>指针变量是一种特殊的变量，他存储的内容只能是内存地址，比如存储另一个变量的地址。</p>
+</blockquote>
+<a id="more"></a>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div></pre></td><td class="code"><pre><div class="line">int num = 1;</div><div class="line">int *p;</div><div class="line">p = &amp;num;</div><div class="line">// &amp;为取地址运算符，这里就是给指针变量p赋值num的地址</div></pre></td></tr></table></figure>
+<blockquote>
+<p>指针变量加减n，就是指针变量存储的地址值加减n倍的指针变量所指向数据类型所占的字节数。</p>
+</blockquote>
+<p>在使用指针变量时需注意：</p>
+<ul>
+<li>指针变量在定义的同时可以初始化，如：<br>  int *p = &amp; num;</li>
+<li>不能使用常量给指针变量赋值</li>
+<li>指针变量不论指向什么样的数据类型，都占用相同大小的空间</li>
+<li>指针变量的类型必须与它指向的数据类型一样</li>
+<li>指针变量指的是p，而不是*p。定义指针变量时的int表示它是指向整型变量的指针</li>
+<li>在明确指针变量指向变量num之后，*p就是这真变量p所指向的那个变量，即num</li>
+</ul>
+<h2 id="指针和数组"><a href="#指针和数组" class="headerlink" title="指针和数组"></a>指针和数组</h2><h3 id="指针和一维数组"><a href="#指针和一维数组" class="headerlink" title="指针和一维数组"></a>指针和一维数组</h3><blockquote>
+<p>编译器在为一个一维数组开辟存储空间的时候，总是比数组元素个数多一个，用来存储该数组的首地址（起始地址），通过数组名来访问，数组名是一个指针常量。</p>
+</blockquote>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div><div class="line">7</div><div class="line">8</div><div class="line">9</div><div class="line">10</div><div class="line">11</div></pre></td><td class="code"><pre><div class="line">int array[5] = &#123;1,2,3,4,5&#125;,*p;</div><div class="line"></div><div class="line">p = array;</div><div class="line">p = &amp;array[0];</div><div class="line"></div><div class="line">printf(&quot;%d\n&quot;, *(array + 2));</div><div class="line">printf(&quot;%d\n&quot;, *p);</div><div class="line"></div><div class="line">p = &amp;array[0];</div><div class="line">printf(&quot;%d\n&quot;, *p);</div><div class="line">// 输出结果为 3  1   1</div></pre></td></tr></table></figure>
+<h3 id="指针和二维数组"><a href="#指针和二维数组" class="headerlink" title="指针和二维数组"></a>指针和二维数组</h3><blockquote>
+<p>在C语言中，数组存储是以行序为主序的。</p>
+</blockquote>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div><div class="line">7</div><div class="line">8</div><div class="line">9</div></pre></td><td class="code"><pre><div class="line">int array[2][3] = &#123;1,2,3,4,5,6&#125;,*p;</div><div class="line">printf(&quot;%d\n&quot;, array);</div><div class="line">printf(&quot;%d\n&quot;, array[0]);</div><div class="line">printf(&quot;%d\n&quot;, array[1]);</div><div class="line"></div><div class="line">// 输出结果：</div><div class="line">1606416432</div><div class="line">1606416432</div><div class="line">1606416444</div></pre></td></tr></table></figure>
+<blockquote>
+<p>编译器在创建二维数组array时，除了分配6个数组元素的存储空间，还自动生成了3个存储空间，分别通过array，array[0]，array[1]来访问，它们都是指针常量。</p>
+</blockquote>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div><div class="line">7</div><div class="line">8</div><div class="line">9</div></pre></td><td class="code"><pre><div class="line">array1[6] = &#123;1,2,3,4,5,6&#125;;</div><div class="line">array2[2][3] = &#123;1,2,3,4,5,6&#125;;</div><div class="line"></div><div class="line">array1 是一个指针常量</div><div class="line">array1[1] 是一个数组元素</div><div class="line"></div><div class="line">array2 是一个指针常量，它指向array2[0]</div><div class="line">array2+1 指向array2[1]</div><div class="line">array2[0] 和 array[1] 也是指针常量</div></pre></td></tr></table></figure>
+<h4 id="定义一个指向数组的指针"><a href="#定义一个指向数组的指针" class="headerlink" title="定义一个指向数组的指针"></a>定义一个指向数组的指针</h4><p>前边已经知道，二维数组的数组名array2存储的是array[0]的地址，所以array2就是一个指向一维数组的指针</p>
+<p>以前面二行三列的数组为例，定义一个指向一维数组的指针：<br>int (*p)[3];<br>其中中括号中的3需要和二维数组第二维的维度值相同。这里指针p是一个指向由3个整型元素构成的一维数组的指针。<br>对p进行初始化，让它指向array[0]<br>p = array;  // 等价于 p = &amp;array[0]</p>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div><div class="line">7</div><div class="line">8</div><div class="line">9</div><div class="line">10</div><div class="line">11</div><div class="line">12</div><div class="line">13</div><div class="line">14</div><div class="line">15</div><div class="line">16</div><div class="line">17</div><div class="line">18</div><div class="line">19</div><div class="line">20</div><div class="line">21</div><div class="line">22</div><div class="line">23</div><div class="line">24</div><div class="line">25</div><div class="line">26</div><div class="line">27</div><div class="line">28</div><div class="line">29</div><div class="line">30</div><div class="line">31</div><div class="line">32</div><div class="line">33</div><div class="line">34</div><div class="line">35</div></pre></td><td class="code"><pre><div class="line">int main(int argc, const char * argv[]) &#123;</div><div class="line">    int array[2][3] = &#123;1,2,3,4,5,6&#125;,(*p)[3],i,j;</div><div class="line">    p = array;</div><div class="line">    </div><div class="line">    puts(&quot;通过指针p和偏移量访问数组元素:&quot;);</div><div class="line">    for (i = 0; i &lt; 2; i++) &#123;</div><div class="line">        for (j = 0; j&lt;3; j++) &#123;</div><div class="line">            printf(&quot;%d\n&quot;, *(*(p + i)+j));</div><div class="line">        &#125;</div><div class="line">    &#125;</div><div class="line">    </div><div class="line">    puts(&quot;通过指针p和下标访问数组元素:&quot;);</div><div class="line">    for (i = 0; i &lt; 2; i++) &#123;</div><div class="line">        for (j = 0; j&lt;3; j++) &#123;</div><div class="line">            printf(&quot;%d\n&quot;, p[i][j]);</div><div class="line">        &#125;</div><div class="line">    &#125;</div><div class="line">    return 0;</div><div class="line">&#125;</div><div class="line"></div><div class="line">// 输出结果</div><div class="line">通过指针p和偏移量访问数组元素:</div><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div><div class="line">通过指针p和下标访问数组元素:</div><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div></pre></td></tr></table></figure>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div><div class="line">7</div><div class="line">8</div><div class="line">9</div><div class="line">10</div><div class="line">11</div><div class="line">12</div></pre></td><td class="code"><pre><div class="line">char a[2][10] = &#123;&quot;wnef&quot;,&quot;afwnei&quot;&#125;;</div><div class="line">char *p = a;</div><div class="line">puts(a[1]);</div><div class="line">puts(p+1);</div><div class="line">printf(&quot;%s\n&quot;, a[0]);</div><div class="line"></div><div class="line">// 输出结果</div><div class="line">afwnei</div><div class="line">nef</div><div class="line">wnef</div><div class="line">// 可见，输出字符串的时候直接是输出从指针所指向的位置到\0的位置</div><div class="line">// 当我们要输出一个字符串，但是给它的是一个字符时就会报错</div></pre></td></tr></table></figure>
+<h2 id="指针和字符串"><a href="#指针和字符串" class="headerlink" title="指针和字符串"></a>指针和字符串</h2><h3 id="使用指针创建字符串"><a href="#使用指针创建字符串" class="headerlink" title="使用指针创建字符串"></a>使用指针创建字符串</h3><p>C语言提供了使用指针创建字符串</p>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div><div class="line">7</div><div class="line">8</div><div class="line">9</div><div class="line">10</div><div class="line">11</div><div class="line">12</div><div class="line">13</div><div class="line">14</div><div class="line">15</div><div class="line">16</div><div class="line">17</div><div class="line">18</div></pre></td><td class="code"><pre><div class="line">// 使用数组的方式创建一个字符串</div><div class="line">char str[100] = &quot;hello world&quot;;</div><div class="line">// 可以通过改变每个字符数组元素的值来改变字符串</div><div class="line">str[1] = &quot; &quot;;</div><div class="line">str[2] = &quot;w&quot;;</div><div class="line"></div><div class="line">// 也可以通过复制的方式改变字符串</div><div class="line">strcopy(str, &quot;how are you?&quot;);</div><div class="line"></div><div class="line">// 但是不能通过赋值运算符来改变字符数组的值</div><div class="line">str = &quot;fine,thank you&quot;;</div><div class="line">// 这种写法是错误的，因为数组一旦定义之后，就不能再整体赋值</div><div class="line"></div><div class="line">// 使用指针的方式创建一个字符串</div><div class="line">char *str2 = &quot;how are you?&quot;;</div><div class="line">// 定义了指向字符串的指针变量str2，并把编译器为字符串常量“how are you?”分配空间的首地址存储在了指针str2中。</div><div class="line">// str2中只存储了字符串常量“how are you?”的首地址，而不是整个字符串都存储在str2中</div><div class="line">// 所以可以通过str2来访问字符串，但是不能修改字符串的内容，不过可以将它指向一个新的字符串常量</div></pre></td></tr></table></figure>
+<h3 id="使用指针访问字符串"><a href="#使用指针访问字符串" class="headerlink" title="使用指针访问字符串"></a>使用指针访问字符串</h3><figure class="highlight plain"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div><div class="line">7</div><div class="line">8</div><div class="line">9</div><div class="line">10</div><div class="line">11</div><div class="line">12</div><div class="line">13</div><div class="line">14</div><div class="line">15</div><div class="line">16</div><div class="line">17</div><div class="line">18</div><div class="line">19</div><div class="line">20</div><div class="line">21</div><div class="line">22</div><div class="line">23</div><div class="line">24</div><div class="line">25</div><div class="line">26</div><div class="line">27</div></pre></td><td class="code"><pre><div class="line">int main(int argc, const char * argv[]) &#123;</div><div class="line">    char s[] = &quot;abc#def#gh&quot;;</div><div class="line">    char *p,*q;</div><div class="line">    </div><div class="line">    p = s;</div><div class="line">    q = s;</div><div class="line">    </div><div class="line">    while (*p != &apos;\0&apos;) &#123;</div><div class="line">        if(*p != &apos;#&apos;)&#123;</div><div class="line">            *q = *p;</div><div class="line">            q++;</div><div class="line">        &#125;</div><div class="line">        p ++;</div><div class="line">    &#125;</div><div class="line">    *q = &apos;\0&apos;;</div><div class="line">    puts(s);</div><div class="line">    q++;</div><div class="line">    </div><div class="line">    printf(&quot;%c\n&quot;, *q);</div><div class="line">    return 0;</div><div class="line">&#125;</div><div class="line"></div><div class="line">// 输出结果</div><div class="line">abcdefgh</div><div class="line">h</div><div class="line"></div><div class="line">// 这个函数用来删除字符串中的#号，直接用替换的方式，其实在字符串结尾之后还有一个字符（本来有两个，但是第一个被前边的\0替换掉了），从第二行打印的h就可以看出</div></pre></td></tr></table></figure>
+<h3 id="指针数组"><a href="#指针数组" class="headerlink" title="指针数组"></a>指针数组</h3><blockquote>
+<p>指针数组就是由指针组成的数组。在指针数组中，数组元素的类型不再是基本类型，而是指针类型。</p>
+</blockquote>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div><div class="line">7</div><div class="line">8</div><div class="line">9</div><div class="line">10</div><div class="line">11</div><div class="line">12</div><div class="line">13</div><div class="line">14</div><div class="line">15</div><div class="line">16</div><div class="line">17</div><div class="line">18</div></pre></td><td class="code"><pre><div class="line">// 定义一个指向字符串的指针组成的指针数组</div><div class="line">int main(int argc, const char * argv[]) &#123;</div><div class="line">    char *parray[] = &#123;&quot;winter&quot;,&quot;spring&quot;,&quot;summer&quot;,&quot;autumn&quot;&#125;,*p;</div><div class="line">    p = parray[0];</div><div class="line">    </div><div class="line">    puts(p);</div><div class="line">    printf(&quot;%s\n&quot;, parray[0]);</div><div class="line">    </div><div class="line">    printf(&quot;%c\n&quot;, *(parray[0]+1));</div><div class="line">    printf(&quot;%c\n&quot;, *(p+1));</div><div class="line">    return 0;</div><div class="line">&#125;</div><div class="line"></div><div class="line">// 输出结果</div><div class="line">winter</div><div class="line">winter</div><div class="line">i</div><div class="line">i</div></pre></td></tr></table></figure>
+<blockquote>
+<p><b>指向指针的指针</b>是一种特殊的指针，它存储的是某一个地址的地址。<br>定义方法：<br>char <em>p;<br>char *</em>pp;<br>pp = &p;</p>
+</blockquote>
+<h2 id="结构指针"><a href="#结构指针" class="headerlink" title="结构指针"></a>结构指针</h2><blockquote>
+<p>与定义指向基本类型的指针一样，也可以定义指向结构类型的指针和指向结构数组类型的指针。<br><figure class="highlight plain"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div><div class="line">7</div><div class="line">8</div><div class="line">9</div><div class="line">10</div><div class="line">11</div><div class="line">12</div><div class="line">13</div><div class="line">14</div><div class="line">15</div><div class="line">16</div></pre></td><td class="code"><pre><div class="line">int main(int argc, const char * argv[]) &#123;</div><div class="line">    struct Student</div><div class="line">    &#123;</div><div class="line">        char name[10];</div><div class="line">        int age;</div><div class="line">    &#125;;</div><div class="line">    </div><div class="line">    struct Student stu;</div><div class="line">    struct Student *p;</div><div class="line">    </div><div class="line">    p = &amp;stu;</div><div class="line">    stu.age = 19;</div><div class="line">    (*p).age = 20;</div><div class="line">    p-&gt;age = 21;</div><div class="line">    return 0;</div><div class="line">&#125;</div></pre></td></tr></table></figure></p>
+</blockquote>
+
+      
+    </div>
+
+    <div>
+      
+        
+
+      
+    </div>
+
+    <div>
+      
+        
+
+      
+    </div>
+
+    <footer class="post-footer">
+      
+        <div class="post-tags">
+          
+            <a href="/tags/C/" rel="tag">#C</a>
+          
+            <a href="/tags/指针/" rel="tag">#指针</a>
+          
+        </div>
+      
+
+      
+        <div class="post-nav">
+          <div class="post-nav-next post-nav-item">
+            
+              <a href="/2016/10/04/C/结构/" rel="next" title="结构">
+                <i class="fa fa-chevron-left"></i> 结构
+              </a>
+            
+          </div>
+
+          <div class="post-nav-prev post-nav-item">
+            
+              <a href="/2016/10/06/C/数据文件/" rel="prev" title="数据文件">
+                数据文件 <i class="fa fa-chevron-right"></i>
+              </a>
+            
+          </div>
+        </div>
+      
+
+      
+      
+    </footer>
+  </article>
+
+
+
+    <div class="post-spread">
+      
+    </div>
+  </div>
+
+
+          </div>
+          
+
+
+          
+  <div class="comments" id="comments">
+    
+      <div class="ds-thread" data-thread-key="2016/10/05/C/指针/"
+           data-title="指针" data-url="http://yoursite.com/2016/10/05/C/指针/">
+      </div>
+    
+  </div>
+
+
+        </div>
+        
+          
+  
+  <div class="sidebar-toggle">
+    <div class="sidebar-toggle-line-wrap">
+      <span class="sidebar-toggle-line sidebar-toggle-line-first"></span>
+      <span class="sidebar-toggle-line sidebar-toggle-line-middle"></span>
+      <span class="sidebar-toggle-line sidebar-toggle-line-last"></span>
+    </div>
+  </div>
+
+  <aside id="sidebar" class="sidebar">
+    <div class="sidebar-inner">
+
+      
+
+      
+        <ul class="sidebar-nav motion-element">
+          <li class="sidebar-nav-toc sidebar-nav-active" data-target="post-toc-wrap" >
+            Inhaltsverzeichnis
+          </li>
+          <li class="sidebar-nav-overview" data-target="site-overview">
+            Übersicht
+          </li>
+        </ul>
+      
+
+      <section class="site-overview sidebar-panel ">
+        <div class="site-author motion-element" itemprop="author" itemscope itemtype="http://schema.org/Person">
+          <img class="site-author-image" itemprop="image"
+               src="/images/avatar.jpg"
+               alt="Echo" />
+          <p class="site-author-name" itemprop="name">Echo</p>
+          <p class="site-description motion-element" itemprop="description">读书人？</p>
+        </div>
+        <nav class="site-state motion-element">
+          <div class="site-state-item site-state-posts">
+            <a href="/archives">
+              <span class="site-state-item-count">19</span>
+              <span class="site-state-item-name">ATRIKEL</span>
+            </a>
+          </div>
+
+          
+            <div class="site-state-item site-state-categories">
+              <a href="/categories">
+                <span class="site-state-item-count">6</span>
+                <span class="site-state-item-name">CATE</span>
+              </a>
+            </div>
+          
+
+          
+            <div class="site-state-item site-state-tags">
+              <a href="/tags">
+                <span class="site-state-item-count">16</span>
+                <span class="site-state-item-name">TAGS</span>
+              </a>
+            </div>
+          
+
+        </nav>
+
+        
+
+        <div class="links-of-author motion-element">
+          
+            
+              <span class="links-of-author-item">
+                <a href="https://github.com/panlining" target="_blank" title="GitHub">
+                  
+                    <i class="fa fa-fw fa-github"></i>
+                  
+                  GitHub
+                </a>
+              </span>
+            
+              <span class="links-of-author-item">
+                <a href="https://twitter.com/your-user-name" target="_blank" title="Twitter">
+                  
+                    <i class="fa fa-fw fa-twitter"></i>
+                  
+                  Twitter
+                </a>
+              </span>
+            
+          
+        </div>
+
+        
+        
+
+        
+        
+
+      </section>
+
+      
+        <section class="post-toc-wrap motion-element sidebar-panel sidebar-panel-active">
+          <div class="post-toc">
+            
+              
+            
+            
+              <div class="post-toc-content"><ol class="nav"><li class="nav-item nav-level-2"><a class="nav-link" href="#指针和数组"><span class="nav-number">1.</span> <span class="nav-text">指针和数组</span></a><ol class="nav-child"><li class="nav-item nav-level-3"><a class="nav-link" href="#指针和一维数组"><span class="nav-number">1.1.</span> <span class="nav-text">指针和一维数组</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#指针和二维数组"><span class="nav-number">1.2.</span> <span class="nav-text">指针和二维数组</span></a><ol class="nav-child"><li class="nav-item nav-level-4"><a class="nav-link" href="#定义一个指向数组的指针"><span class="nav-number">1.2.1.</span> <span class="nav-text">定义一个指向数组的指针</span></a></li></ol></li></ol></li><li class="nav-item nav-level-2"><a class="nav-link" href="#指针和字符串"><span class="nav-number">2.</span> <span class="nav-text">指针和字符串</span></a><ol class="nav-child"><li class="nav-item nav-level-3"><a class="nav-link" href="#使用指针创建字符串"><span class="nav-number">2.1.</span> <span class="nav-text">使用指针创建字符串</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#使用指针访问字符串"><span class="nav-number">2.2.</span> <span class="nav-text">使用指针访问字符串</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#指针数组"><span class="nav-number">2.3.</span> <span class="nav-text">指针数组</span></a></li></ol></li><li class="nav-item nav-level-2"><a class="nav-link" href="#结构指针"><span class="nav-number">3.</span> <span class="nav-text">结构指针</span></a></li></ol></div>
+            
+          </div>
+        </section>
+      
+
+    </div>
+  </aside>
+
+
+        
+      </div>
+    </main>
+
+    <footer id="footer" class="footer">
+      <div class="footer-inner">
+        <div class="copyright" >
+  
+  &copy; 
+  <span itemprop="copyrightYear">2016</span>
+  <span class="with-love">
+    <i class="fa fa-heart"></i>
+  </span>
+  <span class="author" itemprop="copyrightHolder">Echo</span>
+</div>
+
+<div class="powered-by">
+  Erstellt mit  <a class="theme-link" href="https://hexo.io">Hexo</a>
+</div>
+
+<div class="theme-info">
+  Theme -
+  <a class="theme-link" href="https://github.com/iissnan/hexo-theme-next">
+    NexT.Pisces
+  </a>
+</div>
+
+        
+
+        
+      </div>
+    </footer>
+
+    <div class="back-to-top">
+      <i class="fa fa-arrow-up"></i>
+    </div>
+  </div>
+
+  
+
+<script type="text/javascript">
+  if (Object.prototype.toString.call(window.Promise) !== '[object Function]') {
+    window.Promise = null;
+  }
+</script>
+
+
+
+
+
+
+
+
+
+  
+
+
+
+  
+  <script type="text/javascript" src="/vendors/jquery/index.js?v=2.1.3"></script>
+
+  
+  <script type="text/javascript" src="/vendors/fastclick/lib/fastclick.min.js?v=1.0.6"></script>
+
+  
+  <script type="text/javascript" src="/vendors/jquery_lazyload/jquery.lazyload.js?v=1.9.7"></script>
+
+  
+  <script type="text/javascript" src="/vendors/velocity/velocity.min.js?v=1.2.1"></script>
+
+  
+  <script type="text/javascript" src="/vendors/velocity/velocity.ui.min.js?v=1.2.1"></script>
+
+  
+  <script type="text/javascript" src="/vendors/fancybox/source/jquery.fancybox.pack.js?v=2.1.5"></script>
+
+
+  
+
+
+  <script type="text/javascript" src="/js/src/utils.js?v=5.0.1"></script>
+
+  <script type="text/javascript" src="/js/src/motion.js?v=5.0.1"></script>
+
+
+
+  
+  
+
+
+  <script type="text/javascript" src="/js/src/affix.js?v=5.0.1"></script>
+
+  <script type="text/javascript" src="/js/src/schemes/pisces.js?v=5.0.1"></script>
+
+
+
+  
+  <script type="text/javascript" src="/js/src/scrollspy.js?v=5.0.1"></script>
+<script type="text/javascript" src="/js/src/post-details.js?v=5.0.1"></script>
+
+
+
+  
+
+
+  <script type="text/javascript" src="/js/src/bootstrap.js?v=5.0.1"></script>
+
+
+
+  
+
+  
+    
+  
+
+  <script type="text/javascript">
+    var duoshuoQuery = {short_name:"afun"};
+    (function() {
+      var ds = document.createElement('script');
+      ds.type = 'text/javascript';ds.async = true;
+      ds.id = 'duoshuo-script';
+      ds.src = (document.location.protocol == 'https:' ? 'https:' : 'http:') + '//static.duoshuo.com/embed.js';
+      ds.charset = 'UTF-8';
+      (document.getElementsByTagName('head')[0]
+      || document.getElementsByTagName('body')[0]).appendChild(ds);
+    })();
+  </script>
+
+  
+    
+    <script src="/vendors/ua-parser-js/dist/ua-parser.min.js?v=0.7.9"></script>
+    <script src="/js/src/hook-duoshuo.js"></script>
+  
+
+
+
+
+
+
+  
+  
+
+  
+
+  
+
+  
+
+</body>
+</html>

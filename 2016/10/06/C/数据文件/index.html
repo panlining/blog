@@ -1,0 +1,732 @@
+<!doctype html>
+
+
+
+  
+
+
+<html class="theme-next pisces use-motion">
+<head>
+  <meta charset="UTF-8"/>
+<meta http-equiv="X-UA-Compatible" content="IE=edge,chrome=1" />
+<meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1"/>
+
+
+
+<meta http-equiv="Cache-Control" content="no-transform" />
+<meta http-equiv="Cache-Control" content="no-siteapp" />
+
+
+
+
+
+
+
+
+
+
+
+
+  
+  
+  <link href="/vendors/fancybox/source/jquery.fancybox.css?v=2.1.5" rel="stylesheet" type="text/css" />
+
+
+
+
+  
+  
+  
+  
+
+  
+    
+    
+  
+
+  
+    
+      
+    
+
+    
+  
+
+  
+
+  
+    
+      
+    
+
+    
+  
+
+  
+    
+      
+    
+
+    
+  
+
+  
+    
+    
+    <link href="//fonts.googleapis.com/css?family=Monda:300,300italic,400,400italic,700,700italic|Roboto Slab:300,300italic,400,400italic,700,700italic|Lobster Two:300,300italic,400,400italic,700,700italic|PT Mono:300,300italic,400,400italic,700,700italic&subset=latin,latin-ext" rel="stylesheet" type="text/css">
+  
+
+
+
+
+
+
+<link href="/vendors/font-awesome/css/font-awesome.min.css?v=4.4.0" rel="stylesheet" type="text/css" />
+
+<link href="/css/main.css?v=5.0.1" rel="stylesheet" type="text/css" />
+
+
+  <meta name="keywords" content="C,文件," />
+
+
+
+
+
+
+
+
+  <link rel="shortcut icon" type="image/x-icon" href="/favicon.ico?v=5.0.1" />
+
+
+
+
+
+
+<meta name="description" content="数据流将文件内的数据看做一串连续的字符，而没有记录的限制。数据流借助文件指针的移动来访问数据，文件指针目前所在的位置即是要处理的数据，经过访问后文件指针会自动向后移动。每个文件后面都有一个文件结束符号(EOF)，用来告知该数据文件到此结束。
+文件是存储在硬盘等物理介质上的数据的集合。文件按照数据存储格式的不同，分为文本文件和二进制文件。">
+<meta property="og:type" content="article">
+<meta property="og:title" content="数据文件">
+<meta property="og:url" content="http://yoursite.com/2016/10/06/C/数据文件/index.html">
+<meta property="og:site_name" content="Echo's Blog">
+<meta property="og:description" content="数据流将文件内的数据看做一串连续的字符，而没有记录的限制。数据流借助文件指针的移动来访问数据，文件指针目前所在的位置即是要处理的数据，经过访问后文件指针会自动向后移动。每个文件后面都有一个文件结束符号(EOF)，用来告知该数据文件到此结束。
+文件是存储在硬盘等物理介质上的数据的集合。文件按照数据存储格式的不同，分为文本文件和二进制文件。">
+<meta property="og:updated_time" content="2016-10-07T15:02:27.000Z">
+<meta name="twitter:card" content="summary">
+<meta name="twitter:title" content="数据文件">
+<meta name="twitter:description" content="数据流将文件内的数据看做一串连续的字符，而没有记录的限制。数据流借助文件指针的移动来访问数据，文件指针目前所在的位置即是要处理的数据，经过访问后文件指针会自动向后移动。每个文件后面都有一个文件结束符号(EOF)，用来告知该数据文件到此结束。
+文件是存储在硬盘等物理介质上的数据的集合。文件按照数据存储格式的不同，分为文本文件和二进制文件。">
+
+
+
+<script type="text/javascript" id="hexo.configuration">
+  var NexT = window.NexT || {};
+  var CONFIG = {
+    scheme: 'Pisces',
+    sidebar: {"position":"left","display":"post"},
+    fancybox: true,
+    motion: true,
+    duoshuo: {
+      userId: 0,
+      author: 'Author'
+    }
+  };
+</script>
+
+
+
+
+  <link rel="canonical" href="http://yoursite.com/2016/10/06/C/数据文件/"/>
+
+  <title> 数据文件 | Echo's Blog </title>
+</head>
+
+<body itemscope itemtype="http://schema.org/WebPage" lang="">
+
+  
+
+
+
+
+
+
+
+
+
+
+  
+  
+    
+  
+
+  <div class="container one-collumn sidebar-position-left page-post-detail ">
+    <div class="headband"></div>
+
+    <header id="header" class="header" itemscope itemtype="http://schema.org/WPHeader">
+      <div class="header-inner"><div class="site-meta ">
+  
+
+  <div class="custom-logo-site-title">
+    <a href="/"  class="brand" rel="start">
+      <span class="logo-line-before"><i></i></span>
+      <span class="site-title">Echo's Blog</span>
+      <span class="logo-line-after"><i></i></span>
+    </a>
+  </div>
+  <p class="site-subtitle">其实我是个读书人</p>
+</div>
+
+<div class="site-nav-toggle">
+  <button>
+    <span class="btn-bar"></span>
+    <span class="btn-bar"></span>
+    <span class="btn-bar"></span>
+  </button>
+</div>
+
+<nav class="site-nav">
+  
+
+  
+    <ul id="menu" class="menu">
+      
+        
+        <li class="menu-item menu-item-home">
+          <a href="/" rel="section">
+            
+              <i class="menu-item-icon fa fa-fw fa-home"></i> <br />
+            
+            HOME
+          </a>
+        </li>
+      
+        
+        <li class="menu-item menu-item-categories">
+          <a href="/categories" rel="section">
+            
+              <i class="menu-item-icon fa fa-fw fa-th"></i> <br />
+            
+            CATE
+          </a>
+        </li>
+      
+        
+        <li class="menu-item menu-item-about">
+          <a href="/about" rel="section">
+            
+              <i class="menu-item-icon fa fa-fw fa-user"></i> <br />
+            
+            ME
+          </a>
+        </li>
+      
+        
+        <li class="menu-item menu-item-archives">
+          <a href="/archives" rel="section">
+            
+              <i class="menu-item-icon fa fa-fw fa-archive"></i> <br />
+            
+            ARCHIVES
+          </a>
+        </li>
+      
+        
+        <li class="menu-item menu-item-tags">
+          <a href="/tags" rel="section">
+            
+              <i class="menu-item-icon fa fa-fw fa-tags"></i> <br />
+            
+            TAGS
+          </a>
+        </li>
+      
+
+      
+    </ul>
+  
+
+  
+</nav>
+
+ </div>
+    </header>
+
+    <main id="main" class="main">
+      <div class="main-inner">
+        <div class="content-wrap">
+          <div id="content" class="content">
+            
+
+  <div id="posts" class="posts-expand">
+    
+
+  
+  
+
+  
+  
+  
+
+  <article class="post post-type-normal " itemscope itemtype="http://schema.org/Article">
+
+    
+      <header class="post-header">
+
+        
+        
+          <h1 class="post-title" itemprop="name headline">
+            
+            
+              
+                数据文件
+              
+            
+          </h1>
+        
+
+        <div class="post-meta">
+          <span class="post-time">
+            <span class="post-meta-item-icon">
+              <i class="fa fa-calendar-o"></i>
+            </span>
+            <span class="post-meta-item-text">Veröffentlicht am</span>
+            <time itemprop="dateCreated" datetime="2016-10-06T16:18:00+08:00" content="2016-10-06">
+              2016-10-06
+            </time>
+          </span>
+
+          
+            <span class="post-category" >
+              &nbsp; | &nbsp;
+              <span class="post-meta-item-icon">
+                <i class="fa fa-folder-o"></i>
+              </span>
+              <span class="post-meta-item-text">in</span>
+              
+                <span itemprop="about" itemscope itemtype="https://schema.org/Thing">
+                  <a href="/categories/C/" itemprop="url" rel="index">
+                    <span itemprop="name">C</span>
+                  </a>
+                </span>
+
+                
+                
+
+              
+            </span>
+          
+
+          
+            
+              <span class="post-comments-count">
+                &nbsp; | &nbsp;
+                <a href="/2016/10/06/C/数据文件/#comments" itemprop="discussionUrl">
+                  <span class="post-comments-count ds-thread-count" data-thread-key="2016/10/06/C/数据文件/" itemprop="commentsCount"></span>
+                </a>
+              </span>
+            
+          
+
+          
+
+          
+          
+
+          
+        </div>
+      </header>
+    
+
+
+    <div class="post-body" itemprop="articleBody">
+
+      
+      
+
+      
+        <blockquote>
+<p>数据流将文件内的数据看做一串连续的字符，而没有记录的限制。<br>数据流借助文件指针的移动来访问数据，文件指针目前所在的位置即是要处理的数据，经过访问后文件指针会自动向后移动。<br>每个文件后面都有一个文件结束符号(EOF)，用来告知该数据文件到此结束。</p>
+<p>文件是存储在硬盘等物理介质上的数据的集合。<br>文件按照数据存储格式的不同，分为文本文件和二进制文件。</p>
+</blockquote>
+<a id="more"></a>
+<h2 id="文件和内存的交互处理"><a href="#文件和内存的交互处理" class="headerlink" title="文件和内存的交互处理"></a>文件和内存的交互处理</h2><blockquote>
+<p>文件是存在外存的，而计算机在处理数据时，CPU都是和内存进行交互的。在CPU处理数据之前，外存上的文件是如何防止到内存中的？按照操作系统对磁盘文件的读写方式，文件可以分为“缓冲文件系统”和“非缓冲文件系统”。C语言的文件处理函数按照有误提供缓冲区分为提供缓冲区的标准输入、输出（Standard I/O）函数和不提供缓冲区的系统输入、输出（System I/O）函数。所谓缓冲区，是指在数据访问时，为了加快程序运行的速度，在内存中实现建立一块区域来存放部分数据，接着再通过这个区域来访问整块数据，而不直接对磁盘进行访问。即系统自动读写操作时数据的暂存，大小一般为512字节，这与磁盘的读写单位一致。<br>从内存中向磁盘输出数据必须先送到内存的缓冲区，装满缓冲区之后才一起送到程序数据区（程序变量）。在进行文件的读操作时，将磁盘文件中的一块数据一次督导文件缓冲区中，然后从缓冲区中读取出程序所需的数据，送入程序数据区中的指定变量或数组元素所对应的内存单元中，<br>采用缓冲系统的原因在于：</p>
+<ul>
+<li>磁盘文件的存取单位是“块”，一般为512字节。也就是说，从文件中读取数据或向文件中写入数据，就要一次读取或写入512字节。而在程序中，给变量或数组元素的复制却是一个一个进行的。</li>
+<li>与内存相比，磁盘的读写速度很慢，如果每读或写一个数据就要和磁盘打一次交道，那么即使CPU的效率很高，整个程序的执行效率也会大打折扣。<br>显然，文件缓冲区可以减少与磁盘打交道的次数，从而提高程序的执行效率。</li>
+</ul>
+</blockquote>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div></pre></td><td class="code"><pre><div class="line">FILE *fp;</div><div class="line">// fp是一个指向FILE结构体类型的指针变量。</div><div class="line">// 可以使fp指向某一个文件类型的结构体变量，从而通过该结构体变量中的文件信息访问文件，也就是说通过该文件指针变量能够找到与它相关的文件</div><div class="line">// fp是指向存放该文件信息的结构体变量</div></pre></td></tr></table></figure>
+<h2 id="字符读取-fgetc"><a href="#字符读取-fgetc" class="headerlink" title="字符读取 fgetc()"></a>字符读取 fgetc()</h2><blockquote>
+<p>打开文件就是建立程序和外部数据文件的联系，需要使用fopen()函数。</p>
+</blockquote>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div><div class="line">7</div><div class="line">8</div><div class="line">9</div><div class="line">10</div><div class="line">11</div><div class="line">12</div><div class="line">13</div><div class="line">14</div><div class="line">15</div></pre></td><td class="code"><pre><div class="line">int main(int argc, const char * argv[]) &#123;</div><div class="line">    char a;</div><div class="line">    </div><div class="line">    FILE *fp; // 定义文件指针</div><div class="line"></div><div class="line">    fp = fopen(&quot;/Users/lining/Code/C/abc.php&quot;, &quot;r&quot;); // 打开文件</div><div class="line">    a = fgetc(fp); // 从指针指向的文件中读取一个字符存储到变量中</div><div class="line">    </div><div class="line">    while (a != EOF) &#123;</div><div class="line">        putchar(a);</div><div class="line">        a = fgetc(fp);</div><div class="line">    &#125;</div><div class="line">    printf(&quot;\n&quot;);</div><div class="line">    return 0;</div><div class="line">&#125;</div></pre></td></tr></table></figure>
+<h2 id="字符写入-fputc"><a href="#字符写入-fputc" class="headerlink" title="字符写入 fputc()"></a>字符写入 fputc()</h2><p>fputc()函数的作用是把一个字符写入到文本文件，如果写入成功，返回值是写入字符的ASCII码，如果写入失败，返回值是0。<br>fputc(字符，文件指针);</p>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div><div class="line">7</div><div class="line">8</div><div class="line">9</div><div class="line">10</div><div class="line">11</div><div class="line">12</div><div class="line">13</div><div class="line">14</div><div class="line">15</div><div class="line">16</div><div class="line">17</div><div class="line">18</div></pre></td><td class="code"><pre><div class="line">#include &lt;stdio.h&gt;</div><div class="line"></div><div class="line">int main(int argc, const char * argv[]) &#123;</div><div class="line">    </div><div class="line">    FILE *fp;</div><div class="line">    char array[] = &quot;wanfeanfwe&quot;;</div><div class="line">    char *p = array;</div><div class="line">    </div><div class="line">    fp = fopen(&quot;/Users/lining/Code/C/abc.php&quot;, &quot;a+&quot;);</div><div class="line">    </div><div class="line">    while (*p != &apos;\0&apos;) &#123;</div><div class="line">        fputc(*p, fp);</div><div class="line">        p++;</div><div class="line">    &#125;</div><div class="line">    </div><div class="line">    printf(&quot;%c\n&quot;, *p);</div><div class="line">    return 0;</div><div class="line">&#125;</div></pre></td></tr></table></figure>
+<h2 id="字符串读取-fgets"><a href="#字符串读取-fgets" class="headerlink" title="字符串读取 fgets()"></a>字符串读取 fgets()</h2><blockquote>
+<p>fgets()函数是从文本文件中读取一个字符串并保存到内存中。<br><b>用法：</b>fgets(指向字符串的指针,字符个数n,文件指针);<br>指向字符串的指针指向字符数组，用来存储读入的字符串；字符个数表示最多从文件中读取n-1个字符，并在结尾加上\0。</p>
+</blockquote>
+<h2 id="字符串写入-fputs"><a href="#字符串写入-fputs" class="headerlink" title="字符串写入 fputs()"></a>字符串写入 fputs()</h2><blockquote>
+<p>fputs()函数的作用是把字符串写入文本文件</p>
+</blockquote>
+<h3 id="格式化字符串读取-fscanf"><a href="#格式化字符串读取-fscanf" class="headerlink" title="格式化字符串读取 fscanf()"></a>格式化字符串读取 fscanf()</h3><blockquote>
+<p>int fscanf(FILE *p,”格式化字符串”,[输入项地址表]);<br>从文件指针fp所指向的文件中按照格式字符串指定的格式将文件中的数据送到输入项地址表中。若读取成功会返回所读取数据的个数，并将数据按照指定格式存入内存中的变量或数组中，文件指针自动下移，若读取失败则返回EOF。</p>
+</blockquote>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div><div class="line">7</div><div class="line">8</div><div class="line">9</div><div class="line">10</div><div class="line">11</div><div class="line">12</div><div class="line">13</div><div class="line">14</div><div class="line">15</div><div class="line">16</div><div class="line">17</div><div class="line">18</div><div class="line">19</div><div class="line">20</div><div class="line">21</div><div class="line">22</div><div class="line">23</div><div class="line">24</div><div class="line">25</div><div class="line">26</div><div class="line">27</div><div class="line">28</div><div class="line">29</div><div class="line">30</div></pre></td><td class="code"><pre><div class="line">FILE *fp;</div><div class="line">int a;</div><div class="line">char num[30], name[40], sex[10];</div><div class="line"></div><div class="line">fp = fopen(&quot;/Users/lining/Code/C/abc.php&quot;,&quot;rt&quot;);</div><div class="line">a = fscanf(fp, &quot;%s %s %s&quot;,num, name, sex);</div><div class="line">printf(&quot;%d\n&quot;, a);</div><div class="line">puts(num);</div><div class="line">puts(name);</div><div class="line">puts(sex);</div><div class="line"></div><div class="line">a = fscanf(fp, &quot;%s %s %s&quot;,num, name, sex);</div><div class="line">printf(&quot;%d\n&quot;, a);</div><div class="line">puts(num);</div><div class="line">puts(name);</div><div class="line">puts(sex);</div><div class="line"></div><div class="line">// 一次读取一行</div><div class="line">// 输出结果</div><div class="line">001</div><div class="line">潘潘</div><div class="line">男</div><div class="line">3</div><div class="line">002</div><div class="line">潘潘1</div><div class="line">男1</div><div class="line"></div><div class="line">// 文件内容</div><div class="line">001 潘潘 男</div><div class="line">002 潘潘1 男1</div></pre></td></tr></table></figure>
+<h3 id="格式化字符串写入-fprintf"><a href="#格式化字符串写入-fprintf" class="headerlink" title="格式化字符串写入 fprintf()"></a>格式化字符串写入 fprintf()</h3><blockquote>
+<p>input fprintf(FILE *fp, “格式化字符串”,[输入项地址表]);<br>将输出项表中的变量值按照格式字符串指定的格式输出到文件指针fp指向的文件位置。</p>
+</blockquote>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div><div class="line">7</div><div class="line">8</div><div class="line">9</div><div class="line">10</div><div class="line">11</div></pre></td><td class="code"><pre><div class="line">FILE *fp;</div><div class="line">int a;</div><div class="line">char num[30] = &quot;abc&quot;, name[40] = &quot;def&quot;, sex[10] = &quot;ghi&quot;;</div><div class="line"></div><div class="line">fp = fopen(&quot;/Users/lining/Code/C/abc.php&quot;,&quot;a+&quot;);</div><div class="line">fputc(&apos;\n&apos;, fp);</div><div class="line">a = fprintf(fp, &quot;%s %s %s&quot;, num, name, sex);</div><div class="line">printf(&quot;%d&quot;, a);</div><div class="line"></div><div class="line">// 输出结果</div><div class="line">11（写入的字符个数）</div></pre></td></tr></table></figure>
+<h3 id="数据区块读写操作"><a href="#数据区块读写操作" class="headerlink" title="数据区块读写操作"></a>数据区块读写操作</h3><blockquote>
+<p>int fread(void <em>buffer,int size,int count,File </em>fp);<br>从文件指针fp锁指向的文件的当前位置，一次读入size个字节，重复count次，并将读取到的数据存到buffer开始的内存区中，同时将读写位置指针后移size*count次。<br>返回值为实际读取的count值</p>
+<p>int fwrite(void <em>buffer, int size, int count, FILE </em>fp);<br>从buffer所指向的内存区开始，一次输出size个字节，重复count次，并将蔬菜局的数据存入fp所指向的文件中，同时将读写位置指针后移size*count次。</p>
+</blockquote>
+<h2 id="文件的随机读写"><a href="#文件的随机读写" class="headerlink" title="文件的随机读写"></a>文件的随机读写</h2><blockquote>
+<p>在读写文件的时候往往都是读写文件中某一指定的部分。为了解决这个问题，可移动文件内部的位置指针到需要读写的位置，在进行读写，这种读写成为随机读写。实现文件的随机读写关键要按要求移动位置指针，这成为文件的定位。</p>
+<p>void rewind(FILE *fp);<br>将文件内部的位置指针移动到文件的开始位置。</p>
+<p>int fseek(FILE *fp, long offset, int whence);<br>文件指针由whence地址移动到offset的地址。</p>
+<p>ftell(FILE *fp);<br>返回流式文件的当前位置，用相对于文件开头的位移量来表示。如果返回-1L，表示出错。</p>
+<p>feof(FILE *fp);<br>判断文件指针fp是否处于文件结束位置，如文件结束返回1，否则返回0。</p>
+<p>ferror(FILE *fp);<br>检查文件在用各种输入输出函数进行读写时是否出错。</p>
+<p>clearerr(FILE *fp);<br>清除出错标识和文件结束标识，使他们都为0.</p>
+</blockquote>
+
+      
+    </div>
+
+    <div>
+      
+        
+
+      
+    </div>
+
+    <div>
+      
+        
+
+      
+    </div>
+
+    <footer class="post-footer">
+      
+        <div class="post-tags">
+          
+            <a href="/tags/C/" rel="tag">#C</a>
+          
+            <a href="/tags/文件/" rel="tag">#文件</a>
+          
+        </div>
+      
+
+      
+        <div class="post-nav">
+          <div class="post-nav-next post-nav-item">
+            
+              <a href="/2016/10/05/C/指针/" rel="next" title="指针">
+                <i class="fa fa-chevron-left"></i> 指针
+              </a>
+            
+          </div>
+
+          <div class="post-nav-prev post-nav-item">
+            
+              <a href="/2016/10/06/C/链表/" rel="prev" title="链表">
+                链表 <i class="fa fa-chevron-right"></i>
+              </a>
+            
+          </div>
+        </div>
+      
+
+      
+      
+    </footer>
+  </article>
+
+
+
+    <div class="post-spread">
+      
+    </div>
+  </div>
+
+
+          </div>
+          
+
+
+          
+  <div class="comments" id="comments">
+    
+      <div class="ds-thread" data-thread-key="2016/10/06/C/数据文件/"
+           data-title="数据文件" data-url="http://yoursite.com/2016/10/06/C/数据文件/">
+      </div>
+    
+  </div>
+
+
+        </div>
+        
+          
+  
+  <div class="sidebar-toggle">
+    <div class="sidebar-toggle-line-wrap">
+      <span class="sidebar-toggle-line sidebar-toggle-line-first"></span>
+      <span class="sidebar-toggle-line sidebar-toggle-line-middle"></span>
+      <span class="sidebar-toggle-line sidebar-toggle-line-last"></span>
+    </div>
+  </div>
+
+  <aside id="sidebar" class="sidebar">
+    <div class="sidebar-inner">
+
+      
+
+      
+        <ul class="sidebar-nav motion-element">
+          <li class="sidebar-nav-toc sidebar-nav-active" data-target="post-toc-wrap" >
+            Inhaltsverzeichnis
+          </li>
+          <li class="sidebar-nav-overview" data-target="site-overview">
+            Übersicht
+          </li>
+        </ul>
+      
+
+      <section class="site-overview sidebar-panel ">
+        <div class="site-author motion-element" itemprop="author" itemscope itemtype="http://schema.org/Person">
+          <img class="site-author-image" itemprop="image"
+               src="/images/avatar.jpg"
+               alt="Echo" />
+          <p class="site-author-name" itemprop="name">Echo</p>
+          <p class="site-description motion-element" itemprop="description">读书人？</p>
+        </div>
+        <nav class="site-state motion-element">
+          <div class="site-state-item site-state-posts">
+            <a href="/archives">
+              <span class="site-state-item-count">19</span>
+              <span class="site-state-item-name">ATRIKEL</span>
+            </a>
+          </div>
+
+          
+            <div class="site-state-item site-state-categories">
+              <a href="/categories">
+                <span class="site-state-item-count">6</span>
+                <span class="site-state-item-name">CATE</span>
+              </a>
+            </div>
+          
+
+          
+            <div class="site-state-item site-state-tags">
+              <a href="/tags">
+                <span class="site-state-item-count">16</span>
+                <span class="site-state-item-name">TAGS</span>
+              </a>
+            </div>
+          
+
+        </nav>
+
+        
+
+        <div class="links-of-author motion-element">
+          
+            
+              <span class="links-of-author-item">
+                <a href="https://github.com/panlining" target="_blank" title="GitHub">
+                  
+                    <i class="fa fa-fw fa-github"></i>
+                  
+                  GitHub
+                </a>
+              </span>
+            
+              <span class="links-of-author-item">
+                <a href="https://twitter.com/your-user-name" target="_blank" title="Twitter">
+                  
+                    <i class="fa fa-fw fa-twitter"></i>
+                  
+                  Twitter
+                </a>
+              </span>
+            
+          
+        </div>
+
+        
+        
+
+        
+        
+
+      </section>
+
+      
+        <section class="post-toc-wrap motion-element sidebar-panel sidebar-panel-active">
+          <div class="post-toc">
+            
+              
+            
+            
+              <div class="post-toc-content"><ol class="nav"><li class="nav-item nav-level-2"><a class="nav-link" href="#文件和内存的交互处理"><span class="nav-number">1.</span> <span class="nav-text">文件和内存的交互处理</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#字符读取-fgetc"><span class="nav-number">2.</span> <span class="nav-text">字符读取 fgetc()</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#字符写入-fputc"><span class="nav-number">3.</span> <span class="nav-text">字符写入 fputc()</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#字符串读取-fgets"><span class="nav-number">4.</span> <span class="nav-text">字符串读取 fgets()</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#字符串写入-fputs"><span class="nav-number">5.</span> <span class="nav-text">字符串写入 fputs()</span></a><ol class="nav-child"><li class="nav-item nav-level-3"><a class="nav-link" href="#格式化字符串读取-fscanf"><span class="nav-number">5.1.</span> <span class="nav-text">格式化字符串读取 fscanf()</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#格式化字符串写入-fprintf"><span class="nav-number">5.2.</span> <span class="nav-text">格式化字符串写入 fprintf()</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#数据区块读写操作"><span class="nav-number">5.3.</span> <span class="nav-text">数据区块读写操作</span></a></li></ol></li><li class="nav-item nav-level-2"><a class="nav-link" href="#文件的随机读写"><span class="nav-number">6.</span> <span class="nav-text">文件的随机读写</span></a></li></ol></div>
+            
+          </div>
+        </section>
+      
+
+    </div>
+  </aside>
+
+
+        
+      </div>
+    </main>
+
+    <footer id="footer" class="footer">
+      <div class="footer-inner">
+        <div class="copyright" >
+  
+  &copy; 
+  <span itemprop="copyrightYear">2016</span>
+  <span class="with-love">
+    <i class="fa fa-heart"></i>
+  </span>
+  <span class="author" itemprop="copyrightHolder">Echo</span>
+</div>
+
+<div class="powered-by">
+  Erstellt mit  <a class="theme-link" href="https://hexo.io">Hexo</a>
+</div>
+
+<div class="theme-info">
+  Theme -
+  <a class="theme-link" href="https://github.com/iissnan/hexo-theme-next">
+    NexT.Pisces
+  </a>
+</div>
+
+        
+
+        
+      </div>
+    </footer>
+
+    <div class="back-to-top">
+      <i class="fa fa-arrow-up"></i>
+    </div>
+  </div>
+
+  
+
+<script type="text/javascript">
+  if (Object.prototype.toString.call(window.Promise) !== '[object Function]') {
+    window.Promise = null;
+  }
+</script>
+
+
+
+
+
+
+
+
+
+  
+
+
+
+  
+  <script type="text/javascript" src="/vendors/jquery/index.js?v=2.1.3"></script>
+
+  
+  <script type="text/javascript" src="/vendors/fastclick/lib/fastclick.min.js?v=1.0.6"></script>
+
+  
+  <script type="text/javascript" src="/vendors/jquery_lazyload/jquery.lazyload.js?v=1.9.7"></script>
+
+  
+  <script type="text/javascript" src="/vendors/velocity/velocity.min.js?v=1.2.1"></script>
+
+  
+  <script type="text/javascript" src="/vendors/velocity/velocity.ui.min.js?v=1.2.1"></script>
+
+  
+  <script type="text/javascript" src="/vendors/fancybox/source/jquery.fancybox.pack.js?v=2.1.5"></script>
+
+
+  
+
+
+  <script type="text/javascript" src="/js/src/utils.js?v=5.0.1"></script>
+
+  <script type="text/javascript" src="/js/src/motion.js?v=5.0.1"></script>
+
+
+
+  
+  
+
+
+  <script type="text/javascript" src="/js/src/affix.js?v=5.0.1"></script>
+
+  <script type="text/javascript" src="/js/src/schemes/pisces.js?v=5.0.1"></script>
+
+
+
+  
+  <script type="text/javascript" src="/js/src/scrollspy.js?v=5.0.1"></script>
+<script type="text/javascript" src="/js/src/post-details.js?v=5.0.1"></script>
+
+
+
+  
+
+
+  <script type="text/javascript" src="/js/src/bootstrap.js?v=5.0.1"></script>
+
+
+
+  
+
+  
+    
+  
+
+  <script type="text/javascript">
+    var duoshuoQuery = {short_name:"afun"};
+    (function() {
+      var ds = document.createElement('script');
+      ds.type = 'text/javascript';ds.async = true;
+      ds.id = 'duoshuo-script';
+      ds.src = (document.location.protocol == 'https:' ? 'https:' : 'http:') + '//static.duoshuo.com/embed.js';
+      ds.charset = 'UTF-8';
+      (document.getElementsByTagName('head')[0]
+      || document.getElementsByTagName('body')[0]).appendChild(ds);
+    })();
+  </script>
+
+  
+    
+    <script src="/vendors/ua-parser-js/dist/ua-parser.min.js?v=0.7.9"></script>
+    <script src="/js/src/hook-duoshuo.js"></script>
+  
+
+
+
+
+
+
+  
+  
+
+  
+
+  
+
+  
+
+</body>
+</html>
