@@ -193,7 +193,7 @@
             
               <i class="menu-item-icon fa fa-fw fa-home"></i> <br />
             
-            HOME
+            Home
           </a>
         </li>
       
@@ -203,7 +203,7 @@
             
               <i class="menu-item-icon fa fa-fw fa-th"></i> <br />
             
-            CATE
+            Categories
           </a>
         </li>
       
@@ -213,7 +213,7 @@
             
               <i class="menu-item-icon fa fa-fw fa-user"></i> <br />
             
-            ME
+            About
           </a>
         </li>
       
@@ -223,7 +223,7 @@
             
               <i class="menu-item-icon fa fa-fw fa-archive"></i> <br />
             
-            ARCHIVES
+            Archives
           </a>
         </li>
       
@@ -233,7 +233,7 @@
             
               <i class="menu-item-icon fa fa-fw fa-tags"></i> <br />
             
-            TAGS
+            Tags
           </a>
         </li>
       
@@ -276,6 +276,158 @@
             
               
                 
+                <a class="post-title-link" href="/2016/09/18/Other/正则表达式基础/" itemprop="url">
+                  正则表达式基础
+                </a>
+              
+            
+          </h1>
+        
+
+        <div class="post-meta">
+          <span class="post-time">
+            <span class="post-meta-item-icon">
+              <i class="fa fa-calendar-o"></i>
+            </span>
+            <span class="post-meta-item-text">Posted on</span>
+            <time itemprop="dateCreated" datetime="2016-09-18T17:15:55+08:00" content="2016-09-18">
+              2016-09-18
+            </time>
+          </span>
+
+          
+            <span class="post-category" >
+              &nbsp; | &nbsp;
+              <span class="post-meta-item-icon">
+                <i class="fa fa-folder-o"></i>
+              </span>
+              <span class="post-meta-item-text">In</span>
+              
+                <span itemprop="about" itemscope itemtype="https://schema.org/Thing">
+                  <a href="/categories/Other/" itemprop="url" rel="index">
+                    <span itemprop="name">Other</span>
+                  </a>
+                </span>
+
+                
+                
+
+              
+            </span>
+          
+
+          
+            
+              <span class="post-comments-count">
+                &nbsp; | &nbsp;
+                <a href="/2016/09/18/Other/正则表达式基础/#comments" itemprop="discussionUrl">
+                  <span class="post-comments-count ds-thread-count" data-thread-key="2016/09/18/Other/正则表达式基础/" itemprop="commentsCount"></span>
+                </a>
+              </span>
+            
+          
+
+          
+
+          
+          
+
+          
+        </div>
+      </header>
+    
+
+
+    <div class="post-body" itemprop="articleBody">
+
+      
+      
+
+      
+        
+          
+            <h2 id="工具"><a href="#工具" class="headerlink" title="工具"></a>工具</h2><blockquote>
+<p><a href="http://regexpal.isbadguy.com" target="_blank" rel="external">正则在线测试工具</a></p>
+</blockquote>
+<h2 id="界定符"><a href="#界定符" class="headerlink" title="界定符"></a>界定符</h2><blockquote>
+<p>表示正则表达式的开始和结束位置<br>$patttern=’/[0-9]/‘<br>上面的斜杠就是界定符<br>除了斜杠之外还可以是’#[0-9]#’,’{[0-9]}’<br>习惯都是使用’/‘和’#’</p>
+</blockquote>
+<h2 id="原子"><a href="#原子" class="headerlink" title="原子"></a>原子</h2><blockquote>
+<p>原子是正则匹配中的最小单位<br>原子分为可见原子和不可见原子(回车、TAB制表符、空格等）<br>涉及到文字匹配的时候可以先把文字转换为Unicode编码之后再进行匹配</p>
+<p>空格：<br>制表符：  \t<br>回车：    \n</p>
+</blockquote>
+<h2 id="元字符"><a href="#元字符" class="headerlink" title="元字符"></a>元字符</h2><blockquote>
+<h3 id="原子的筛选方式"><a href="#原子的筛选方式" class="headerlink" title="原子的筛选方式"></a>原子的筛选方式</h3><p>|     匹配两个或多个分之选择<br>[]    匹配方括号中的任意一个原子<br>[^]   匹配方括号中原子之外的任意一个原子</p>
+<h3 id="原子的集合"><a href="#原子的集合" class="headerlink" title="原子的集合"></a>原子的集合</h3><p>.     表示换行符之外的任意字符<br>\d    匹配任意一个十进制数字，即[0-9]<br>\D    匹配任意一个非十进制数字，即[^0-9]<br>\s    匹配一个不可见原子，即[\f\n\r\t\v]<br>\S    匹配一个可见原子，即[^\f\n\r\t\v]<br>\w    匹配任意一个字母、数字、下划线，即[0-9a-zA-Z<em>]<br>\W    匹配任意一个非字母、数字、下划线，即[^0-9a-zA-Z</em>]</p>
+</blockquote>
+<h2 id="量词"><a href="#量词" class="headerlink" title="量词"></a>量词</h2><blockquote>
+<p>{n}   表示前面的原子恰好出现n次<br>{n.}  表示前面的原子最少出现n次<br>{n,m} 表示前面的原子最少出现n次，最多出现m次</p>
+<ul>
+<li>匹配0次、1次或者多次其前面的原子，即{0,}</li>
+</ul>
+<ul>
+<li>匹配1次或多次其前面的原子，即{1,}<br>?     匹配0次或1次其前面的原子，即{0,1}</li>
+</ul>
+</blockquote>
+<h2 id="边界控制"><a href="#边界控制" class="headerlink" title="边界控制"></a>边界控制</h2><blockquote>
+<p>^     匹配字符串开始的位置<br>$     匹配字符串结束的位置</p>
+</blockquote>
+<h2 id="模式单元"><a href="#模式单元" class="headerlink" title="模式单元"></a>模式单元</h2><blockquote>
+<p>()    匹配其中的整体为一个原子</p>
+</blockquote>
+<h2 id="修正模式"><a href="#修正模式" class="headerlink" title="修正模式"></a>修正模式</h2><blockquote>
+<p>修正模式是给正则表达式的匹配过程制定一个匹配模式<br>贪婪匹配      匹配结果存在歧义时取其长<br>懒惰匹配      匹配结果存在歧义时取其短<br>常见的修正模式标识：<br>U     懒惰匹配（默认不写为贪婪匹配）<br>i     忽略大小写匹配<br>s     让元字符’.’匹配包括换行符在内的所有字符<br>x     忽略正则表达式中的空白符（空格、tab制表符）<br>e     </p>
+</blockquote>
+<h2 id="常规正则表达式的书写"><a href="#常规正则表达式的书写" class="headerlink" title="常规正则表达式的书写"></a>常规正则表达式的书写</h2><figure class="highlight plain"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div></pre></td><td class="code"><pre><div class="line">.+      //非空</div><div class="line">[0-9]+\.[0-9]&#123;2&#125;        // 保留两位小数的浮点数</div><div class="line">^1[35789]\d&#123;9&#125;$         // 手机号</div></pre></td></tr></table></figure>
+
+          
+        
+      
+    </div>
+
+    <div>
+      
+    </div>
+
+    <div>
+      
+    </div>
+
+    <footer class="post-footer">
+      
+
+      
+
+      
+      
+        <div class="post-eof"></div>
+      
+    </footer>
+  </article>
+
+
+    
+      
+
+  
+  
+
+  
+  
+  
+
+  <article class="post post-type-normal " itemscope itemtype="http://schema.org/Article">
+
+    
+      <header class="post-header">
+
+        
+        
+          <h1 class="post-title" itemprop="name headline">
+            
+            
+              
+                
                 <a class="post-title-link" href="/2016/09/09/Other/微信Oauth2.0获取用户信息/" itemprop="url">
                   微信Oauth2.0获取用户信息
                 </a>
@@ -289,7 +441,7 @@
             <span class="post-meta-item-icon">
               <i class="fa fa-calendar-o"></i>
             </span>
-            <span class="post-meta-item-text">Veröffentlicht am</span>
+            <span class="post-meta-item-text">Posted on</span>
             <time itemprop="dateCreated" datetime="2016-09-09T17:50:55+08:00" content="2016-09-09">
               2016-09-09
             </time>
@@ -301,7 +453,7 @@
               <span class="post-meta-item-icon">
                 <i class="fa fa-folder-o"></i>
               </span>
-              <span class="post-meta-item-text">in</span>
+              <span class="post-meta-item-text">In</span>
               
                 <span itemprop="about" itemscope itemtype="https://schema.org/Thing">
                   <a href="/categories/Other/" itemprop="url" rel="index">
@@ -350,7 +502,7 @@
 </blockquote>
           <div class="post-more-link text-center">
             <a class="btn" href="/2016/09/09/Other/微信Oauth2.0获取用户信息/#more" rel="contents">
-              Weiterlesen &raquo;
+              Read more &raquo;
             </a>
           </div>
         
@@ -413,7 +565,7 @@
             <span class="post-meta-item-icon">
               <i class="fa fa-calendar-o"></i>
             </span>
-            <span class="post-meta-item-text">Veröffentlicht am</span>
+            <span class="post-meta-item-text">Posted on</span>
             <time itemprop="dateCreated" datetime="2016-09-08T17:50:55+08:00" content="2016-09-08">
               2016-09-08
             </time>
@@ -425,7 +577,7 @@
               <span class="post-meta-item-icon">
                 <i class="fa fa-folder-o"></i>
               </span>
-              <span class="post-meta-item-text">in</span>
+              <span class="post-meta-item-text">In</span>
               
                 <span itemprop="about" itemscope itemtype="https://schema.org/Thing">
                   <a href="/categories/MySQL/" itemprop="url" rel="index">
@@ -475,7 +627,7 @@
 </blockquote>
           <div class="post-more-link text-center">
             <a class="btn" href="/2016/09/08/MySQL/完整性约束/#more" rel="contents">
-              Weiterlesen &raquo;
+              Read more &raquo;
             </a>
           </div>
         
@@ -538,7 +690,7 @@
             <span class="post-meta-item-icon">
               <i class="fa fa-calendar-o"></i>
             </span>
-            <span class="post-meta-item-text">Veröffentlicht am</span>
+            <span class="post-meta-item-text">Posted on</span>
             <time itemprop="dateCreated" datetime="2016-09-08T17:50:55+08:00" content="2016-09-08">
               2016-09-08
             </time>
@@ -550,7 +702,7 @@
               <span class="post-meta-item-icon">
                 <i class="fa fa-folder-o"></i>
               </span>
-              <span class="post-meta-item-text">in</span>
+              <span class="post-meta-item-text">In</span>
               
                 <span itemprop="about" itemscope itemtype="https://schema.org/Thing">
                   <a href="/categories/MySQL/" itemprop="url" rel="index">
@@ -606,128 +758,9 @@
 </blockquote>
           <div class="post-more-link text-center">
             <a class="btn" href="/2016/09/08/MySQL/索引创建/#more" rel="contents">
-              Weiterlesen &raquo;
+              Read more &raquo;
             </a>
           </div>
-        
-      
-    </div>
-
-    <div>
-      
-    </div>
-
-    <div>
-      
-    </div>
-
-    <footer class="post-footer">
-      
-
-      
-
-      
-      
-        <div class="post-eof"></div>
-      
-    </footer>
-  </article>
-
-
-    
-      
-
-  
-  
-
-  
-  
-  
-
-  <article class="post post-type-normal " itemscope itemtype="http://schema.org/Article">
-
-    
-      <header class="post-header">
-
-        
-        
-          <h1 class="post-title" itemprop="name headline">
-            
-            
-              
-                
-                <a class="post-title-link" href="/2016/09/07/MySQL/MySQL用户管理/" itemprop="url">
-                  MySQL用户管理
-                </a>
-              
-            
-          </h1>
-        
-
-        <div class="post-meta">
-          <span class="post-time">
-            <span class="post-meta-item-icon">
-              <i class="fa fa-calendar-o"></i>
-            </span>
-            <span class="post-meta-item-text">Veröffentlicht am</span>
-            <time itemprop="dateCreated" datetime="2016-09-07T17:50:55+08:00" content="2016-09-07">
-              2016-09-07
-            </time>
-          </span>
-
-          
-            <span class="post-category" >
-              &nbsp; | &nbsp;
-              <span class="post-meta-item-icon">
-                <i class="fa fa-folder-o"></i>
-              </span>
-              <span class="post-meta-item-text">in</span>
-              
-                <span itemprop="about" itemscope itemtype="https://schema.org/Thing">
-                  <a href="/categories/MySQL/" itemprop="url" rel="index">
-                    <span itemprop="name">MySQL</span>
-                  </a>
-                </span>
-
-                
-                
-
-              
-            </span>
-          
-
-          
-            
-              <span class="post-comments-count">
-                &nbsp; | &nbsp;
-                <a href="/2016/09/07/MySQL/MySQL用户管理/#comments" itemprop="discussionUrl">
-                  <span class="post-comments-count ds-thread-count" data-thread-key="2016/09/07/MySQL/MySQL用户管理/" itemprop="commentsCount"></span>
-                </a>
-              </span>
-            
-          
-
-          
-
-          
-          
-
-          
-        </div>
-      </header>
-    
-
-
-    <div class="post-body" itemprop="articleBody">
-
-      
-      
-
-      
-        
-          
-            
-          
         
       
     </div>
@@ -788,7 +821,7 @@
             <span class="post-meta-item-icon">
               <i class="fa fa-calendar-o"></i>
             </span>
-            <span class="post-meta-item-text">Veröffentlicht am</span>
+            <span class="post-meta-item-text">Posted on</span>
             <time itemprop="dateCreated" datetime="2016-09-07T17:50:55+08:00" content="2016-09-07">
               2016-09-07
             </time>
@@ -800,7 +833,7 @@
               <span class="post-meta-item-icon">
                 <i class="fa fa-folder-o"></i>
               </span>
-              <span class="post-meta-item-text">in</span>
+              <span class="post-meta-item-text">In</span>
               
                 <span itemprop="about" itemscope itemtype="https://schema.org/Thing">
                   <a href="/categories/MySQL/" itemprop="url" rel="index">
@@ -898,6 +931,125 @@
             
               
                 
+                <a class="post-title-link" href="/2016/09/07/MySQL/MySQL用户管理/" itemprop="url">
+                  MySQL用户管理
+                </a>
+              
+            
+          </h1>
+        
+
+        <div class="post-meta">
+          <span class="post-time">
+            <span class="post-meta-item-icon">
+              <i class="fa fa-calendar-o"></i>
+            </span>
+            <span class="post-meta-item-text">Posted on</span>
+            <time itemprop="dateCreated" datetime="2016-09-07T17:50:55+08:00" content="2016-09-07">
+              2016-09-07
+            </time>
+          </span>
+
+          
+            <span class="post-category" >
+              &nbsp; | &nbsp;
+              <span class="post-meta-item-icon">
+                <i class="fa fa-folder-o"></i>
+              </span>
+              <span class="post-meta-item-text">In</span>
+              
+                <span itemprop="about" itemscope itemtype="https://schema.org/Thing">
+                  <a href="/categories/MySQL/" itemprop="url" rel="index">
+                    <span itemprop="name">MySQL</span>
+                  </a>
+                </span>
+
+                
+                
+
+              
+            </span>
+          
+
+          
+            
+              <span class="post-comments-count">
+                &nbsp; | &nbsp;
+                <a href="/2016/09/07/MySQL/MySQL用户管理/#comments" itemprop="discussionUrl">
+                  <span class="post-comments-count ds-thread-count" data-thread-key="2016/09/07/MySQL/MySQL用户管理/" itemprop="commentsCount"></span>
+                </a>
+              </span>
+            
+          
+
+          
+
+          
+          
+
+          
+        </div>
+      </header>
+    
+
+
+    <div class="post-body" itemprop="articleBody">
+
+      
+      
+
+      
+        
+          
+            
+          
+        
+      
+    </div>
+
+    <div>
+      
+    </div>
+
+    <div>
+      
+    </div>
+
+    <footer class="post-footer">
+      
+
+      
+
+      
+      
+        <div class="post-eof"></div>
+      
+    </footer>
+  </article>
+
+
+    
+      
+
+  
+  
+
+  
+  
+  
+
+  <article class="post post-type-normal " itemscope itemtype="http://schema.org/Article">
+
+    
+      <header class="post-header">
+
+        
+        
+          <h1 class="post-title" itemprop="name headline">
+            
+            
+              
+                
                 <a class="post-title-link" href="/2016/08/30/Linux/Shell基础/" itemprop="url">
                   Shell基础
                 </a>
@@ -911,7 +1063,7 @@
             <span class="post-meta-item-icon">
               <i class="fa fa-calendar-o"></i>
             </span>
-            <span class="post-meta-item-text">Veröffentlicht am</span>
+            <span class="post-meta-item-text">Posted on</span>
             <time itemprop="dateCreated" datetime="2016-08-30T17:50:55+08:00" content="2016-08-30">
               2016-08-30
             </time>
@@ -923,7 +1075,7 @@
               <span class="post-meta-item-icon">
                 <i class="fa fa-folder-o"></i>
               </span>
-              <span class="post-meta-item-text">in</span>
+              <span class="post-meta-item-text">In</span>
               
                 <span itemprop="about" itemscope itemtype="https://schema.org/Thing">
                   <a href="/categories/Linux-Shell/" itemprop="url" rel="index">
@@ -970,7 +1122,7 @@
           <h2 id="一个简单的shell脚本的创建和执行"><a href="#一个简单的shell脚本的创建和执行" class="headerlink" title="一个简单的shell脚本的创建和执行"></a>一个简单的shell脚本的创建和执行</h2><figure class="highlight plain"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div><div class="line">7</div><div class="line">8</div><div class="line">9</div><div class="line">10</div><div class="line">11</div><div class="line">12</div><div class="line">13</div><div class="line">14</div><div class="line">15</div><div class="line">16</div><div class="line">17</div><div class="line">18</div><div class="line">19</div><div class="line">20</div><div class="line">21</div><div class="line">22</div></pre></td><td class="code"><pre><div class="line"></div><div class="line">cd /usr/local/sbin</div><div class="line"></div><div class="line">vim first.sh</div><div class="line"></div><div class="line"></div><div class="line"></div><div class="line">## This is my first shell script.</div><div class="line"></div><div class="line">date</div><div class="line"></div><div class="line">echo &apos;Hello World!&apos;</div><div class="line"></div><div class="line"></div><div class="line"></div><div class="line">// 运行结果</div><div class="line"></div><div class="line">[root@localhost sbin]# sh 1.sh</div><div class="line"></div><div class="line">Sat Jul 30 13:42:25 CST 2016</div><div class="line"></div><div class="line">Hello World!</div></pre></td></tr></table></figure>
           <div class="post-more-link text-center">
             <a class="btn" href="/2016/08/30/Linux/Shell基础/#more" rel="contents">
-              Weiterlesen &raquo;
+              Read more &raquo;
             </a>
           </div>
         
@@ -1033,7 +1185,7 @@
             <span class="post-meta-item-icon">
               <i class="fa fa-calendar-o"></i>
             </span>
-            <span class="post-meta-item-text">Veröffentlicht am</span>
+            <span class="post-meta-item-text">Posted on</span>
             <time itemprop="dateCreated" datetime="2016-08-24T18:04:46+08:00" content="2016-08-24">
               2016-08-24
             </time>
@@ -1133,7 +1285,7 @@
             <span class="post-meta-item-icon">
               <i class="fa fa-calendar-o"></i>
             </span>
-            <span class="post-meta-item-text">Veröffentlicht am</span>
+            <span class="post-meta-item-text">Posted on</span>
             <time itemprop="dateCreated" datetime="2016-08-24T16:07:55+08:00" content="2016-08-24">
               2016-08-24
             </time>
@@ -1145,7 +1297,7 @@
               <span class="post-meta-item-icon">
                 <i class="fa fa-folder-o"></i>
               </span>
-              <span class="post-meta-item-text">in</span>
+              <span class="post-meta-item-text">In</span>
               
                 <span itemprop="about" itemscope itemtype="https://schema.org/Thing">
                   <a href="/categories/PHP/" itemprop="url" rel="index">
@@ -1252,7 +1404,7 @@
             <span class="post-meta-item-icon">
               <i class="fa fa-calendar-o"></i>
             </span>
-            <span class="post-meta-item-text">Veröffentlicht am</span>
+            <span class="post-meta-item-text">Posted on</span>
             <time itemprop="dateCreated" datetime="2016-08-24T10:20:10+08:00" content="2016-08-24">
               2016-08-24
             </time>
@@ -1372,8 +1524,8 @@
         <nav class="site-state motion-element">
           <div class="site-state-item site-state-posts">
             <a href="/archives">
-              <span class="site-state-item-count">19</span>
-              <span class="site-state-item-name">ATRIKEL</span>
+              <span class="site-state-item-count">20</span>
+              <span class="site-state-item-name">posts</span>
             </a>
           </div>
 
@@ -1381,7 +1533,7 @@
             <div class="site-state-item site-state-categories">
               <a href="/categories">
                 <span class="site-state-item-count">6</span>
-                <span class="site-state-item-name">CATE</span>
+                <span class="site-state-item-name">categories</span>
               </a>
             </div>
           
@@ -1389,8 +1541,8 @@
           
             <div class="site-state-item site-state-tags">
               <a href="/tags">
-                <span class="site-state-item-count">16</span>
-                <span class="site-state-item-name">TAGS</span>
+                <span class="site-state-item-count">19</span>
+                <span class="site-state-item-name">tags</span>
               </a>
             </div>
           
@@ -1454,7 +1606,7 @@
 </div>
 
 <div class="powered-by">
-  Erstellt mit  <a class="theme-link" href="https://hexo.io">Hexo</a>
+  Powered by <a class="theme-link" href="https://hexo.io">Hexo</a>
 </div>
 
 <div class="theme-info">

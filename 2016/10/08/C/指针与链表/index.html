@@ -86,7 +86,7 @@
 <link href="/css/main.css?v=5.0.1" rel="stylesheet" type="text/css" />
 
 
-  <meta name="keywords" content="Hexo, NexT" />
+  <meta name="keywords" content="C,链表,指针," />
 
 
 
@@ -102,16 +102,19 @@
 
 
 
-<meta name="description" content="读书人？">
+<meta name="description" content="存储空间的分配与释放
+void *malloc(unsigned int size);在内存的动态存储区申请一个长度为size字节的连续空间。返回一个指针，并指向所分配存储空间的起始位置。如果没有足够的内存空间可分配，则返回值为空指针NULL。在使用这个函数时，size的值可以从sizeof({int,float,char})计算得到，这样更容易适配不同的机器。">
 <meta property="og:type" content="article">
-<meta property="og:title" content="note/使用Trie树结构实现敏感词汇过滤">
-<meta property="og:url" content="http://yoursite.com/2016/08/24/note-使用Trie树结构实现敏感词汇过滤/index.html">
+<meta property="og:title" content="指针与链表">
+<meta property="og:url" content="http://yoursite.com/2016/10/08/C/指针与链表/index.html">
 <meta property="og:site_name" content="Echo's Blog">
-<meta property="og:description" content="读书人？">
-<meta property="og:updated_time" content="2016-08-24T10:04:46.000Z">
+<meta property="og:description" content="存储空间的分配与释放
+void *malloc(unsigned int size);在内存的动态存储区申请一个长度为size字节的连续空间。返回一个指针，并指向所分配存储空间的起始位置。如果没有足够的内存空间可分配，则返回值为空指针NULL。在使用这个函数时，size的值可以从sizeof({int,float,char})计算得到，这样更容易适配不同的机器。">
+<meta property="og:updated_time" content="2016-10-08T17:19:03.000Z">
 <meta name="twitter:card" content="summary">
-<meta name="twitter:title" content="note/使用Trie树结构实现敏感词汇过滤">
-<meta name="twitter:description" content="读书人？">
+<meta name="twitter:title" content="指针与链表">
+<meta name="twitter:description" content="存储空间的分配与释放
+void *malloc(unsigned int size);在内存的动态存储区申请一个长度为size字节的连续空间。返回一个指针，并指向所分配存储空间的起始位置。如果没有足够的内存空间可分配，则返回值为空指针NULL。在使用这个函数时，size的值可以从sizeof({int,float,char})计算得到，这样更容易适配不同的机器。">
 
 
 
@@ -132,9 +135,9 @@
 
 
 
-  <link rel="canonical" href="http://yoursite.com/2016/08/24/note-使用Trie树结构实现敏感词汇过滤/"/>
+  <link rel="canonical" href="http://yoursite.com/2016/10/08/C/指针与链表/"/>
 
-  <title> note/使用Trie树结构实现敏感词汇过滤 | Echo's Blog </title>
+  <title> 指针与链表 | Echo's Blog </title>
 </head>
 
 <body itemscope itemtype="http://schema.org/WebPage" lang="">
@@ -274,7 +277,7 @@
             
             
               
-                note/使用Trie树结构实现敏感词汇过滤
+                指针与链表
               
             
           </h1>
@@ -286,19 +289,38 @@
               <i class="fa fa-calendar-o"></i>
             </span>
             <span class="post-meta-item-text">Posted on</span>
-            <time itemprop="dateCreated" datetime="2016-08-24T18:04:46+08:00" content="2016-08-24">
-              2016-08-24
+            <time itemprop="dateCreated" datetime="2016-10-08T23:24:00+08:00" content="2016-10-08">
+              2016-10-08
             </time>
           </span>
 
+          
+            <span class="post-category" >
+              &nbsp; | &nbsp;
+              <span class="post-meta-item-icon">
+                <i class="fa fa-folder-o"></i>
+              </span>
+              <span class="post-meta-item-text">In</span>
+              
+                <span itemprop="about" itemscope itemtype="https://schema.org/Thing">
+                  <a href="/categories/C/" itemprop="url" rel="index">
+                    <span itemprop="name">C</span>
+                  </a>
+                </span>
+
+                
+                
+
+              
+            </span>
           
 
           
             
               <span class="post-comments-count">
                 &nbsp; | &nbsp;
-                <a href="/2016/08/24/note-使用Trie树结构实现敏感词汇过滤/#comments" itemprop="discussionUrl">
-                  <span class="post-comments-count ds-thread-count" data-thread-key="2016/08/24/note-使用Trie树结构实现敏感词汇过滤/" itemprop="commentsCount"></span>
+                <a href="/2016/10/08/C/指针与链表/#comments" itemprop="discussionUrl">
+                  <span class="post-comments-count ds-thread-count" data-thread-key="2016/10/08/C/指针与链表/" itemprop="commentsCount"></span>
                 </a>
               </span>
             
@@ -321,7 +343,40 @@
       
 
       
-        
+        <h2 id="存储空间的分配与释放"><a href="#存储空间的分配与释放" class="headerlink" title="存储空间的分配与释放"></a>存储空间的分配与释放</h2><blockquote>
+<p>void *malloc(unsigned int size);<br>在内存的动态存储区申请一个长度为size字节的连续空间。返回一个指针，并指向所分配存储空间的起始位置。如果没有足够的内存空间可分配，则返回值为空指针NULL。<br>在使用这个函数时，size的值可以从sizeof({int,float,char})计算得到，这样更容易适配不同的机器。</p>
+</blockquote>
+<a id="more"></a>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div></pre></td><td class="code"><pre><div class="line">int *p = (int *)malloc(sizeof(int));</div><div class="line">// 申请一个int类型长度的存储空间，并将分配到的存储空间地址转换为int类型，赋给指针变量p。</div><div class="line"></div><div class="line">struct stud *p = (struct stud *)malloc(sizeof(struct stud));</div><div class="line">// 申请可存放struct stud结构体类型数据的空间，并将地址存入指针p中，当struct stud结构体类型的定义改变时，本语句申请空间的大小会随之改变。</div></pre></td></tr></table></figure>
+<blockquote>
+<p>void *calloc(unsigned int n,unsigned int size);<br>在内存申请n个长度为size的存储空间，并返回该存储空间的起始地址。如果没有足够的空间可分配，返回为空指针NULL。</p>
+</blockquote>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div></pre></td><td class="code"><pre><div class="line">char *ch1 = (char *)calloc(26, sizeof(char));</div><div class="line">char *ch2 = (char *)malloc(sizeof(char[26 ]));</div><div class="line"></div><div class="line">// 动态分配一个长度为26个字符的字符数组</div></pre></td></tr></table></figure>
+<blockquote>
+<p>void <em>realloc(void </em>ptr, size_t size);<br>改变ptr指针指向大小为size的空间。设定size大小可以是仍以的。返回一个指向新地址的指针，如果出现错误，返回NULL。</p>
+</blockquote>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div></pre></td><td class="code"><pre><div class="line">fDouble = (double *)malloc(sizeof(double));</div><div class="line">iInt = realloc(fDouble,sizeof(int));</div><div class="line">// fDouble指向一个浮点型的空间，然后使用realloc改变指向空间的大小，其大小设置为整型，然后将改变后的空间地址返回复制给iInt指针。</div></pre></td></tr></table></figure>
+<blockquote>
+<p>void free(void *p);<br>将指针变量指向的存储空间释放。</p>
+</blockquote>
+<h2 id="连式存储结构——链表"><a href="#连式存储结构——链表" class="headerlink" title="连式存储结构——链表"></a>连式存储结构——链表</h2><blockquote>
+<p>链表是一种常见的数据结构</p>
+<p>链表中，有一个头指针变量，用来保存一个地址，该地址为一个变量的地址，也就是说，头指针指向一个变量，这个变量称为元素，在链表中，每一个元素包含两个部分：数据部分和指针部分。数据部分用来存放元素所包含的数据，指针部分用来指向下一个元素。最后一个元素的指针指向NULL。</p>
+</blockquote>
+<h3 id="静态链表"><a href="#静态链表" class="headerlink" title="静态链表"></a>静态链表</h3><blockquote>
+<p>静态链表即把线性表的元素放在数组中，这些元素可能在物理上是连续存放的，也有可能不是连续的，他们通过逻辑关系来连接。数组单元存放链表节点，节点的链域指向下一个元素的位置，即下一个元素所在的数组单元的下标。</p>
+</blockquote>
+<h3 id="动态链表"><a href="#动态链表" class="headerlink" title="动态链表"></a>动态链表</h3><blockquote>
+<p>动态链表指在程序执行过程中从无到有地建立起一个链表，即一个一个地开辟节点和存入各节点的数据，并建立起前后相连的关系。</p>
+</blockquote>
+<h2 id="单链表"><a href="#单链表" class="headerlink" title="单链表"></a>单链表</h2><blockquote>
+<p>每个节点只有一个指针，所有节点都是单线联系，除了末尾节点指针为空，每个节点的指针都指向下一个节点，称此链表为单向线性链表或简称单链表。</p>
+</blockquote>
+<h3 id="单链表建立"><a href="#单链表建立" class="headerlink" title="单链表建立"></a>单链表建立</h3><blockquote>
+<p>由于链表的每个节点都包含数据域和指针域，即每个节点都要包含不同类型的数据，所以节点的数据类型必须选用结构体类型，改类型可包含多个各种类型的成员，其中必须有一个成员的类型是指向本结构体类型的指针类型。</p>
+</blockquote>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div></pre></td><td class="code"><pre><div class="line">struct student</div><div class="line">&#123;</div><div class="line">    char name[20];</div><div class="line">    int number;</div><div class="line">    struct student *next;</div><div class="line">&#125;</div></pre></td></tr></table></figure>
+
       
     </div>
 
@@ -341,21 +396,31 @@
 
     <footer class="post-footer">
       
+        <div class="post-tags">
+          
+            <a href="/tags/C/" rel="tag">#C</a>
+          
+            <a href="/tags/链表/" rel="tag">#链表</a>
+          
+            <a href="/tags/指针/" rel="tag">#指针</a>
+          
+        </div>
+      
 
       
         <div class="post-nav">
           <div class="post-nav-next post-nav-item">
             
-              <a href="/2016/08/24/使用Trie树结构实现敏感词汇过滤/" rel="next" title="使用Trie树结构实现敏感词汇过滤">
-                <i class="fa fa-chevron-left"></i> 使用Trie树结构实现敏感词汇过滤
+              <a href="/2016/10/07/C/字符串/" rel="next" title="字符串">
+                <i class="fa fa-chevron-left"></i> 字符串
               </a>
             
           </div>
 
           <div class="post-nav-prev post-nav-item">
             
-              <a href="/2016/08/30/Linux/Shell基础/" rel="prev" title="Shell基础">
-                Shell基础 <i class="fa fa-chevron-right"></i>
+              <a href="/2016/10/11/PHP/Curl/" rel="prev" title="Curl的使用">
+                Curl的使用 <i class="fa fa-chevron-right"></i>
               </a>
             
           </div>
@@ -382,8 +447,8 @@
           
   <div class="comments" id="comments">
     
-      <div class="ds-thread" data-thread-key="2016/08/24/note-使用Trie树结构实现敏感词汇过滤/"
-           data-title="note/使用Trie树结构实现敏感词汇过滤" data-url="http://yoursite.com/2016/08/24/note-使用Trie树结构实现敏感词汇过滤/">
+      <div class="ds-thread" data-thread-key="2016/10/08/C/指针与链表/"
+           data-title="指针与链表" data-url="http://yoursite.com/2016/10/08/C/指针与链表/">
       </div>
     
   </div>
@@ -494,7 +559,7 @@
               
             
             
-              <p class="post-toc-empty">This post does not have a Table of Contents</p>
+              <div class="post-toc-content"><ol class="nav"><li class="nav-item nav-level-2"><a class="nav-link" href="#存储空间的分配与释放"><span class="nav-number">1.</span> <span class="nav-text">存储空间的分配与释放</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#连式存储结构——链表"><span class="nav-number">2.</span> <span class="nav-text">连式存储结构——链表</span></a><ol class="nav-child"><li class="nav-item nav-level-3"><a class="nav-link" href="#静态链表"><span class="nav-number">2.1.</span> <span class="nav-text">静态链表</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#动态链表"><span class="nav-number">2.2.</span> <span class="nav-text">动态链表</span></a></li></ol></li><li class="nav-item nav-level-2"><a class="nav-link" href="#单链表"><span class="nav-number">3.</span> <span class="nav-text">单链表</span></a><ol class="nav-child"><li class="nav-item nav-level-3"><a class="nav-link" href="#单链表建立"><span class="nav-number">3.1.</span> <span class="nav-text">单链表建立</span></a></li></ol></li></ol></div>
             
           </div>
         </section>
