@@ -193,7 +193,7 @@
             
               <i class="menu-item-icon fa fa-fw fa-home"></i> <br />
             
-            HOME
+            Home
           </a>
         </li>
       
@@ -203,7 +203,7 @@
             
               <i class="menu-item-icon fa fa-fw fa-th"></i> <br />
             
-            CATE
+            Categories
           </a>
         </li>
       
@@ -213,7 +213,7 @@
             
               <i class="menu-item-icon fa fa-fw fa-user"></i> <br />
             
-            ME
+            About
           </a>
         </li>
       
@@ -223,7 +223,7 @@
             
               <i class="menu-item-icon fa fa-fw fa-archive"></i> <br />
             
-            ARCHIVES
+            Archives
           </a>
         </li>
       
@@ -233,7 +233,7 @@
             
               <i class="menu-item-icon fa fa-fw fa-tags"></i> <br />
             
-            TAGS
+            Tags
           </a>
         </li>
       
@@ -276,6 +276,523 @@
             
               
                 
+                <a class="post-title-link" href="/2016/11/20/Python/Python之面向对象/" itemprop="url">
+                  Python之面向对象
+                </a>
+              
+            
+          </h1>
+        
+
+        <div class="post-meta">
+          <span class="post-time">
+            <span class="post-meta-item-icon">
+              <i class="fa fa-calendar-o"></i>
+            </span>
+            <span class="post-meta-item-text">Posted on</span>
+            <time itemprop="dateCreated" datetime="2016-11-20T00:00:00+08:00" content="2016-11-20">
+              2016-11-20
+            </time>
+          </span>
+
+          
+            <span class="post-category" >
+              &nbsp; | &nbsp;
+              <span class="post-meta-item-icon">
+                <i class="fa fa-folder-o"></i>
+              </span>
+              <span class="post-meta-item-text">In</span>
+              
+                <span itemprop="about" itemscope itemtype="https://schema.org/Thing">
+                  <a href="/categories/Python/" itemprop="url" rel="index">
+                    <span itemprop="name">Python</span>
+                  </a>
+                </span>
+
+                
+                
+
+              
+            </span>
+          
+
+          
+            
+              <span class="post-comments-count">
+                &nbsp; | &nbsp;
+                <a href="/2016/11/20/Python/Python之面向对象/#comments" itemprop="discussionUrl">
+                  <span class="post-comments-count ds-thread-count" data-thread-key="2016/11/20/Python/Python之面向对象/" itemprop="commentsCount"></span>
+                </a>
+              </span>
+            
+          
+
+          
+
+          
+          
+
+          
+        </div>
+      </header>
+    
+
+
+    <div class="post-body" itemprop="articleBody">
+
+      
+      
+
+      
+        
+          
+            <h3 id="类的定义"><a href="#类的定义" class="headerlink" title="类的定义"></a>类的定义</h3><figure class="highlight plain"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div><div class="line">7</div><div class="line">8</div><div class="line">9</div><div class="line">10</div><div class="line">11</div><div class="line">12</div><div class="line">13</div><div class="line">14</div><div class="line">15</div></pre></td><td class="code"><pre><div class="line">class Person(object):</div><div class="line">    pass</div><div class="line">// Person为类名</div><div class="line">// object表示该类是从哪个类继承下来的</div><div class="line"></div><div class="line">xiaoming = Person()</div><div class="line">xiaohong = Person()</div><div class="line">// 类的实例化</div><div class="line"></div><div class="line"></div><div class="line">xiaoming = Person()</div><div class="line">xiaoming.name = &apos;Xiao Ming&apos;</div><div class="line">xiaoming.gender = &apos;Male&apos;</div><div class="line">xiaoming.birth = &apos;1990-1-1&apos;</div><div class="line">// 给对象的属性赋值</div></pre></td></tr></table></figure>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div><div class="line">7</div><div class="line">8</div><div class="line">9</div><div class="line">10</div><div class="line">11</div></pre></td><td class="code"><pre><div class="line">class Person(object):</div><div class="line">    def __init__(self, name, gender, birth):</div><div class="line">        self.name = name</div><div class="line">        self.gender = gender</div><div class="line">        self.birth = birth</div><div class="line">// 构造函数</div><div class="line">// __init__() 方法的第一个参数必须是 self（也可以用别的名字，但建议使用习惯用法），后续参数则可以自由指定，和定义函数没有任何区别</div><div class="line"></div><div class="line">// 相应地，创建实例时，就必须要提供除 self 以外的参数</div><div class="line">xiaoming = Person(&apos;Xiao Ming&apos;, &apos;Male&apos;, &apos;1991-1-1&apos;)</div><div class="line">xiaohong = Person(&apos;Xiao Hong&apos;, &apos;Female&apos;, &apos;1992-2-2&apos;)</div></pre></td></tr></table></figure>
+<h3 id="访问限制"><a href="#访问限制" class="headerlink" title="访问限制"></a>访问限制</h3><blockquote>
+<p>Python对属性权限的控制是通过属性名来实现的，如果一个属性由双下划线开头(__)，该属性就无法被外部访问</p>
+</blockquote>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div><div class="line">7</div><div class="line">8</div><div class="line">9</div><div class="line">10</div><div class="line">11</div><div class="line">12</div></pre></td><td class="code"><pre><div class="line">class Person(object):</div><div class="line">    def __init__(self, name):</div><div class="line">        self.name = name</div><div class="line">        self._title = &apos;Mr&apos;</div><div class="line">        self.__job = &apos;Student&apos;</div><div class="line">p = Person(&apos;Bob&apos;)</div><div class="line">print p.name</div><div class="line"># =&gt; Bob</div><div class="line">print p._title</div><div class="line"># =&gt; Mr</div><div class="line">print p.__job</div><div class="line"># =&gt; Error</div></pre></td></tr></table></figure>
+<h3 id="类属性"><a href="#类属性" class="headerlink" title="类属性"></a>类属性</h3><figure class="highlight plain"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div><div class="line">7</div><div class="line">8</div><div class="line">9</div><div class="line">10</div><div class="line">11</div><div class="line">12</div><div class="line">13</div><div class="line">14</div><div class="line">15</div><div class="line">16</div><div class="line">17</div><div class="line">18</div><div class="line">19</div><div class="line">20</div><div class="line">21</div><div class="line">22</div><div class="line">23</div><div class="line">24</div><div class="line">25</div><div class="line">26</div><div class="line">27</div><div class="line">28</div><div class="line">29</div><div class="line">30</div><div class="line">31</div><div class="line">32</div><div class="line">33</div><div class="line">34</div></pre></td><td class="code"><pre><div class="line">class Person(object):</div><div class="line">    address = &apos;Earth&apos;</div><div class="line">    def __init__(self, name):</div><div class="line">        self.name = name</div><div class="line">// 定义类属性</div><div class="line"></div><div class="line">print Person.address</div><div class="line">// 因为类属性是直接绑定在类上的，所以，访问类属性不需要创建实例，就可以直接访问</div><div class="line"></div><div class="line">p1 = Person(&apos;Bob&apos;)</div><div class="line">p2 = Person(&apos;Alice&apos;)</div><div class="line">print p1.address</div><div class="line"># =&gt; Earth</div><div class="line">print p2.address</div><div class="line"># =&gt; Earth</div><div class="line">// 实例的属性也可以访问</div><div class="line"></div><div class="line">Person.address = &apos;China&apos;</div><div class="line">print p1.address</div><div class="line"># =&gt; &apos;China&apos;</div><div class="line">print p2.address</div><div class="line"># =&gt; &apos;China&apos;</div><div class="line">// 由于Python是动态语言，类属性也是可以动态添加和修改的</div><div class="line"></div><div class="line">Person.address = &apos;China&apos;</div><div class="line">print p1.address</div><div class="line"># =&gt; &apos;China&apos;</div><div class="line">print p2.address</div><div class="line"># =&gt; &apos;China&apos;</div><div class="line">// 因为类属性只有一份，所以，当Person类的address改变时，所有实例访问到的类属性都改变了。</div><div class="line"></div><div class="line">del p1.address</div><div class="line">print p1.address</div><div class="line">// 删除实例属性</div></pre></td></tr></table></figure>
+<h3 id="类的方法"><a href="#类的方法" class="headerlink" title="类的方法"></a>类的方法</h3><blockquote>
+<p>类的方法就是在类中定义的函数，它的第一个参数永远是 self，指向调用该方法的实例本身，其他参数和一个普通函数是完全一样的</p>
+</blockquote>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div><div class="line">7</div><div class="line">8</div><div class="line">9</div><div class="line">10</div><div class="line">11</div><div class="line">12</div></pre></td><td class="code"><pre><div class="line">class Person(object):</div><div class="line"></div><div class="line">    def __init__(self, name):</div><div class="line">        self.__name = name</div><div class="line"></div><div class="line">    def get_name(self):</div><div class="line">        return self.__name</div><div class="line"></div><div class="line"></div><div class="line">p1 = Person(&apos;Bob&apos;)</div><div class="line">print p1.get_name()  # self不需要显式传入</div><div class="line"># =&gt; Bob</div></pre></td></tr></table></figure>
+<h3 id="方法也是属性"><a href="#方法也是属性" class="headerlink" title="方法也是属性"></a>方法也是属性</h3><blockquote>
+<p>我们在 class 中定义的实例方法其实也是属性，它实际上是一个函数对象</p>
+</blockquote>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div><div class="line">7</div><div class="line">8</div><div class="line">9</div><div class="line">10</div><div class="line">11</div><div class="line">12</div></pre></td><td class="code"><pre><div class="line">class Person(object):</div><div class="line">    def __init__(self, name, score):</div><div class="line">        self.name = name</div><div class="line">        self.score = score</div><div class="line">    def get_grade(self):</div><div class="line">        return &apos;A&apos;</div><div class="line"></div><div class="line">p1 = Person(&apos;Bob&apos;, 90)</div><div class="line">print p1.get_grade</div><div class="line"># =&gt; &lt;bound method Person.get_grade of &lt;__main__.Person object at 0x109e58510&gt;&gt;</div><div class="line">print p1.get_grade()</div><div class="line"># =&gt; A</div></pre></td></tr></table></figure>
+<blockquote>
+<p>因为方法也是一个属性，所以，它也可以动态地添加到实例上，只是需要用 types.MethodType() 把一个函数变为一个方法</p>
+</blockquote>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div><div class="line">7</div><div class="line">8</div><div class="line">9</div><div class="line">10</div><div class="line">11</div><div class="line">12</div><div class="line">13</div><div class="line">14</div><div class="line">15</div><div class="line">16</div><div class="line">17</div><div class="line">18</div><div class="line">19</div><div class="line">20</div><div class="line">21</div></pre></td><td class="code"><pre><div class="line">import types</div><div class="line">def fn_get_grade(self):</div><div class="line">    if self.score &gt;= 80:</div><div class="line">        return &apos;A&apos;</div><div class="line">    if self.score &gt;= 60:</div><div class="line">        return &apos;B&apos;</div><div class="line">    return &apos;C&apos;</div><div class="line"></div><div class="line">class Person(object):</div><div class="line">    def __init__(self, name, score):</div><div class="line">        self.name = name</div><div class="line">        self.score = score</div><div class="line"></div><div class="line">p1 = Person(&apos;Bob&apos;, 90)</div><div class="line">p1.get_grade = types.MethodType(fn_get_grade, p1, Person)</div><div class="line">print p1.get_grade()</div><div class="line"># =&gt; A</div><div class="line">p2 = Person(&apos;Alice&apos;, 65)</div><div class="line">print p2.get_grade()</div><div class="line"># ERROR: AttributeError: &apos;Person&apos; object has no attribute &apos;get_grade&apos;</div><div class="line"># 因为p2实例并没有绑定get_grade</div></pre></td></tr></table></figure>
+<h3 id="Python中继承一个类"><a href="#Python中继承一个类" class="headerlink" title="Python中继承一个类"></a>Python中继承一个类</h3><figure class="highlight plain"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div><div class="line">7</div><div class="line">8</div><div class="line">9</div></pre></td><td class="code"><pre><div class="line">class Person(object):</div><div class="line">    def __init__(self, name, gender):</div><div class="line">        self.name = name</div><div class="line">        self.gender = gender</div><div class="line"></div><div class="line">class Student(Person):</div><div class="line">    def __init__(self, name, gender, score):</div><div class="line">        super(Student, self).__init__(name, gender)</div><div class="line">        self.score = score</div></pre></td></tr></table></figure>
+
+          
+        
+      
+    </div>
+
+    <div>
+      
+    </div>
+
+    <div>
+      
+    </div>
+
+    <footer class="post-footer">
+      
+
+      
+
+      
+      
+        <div class="post-eof"></div>
+      
+    </footer>
+  </article>
+
+
+    
+      
+
+  
+  
+
+  
+  
+  
+
+  <article class="post post-type-normal " itemscope itemtype="http://schema.org/Article">
+
+    
+      <header class="post-header">
+
+        
+        
+          <h1 class="post-title" itemprop="name headline">
+            
+            
+              
+                
+                <a class="post-title-link" href="/2016/11/20/Python/Python中的模块和包/" itemprop="url">
+                  Python中的模块和包
+                </a>
+              
+            
+          </h1>
+        
+
+        <div class="post-meta">
+          <span class="post-time">
+            <span class="post-meta-item-icon">
+              <i class="fa fa-calendar-o"></i>
+            </span>
+            <span class="post-meta-item-text">Posted on</span>
+            <time itemprop="dateCreated" datetime="2016-11-20T00:00:00+08:00" content="2016-11-20">
+              2016-11-20
+            </time>
+          </span>
+
+          
+            <span class="post-category" >
+              &nbsp; | &nbsp;
+              <span class="post-meta-item-icon">
+                <i class="fa fa-folder-o"></i>
+              </span>
+              <span class="post-meta-item-text">In</span>
+              
+                <span itemprop="about" itemscope itemtype="https://schema.org/Thing">
+                  <a href="/categories/Python/" itemprop="url" rel="index">
+                    <span itemprop="name">Python</span>
+                  </a>
+                </span>
+
+                
+                
+
+              
+            </span>
+          
+
+          
+            
+              <span class="post-comments-count">
+                &nbsp; | &nbsp;
+                <a href="/2016/11/20/Python/Python中的模块和包/#comments" itemprop="discussionUrl">
+                  <span class="post-comments-count ds-thread-count" data-thread-key="2016/11/20/Python/Python中的模块和包/" itemprop="commentsCount"></span>
+                </a>
+              </span>
+            
+          
+
+          
+
+          
+          
+
+          
+        </div>
+      </header>
+    
+
+
+    <div class="post-body" itemprop="articleBody">
+
+      
+      
+
+      
+        
+          
+            <h3 id="动态导入模块"><a href="#动态导入模块" class="headerlink" title="动态导入模块"></a>动态导入模块</h3><blockquote>
+<p>try 的作用是捕获错误，并在捕获到指定错误时执行 except 语句。</p>
+</blockquote>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div></pre></td><td class="code"><pre><div class="line">try:</div><div class="line">    from cStringIO import StringIO</div><div class="line">except ImportError:</div><div class="line">    from StringIO import StringIO</div><div class="line"></div><div class="line">// 上述代码先尝试从cStringIO导入，如果失败了（比如cStringIO没有被安装），再尝试从StringIO导入。这样，如果cStringIO模块存在，则我们将获得更快的运行速度，如果cStringIO不存在，则顶多代码运行速度会变慢，但不会影响代码的正常执行。</div></pre></td></tr></table></figure>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div><div class="line">7</div></pre></td><td class="code"><pre><div class="line">try:</div><div class="line">    import json</div><div class="line">except ImportError:</div><div class="line">    import simplejson as json</div><div class="line">print json.dumps(&#123;&apos;python&apos;:2.7&#125;)</div><div class="line">// 动态导入不同名称的模块</div><div class="line">// 先导入json，如果失败，则尝试导入simplejson并重命名为json，后边都可以用json.fun来引用模块中的函数</div></pre></td></tr></table></figure>
+<h3 id="Python使用future"><a href="#Python使用future" class="headerlink" title="Python使用future"></a>Python使用<strong>future</strong></h3><blockquote>
+<p>Python的新版本会引入新的功能，但是，实际上这些功能在上一个老版本中就已经存在了。要“试用”某一新的特性，就可以通过导入<strong>future</strong>模块的某些功能来实现。<br>当新版本的一个特性与旧版本不兼容时，该特性将会在旧版本中添加到<strong>future</strong>中，以便旧的代码能在旧版本中测试新特性。</p>
+</blockquote>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div></pre></td><td class="code"><pre><div class="line">// 要在Python 2.7中引入3.x的除法规则，导入__future__的division</div><div class="line"></div><div class="line">from __future__ import division</div><div class="line">print 10 / 3</div><div class="line">// 3.3333333333333335</div></pre></td></tr></table></figure>
+
+          
+        
+      
+    </div>
+
+    <div>
+      
+    </div>
+
+    <div>
+      
+    </div>
+
+    <footer class="post-footer">
+      
+
+      
+
+      
+      
+        <div class="post-eof"></div>
+      
+    </footer>
+  </article>
+
+
+    
+      
+
+  
+  
+
+  
+  
+  
+
+  <article class="post post-type-normal " itemscope itemtype="http://schema.org/Article">
+
+    
+      <header class="post-header">
+
+        
+        
+          <h1 class="post-title" itemprop="name headline">
+            
+            
+              
+                
+                <a class="post-title-link" href="/2016/11/20/Python/函数式编程/" itemprop="url">
+                  函数式编程
+                </a>
+              
+            
+          </h1>
+        
+
+        <div class="post-meta">
+          <span class="post-time">
+            <span class="post-meta-item-icon">
+              <i class="fa fa-calendar-o"></i>
+            </span>
+            <span class="post-meta-item-text">Posted on</span>
+            <time itemprop="dateCreated" datetime="2016-11-20T00:00:00+08:00" content="2016-11-20">
+              2016-11-20
+            </time>
+          </span>
+
+          
+            <span class="post-category" >
+              &nbsp; | &nbsp;
+              <span class="post-meta-item-icon">
+                <i class="fa fa-folder-o"></i>
+              </span>
+              <span class="post-meta-item-text">In</span>
+              
+                <span itemprop="about" itemscope itemtype="https://schema.org/Thing">
+                  <a href="/categories/Python/" itemprop="url" rel="index">
+                    <span itemprop="name">Python</span>
+                  </a>
+                </span>
+
+                
+                
+
+              
+            </span>
+          
+
+          
+            
+              <span class="post-comments-count">
+                &nbsp; | &nbsp;
+                <a href="/2016/11/20/Python/函数式编程/#comments" itemprop="discussionUrl">
+                  <span class="post-comments-count ds-thread-count" data-thread-key="2016/11/20/Python/函数式编程/" itemprop="commentsCount"></span>
+                </a>
+              </span>
+            
+          
+
+          
+
+          
+          
+
+          
+        </div>
+      </header>
+    
+
+
+    <div class="post-body" itemprop="articleBody">
+
+      
+      
+
+      
+        
+          <h3 id="高阶函数"><a href="#高阶函数" class="headerlink" title="高阶函数"></a>高阶函数</h3><blockquote>
+<p>高阶函数就是可以接受函数为参数的函数</p>
+</blockquote>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div></pre></td><td class="code"><pre><div class="line">def add(x, y, f):</div><div class="line">    return f(x) + f(y)</div><div class="line"></div><div class="line">add(-5, 9, abs)</div></pre></td></tr></table></figure>
+          <div class="post-more-link text-center">
+            <a class="btn" href="/2016/11/20/Python/函数式编程/#more" rel="contents">
+              Read more &raquo;
+            </a>
+          </div>
+        
+      
+    </div>
+
+    <div>
+      
+    </div>
+
+    <div>
+      
+    </div>
+
+    <footer class="post-footer">
+      
+
+      
+
+      
+      
+        <div class="post-eof"></div>
+      
+    </footer>
+  </article>
+
+
+    
+      
+
+  
+  
+
+  
+  
+  
+
+  <article class="post post-type-normal " itemscope itemtype="http://schema.org/Article">
+
+    
+      <header class="post-header">
+
+        
+        
+          <h1 class="post-title" itemprop="name headline">
+            
+            
+              
+                
+                <a class="post-title-link" href="/2016/11/19/Python/Python中的函数/" itemprop="url">
+                  Python中的函数
+                </a>
+              
+            
+          </h1>
+        
+
+        <div class="post-meta">
+          <span class="post-time">
+            <span class="post-meta-item-icon">
+              <i class="fa fa-calendar-o"></i>
+            </span>
+            <span class="post-meta-item-text">Posted on</span>
+            <time itemprop="dateCreated" datetime="2016-11-19T00:00:00+08:00" content="2016-11-19">
+              2016-11-19
+            </time>
+          </span>
+
+          
+            <span class="post-category" >
+              &nbsp; | &nbsp;
+              <span class="post-meta-item-icon">
+                <i class="fa fa-folder-o"></i>
+              </span>
+              <span class="post-meta-item-text">In</span>
+              
+                <span itemprop="about" itemscope itemtype="https://schema.org/Thing">
+                  <a href="/categories/Python/" itemprop="url" rel="index">
+                    <span itemprop="name">Python</span>
+                  </a>
+                </span>
+
+                
+                
+
+              
+            </span>
+          
+
+          
+            
+              <span class="post-comments-count">
+                &nbsp; | &nbsp;
+                <a href="/2016/11/19/Python/Python中的函数/#comments" itemprop="discussionUrl">
+                  <span class="post-comments-count ds-thread-count" data-thread-key="2016/11/19/Python/Python中的函数/" itemprop="commentsCount"></span>
+                </a>
+              </span>
+            
+          
+
+          
+
+          
+          
+
+          
+        </div>
+      </header>
+    
+
+
+    <div class="post-body" itemprop="articleBody">
+
+      
+      
+
+      
+        
+          <h3 id="函数的定义"><a href="#函数的定义" class="headerlink" title="函数的定义"></a>函数的定义</h3><blockquote>
+<p>在Python中，定义一个函数要使用 def 语句，依次写出函数名、括号、括号中的参数和冒号:，然后，在缩进块中编写函数体，函数的返回值用 return 语句返回。</p>
+</blockquote>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div></pre></td><td class="code"><pre><div class="line">// 定义一个求绝对值的函数</div><div class="line">def my_abs(x):</div><div class="line">    if x &gt;= 0:</div><div class="line">        return x</div><div class="line">    else:</div><div class="line">        return -x</div></pre></td></tr></table></figure>
+          <div class="post-more-link text-center">
+            <a class="btn" href="/2016/11/19/Python/Python中的函数/#more" rel="contents">
+              Read more &raquo;
+            </a>
+          </div>
+        
+      
+    </div>
+
+    <div>
+      
+    </div>
+
+    <div>
+      
+    </div>
+
+    <footer class="post-footer">
+      
+
+      
+
+      
+      
+        <div class="post-eof"></div>
+      
+    </footer>
+  </article>
+
+
+    
+      
+
+  
+  
+
+  
+  
+  
+
+  <article class="post post-type-normal " itemscope itemtype="http://schema.org/Article">
+
+    
+      <header class="post-header">
+
+        
+        
+          <h1 class="post-title" itemprop="name headline">
+            
+            
+              
+                
                 <a class="post-title-link" href="/2016/11/05/Python/Python语法基础/" itemprop="url">
                   Python语法基础
                 </a>
@@ -289,7 +806,7 @@
             <span class="post-meta-item-icon">
               <i class="fa fa-calendar-o"></i>
             </span>
-            <span class="post-meta-item-text">Veröffentlicht am</span>
+            <span class="post-meta-item-text">Posted on</span>
             <time itemprop="dateCreated" datetime="2016-11-05T00:00:00+08:00" content="2016-11-05">
               2016-11-05
             </time>
@@ -301,7 +818,7 @@
               <span class="post-meta-item-icon">
                 <i class="fa fa-folder-o"></i>
               </span>
-              <span class="post-meta-item-text">in</span>
+              <span class="post-meta-item-text">In</span>
               
                 <span itemprop="about" itemscope itemtype="https://schema.org/Thing">
                   <a href="/categories/Python/" itemprop="url" rel="index">
@@ -345,29 +862,19 @@
 
       
         
-          
-            <h3 id="在Python中，能够直接处理的数据类型有以下几种："><a href="#在Python中，能够直接处理的数据类型有以下几种：" class="headerlink" title="在Python中，能够直接处理的数据类型有以下几种："></a>在Python中，能够直接处理的数据类型有以下几种：</h3><blockquote>
+          <h2 id="数据类型"><a href="#数据类型" class="headerlink" title="数据类型"></a>数据类型</h2><blockquote>
+<p>在Python中，能够直接处理的数据类型有以下几种：</p>
 <p>整数、浮点数、字符串、布尔值(True,False这里要注意大小写)、空值(None)、列表、字典</p>
 </blockquote>
 <h3 id="Python中整数和浮点数"><a href="#Python中整数和浮点数" class="headerlink" title="Python中整数和浮点数"></a>Python中整数和浮点数</h3><blockquote>
 <p>Python中，整数之间的运算结果仍然是整数，有浮点数参与的运算，结果为浮点数</p>
 </blockquote>
 <figure class="highlight plain"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div></pre></td><td class="code"><pre><div class="line">1 + 2.0    # ==&gt; 浮点数 3.0</div><div class="line">11 / 4    # ==&gt; 2</div><div class="line">11.0 / 4    # ==&gt; 2.75</div></pre></td></tr></table></figure>
-<h3 id="Python中布尔值运算"><a href="#Python中布尔值运算" class="headerlink" title="Python中布尔值运算"></a>Python中布尔值运算</h3><figure class="highlight plain"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div><div class="line">7</div><div class="line">8</div><div class="line">9</div><div class="line">10</div><div class="line">11</div><div class="line">12</div><div class="line">13</div><div class="line">14</div><div class="line">15</div><div class="line">16</div><div class="line">17</div><div class="line">18</div><div class="line">19</div></pre></td><td class="code"><pre><div class="line">// 与运算</div><div class="line">True and True   # ==&gt; True</div><div class="line">True and False   # ==&gt; False</div><div class="line">False and True   # ==&gt; False</div><div class="line">False and False   # ==&gt; False</div><div class="line"></div><div class="line">// 或运算</div><div class="line">True or True   # ==&gt; True</div><div class="line">True or False   # ==&gt; True</div><div class="line">False or True   # ==&gt; True</div><div class="line">False or False   # ==&gt; False</div><div class="line"></div><div class="line">// 非运算</div><div class="line">not True   # ==&gt; False</div><div class="line">not False   # ==&gt; True</div><div class="line"></div><div class="line">// 还可以与其他数据类型做运算</div><div class="line">a = True</div><div class="line">print a and &apos;a=T&apos; or &apos;a=F&apos;</div></pre></td></tr></table></figure>
-<blockquote>
-<p>在计算 a and b 时，如果 a 是 False，则根据与运算法则，整个结果必定为 False，因此返回 a；如果 a 是 True，则整个计算结果必定取决与 b，因此返回 b。</p>
-<p>在计算 a or b 时，如果 a 是 True，则根据或运算法则，整个计算结果必定为 True，因此返回 a；如果 a 是 False，则整个计算结果必定取决于 b，因此返回 b。</p>
-<p>所以Python解释器在做布尔运算时，只要能提前确定计算结果，它就不会往后算了，直接返回结果。</p>
-</blockquote>
-<h3 id="Python创建list"><a href="#Python创建list" class="headerlink" title="Python创建list"></a>Python创建list</h3><blockquote>
-<p>list是Python内置的一种数据类型，他是一种有序的数据集合，可以随时创建和删除其中的元素。</p>
-</blockquote>
-<figure class="highlight plain"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div><div class="line">7</div><div class="line">8</div><div class="line">9</div><div class="line">10</div><div class="line">11</div><div class="line">12</div><div class="line">13</div><div class="line">14</div><div class="line">15</div><div class="line">16</div><div class="line">17</div><div class="line">18</div><div class="line">19</div><div class="line">20</div><div class="line">21</div></pre></td><td class="code"><pre><div class="line">l = [&apos;abc&apos;, &apos;def&apos;, 222, &apos;ghi&apos;]</div><div class="line"></div><div class="line">print l[1]</div><div class="line">print l[-1]</div><div class="line"></div><div class="line">// 向list中插入元素</div><div class="line">l.append(&apos;sss&apos;);</div><div class="line"></div><div class="line">// insert方法接受两个参数，第一个为索引号，第二个为插入的值</div><div class="line">l.insert(0, &apos;ddd&apos;);</div><div class="line"></div><div class="line">// 从list中删除一个元素</div><div class="line">// pop方法总是删除最后一个元素，并返回这个元素</div><div class="line">l = [&apos;abc&apos;, &apos;def&apos;, 222, &apos;ghi&apos;]</div><div class="line">l.pop()</div><div class="line">print l</div><div class="line"></div><div class="line">// [&apos;abc&apos;, &apos;def&apos;, 222]</div><div class="line"></div><div class="line">// 如果想要删除指定索引的元素，则在pop后面加上索引</div><div class="line">l.pop(2);</div></pre></td></tr></table></figure>
-<h3 id="Python创建tuple（元组）"><a href="#Python创建tuple（元组）" class="headerlink" title="Python创建tuple（元组）"></a>Python创建tuple（元组）</h3><blockquote>
-<p>tuple是另一种有序的列表，中文翻译为“ 元组 ”。tuple 和 list 非常类似，但是，tuple一旦创建完毕，就不能修改了。<br>t = (‘Adam’, ‘Lisa’, ‘Bart’)</p>
-</blockquote>
-
-          
+          <div class="post-more-link text-center">
+            <a class="btn" href="/2016/11/05/Python/Python语法基础/#more" rel="contents">
+              Read more &raquo;
+            </a>
+          </div>
         
       
     </div>
@@ -428,7 +935,7 @@
             <span class="post-meta-item-icon">
               <i class="fa fa-calendar-o"></i>
             </span>
-            <span class="post-meta-item-text">Veröffentlicht am</span>
+            <span class="post-meta-item-text">Posted on</span>
             <time itemprop="dateCreated" datetime="2016-10-11T00:00:00+08:00" content="2016-10-11">
               2016-10-11
             </time>
@@ -440,7 +947,7 @@
               <span class="post-meta-item-icon">
                 <i class="fa fa-folder-o"></i>
               </span>
-              <span class="post-meta-item-text">in</span>
+              <span class="post-meta-item-text">In</span>
               
                 <span itemprop="about" itemscope itemtype="https://schema.org/Thing">
                   <a href="/categories/PHP/" itemprop="url" rel="index">
@@ -490,7 +997,7 @@
 <p><img src="http://ocepa5xqq.bkt.clouddn.com/1460615487271_2.jpeg" alt=""></p>
           <div class="post-more-link text-center">
             <a class="btn" href="/2016/10/11/PHP/Curl/#more" rel="contents">
-              Weiterlesen &raquo;
+              Read more &raquo;
             </a>
           </div>
         
@@ -553,7 +1060,7 @@
             <span class="post-meta-item-icon">
               <i class="fa fa-calendar-o"></i>
             </span>
-            <span class="post-meta-item-text">Veröffentlicht am</span>
+            <span class="post-meta-item-text">Posted on</span>
             <time itemprop="dateCreated" datetime="2016-10-08T23:24:00+08:00" content="2016-10-08">
               2016-10-08
             </time>
@@ -565,7 +1072,7 @@
               <span class="post-meta-item-icon">
                 <i class="fa fa-folder-o"></i>
               </span>
-              <span class="post-meta-item-text">in</span>
+              <span class="post-meta-item-text">In</span>
               
                 <span itemprop="about" itemscope itemtype="https://schema.org/Thing">
                   <a href="/categories/C/" itemprop="url" rel="index">
@@ -614,7 +1121,7 @@
 </blockquote>
           <div class="post-more-link text-center">
             <a class="btn" href="/2016/10/08/C/指针与链表/#more" rel="contents">
-              Weiterlesen &raquo;
+              Read more &raquo;
             </a>
           </div>
         
@@ -677,7 +1184,7 @@
             <span class="post-meta-item-icon">
               <i class="fa fa-calendar-o"></i>
             </span>
-            <span class="post-meta-item-text">Veröffentlicht am</span>
+            <span class="post-meta-item-text">Posted on</span>
             <time itemprop="dateCreated" datetime="2016-10-07T10:38:00+08:00" content="2016-10-07">
               2016-10-07
             </time>
@@ -689,7 +1196,7 @@
               <span class="post-meta-item-icon">
                 <i class="fa fa-folder-o"></i>
               </span>
-              <span class="post-meta-item-text">in</span>
+              <span class="post-meta-item-text">In</span>
               
                 <span itemprop="about" itemscope itemtype="https://schema.org/Thing">
                   <a href="/categories/C/" itemprop="url" rel="index">
@@ -806,7 +1313,7 @@
             <span class="post-meta-item-icon">
               <i class="fa fa-calendar-o"></i>
             </span>
-            <span class="post-meta-item-text">Veröffentlicht am</span>
+            <span class="post-meta-item-text">Posted on</span>
             <time itemprop="dateCreated" datetime="2016-10-06T16:18:00+08:00" content="2016-10-06">
               2016-10-06
             </time>
@@ -818,7 +1325,7 @@
               <span class="post-meta-item-icon">
                 <i class="fa fa-folder-o"></i>
               </span>
-              <span class="post-meta-item-text">in</span>
+              <span class="post-meta-item-text">In</span>
               
                 <span itemprop="about" itemscope itemtype="https://schema.org/Thing">
                   <a href="/categories/C/" itemprop="url" rel="index">
@@ -868,7 +1375,7 @@
 </blockquote>
           <div class="post-more-link text-center">
             <a class="btn" href="/2016/10/06/C/数据文件/#more" rel="contents">
-              Weiterlesen &raquo;
+              Read more &raquo;
             </a>
           </div>
         
@@ -931,7 +1438,7 @@
             <span class="post-meta-item-icon">
               <i class="fa fa-calendar-o"></i>
             </span>
-            <span class="post-meta-item-text">Veröffentlicht am</span>
+            <span class="post-meta-item-text">Posted on</span>
             <time itemprop="dateCreated" datetime="2016-10-05T12:42:00+08:00" content="2016-10-05">
               2016-10-05
             </time>
@@ -943,7 +1450,7 @@
               <span class="post-meta-item-icon">
                 <i class="fa fa-folder-o"></i>
               </span>
-              <span class="post-meta-item-text">in</span>
+              <span class="post-meta-item-text">In</span>
               
                 <span itemprop="about" itemscope itemtype="https://schema.org/Thing">
                   <a href="/categories/C/" itemprop="url" rel="index">
@@ -992,519 +1499,9 @@
 </blockquote>
           <div class="post-more-link text-center">
             <a class="btn" href="/2016/10/05/C/指针/#more" rel="contents">
-              Weiterlesen &raquo;
+              Read more &raquo;
             </a>
           </div>
-        
-      
-    </div>
-
-    <div>
-      
-    </div>
-
-    <div>
-      
-    </div>
-
-    <footer class="post-footer">
-      
-
-      
-
-      
-      
-        <div class="post-eof"></div>
-      
-    </footer>
-  </article>
-
-
-    
-      
-
-  
-  
-
-  
-  
-  
-
-  <article class="post post-type-normal " itemscope itemtype="http://schema.org/Article">
-
-    
-      <header class="post-header">
-
-        
-        
-          <h1 class="post-title" itemprop="name headline">
-            
-            
-              
-                
-                <a class="post-title-link" href="/2016/10/04/C/结构/" itemprop="url">
-                  结构
-                </a>
-              
-            
-          </h1>
-        
-
-        <div class="post-meta">
-          <span class="post-time">
-            <span class="post-meta-item-icon">
-              <i class="fa fa-calendar-o"></i>
-            </span>
-            <span class="post-meta-item-text">Veröffentlicht am</span>
-            <time itemprop="dateCreated" datetime="2016-10-04T16:39:55+08:00" content="2016-10-04">
-              2016-10-04
-            </time>
-          </span>
-
-          
-            <span class="post-category" >
-              &nbsp; | &nbsp;
-              <span class="post-meta-item-icon">
-                <i class="fa fa-folder-o"></i>
-              </span>
-              <span class="post-meta-item-text">in</span>
-              
-                <span itemprop="about" itemscope itemtype="https://schema.org/Thing">
-                  <a href="/categories/C/" itemprop="url" rel="index">
-                    <span itemprop="name">C</span>
-                  </a>
-                </span>
-
-                
-                
-
-              
-            </span>
-          
-
-          
-            
-              <span class="post-comments-count">
-                &nbsp; | &nbsp;
-                <a href="/2016/10/04/C/结构/#comments" itemprop="discussionUrl">
-                  <span class="post-comments-count ds-thread-count" data-thread-key="2016/10/04/C/结构/" itemprop="commentsCount"></span>
-                </a>
-              </span>
-            
-          
-
-          
-
-          
-          
-
-          
-        </div>
-      </header>
-    
-
-
-    <div class="post-body" itemprop="articleBody">
-
-      
-      
-
-      
-        
-          <blockquote>
-<p>C语言中，一条记录称为一个结构。</p>
-</blockquote>
-<h2 id="结构的定义"><a href="#结构的定义" class="headerlink" title="结构的定义"></a>结构的定义</h2><blockquote>
-<p>结构和数组一样，也是一种构造数据类型，但结构可以存储多重不同类型的数据，使他们组成一个整体，而数组只能存储类型相同的一组数据。</p>
-</blockquote>
-          <div class="post-more-link text-center">
-            <a class="btn" href="/2016/10/04/C/结构/#more" rel="contents">
-              Weiterlesen &raquo;
-            </a>
-          </div>
-        
-      
-    </div>
-
-    <div>
-      
-    </div>
-
-    <div>
-      
-    </div>
-
-    <footer class="post-footer">
-      
-
-      
-
-      
-      
-        <div class="post-eof"></div>
-      
-    </footer>
-  </article>
-
-
-    
-      
-
-  
-  
-
-  
-  
-  
-
-  <article class="post post-type-normal " itemscope itemtype="http://schema.org/Article">
-
-    
-      <header class="post-header">
-
-        
-        
-          <h1 class="post-title" itemprop="name headline">
-            
-            
-              
-                
-                <a class="post-title-link" href="/2016/10/04/C/查找与排序/" itemprop="url">
-                  查找与排序
-                </a>
-              
-            
-          </h1>
-        
-
-        <div class="post-meta">
-          <span class="post-time">
-            <span class="post-meta-item-icon">
-              <i class="fa fa-calendar-o"></i>
-            </span>
-            <span class="post-meta-item-text">Veröffentlicht am</span>
-            <time itemprop="dateCreated" datetime="2016-10-04T12:56:55+08:00" content="2016-10-04">
-              2016-10-04
-            </time>
-          </span>
-
-          
-            <span class="post-category" >
-              &nbsp; | &nbsp;
-              <span class="post-meta-item-icon">
-                <i class="fa fa-folder-o"></i>
-              </span>
-              <span class="post-meta-item-text">in</span>
-              
-                <span itemprop="about" itemscope itemtype="https://schema.org/Thing">
-                  <a href="/categories/C/" itemprop="url" rel="index">
-                    <span itemprop="name">C</span>
-                  </a>
-                </span>
-
-                
-                
-
-              
-            </span>
-          
-
-          
-            
-              <span class="post-comments-count">
-                &nbsp; | &nbsp;
-                <a href="/2016/10/04/C/查找与排序/#comments" itemprop="discussionUrl">
-                  <span class="post-comments-count ds-thread-count" data-thread-key="2016/10/04/C/查找与排序/" itemprop="commentsCount"></span>
-                </a>
-              </span>
-            
-          
-
-          
-
-          
-          
-
-          
-        </div>
-      </header>
-    
-
-
-    <div class="post-body" itemprop="articleBody">
-
-      
-      
-
-      
-        
-          <h2 id="查找"><a href="#查找" class="headerlink" title="查找"></a>查找</h2><h3 id="顺序查找"><a href="#顺序查找" class="headerlink" title="顺序查找"></a>顺序查找</h3><blockquote>
-<p>顺序查找很基础，它对数据的排列先后次序没有任何要求。</p>
-</blockquote>
-<h3 id="折半查找"><a href="#折半查找" class="headerlink" title="折半查找"></a>折半查找</h3><blockquote>
-<p>折半查找又称为二分查找，是一种高效的查找方法。折半查找的前提是元素已经有序排列。<br><b>折半查找的基本思想</b>：查找过程中，先确定待查找元素的范围，然后逐步缩小序列范围，每次将待查找元素的序列范围缩小一半，知道找到或者找不到元素为止。</p>
-</blockquote>
-          <div class="post-more-link text-center">
-            <a class="btn" href="/2016/10/04/C/查找与排序/#more" rel="contents">
-              Weiterlesen &raquo;
-            </a>
-          </div>
-        
-      
-    </div>
-
-    <div>
-      
-    </div>
-
-    <div>
-      
-    </div>
-
-    <footer class="post-footer">
-      
-
-      
-
-      
-      
-        <div class="post-eof"></div>
-      
-    </footer>
-  </article>
-
-
-    
-      
-
-  
-  
-
-  
-  
-  
-
-  <article class="post post-type-normal " itemscope itemtype="http://schema.org/Article">
-
-    
-      <header class="post-header">
-
-        
-        
-          <h1 class="post-title" itemprop="name headline">
-            
-            
-              
-                
-                <a class="post-title-link" href="/2016/10/04/C/数组/" itemprop="url">
-                  数组
-                </a>
-              
-            
-          </h1>
-        
-
-        <div class="post-meta">
-          <span class="post-time">
-            <span class="post-meta-item-icon">
-              <i class="fa fa-calendar-o"></i>
-            </span>
-            <span class="post-meta-item-text">Veröffentlicht am</span>
-            <time itemprop="dateCreated" datetime="2016-10-04T12:05:55+08:00" content="2016-10-04">
-              2016-10-04
-            </time>
-          </span>
-
-          
-            <span class="post-category" >
-              &nbsp; | &nbsp;
-              <span class="post-meta-item-icon">
-                <i class="fa fa-folder-o"></i>
-              </span>
-              <span class="post-meta-item-text">in</span>
-              
-                <span itemprop="about" itemscope itemtype="https://schema.org/Thing">
-                  <a href="/categories/C/" itemprop="url" rel="index">
-                    <span itemprop="name">C</span>
-                  </a>
-                </span>
-
-                
-                
-
-              
-            </span>
-          
-
-          
-            
-              <span class="post-comments-count">
-                &nbsp; | &nbsp;
-                <a href="/2016/10/04/C/数组/#comments" itemprop="discussionUrl">
-                  <span class="post-comments-count ds-thread-count" data-thread-key="2016/10/04/C/数组/" itemprop="commentsCount"></span>
-                </a>
-              </span>
-            
-          
-
-          
-
-          
-          
-
-          
-        </div>
-      </header>
-    
-
-
-    <div class="post-body" itemprop="articleBody">
-
-      
-      
-
-      
-        
-          <blockquote>
-<p>C语言提供了一种复合数据类型“数组”。<br>数组是可以把具有相同类型的若干变量按照有序的形式组织起来的集合。数组类型是一种构造数据类型。</p>
-</blockquote>
-          <div class="post-more-link text-center">
-            <a class="btn" href="/2016/10/04/C/数组/#more" rel="contents">
-              Weiterlesen &raquo;
-            </a>
-          </div>
-        
-      
-    </div>
-
-    <div>
-      
-    </div>
-
-    <div>
-      
-    </div>
-
-    <footer class="post-footer">
-      
-
-      
-
-      
-      
-        <div class="post-eof"></div>
-      
-    </footer>
-  </article>
-
-
-    
-      
-
-  
-  
-
-  
-  
-  
-
-  <article class="post post-type-normal " itemscope itemtype="http://schema.org/Article">
-
-    
-      <header class="post-header">
-
-        
-        
-          <h1 class="post-title" itemprop="name headline">
-            
-            
-              
-                
-                <a class="post-title-link" href="/2016/10/04/C/变量/" itemprop="url">
-                  变量
-                </a>
-              
-            
-          </h1>
-        
-
-        <div class="post-meta">
-          <span class="post-time">
-            <span class="post-meta-item-icon">
-              <i class="fa fa-calendar-o"></i>
-            </span>
-            <span class="post-meta-item-text">Veröffentlicht am</span>
-            <time itemprop="dateCreated" datetime="2016-10-04T11:23:55+08:00" content="2016-10-04">
-              2016-10-04
-            </time>
-          </span>
-
-          
-            <span class="post-category" >
-              &nbsp; | &nbsp;
-              <span class="post-meta-item-icon">
-                <i class="fa fa-folder-o"></i>
-              </span>
-              <span class="post-meta-item-text">in</span>
-              
-                <span itemprop="about" itemscope itemtype="https://schema.org/Thing">
-                  <a href="/categories/C/" itemprop="url" rel="index">
-                    <span itemprop="name">C</span>
-                  </a>
-                </span>
-
-                
-                
-
-              
-            </span>
-          
-
-          
-            
-              <span class="post-comments-count">
-                &nbsp; | &nbsp;
-                <a href="/2016/10/04/C/变量/#comments" itemprop="discussionUrl">
-                  <span class="post-comments-count ds-thread-count" data-thread-key="2016/10/04/C/变量/" itemprop="commentsCount"></span>
-                </a>
-              </span>
-            
-          
-
-          
-
-          
-          
-
-          
-        </div>
-      </header>
-    
-
-
-    <div class="post-body" itemprop="articleBody">
-
-      
-      
-
-      
-        
-          
-            <blockquote>
-<p><b>局部变量</b>：在一个函数内部定义的变量，他只是在本函数范围内有效，即只有在本函数内才能使用他们，在此函数以外是不能使用这些变量的。<br><b>全局变量</b>：全局变量是在函数之外定义的变量，从定义变量的位置开始到本源文件结束范围内有效。</p>
-<p>变量的存储方式有动态存储和静态存储两种方式。<br>如果要求变量的生命周期是函数执行结束，定义变量为<b>动态变量</b>。<br>如果要求变量的生命周期是整个程序执行结束，定义变量为<b>静态变量</b>。</p>
-<p>根据函数能否被其他文件中的函数调用，将函数定义为内部函数和外部函数</p>
-<p>如果函数不允许其他文件中的函数调用，则将该函数定义为<b>内部函数</b>。</p>
-</blockquote>
-<p>定义内部函数的方法是：在函数首部的函数类型前面加关键字static。</p>
-<figure class="highlight plain"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div></pre></td><td class="code"><pre><div class="line">static int sum(int a, int b)</div><div class="line">&#123;</div><div class="line"></div><div class="line">&#125;</div></pre></td></tr></table></figure>
-<blockquote>
-<p>如果函数允许被其他文件中的函数调用，则将该函数定义为<b>外部函数</b>。</p>
-</blockquote>
-<p>定义外部函数的方法是：在函数的收不的很熟类型前面不加任何关键字，或者加关键字extern。同一个C语言程序中不允许存在同名的外部函数。</p>
-<figure class="highlight plain"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div></pre></td><td class="code"><pre><div class="line">[extern] int sum(int a, intb)</div><div class="line">&#123;</div><div class="line"></div><div class="line">&#125;</div></pre></td></tr></table></figure>
-
-          
         
       
     </div>
@@ -1576,8 +1573,8 @@
         <nav class="site-state motion-element">
           <div class="site-state-item site-state-posts">
             <a href="/archives">
-              <span class="site-state-item-count">21</span>
-              <span class="site-state-item-name">ATRIKEL</span>
+              <span class="site-state-item-count">25</span>
+              <span class="site-state-item-name">posts</span>
             </a>
           </div>
 
@@ -1585,7 +1582,7 @@
             <div class="site-state-item site-state-categories">
               <a href="/categories">
                 <span class="site-state-item-count">7</span>
-                <span class="site-state-item-name">CATE</span>
+                <span class="site-state-item-name">categories</span>
               </a>
             </div>
           
@@ -1593,8 +1590,8 @@
           
             <div class="site-state-item site-state-tags">
               <a href="/tags">
-                <span class="site-state-item-count">21</span>
-                <span class="site-state-item-name">TAGS</span>
+                <span class="site-state-item-count">23</span>
+                <span class="site-state-item-name">tags</span>
               </a>
             </div>
           
@@ -1658,7 +1655,7 @@
 </div>
 
 <div class="powered-by">
-  Erstellt mit  <a class="theme-link" href="https://hexo.io">Hexo</a>
+  Powered by <a class="theme-link" href="https://hexo.io">Hexo</a>
 </div>
 
 <div class="theme-info">

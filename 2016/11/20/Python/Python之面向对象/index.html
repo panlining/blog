@@ -1,0 +1,701 @@
+<!doctype html>
+
+
+
+  
+
+
+<html class="theme-next pisces use-motion">
+<head>
+  <meta charset="UTF-8"/>
+<meta http-equiv="X-UA-Compatible" content="IE=edge,chrome=1" />
+<meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1"/>
+
+
+
+<meta http-equiv="Cache-Control" content="no-transform" />
+<meta http-equiv="Cache-Control" content="no-siteapp" />
+
+
+
+
+
+
+
+
+
+
+
+
+  
+  
+  <link href="/vendors/fancybox/source/jquery.fancybox.css?v=2.1.5" rel="stylesheet" type="text/css" />
+
+
+
+
+  
+  
+  
+  
+
+  
+    
+    
+  
+
+  
+    
+      
+    
+
+    
+  
+
+  
+
+  
+    
+      
+    
+
+    
+  
+
+  
+    
+      
+    
+
+    
+  
+
+  
+    
+    
+    <link href="//fonts.googleapis.com/css?family=Monda:300,300italic,400,400italic,700,700italic|Roboto Slab:300,300italic,400,400italic,700,700italic|Lobster Two:300,300italic,400,400italic,700,700italic|PT Mono:300,300italic,400,400italic,700,700italic&subset=latin,latin-ext" rel="stylesheet" type="text/css">
+  
+
+
+
+
+
+
+<link href="/vendors/font-awesome/css/font-awesome.min.css?v=4.4.0" rel="stylesheet" type="text/css" />
+
+<link href="/css/main.css?v=5.0.1" rel="stylesheet" type="text/css" />
+
+
+  <meta name="keywords" content="Python,基础,面向对象," />
+
+
+
+
+
+
+
+
+  <link rel="shortcut icon" type="image/x-icon" href="/favicon.ico?v=5.0.1" />
+
+
+
+
+
+
+<meta name="description" content="类的定义123456789101112131415class Person(object):    pass// Person为类名// object表示该类是从哪个类继承下来的xiaoming = Person()xiaohong = Person()// 类的实例化xiaoming = Person()xiaoming.name = &amp;apos;Xiao Ming&amp;apos;xiaoming.">
+<meta property="og:type" content="article">
+<meta property="og:title" content="Python之面向对象">
+<meta property="og:url" content="http://yoursite.com/2016/11/20/Python/Python之面向对象/index.html">
+<meta property="og:site_name" content="Echo's Blog">
+<meta property="og:description" content="类的定义123456789101112131415class Person(object):    pass// Person为类名// object表示该类是从哪个类继承下来的xiaoming = Person()xiaohong = Person()// 类的实例化xiaoming = Person()xiaoming.name = &amp;apos;Xiao Ming&amp;apos;xiaoming.">
+<meta property="og:updated_time" content="2016-11-20T09:31:08.000Z">
+<meta name="twitter:card" content="summary">
+<meta name="twitter:title" content="Python之面向对象">
+<meta name="twitter:description" content="类的定义123456789101112131415class Person(object):    pass// Person为类名// object表示该类是从哪个类继承下来的xiaoming = Person()xiaohong = Person()// 类的实例化xiaoming = Person()xiaoming.name = &amp;apos;Xiao Ming&amp;apos;xiaoming.">
+
+
+
+<script type="text/javascript" id="hexo.configuration">
+  var NexT = window.NexT || {};
+  var CONFIG = {
+    scheme: 'Pisces',
+    sidebar: {"position":"left","display":"post"},
+    fancybox: true,
+    motion: true,
+    duoshuo: {
+      userId: 0,
+      author: 'Author'
+    }
+  };
+</script>
+
+
+
+
+  <link rel="canonical" href="http://yoursite.com/2016/11/20/Python/Python之面向对象/"/>
+
+  <title> Python之面向对象 | Echo's Blog </title>
+</head>
+
+<body itemscope itemtype="http://schema.org/WebPage" lang="">
+
+  
+
+
+
+
+
+
+
+
+
+
+  
+  
+    
+  
+
+  <div class="container one-collumn sidebar-position-left page-post-detail ">
+    <div class="headband"></div>
+
+    <header id="header" class="header" itemscope itemtype="http://schema.org/WPHeader">
+      <div class="header-inner"><div class="site-meta ">
+  
+
+  <div class="custom-logo-site-title">
+    <a href="/"  class="brand" rel="start">
+      <span class="logo-line-before"><i></i></span>
+      <span class="site-title">Echo's Blog</span>
+      <span class="logo-line-after"><i></i></span>
+    </a>
+  </div>
+  <p class="site-subtitle">其实我是个读书人</p>
+</div>
+
+<div class="site-nav-toggle">
+  <button>
+    <span class="btn-bar"></span>
+    <span class="btn-bar"></span>
+    <span class="btn-bar"></span>
+  </button>
+</div>
+
+<nav class="site-nav">
+  
+
+  
+    <ul id="menu" class="menu">
+      
+        
+        <li class="menu-item menu-item-home">
+          <a href="/" rel="section">
+            
+              <i class="menu-item-icon fa fa-fw fa-home"></i> <br />
+            
+            Home
+          </a>
+        </li>
+      
+        
+        <li class="menu-item menu-item-categories">
+          <a href="/categories" rel="section">
+            
+              <i class="menu-item-icon fa fa-fw fa-th"></i> <br />
+            
+            Categories
+          </a>
+        </li>
+      
+        
+        <li class="menu-item menu-item-about">
+          <a href="/about" rel="section">
+            
+              <i class="menu-item-icon fa fa-fw fa-user"></i> <br />
+            
+            About
+          </a>
+        </li>
+      
+        
+        <li class="menu-item menu-item-archives">
+          <a href="/archives" rel="section">
+            
+              <i class="menu-item-icon fa fa-fw fa-archive"></i> <br />
+            
+            Archives
+          </a>
+        </li>
+      
+        
+        <li class="menu-item menu-item-tags">
+          <a href="/tags" rel="section">
+            
+              <i class="menu-item-icon fa fa-fw fa-tags"></i> <br />
+            
+            Tags
+          </a>
+        </li>
+      
+
+      
+    </ul>
+  
+
+  
+</nav>
+
+ </div>
+    </header>
+
+    <main id="main" class="main">
+      <div class="main-inner">
+        <div class="content-wrap">
+          <div id="content" class="content">
+            
+
+  <div id="posts" class="posts-expand">
+    
+
+  
+  
+
+  
+  
+  
+
+  <article class="post post-type-normal " itemscope itemtype="http://schema.org/Article">
+
+    
+      <header class="post-header">
+
+        
+        
+          <h1 class="post-title" itemprop="name headline">
+            
+            
+              
+                Python之面向对象
+              
+            
+          </h1>
+        
+
+        <div class="post-meta">
+          <span class="post-time">
+            <span class="post-meta-item-icon">
+              <i class="fa fa-calendar-o"></i>
+            </span>
+            <span class="post-meta-item-text">Posted on</span>
+            <time itemprop="dateCreated" datetime="2016-11-20T00:00:00+08:00" content="2016-11-20">
+              2016-11-20
+            </time>
+          </span>
+
+          
+            <span class="post-category" >
+              &nbsp; | &nbsp;
+              <span class="post-meta-item-icon">
+                <i class="fa fa-folder-o"></i>
+              </span>
+              <span class="post-meta-item-text">In</span>
+              
+                <span itemprop="about" itemscope itemtype="https://schema.org/Thing">
+                  <a href="/categories/Python/" itemprop="url" rel="index">
+                    <span itemprop="name">Python</span>
+                  </a>
+                </span>
+
+                
+                
+
+              
+            </span>
+          
+
+          
+            
+              <span class="post-comments-count">
+                &nbsp; | &nbsp;
+                <a href="/2016/11/20/Python/Python之面向对象/#comments" itemprop="discussionUrl">
+                  <span class="post-comments-count ds-thread-count" data-thread-key="2016/11/20/Python/Python之面向对象/" itemprop="commentsCount"></span>
+                </a>
+              </span>
+            
+          
+
+          
+
+          
+          
+
+          
+        </div>
+      </header>
+    
+
+
+    <div class="post-body" itemprop="articleBody">
+
+      
+      
+
+      
+        <h3 id="类的定义"><a href="#类的定义" class="headerlink" title="类的定义"></a>类的定义</h3><figure class="highlight plain"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div><div class="line">7</div><div class="line">8</div><div class="line">9</div><div class="line">10</div><div class="line">11</div><div class="line">12</div><div class="line">13</div><div class="line">14</div><div class="line">15</div></pre></td><td class="code"><pre><div class="line">class Person(object):</div><div class="line">    pass</div><div class="line">// Person为类名</div><div class="line">// object表示该类是从哪个类继承下来的</div><div class="line"></div><div class="line">xiaoming = Person()</div><div class="line">xiaohong = Person()</div><div class="line">// 类的实例化</div><div class="line"></div><div class="line"></div><div class="line">xiaoming = Person()</div><div class="line">xiaoming.name = &apos;Xiao Ming&apos;</div><div class="line">xiaoming.gender = &apos;Male&apos;</div><div class="line">xiaoming.birth = &apos;1990-1-1&apos;</div><div class="line">// 给对象的属性赋值</div></pre></td></tr></table></figure>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div><div class="line">7</div><div class="line">8</div><div class="line">9</div><div class="line">10</div><div class="line">11</div></pre></td><td class="code"><pre><div class="line">class Person(object):</div><div class="line">    def __init__(self, name, gender, birth):</div><div class="line">        self.name = name</div><div class="line">        self.gender = gender</div><div class="line">        self.birth = birth</div><div class="line">// 构造函数</div><div class="line">// __init__() 方法的第一个参数必须是 self（也可以用别的名字，但建议使用习惯用法），后续参数则可以自由指定，和定义函数没有任何区别</div><div class="line"></div><div class="line">// 相应地，创建实例时，就必须要提供除 self 以外的参数</div><div class="line">xiaoming = Person(&apos;Xiao Ming&apos;, &apos;Male&apos;, &apos;1991-1-1&apos;)</div><div class="line">xiaohong = Person(&apos;Xiao Hong&apos;, &apos;Female&apos;, &apos;1992-2-2&apos;)</div></pre></td></tr></table></figure>
+<h3 id="访问限制"><a href="#访问限制" class="headerlink" title="访问限制"></a>访问限制</h3><blockquote>
+<p>Python对属性权限的控制是通过属性名来实现的，如果一个属性由双下划线开头(__)，该属性就无法被外部访问</p>
+</blockquote>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div><div class="line">7</div><div class="line">8</div><div class="line">9</div><div class="line">10</div><div class="line">11</div><div class="line">12</div></pre></td><td class="code"><pre><div class="line">class Person(object):</div><div class="line">    def __init__(self, name):</div><div class="line">        self.name = name</div><div class="line">        self._title = &apos;Mr&apos;</div><div class="line">        self.__job = &apos;Student&apos;</div><div class="line">p = Person(&apos;Bob&apos;)</div><div class="line">print p.name</div><div class="line"># =&gt; Bob</div><div class="line">print p._title</div><div class="line"># =&gt; Mr</div><div class="line">print p.__job</div><div class="line"># =&gt; Error</div></pre></td></tr></table></figure>
+<h3 id="类属性"><a href="#类属性" class="headerlink" title="类属性"></a>类属性</h3><figure class="highlight plain"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div><div class="line">7</div><div class="line">8</div><div class="line">9</div><div class="line">10</div><div class="line">11</div><div class="line">12</div><div class="line">13</div><div class="line">14</div><div class="line">15</div><div class="line">16</div><div class="line">17</div><div class="line">18</div><div class="line">19</div><div class="line">20</div><div class="line">21</div><div class="line">22</div><div class="line">23</div><div class="line">24</div><div class="line">25</div><div class="line">26</div><div class="line">27</div><div class="line">28</div><div class="line">29</div><div class="line">30</div><div class="line">31</div><div class="line">32</div><div class="line">33</div><div class="line">34</div></pre></td><td class="code"><pre><div class="line">class Person(object):</div><div class="line">    address = &apos;Earth&apos;</div><div class="line">    def __init__(self, name):</div><div class="line">        self.name = name</div><div class="line">// 定义类属性</div><div class="line"></div><div class="line">print Person.address</div><div class="line">// 因为类属性是直接绑定在类上的，所以，访问类属性不需要创建实例，就可以直接访问</div><div class="line"></div><div class="line">p1 = Person(&apos;Bob&apos;)</div><div class="line">p2 = Person(&apos;Alice&apos;)</div><div class="line">print p1.address</div><div class="line"># =&gt; Earth</div><div class="line">print p2.address</div><div class="line"># =&gt; Earth</div><div class="line">// 实例的属性也可以访问</div><div class="line"></div><div class="line">Person.address = &apos;China&apos;</div><div class="line">print p1.address</div><div class="line"># =&gt; &apos;China&apos;</div><div class="line">print p2.address</div><div class="line"># =&gt; &apos;China&apos;</div><div class="line">// 由于Python是动态语言，类属性也是可以动态添加和修改的</div><div class="line"></div><div class="line">Person.address = &apos;China&apos;</div><div class="line">print p1.address</div><div class="line"># =&gt; &apos;China&apos;</div><div class="line">print p2.address</div><div class="line"># =&gt; &apos;China&apos;</div><div class="line">// 因为类属性只有一份，所以，当Person类的address改变时，所有实例访问到的类属性都改变了。</div><div class="line"></div><div class="line">del p1.address</div><div class="line">print p1.address</div><div class="line">// 删除实例属性</div></pre></td></tr></table></figure>
+<h3 id="类的方法"><a href="#类的方法" class="headerlink" title="类的方法"></a>类的方法</h3><blockquote>
+<p>类的方法就是在类中定义的函数，它的第一个参数永远是 self，指向调用该方法的实例本身，其他参数和一个普通函数是完全一样的</p>
+</blockquote>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div><div class="line">7</div><div class="line">8</div><div class="line">9</div><div class="line">10</div><div class="line">11</div><div class="line">12</div></pre></td><td class="code"><pre><div class="line">class Person(object):</div><div class="line"></div><div class="line">    def __init__(self, name):</div><div class="line">        self.__name = name</div><div class="line"></div><div class="line">    def get_name(self):</div><div class="line">        return self.__name</div><div class="line"></div><div class="line"></div><div class="line">p1 = Person(&apos;Bob&apos;)</div><div class="line">print p1.get_name()  # self不需要显式传入</div><div class="line"># =&gt; Bob</div></pre></td></tr></table></figure>
+<h3 id="方法也是属性"><a href="#方法也是属性" class="headerlink" title="方法也是属性"></a>方法也是属性</h3><blockquote>
+<p>我们在 class 中定义的实例方法其实也是属性，它实际上是一个函数对象</p>
+</blockquote>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div><div class="line">7</div><div class="line">8</div><div class="line">9</div><div class="line">10</div><div class="line">11</div><div class="line">12</div></pre></td><td class="code"><pre><div class="line">class Person(object):</div><div class="line">    def __init__(self, name, score):</div><div class="line">        self.name = name</div><div class="line">        self.score = score</div><div class="line">    def get_grade(self):</div><div class="line">        return &apos;A&apos;</div><div class="line"></div><div class="line">p1 = Person(&apos;Bob&apos;, 90)</div><div class="line">print p1.get_grade</div><div class="line"># =&gt; &lt;bound method Person.get_grade of &lt;__main__.Person object at 0x109e58510&gt;&gt;</div><div class="line">print p1.get_grade()</div><div class="line"># =&gt; A</div></pre></td></tr></table></figure>
+<blockquote>
+<p>因为方法也是一个属性，所以，它也可以动态地添加到实例上，只是需要用 types.MethodType() 把一个函数变为一个方法</p>
+</blockquote>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div><div class="line">7</div><div class="line">8</div><div class="line">9</div><div class="line">10</div><div class="line">11</div><div class="line">12</div><div class="line">13</div><div class="line">14</div><div class="line">15</div><div class="line">16</div><div class="line">17</div><div class="line">18</div><div class="line">19</div><div class="line">20</div><div class="line">21</div></pre></td><td class="code"><pre><div class="line">import types</div><div class="line">def fn_get_grade(self):</div><div class="line">    if self.score &gt;= 80:</div><div class="line">        return &apos;A&apos;</div><div class="line">    if self.score &gt;= 60:</div><div class="line">        return &apos;B&apos;</div><div class="line">    return &apos;C&apos;</div><div class="line"></div><div class="line">class Person(object):</div><div class="line">    def __init__(self, name, score):</div><div class="line">        self.name = name</div><div class="line">        self.score = score</div><div class="line"></div><div class="line">p1 = Person(&apos;Bob&apos;, 90)</div><div class="line">p1.get_grade = types.MethodType(fn_get_grade, p1, Person)</div><div class="line">print p1.get_grade()</div><div class="line"># =&gt; A</div><div class="line">p2 = Person(&apos;Alice&apos;, 65)</div><div class="line">print p2.get_grade()</div><div class="line"># ERROR: AttributeError: &apos;Person&apos; object has no attribute &apos;get_grade&apos;</div><div class="line"># 因为p2实例并没有绑定get_grade</div></pre></td></tr></table></figure>
+<h3 id="Python中继承一个类"><a href="#Python中继承一个类" class="headerlink" title="Python中继承一个类"></a>Python中继承一个类</h3><figure class="highlight plain"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div><div class="line">7</div><div class="line">8</div><div class="line">9</div></pre></td><td class="code"><pre><div class="line">class Person(object):</div><div class="line">    def __init__(self, name, gender):</div><div class="line">        self.name = name</div><div class="line">        self.gender = gender</div><div class="line"></div><div class="line">class Student(Person):</div><div class="line">    def __init__(self, name, gender, score):</div><div class="line">        super(Student, self).__init__(name, gender)</div><div class="line">        self.score = score</div></pre></td></tr></table></figure>
+
+      
+    </div>
+
+    <div>
+      
+        
+
+      
+    </div>
+
+    <div>
+      
+        
+
+      
+    </div>
+
+    <footer class="post-footer">
+      
+        <div class="post-tags">
+          
+            <a href="/tags/Python/" rel="tag">#Python</a>
+          
+            <a href="/tags/基础/" rel="tag">#基础</a>
+          
+            <a href="/tags/面向对象/" rel="tag">#面向对象</a>
+          
+        </div>
+      
+
+      
+        <div class="post-nav">
+          <div class="post-nav-next post-nav-item">
+            
+              <a href="/2016/11/20/Python/Python中的模块和包/" rel="next" title="Python中的模块和包">
+                <i class="fa fa-chevron-left"></i> Python中的模块和包
+              </a>
+            
+          </div>
+
+          <div class="post-nav-prev post-nav-item">
+            
+          </div>
+        </div>
+      
+
+      
+      
+    </footer>
+  </article>
+
+
+
+    <div class="post-spread">
+      
+    </div>
+  </div>
+
+
+          </div>
+          
+
+
+          
+  <div class="comments" id="comments">
+    
+      <div class="ds-thread" data-thread-key="2016/11/20/Python/Python之面向对象/"
+           data-title="Python之面向对象" data-url="http://yoursite.com/2016/11/20/Python/Python之面向对象/">
+      </div>
+    
+  </div>
+
+
+        </div>
+        
+          
+  
+  <div class="sidebar-toggle">
+    <div class="sidebar-toggle-line-wrap">
+      <span class="sidebar-toggle-line sidebar-toggle-line-first"></span>
+      <span class="sidebar-toggle-line sidebar-toggle-line-middle"></span>
+      <span class="sidebar-toggle-line sidebar-toggle-line-last"></span>
+    </div>
+  </div>
+
+  <aside id="sidebar" class="sidebar">
+    <div class="sidebar-inner">
+
+      
+
+      
+        <ul class="sidebar-nav motion-element">
+          <li class="sidebar-nav-toc sidebar-nav-active" data-target="post-toc-wrap" >
+            Table of Contents
+          </li>
+          <li class="sidebar-nav-overview" data-target="site-overview">
+            Overview
+          </li>
+        </ul>
+      
+
+      <section class="site-overview sidebar-panel ">
+        <div class="site-author motion-element" itemprop="author" itemscope itemtype="http://schema.org/Person">
+          <img class="site-author-image" itemprop="image"
+               src="/images/avatar.jpg"
+               alt="Echo" />
+          <p class="site-author-name" itemprop="name">Echo</p>
+          <p class="site-description motion-element" itemprop="description">读书人？</p>
+        </div>
+        <nav class="site-state motion-element">
+          <div class="site-state-item site-state-posts">
+            <a href="/archives">
+              <span class="site-state-item-count">25</span>
+              <span class="site-state-item-name">posts</span>
+            </a>
+          </div>
+
+          
+            <div class="site-state-item site-state-categories">
+              <a href="/categories">
+                <span class="site-state-item-count">7</span>
+                <span class="site-state-item-name">categories</span>
+              </a>
+            </div>
+          
+
+          
+            <div class="site-state-item site-state-tags">
+              <a href="/tags">
+                <span class="site-state-item-count">23</span>
+                <span class="site-state-item-name">tags</span>
+              </a>
+            </div>
+          
+
+        </nav>
+
+        
+
+        <div class="links-of-author motion-element">
+          
+            
+              <span class="links-of-author-item">
+                <a href="https://github.com/panlining" target="_blank" title="GitHub">
+                  
+                    <i class="fa fa-fw fa-github"></i>
+                  
+                  GitHub
+                </a>
+              </span>
+            
+              <span class="links-of-author-item">
+                <a href="https://twitter.com/your-user-name" target="_blank" title="Twitter">
+                  
+                    <i class="fa fa-fw fa-twitter"></i>
+                  
+                  Twitter
+                </a>
+              </span>
+            
+          
+        </div>
+
+        
+        
+
+        
+        
+
+      </section>
+
+      
+        <section class="post-toc-wrap motion-element sidebar-panel sidebar-panel-active">
+          <div class="post-toc">
+            
+              
+            
+            
+              <div class="post-toc-content"><ol class="nav"><li class="nav-item nav-level-3"><a class="nav-link" href="#类的定义"><span class="nav-number">1.</span> <span class="nav-text">类的定义</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#访问限制"><span class="nav-number">2.</span> <span class="nav-text">访问限制</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#类属性"><span class="nav-number">3.</span> <span class="nav-text">类属性</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#类的方法"><span class="nav-number">4.</span> <span class="nav-text">类的方法</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#方法也是属性"><span class="nav-number">5.</span> <span class="nav-text">方法也是属性</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#Python中继承一个类"><span class="nav-number">6.</span> <span class="nav-text">Python中继承一个类</span></a></li></ol></div>
+            
+          </div>
+        </section>
+      
+
+    </div>
+  </aside>
+
+
+        
+      </div>
+    </main>
+
+    <footer id="footer" class="footer">
+      <div class="footer-inner">
+        <div class="copyright" >
+  
+  &copy; 
+  <span itemprop="copyrightYear">2016</span>
+  <span class="with-love">
+    <i class="fa fa-heart"></i>
+  </span>
+  <span class="author" itemprop="copyrightHolder">Echo</span>
+</div>
+
+<div class="powered-by">
+  Powered by <a class="theme-link" href="https://hexo.io">Hexo</a>
+</div>
+
+<div class="theme-info">
+  Theme -
+  <a class="theme-link" href="https://github.com/iissnan/hexo-theme-next">
+    NexT.Pisces
+  </a>
+</div>
+
+        
+
+        
+      </div>
+    </footer>
+
+    <div class="back-to-top">
+      <i class="fa fa-arrow-up"></i>
+    </div>
+  </div>
+
+  
+
+<script type="text/javascript">
+  if (Object.prototype.toString.call(window.Promise) !== '[object Function]') {
+    window.Promise = null;
+  }
+</script>
+
+
+
+
+
+
+
+
+
+  
+
+
+
+  
+  <script type="text/javascript" src="/vendors/jquery/index.js?v=2.1.3"></script>
+
+  
+  <script type="text/javascript" src="/vendors/fastclick/lib/fastclick.min.js?v=1.0.6"></script>
+
+  
+  <script type="text/javascript" src="/vendors/jquery_lazyload/jquery.lazyload.js?v=1.9.7"></script>
+
+  
+  <script type="text/javascript" src="/vendors/velocity/velocity.min.js?v=1.2.1"></script>
+
+  
+  <script type="text/javascript" src="/vendors/velocity/velocity.ui.min.js?v=1.2.1"></script>
+
+  
+  <script type="text/javascript" src="/vendors/fancybox/source/jquery.fancybox.pack.js?v=2.1.5"></script>
+
+
+  
+
+
+  <script type="text/javascript" src="/js/src/utils.js?v=5.0.1"></script>
+
+  <script type="text/javascript" src="/js/src/motion.js?v=5.0.1"></script>
+
+
+
+  
+  
+
+
+  <script type="text/javascript" src="/js/src/affix.js?v=5.0.1"></script>
+
+  <script type="text/javascript" src="/js/src/schemes/pisces.js?v=5.0.1"></script>
+
+
+
+  
+  <script type="text/javascript" src="/js/src/scrollspy.js?v=5.0.1"></script>
+<script type="text/javascript" src="/js/src/post-details.js?v=5.0.1"></script>
+
+
+
+  
+
+
+  <script type="text/javascript" src="/js/src/bootstrap.js?v=5.0.1"></script>
+
+
+
+  
+
+  
+    
+  
+
+  <script type="text/javascript">
+    var duoshuoQuery = {short_name:"afun"};
+    (function() {
+      var ds = document.createElement('script');
+      ds.type = 'text/javascript';ds.async = true;
+      ds.id = 'duoshuo-script';
+      ds.src = (document.location.protocol == 'https:' ? 'https:' : 'http:') + '//static.duoshuo.com/embed.js';
+      ds.charset = 'UTF-8';
+      (document.getElementsByTagName('head')[0]
+      || document.getElementsByTagName('body')[0]).appendChild(ds);
+    })();
+  </script>
+
+  
+    
+    <script src="/vendors/ua-parser-js/dist/ua-parser.min.js?v=0.7.9"></script>
+    <script src="/js/src/hook-duoshuo.js"></script>
+  
+
+
+
+
+
+
+  
+  
+
+  
+
+  
+
+  
+
+</body>
+</html>

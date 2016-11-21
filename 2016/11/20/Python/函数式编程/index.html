@@ -1,0 +1,733 @@
+<!doctype html>
+
+
+
+  
+
+
+<html class="theme-next pisces use-motion">
+<head>
+  <meta charset="UTF-8"/>
+<meta http-equiv="X-UA-Compatible" content="IE=edge,chrome=1" />
+<meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1"/>
+
+
+
+<meta http-equiv="Cache-Control" content="no-transform" />
+<meta http-equiv="Cache-Control" content="no-siteapp" />
+
+
+
+
+
+
+
+
+
+
+
+
+  
+  
+  <link href="/vendors/fancybox/source/jquery.fancybox.css?v=2.1.5" rel="stylesheet" type="text/css" />
+
+
+
+
+  
+  
+  
+  
+
+  
+    
+    
+  
+
+  
+    
+      
+    
+
+    
+  
+
+  
+
+  
+    
+      
+    
+
+    
+  
+
+  
+    
+      
+    
+
+    
+  
+
+  
+    
+    
+    <link href="//fonts.googleapis.com/css?family=Monda:300,300italic,400,400italic,700,700italic|Roboto Slab:300,300italic,400,400italic,700,700italic|Lobster Two:300,300italic,400,400italic,700,700italic|PT Mono:300,300italic,400,400italic,700,700italic&subset=latin,latin-ext" rel="stylesheet" type="text/css">
+  
+
+
+
+
+
+
+<link href="/vendors/font-awesome/css/font-awesome.min.css?v=4.4.0" rel="stylesheet" type="text/css" />
+
+<link href="/css/main.css?v=5.0.1" rel="stylesheet" type="text/css" />
+
+
+  <meta name="keywords" content="Python,基础," />
+
+
+
+
+
+
+
+
+  <link rel="shortcut icon" type="image/x-icon" href="/favicon.ico?v=5.0.1" />
+
+
+
+
+
+
+<meta name="description" content="高阶函数
+高阶函数就是可以接受函数为参数的函数
+
+1234def add(x, y, f):    return f(x) + f(y)add(-5, 9, abs)">
+<meta property="og:type" content="article">
+<meta property="og:title" content="函数式编程">
+<meta property="og:url" content="http://yoursite.com/2016/11/20/Python/函数式编程/index.html">
+<meta property="og:site_name" content="Echo's Blog">
+<meta property="og:description" content="高阶函数
+高阶函数就是可以接受函数为参数的函数
+
+1234def add(x, y, f):    return f(x) + f(y)add(-5, 9, abs)">
+<meta property="og:updated_time" content="2016-11-20T08:37:45.000Z">
+<meta name="twitter:card" content="summary">
+<meta name="twitter:title" content="函数式编程">
+<meta name="twitter:description" content="高阶函数
+高阶函数就是可以接受函数为参数的函数
+
+1234def add(x, y, f):    return f(x) + f(y)add(-5, 9, abs)">
+
+
+
+<script type="text/javascript" id="hexo.configuration">
+  var NexT = window.NexT || {};
+  var CONFIG = {
+    scheme: 'Pisces',
+    sidebar: {"position":"left","display":"post"},
+    fancybox: true,
+    motion: true,
+    duoshuo: {
+      userId: 0,
+      author: 'Author'
+    }
+  };
+</script>
+
+
+
+
+  <link rel="canonical" href="http://yoursite.com/2016/11/20/Python/函数式编程/"/>
+
+  <title> 函数式编程 | Echo's Blog </title>
+</head>
+
+<body itemscope itemtype="http://schema.org/WebPage" lang="">
+
+  
+
+
+
+
+
+
+
+
+
+
+  
+  
+    
+  
+
+  <div class="container one-collumn sidebar-position-left page-post-detail ">
+    <div class="headband"></div>
+
+    <header id="header" class="header" itemscope itemtype="http://schema.org/WPHeader">
+      <div class="header-inner"><div class="site-meta ">
+  
+
+  <div class="custom-logo-site-title">
+    <a href="/"  class="brand" rel="start">
+      <span class="logo-line-before"><i></i></span>
+      <span class="site-title">Echo's Blog</span>
+      <span class="logo-line-after"><i></i></span>
+    </a>
+  </div>
+  <p class="site-subtitle">其实我是个读书人</p>
+</div>
+
+<div class="site-nav-toggle">
+  <button>
+    <span class="btn-bar"></span>
+    <span class="btn-bar"></span>
+    <span class="btn-bar"></span>
+  </button>
+</div>
+
+<nav class="site-nav">
+  
+
+  
+    <ul id="menu" class="menu">
+      
+        
+        <li class="menu-item menu-item-home">
+          <a href="/" rel="section">
+            
+              <i class="menu-item-icon fa fa-fw fa-home"></i> <br />
+            
+            Home
+          </a>
+        </li>
+      
+        
+        <li class="menu-item menu-item-categories">
+          <a href="/categories" rel="section">
+            
+              <i class="menu-item-icon fa fa-fw fa-th"></i> <br />
+            
+            Categories
+          </a>
+        </li>
+      
+        
+        <li class="menu-item menu-item-about">
+          <a href="/about" rel="section">
+            
+              <i class="menu-item-icon fa fa-fw fa-user"></i> <br />
+            
+            About
+          </a>
+        </li>
+      
+        
+        <li class="menu-item menu-item-archives">
+          <a href="/archives" rel="section">
+            
+              <i class="menu-item-icon fa fa-fw fa-archive"></i> <br />
+            
+            Archives
+          </a>
+        </li>
+      
+        
+        <li class="menu-item menu-item-tags">
+          <a href="/tags" rel="section">
+            
+              <i class="menu-item-icon fa fa-fw fa-tags"></i> <br />
+            
+            Tags
+          </a>
+        </li>
+      
+
+      
+    </ul>
+  
+
+  
+</nav>
+
+ </div>
+    </header>
+
+    <main id="main" class="main">
+      <div class="main-inner">
+        <div class="content-wrap">
+          <div id="content" class="content">
+            
+
+  <div id="posts" class="posts-expand">
+    
+
+  
+  
+
+  
+  
+  
+
+  <article class="post post-type-normal " itemscope itemtype="http://schema.org/Article">
+
+    
+      <header class="post-header">
+
+        
+        
+          <h1 class="post-title" itemprop="name headline">
+            
+            
+              
+                函数式编程
+              
+            
+          </h1>
+        
+
+        <div class="post-meta">
+          <span class="post-time">
+            <span class="post-meta-item-icon">
+              <i class="fa fa-calendar-o"></i>
+            </span>
+            <span class="post-meta-item-text">Posted on</span>
+            <time itemprop="dateCreated" datetime="2016-11-20T00:00:00+08:00" content="2016-11-20">
+              2016-11-20
+            </time>
+          </span>
+
+          
+            <span class="post-category" >
+              &nbsp; | &nbsp;
+              <span class="post-meta-item-icon">
+                <i class="fa fa-folder-o"></i>
+              </span>
+              <span class="post-meta-item-text">In</span>
+              
+                <span itemprop="about" itemscope itemtype="https://schema.org/Thing">
+                  <a href="/categories/Python/" itemprop="url" rel="index">
+                    <span itemprop="name">Python</span>
+                  </a>
+                </span>
+
+                
+                
+
+              
+            </span>
+          
+
+          
+            
+              <span class="post-comments-count">
+                &nbsp; | &nbsp;
+                <a href="/2016/11/20/Python/函数式编程/#comments" itemprop="discussionUrl">
+                  <span class="post-comments-count ds-thread-count" data-thread-key="2016/11/20/Python/函数式编程/" itemprop="commentsCount"></span>
+                </a>
+              </span>
+            
+          
+
+          
+
+          
+          
+
+          
+        </div>
+      </header>
+    
+
+
+    <div class="post-body" itemprop="articleBody">
+
+      
+      
+
+      
+        <h3 id="高阶函数"><a href="#高阶函数" class="headerlink" title="高阶函数"></a>高阶函数</h3><blockquote>
+<p>高阶函数就是可以接受函数为参数的函数</p>
+</blockquote>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div></pre></td><td class="code"><pre><div class="line">def add(x, y, f):</div><div class="line">    return f(x) + f(y)</div><div class="line"></div><div class="line">add(-5, 9, abs)</div></pre></td></tr></table></figure>
+<a id="more"></a>
+<h4 id="map函数"><a href="#map函数" class="headerlink" title="map函数"></a>map函数</h4><blockquote>
+<p>map是内置的高阶函数，它接收一个function和一个list，并通过把function依次作用在list中每个元素上面，得到的新的list并返回<br>map函数不改变原来的list，而是返回一个新的list<br>由于list包含的元素可以是任何类型，因此，map() 不仅仅可以处理只包含数值的list，事实上它可以处理包含任意类型的list，只要传入的函数f可以处理这种数据类型。</p>
+</blockquote>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div></pre></td><td class="code"><pre><div class="line">def f(x):</div><div class="line">    return x*x</div><div class="line">print map(f, [1, 2, 3, 4, 5, 6, 7, 8, 9])</div><div class="line"></div><div class="line">// 输出结果：[1, 4, 9, 10, 25, 36, 49, 64, 81]</div></pre></td></tr></table></figure>
+<h4 id="reduce函数"><a href="#reduce函数" class="headerlink" title="reduce函数"></a>reduce函数</h4><blockquote>
+<p>reduce()函数也是Python内置的一个高阶函数。reduce()函数接收的参数和 map()类似，一个函数 f，一个list，但行为和 map()不同，reduce()传入的函数 f 必须接收两个参数，reduce()对list的每个元素反复调用函数f，并返回最终结果值。</p>
+</blockquote>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div><div class="line">7</div><div class="line">8</div><div class="line">9</div></pre></td><td class="code"><pre><div class="line">def f(x, y):</div><div class="line">    return x + y</div><div class="line"></div><div class="line">// 调用 reduce(f, [1, 3, 5, 7, 9])时，reduce函数将做如下计算：</div><div class="line">// 先计算头两个元素：f(1, 3)，结果为4；</div><div class="line">// 再把结果和第3个元素计算：f(4, 5)，结果为9；</div><div class="line">// 再把结果和第4个元素计算：f(9, 7)，结果为16；</div><div class="line">// 再把结果和第5个元素计算：f(16, 9)，结果为25；</div><div class="line">// 由于没有更多的元素了，计算结束，返回结果25。</div></pre></td></tr></table></figure>
+<blockquote>
+<p>实际上reduce还可以接受第三个参数，如果传入第三个参数，那么第一次运算就是将list的第一个元素与第三个参数加入函数进行运算</p>
+</blockquote>
+<h4 id="filter函数"><a href="#filter函数" class="headerlink" title="filter函数"></a>filter函数</h4><blockquote>
+<p>filter()函数是 Python 内置的另一个有用的高阶函数，filter()函数接收一个函数 f 和一个list，这个函数 f 的作用是对每个元素进行判断，返回 True或 False，filter()根据判断结果自动过滤掉不符合条件的元素，返回由符合条件元素组成的新list。</p>
+</blockquote>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div></pre></td><td class="code"><pre><div class="line">def is_odd(x):</div><div class="line">    return x % 2 == 1</div><div class="line"></div><div class="line">filter(is_odd, [1, 4, 6, 7, 9, 12, 17])</div><div class="line">// [1, 7, 9, 17]</div></pre></td></tr></table></figure>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div><div class="line">7</div></pre></td><td class="code"><pre><div class="line">// 删除none或者空字符串</div><div class="line"></div><div class="line">def is_not_empty(s):</div><div class="line">    return s and len(s.strip()) &gt; 0</div><div class="line">filter(is_not_empty, [&apos;test&apos;, None, &apos;&apos;, &apos;str&apos;, &apos;  &apos;, &apos;END&apos;])</div><div class="line"></div><div class="line">//  s.strip(rm) 删除 s 字符串中开头、结尾处的 rm 序列的字符，相当于php中的trim</div></pre></td></tr></table></figure>
+<h4 id="自定义排序函数"><a href="#自定义排序函数" class="headerlink" title="自定义排序函数"></a>自定义排序函数</h4><blockquote>
+<p>Python内置的 sorted()函数可对list进行排序。<br>但 sorted()也是一个高阶函数，它可以接收一个比较函数来实现自定义排序，比较函数的定义是，传入两个待比较的元素 x, y，如果 x 应该排在 y 的前面，返回 -1，如果 x 应该排在 y 的后面，返回 1。如果 x 和 y 相等，返回 0。</p>
+</blockquote>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div><div class="line">7</div><div class="line">8</div><div class="line">9</div><div class="line">10</div></pre></td><td class="code"><pre><div class="line">def reversed_cmp(x, y):</div><div class="line">    if x &gt; y:</div><div class="line">        return -1</div><div class="line">    if x &lt; y:</div><div class="line">        return 1</div><div class="line">    return 0</div><div class="line"></div><div class="line">sorted([36, 5, 12, 9, 21], reversed_cmp)</div><div class="line">// [36, 21, 12, 9, 5]</div><div class="line">// 实现倒叙排列</div></pre></td></tr></table></figure>
+<blockquote>
+<p>sorted()也可以对字符串进行排序，字符串默认按照ASCII大小来比较</p>
+</blockquote>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div></pre></td><td class="code"><pre><div class="line">sorted([&apos;bob&apos;, &apos;about&apos;, &apos;Zoo&apos;, &apos;Credit&apos;])</div><div class="line">[&apos;Credit&apos;, &apos;Zoo&apos;, &apos;about&apos;, &apos;bob&apos;]</div></pre></td></tr></table></figure>
+<h3 id="返回函数"><a href="#返回函数" class="headerlink" title="返回函数"></a>返回函数</h3><blockquote>
+<p>Python的函数不但可以返回int、str、list、dict等数据类型，还可以返回函数！</p>
+</blockquote>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div><div class="line">7</div><div class="line">8</div><div class="line">9</div><div class="line">10</div><div class="line">11</div><div class="line">12</div></pre></td><td class="code"><pre><div class="line">// 定义一个函数f，他的返回值为函数g</div><div class="line">def f():</div><div class="line">    print &apos;call f()...&apos;</div><div class="line">    # 定义函数g:</div><div class="line">    def g():</div><div class="line">        print &apos;call g()...&apos;</div><div class="line">    # 返回函数g:</div><div class="line">    return g</div><div class="line"></div><div class="line">x = f() // 打印出 call f()...</div><div class="line"></div><div class="line">x() // 打印出call g()...</div></pre></td></tr></table></figure>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div></pre></td><td class="code"><pre><div class="line">// 需要注意返回函数和返回值</div><div class="line"></div><div class="line">def myabs():</div><div class="line">    return abs   # 返回函数</div><div class="line">def myabs2(x):</div><div class="line">    return abs(x)   # 返回函数调用的结果，返回值是一个数值</div></pre></td></tr></table></figure>
+<blockquote>
+<p>返回函数可以把一些计算延迟执行</p>
+</blockquote>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div><div class="line">7</div></pre></td><td class="code"><pre><div class="line">def calc_sum(lst):</div><div class="line">    def lazy_sum():</div><div class="line">        return sum(lst)</div><div class="line">    return lazy_sum</div><div class="line"></div><div class="line">f = calc_sum([1, 2, 3, 4])</div><div class="line">f() // 在这里调用函数f也就是calc_sum函数的返回值时才计算了list和的运算</div></pre></td></tr></table></figure>
+<h3 id="闭包"><a href="#闭包" class="headerlink" title="闭包"></a>闭包</h3><blockquote>
+<p>内层函数引用了外层函数的变量（参数也算变量）然后返回内层函数的情况，称为闭包（Closure）。<br>闭包的特点是返回的函数还引用了外层函数的局部变量，所以，要正确使用闭包，就要确保引用的局部变量在函数返回后不能变。</p>
+</blockquote>
+<h3 id="匿名函数"><a href="#匿名函数" class="headerlink" title="匿名函数"></a>匿名函数</h3>
+      
+    </div>
+
+    <div>
+      
+        
+
+      
+    </div>
+
+    <div>
+      
+        
+
+      
+    </div>
+
+    <footer class="post-footer">
+      
+        <div class="post-tags">
+          
+            <a href="/tags/Python/" rel="tag">#Python</a>
+          
+            <a href="/tags/基础/" rel="tag">#基础</a>
+          
+        </div>
+      
+
+      
+        <div class="post-nav">
+          <div class="post-nav-next post-nav-item">
+            
+              <a href="/2016/11/19/Python/Python中的函数/" rel="next" title="Python中的函数">
+                <i class="fa fa-chevron-left"></i> Python中的函数
+              </a>
+            
+          </div>
+
+          <div class="post-nav-prev post-nav-item">
+            
+              <a href="/2016/11/20/Python/Python中的模块和包/" rel="prev" title="Python中的模块和包">
+                Python中的模块和包 <i class="fa fa-chevron-right"></i>
+              </a>
+            
+          </div>
+        </div>
+      
+
+      
+      
+    </footer>
+  </article>
+
+
+
+    <div class="post-spread">
+      
+    </div>
+  </div>
+
+
+          </div>
+          
+
+
+          
+  <div class="comments" id="comments">
+    
+      <div class="ds-thread" data-thread-key="2016/11/20/Python/函数式编程/"
+           data-title="函数式编程" data-url="http://yoursite.com/2016/11/20/Python/函数式编程/">
+      </div>
+    
+  </div>
+
+
+        </div>
+        
+          
+  
+  <div class="sidebar-toggle">
+    <div class="sidebar-toggle-line-wrap">
+      <span class="sidebar-toggle-line sidebar-toggle-line-first"></span>
+      <span class="sidebar-toggle-line sidebar-toggle-line-middle"></span>
+      <span class="sidebar-toggle-line sidebar-toggle-line-last"></span>
+    </div>
+  </div>
+
+  <aside id="sidebar" class="sidebar">
+    <div class="sidebar-inner">
+
+      
+
+      
+        <ul class="sidebar-nav motion-element">
+          <li class="sidebar-nav-toc sidebar-nav-active" data-target="post-toc-wrap" >
+            Table of Contents
+          </li>
+          <li class="sidebar-nav-overview" data-target="site-overview">
+            Overview
+          </li>
+        </ul>
+      
+
+      <section class="site-overview sidebar-panel ">
+        <div class="site-author motion-element" itemprop="author" itemscope itemtype="http://schema.org/Person">
+          <img class="site-author-image" itemprop="image"
+               src="/images/avatar.jpg"
+               alt="Echo" />
+          <p class="site-author-name" itemprop="name">Echo</p>
+          <p class="site-description motion-element" itemprop="description">读书人？</p>
+        </div>
+        <nav class="site-state motion-element">
+          <div class="site-state-item site-state-posts">
+            <a href="/archives">
+              <span class="site-state-item-count">25</span>
+              <span class="site-state-item-name">posts</span>
+            </a>
+          </div>
+
+          
+            <div class="site-state-item site-state-categories">
+              <a href="/categories">
+                <span class="site-state-item-count">7</span>
+                <span class="site-state-item-name">categories</span>
+              </a>
+            </div>
+          
+
+          
+            <div class="site-state-item site-state-tags">
+              <a href="/tags">
+                <span class="site-state-item-count">23</span>
+                <span class="site-state-item-name">tags</span>
+              </a>
+            </div>
+          
+
+        </nav>
+
+        
+
+        <div class="links-of-author motion-element">
+          
+            
+              <span class="links-of-author-item">
+                <a href="https://github.com/panlining" target="_blank" title="GitHub">
+                  
+                    <i class="fa fa-fw fa-github"></i>
+                  
+                  GitHub
+                </a>
+              </span>
+            
+              <span class="links-of-author-item">
+                <a href="https://twitter.com/your-user-name" target="_blank" title="Twitter">
+                  
+                    <i class="fa fa-fw fa-twitter"></i>
+                  
+                  Twitter
+                </a>
+              </span>
+            
+          
+        </div>
+
+        
+        
+
+        
+        
+
+      </section>
+
+      
+        <section class="post-toc-wrap motion-element sidebar-panel sidebar-panel-active">
+          <div class="post-toc">
+            
+              
+            
+            
+              <div class="post-toc-content"><ol class="nav"><li class="nav-item nav-level-3"><a class="nav-link" href="#高阶函数"><span class="nav-number">1.</span> <span class="nav-text">高阶函数</span></a><ol class="nav-child"><li class="nav-item nav-level-4"><a class="nav-link" href="#map函数"><span class="nav-number">1.1.</span> <span class="nav-text">map函数</span></a></li><li class="nav-item nav-level-4"><a class="nav-link" href="#reduce函数"><span class="nav-number">1.2.</span> <span class="nav-text">reduce函数</span></a></li><li class="nav-item nav-level-4"><a class="nav-link" href="#filter函数"><span class="nav-number">1.3.</span> <span class="nav-text">filter函数</span></a></li><li class="nav-item nav-level-4"><a class="nav-link" href="#自定义排序函数"><span class="nav-number">1.4.</span> <span class="nav-text">自定义排序函数</span></a></li></ol></li><li class="nav-item nav-level-3"><a class="nav-link" href="#返回函数"><span class="nav-number">2.</span> <span class="nav-text">返回函数</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#闭包"><span class="nav-number">3.</span> <span class="nav-text">闭包</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#匿名函数"><span class="nav-number">4.</span> <span class="nav-text">匿名函数</span></a></li></ol></div>
+            
+          </div>
+        </section>
+      
+
+    </div>
+  </aside>
+
+
+        
+      </div>
+    </main>
+
+    <footer id="footer" class="footer">
+      <div class="footer-inner">
+        <div class="copyright" >
+  
+  &copy; 
+  <span itemprop="copyrightYear">2016</span>
+  <span class="with-love">
+    <i class="fa fa-heart"></i>
+  </span>
+  <span class="author" itemprop="copyrightHolder">Echo</span>
+</div>
+
+<div class="powered-by">
+  Powered by <a class="theme-link" href="https://hexo.io">Hexo</a>
+</div>
+
+<div class="theme-info">
+  Theme -
+  <a class="theme-link" href="https://github.com/iissnan/hexo-theme-next">
+    NexT.Pisces
+  </a>
+</div>
+
+        
+
+        
+      </div>
+    </footer>
+
+    <div class="back-to-top">
+      <i class="fa fa-arrow-up"></i>
+    </div>
+  </div>
+
+  
+
+<script type="text/javascript">
+  if (Object.prototype.toString.call(window.Promise) !== '[object Function]') {
+    window.Promise = null;
+  }
+</script>
+
+
+
+
+
+
+
+
+
+  
+
+
+
+  
+  <script type="text/javascript" src="/vendors/jquery/index.js?v=2.1.3"></script>
+
+  
+  <script type="text/javascript" src="/vendors/fastclick/lib/fastclick.min.js?v=1.0.6"></script>
+
+  
+  <script type="text/javascript" src="/vendors/jquery_lazyload/jquery.lazyload.js?v=1.9.7"></script>
+
+  
+  <script type="text/javascript" src="/vendors/velocity/velocity.min.js?v=1.2.1"></script>
+
+  
+  <script type="text/javascript" src="/vendors/velocity/velocity.ui.min.js?v=1.2.1"></script>
+
+  
+  <script type="text/javascript" src="/vendors/fancybox/source/jquery.fancybox.pack.js?v=2.1.5"></script>
+
+
+  
+
+
+  <script type="text/javascript" src="/js/src/utils.js?v=5.0.1"></script>
+
+  <script type="text/javascript" src="/js/src/motion.js?v=5.0.1"></script>
+
+
+
+  
+  
+
+
+  <script type="text/javascript" src="/js/src/affix.js?v=5.0.1"></script>
+
+  <script type="text/javascript" src="/js/src/schemes/pisces.js?v=5.0.1"></script>
+
+
+
+  
+  <script type="text/javascript" src="/js/src/scrollspy.js?v=5.0.1"></script>
+<script type="text/javascript" src="/js/src/post-details.js?v=5.0.1"></script>
+
+
+
+  
+
+
+  <script type="text/javascript" src="/js/src/bootstrap.js?v=5.0.1"></script>
+
+
+
+  
+
+  
+    
+  
+
+  <script type="text/javascript">
+    var duoshuoQuery = {short_name:"afun"};
+    (function() {
+      var ds = document.createElement('script');
+      ds.type = 'text/javascript';ds.async = true;
+      ds.id = 'duoshuo-script';
+      ds.src = (document.location.protocol == 'https:' ? 'https:' : 'http:') + '//static.duoshuo.com/embed.js';
+      ds.charset = 'UTF-8';
+      (document.getElementsByTagName('head')[0]
+      || document.getElementsByTagName('body')[0]).appendChild(ds);
+    })();
+  </script>
+
+  
+    
+    <script src="/vendors/ua-parser-js/dist/ua-parser.min.js?v=0.7.9"></script>
+    <script src="/js/src/hook-duoshuo.js"></script>
+  
+
+
+
+
+
+
+  
+  
+
+  
+
+  
+
+  
+
+</body>
+</html>
