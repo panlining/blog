@@ -193,7 +193,7 @@
             
               <i class="menu-item-icon fa fa-fw fa-home"></i> <br />
             
-            HOME
+            Home
           </a>
         </li>
       
@@ -203,7 +203,7 @@
             
               <i class="menu-item-icon fa fa-fw fa-th"></i> <br />
             
-            CATE
+            Categories
           </a>
         </li>
       
@@ -213,7 +213,7 @@
             
               <i class="menu-item-icon fa fa-fw fa-user"></i> <br />
             
-            ME
+            About
           </a>
         </li>
       
@@ -223,7 +223,7 @@
             
               <i class="menu-item-icon fa fa-fw fa-archive"></i> <br />
             
-            ARCHIVES
+            Archives
           </a>
         </li>
       
@@ -233,7 +233,7 @@
             
               <i class="menu-item-icon fa fa-fw fa-tags"></i> <br />
             
-            TAGS
+            Tags
           </a>
         </li>
       
@@ -289,7 +289,7 @@
             <span class="post-meta-item-icon">
               <i class="fa fa-calendar-o"></i>
             </span>
-            <span class="post-meta-item-text">Veröffentlicht am</span>
+            <span class="post-meta-item-text">Posted on</span>
             <time itemprop="dateCreated" datetime="2016-11-20T00:00:00+08:00" content="2016-11-20">
               2016-11-20
             </time>
@@ -301,7 +301,7 @@
               <span class="post-meta-item-icon">
                 <i class="fa fa-folder-o"></i>
               </span>
-              <span class="post-meta-item-text">in</span>
+              <span class="post-meta-item-text">In</span>
               
                 <span itemprop="about" itemscope itemtype="https://schema.org/Thing">
                   <a href="/categories/Python/" itemprop="url" rel="index">
@@ -404,145 +404,6 @@
             
               
                 
-                <a class="post-title-link" href="/2016/11/20/Python/Python之面向对象/" itemprop="url">
-                  Python之面向对象
-                </a>
-              
-            
-          </h1>
-        
-
-        <div class="post-meta">
-          <span class="post-time">
-            <span class="post-meta-item-icon">
-              <i class="fa fa-calendar-o"></i>
-            </span>
-            <span class="post-meta-item-text">Veröffentlicht am</span>
-            <time itemprop="dateCreated" datetime="2016-11-20T00:00:00+08:00" content="2016-11-20">
-              2016-11-20
-            </time>
-          </span>
-
-          
-            <span class="post-category" >
-              &nbsp; | &nbsp;
-              <span class="post-meta-item-icon">
-                <i class="fa fa-folder-o"></i>
-              </span>
-              <span class="post-meta-item-text">in</span>
-              
-                <span itemprop="about" itemscope itemtype="https://schema.org/Thing">
-                  <a href="/categories/Python/" itemprop="url" rel="index">
-                    <span itemprop="name">Python</span>
-                  </a>
-                </span>
-
-                
-                
-
-              
-            </span>
-          
-
-          
-            
-              <span class="post-comments-count">
-                &nbsp; | &nbsp;
-                <a href="/2016/11/20/Python/Python之面向对象/#comments" itemprop="discussionUrl">
-                  <span class="post-comments-count ds-thread-count" data-thread-key="2016/11/20/Python/Python之面向对象/" itemprop="commentsCount"></span>
-                </a>
-              </span>
-            
-          
-
-          
-
-          
-          
-
-          
-        </div>
-      </header>
-    
-
-
-    <div class="post-body" itemprop="articleBody">
-
-      
-      
-
-      
-        
-          
-            <h3 id="类的定义"><a href="#类的定义" class="headerlink" title="类的定义"></a>类的定义</h3><figure class="highlight plain"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div><div class="line">7</div><div class="line">8</div><div class="line">9</div><div class="line">10</div><div class="line">11</div><div class="line">12</div><div class="line">13</div><div class="line">14</div><div class="line">15</div></pre></td><td class="code"><pre><div class="line">class Person(object):</div><div class="line">    pass</div><div class="line">// Person为类名</div><div class="line">// object表示该类是从哪个类继承下来的</div><div class="line"></div><div class="line">xiaoming = Person()</div><div class="line">xiaohong = Person()</div><div class="line">// 类的实例化</div><div class="line"></div><div class="line"></div><div class="line">xiaoming = Person()</div><div class="line">xiaoming.name = &apos;Xiao Ming&apos;</div><div class="line">xiaoming.gender = &apos;Male&apos;</div><div class="line">xiaoming.birth = &apos;1990-1-1&apos;</div><div class="line">// 给对象的属性赋值</div></pre></td></tr></table></figure>
-<figure class="highlight plain"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div><div class="line">7</div><div class="line">8</div><div class="line">9</div><div class="line">10</div><div class="line">11</div></pre></td><td class="code"><pre><div class="line">class Person(object):</div><div class="line">    def __init__(self, name, gender, birth):</div><div class="line">        self.name = name</div><div class="line">        self.gender = gender</div><div class="line">        self.birth = birth</div><div class="line">// 构造函数</div><div class="line">// __init__() 方法的第一个参数必须是 self（也可以用别的名字，但建议使用习惯用法），后续参数则可以自由指定，和定义函数没有任何区别</div><div class="line"></div><div class="line">// 相应地，创建实例时，就必须要提供除 self 以外的参数</div><div class="line">xiaoming = Person(&apos;Xiao Ming&apos;, &apos;Male&apos;, &apos;1991-1-1&apos;)</div><div class="line">xiaohong = Person(&apos;Xiao Hong&apos;, &apos;Female&apos;, &apos;1992-2-2&apos;)</div></pre></td></tr></table></figure>
-<h3 id="访问限制"><a href="#访问限制" class="headerlink" title="访问限制"></a>访问限制</h3><blockquote>
-<p>Python对属性权限的控制是通过属性名来实现的，如果一个属性由双下划线开头(__)，该属性就无法被外部访问</p>
-</blockquote>
-<figure class="highlight plain"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div><div class="line">7</div><div class="line">8</div><div class="line">9</div><div class="line">10</div><div class="line">11</div><div class="line">12</div></pre></td><td class="code"><pre><div class="line">class Person(object):</div><div class="line">    def __init__(self, name):</div><div class="line">        self.name = name</div><div class="line">        self._title = &apos;Mr&apos;</div><div class="line">        self.__job = &apos;Student&apos;</div><div class="line">p = Person(&apos;Bob&apos;)</div><div class="line">print p.name</div><div class="line"># =&gt; Bob</div><div class="line">print p._title</div><div class="line"># =&gt; Mr</div><div class="line">print p.__job</div><div class="line"># =&gt; Error</div></pre></td></tr></table></figure>
-<h3 id="类属性"><a href="#类属性" class="headerlink" title="类属性"></a>类属性</h3><figure class="highlight plain"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div><div class="line">7</div><div class="line">8</div><div class="line">9</div><div class="line">10</div><div class="line">11</div><div class="line">12</div><div class="line">13</div><div class="line">14</div><div class="line">15</div><div class="line">16</div><div class="line">17</div><div class="line">18</div><div class="line">19</div><div class="line">20</div><div class="line">21</div><div class="line">22</div><div class="line">23</div><div class="line">24</div><div class="line">25</div><div class="line">26</div><div class="line">27</div><div class="line">28</div><div class="line">29</div><div class="line">30</div><div class="line">31</div><div class="line">32</div><div class="line">33</div><div class="line">34</div></pre></td><td class="code"><pre><div class="line">class Person(object):</div><div class="line">    address = &apos;Earth&apos;</div><div class="line">    def __init__(self, name):</div><div class="line">        self.name = name</div><div class="line">// 定义类属性</div><div class="line"></div><div class="line">print Person.address</div><div class="line">// 因为类属性是直接绑定在类上的，所以，访问类属性不需要创建实例，就可以直接访问</div><div class="line"></div><div class="line">p1 = Person(&apos;Bob&apos;)</div><div class="line">p2 = Person(&apos;Alice&apos;)</div><div class="line">print p1.address</div><div class="line"># =&gt; Earth</div><div class="line">print p2.address</div><div class="line"># =&gt; Earth</div><div class="line">// 实例的属性也可以访问</div><div class="line"></div><div class="line">Person.address = &apos;China&apos;</div><div class="line">print p1.address</div><div class="line"># =&gt; &apos;China&apos;</div><div class="line">print p2.address</div><div class="line"># =&gt; &apos;China&apos;</div><div class="line">// 由于Python是动态语言，类属性也是可以动态添加和修改的</div><div class="line"></div><div class="line">Person.address = &apos;China&apos;</div><div class="line">print p1.address</div><div class="line"># =&gt; &apos;China&apos;</div><div class="line">print p2.address</div><div class="line"># =&gt; &apos;China&apos;</div><div class="line">// 因为类属性只有一份，所以，当Person类的address改变时，所有实例访问到的类属性都改变了。</div><div class="line"></div><div class="line">del p1.address</div><div class="line">print p1.address</div><div class="line">// 删除实例属性</div></pre></td></tr></table></figure>
-<h3 id="类的方法"><a href="#类的方法" class="headerlink" title="类的方法"></a>类的方法</h3><blockquote>
-<p>类的方法就是在类中定义的函数，它的第一个参数永远是 self，指向调用该方法的实例本身，其他参数和一个普通函数是完全一样的</p>
-</blockquote>
-<figure class="highlight plain"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div><div class="line">7</div><div class="line">8</div><div class="line">9</div><div class="line">10</div><div class="line">11</div><div class="line">12</div></pre></td><td class="code"><pre><div class="line">class Person(object):</div><div class="line"></div><div class="line">    def __init__(self, name):</div><div class="line">        self.__name = name</div><div class="line"></div><div class="line">    def get_name(self):</div><div class="line">        return self.__name</div><div class="line"></div><div class="line"></div><div class="line">p1 = Person(&apos;Bob&apos;)</div><div class="line">print p1.get_name()  # self不需要显式传入</div><div class="line"># =&gt; Bob</div></pre></td></tr></table></figure>
-<h3 id="方法也是属性"><a href="#方法也是属性" class="headerlink" title="方法也是属性"></a>方法也是属性</h3><blockquote>
-<p>我们在 class 中定义的实例方法其实也是属性，它实际上是一个函数对象</p>
-</blockquote>
-<figure class="highlight plain"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div><div class="line">7</div><div class="line">8</div><div class="line">9</div><div class="line">10</div><div class="line">11</div><div class="line">12</div></pre></td><td class="code"><pre><div class="line">class Person(object):</div><div class="line">    def __init__(self, name, score):</div><div class="line">        self.name = name</div><div class="line">        self.score = score</div><div class="line">    def get_grade(self):</div><div class="line">        return &apos;A&apos;</div><div class="line"></div><div class="line">p1 = Person(&apos;Bob&apos;, 90)</div><div class="line">print p1.get_grade</div><div class="line"># =&gt; &lt;bound method Person.get_grade of &lt;__main__.Person object at 0x109e58510&gt;&gt;</div><div class="line">print p1.get_grade()</div><div class="line"># =&gt; A</div></pre></td></tr></table></figure>
-<blockquote>
-<p>因为方法也是一个属性，所以，它也可以动态地添加到实例上，只是需要用 types.MethodType() 把一个函数变为一个方法</p>
-</blockquote>
-<figure class="highlight plain"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div><div class="line">7</div><div class="line">8</div><div class="line">9</div><div class="line">10</div><div class="line">11</div><div class="line">12</div><div class="line">13</div><div class="line">14</div><div class="line">15</div><div class="line">16</div><div class="line">17</div><div class="line">18</div><div class="line">19</div><div class="line">20</div><div class="line">21</div></pre></td><td class="code"><pre><div class="line">import types</div><div class="line">def fn_get_grade(self):</div><div class="line">    if self.score &gt;= 80:</div><div class="line">        return &apos;A&apos;</div><div class="line">    if self.score &gt;= 60:</div><div class="line">        return &apos;B&apos;</div><div class="line">    return &apos;C&apos;</div><div class="line"></div><div class="line">class Person(object):</div><div class="line">    def __init__(self, name, score):</div><div class="line">        self.name = name</div><div class="line">        self.score = score</div><div class="line"></div><div class="line">p1 = Person(&apos;Bob&apos;, 90)</div><div class="line">p1.get_grade = types.MethodType(fn_get_grade, p1, Person)</div><div class="line">print p1.get_grade()</div><div class="line"># =&gt; A</div><div class="line">p2 = Person(&apos;Alice&apos;, 65)</div><div class="line">print p2.get_grade()</div><div class="line"># ERROR: AttributeError: &apos;Person&apos; object has no attribute &apos;get_grade&apos;</div><div class="line"># 因为p2实例并没有绑定get_grade</div></pre></td></tr></table></figure>
-<h3 id="Python中继承一个类"><a href="#Python中继承一个类" class="headerlink" title="Python中继承一个类"></a>Python中继承一个类</h3><figure class="highlight plain"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div><div class="line">7</div><div class="line">8</div><div class="line">9</div></pre></td><td class="code"><pre><div class="line">class Person(object):</div><div class="line">    def __init__(self, name, gender):</div><div class="line">        self.name = name</div><div class="line">        self.gender = gender</div><div class="line"></div><div class="line">class Student(Person):</div><div class="line">    def __init__(self, name, gender, score):</div><div class="line">        super(Student, self).__init__(name, gender)</div><div class="line">        self.score = score</div></pre></td></tr></table></figure>
-
-          
-        
-      
-    </div>
-
-    <div>
-      
-    </div>
-
-    <div>
-      
-    </div>
-
-    <footer class="post-footer">
-      
-
-      
-
-      
-      
-        <div class="post-eof"></div>
-      
-    </footer>
-  </article>
-
-
-    
-      
-
-  
-  
-
-  
-  
-  
-
-  <article class="post post-type-normal " itemscope itemtype="http://schema.org/Article">
-
-    
-      <header class="post-header">
-
-        
-        
-          <h1 class="post-title" itemprop="name headline">
-            
-            
-              
-                
                 <a class="post-title-link" href="/2016/11/20/Python/函数式编程/" itemprop="url">
                   函数式编程
                 </a>
@@ -556,7 +417,7 @@
             <span class="post-meta-item-icon">
               <i class="fa fa-calendar-o"></i>
             </span>
-            <span class="post-meta-item-text">Veröffentlicht am</span>
+            <span class="post-meta-item-text">Posted on</span>
             <time itemprop="dateCreated" datetime="2016-11-20T00:00:00+08:00" content="2016-11-20">
               2016-11-20
             </time>
@@ -568,7 +429,7 @@
               <span class="post-meta-item-icon">
                 <i class="fa fa-folder-o"></i>
               </span>
-              <span class="post-meta-item-text">in</span>
+              <span class="post-meta-item-text">In</span>
               
                 <span itemprop="about" itemscope itemtype="https://schema.org/Thing">
                   <a href="/categories/Python/" itemprop="url" rel="index">
@@ -618,7 +479,129 @@
 <figure class="highlight plain"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div></pre></td><td class="code"><pre><div class="line">def add(x, y, f):</div><div class="line">    return f(x) + f(y)</div><div class="line"></div><div class="line">add(-5, 9, abs)</div></pre></td></tr></table></figure>
           <div class="post-more-link text-center">
             <a class="btn" href="/2016/11/20/Python/函数式编程/#more" rel="contents">
-              Weiterlesen &raquo;
+              Read more &raquo;
+            </a>
+          </div>
+        
+      
+    </div>
+
+    <div>
+      
+    </div>
+
+    <div>
+      
+    </div>
+
+    <footer class="post-footer">
+      
+
+      
+
+      
+      
+        <div class="post-eof"></div>
+      
+    </footer>
+  </article>
+
+
+    
+      
+
+  
+  
+
+  
+  
+  
+
+  <article class="post post-type-normal " itemscope itemtype="http://schema.org/Article">
+
+    
+      <header class="post-header">
+
+        
+        
+          <h1 class="post-title" itemprop="name headline">
+            
+            
+              
+                
+                <a class="post-title-link" href="/2016/11/20/Python/Python之面向对象/" itemprop="url">
+                  Python之面向对象
+                </a>
+              
+            
+          </h1>
+        
+
+        <div class="post-meta">
+          <span class="post-time">
+            <span class="post-meta-item-icon">
+              <i class="fa fa-calendar-o"></i>
+            </span>
+            <span class="post-meta-item-text">Posted on</span>
+            <time itemprop="dateCreated" datetime="2016-11-20T00:00:00+08:00" content="2016-11-20">
+              2016-11-20
+            </time>
+          </span>
+
+          
+            <span class="post-category" >
+              &nbsp; | &nbsp;
+              <span class="post-meta-item-icon">
+                <i class="fa fa-folder-o"></i>
+              </span>
+              <span class="post-meta-item-text">In</span>
+              
+                <span itemprop="about" itemscope itemtype="https://schema.org/Thing">
+                  <a href="/categories/Python/" itemprop="url" rel="index">
+                    <span itemprop="name">Python</span>
+                  </a>
+                </span>
+
+                
+                
+
+              
+            </span>
+          
+
+          
+            
+              <span class="post-comments-count">
+                &nbsp; | &nbsp;
+                <a href="/2016/11/20/Python/Python之面向对象/#comments" itemprop="discussionUrl">
+                  <span class="post-comments-count ds-thread-count" data-thread-key="2016/11/20/Python/Python之面向对象/" itemprop="commentsCount"></span>
+                </a>
+              </span>
+            
+          
+
+          
+
+          
+          
+
+          
+        </div>
+      </header>
+    
+
+
+    <div class="post-body" itemprop="articleBody">
+
+      
+      
+
+      
+        
+          <h3 id="类的定义"><a href="#类的定义" class="headerlink" title="类的定义"></a>类的定义</h3><figure class="highlight plain"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div><div class="line">7</div><div class="line">8</div><div class="line">9</div><div class="line">10</div><div class="line">11</div><div class="line">12</div><div class="line">13</div><div class="line">14</div><div class="line">15</div></pre></td><td class="code"><pre><div class="line">class Person(object):</div><div class="line">    pass</div><div class="line">// Person为类名</div><div class="line">// object表示该类是从哪个类继承下来的</div><div class="line"></div><div class="line">xiaoming = Person()</div><div class="line">xiaohong = Person()</div><div class="line">// 类的实例化</div><div class="line"></div><div class="line"></div><div class="line">xiaoming = Person()</div><div class="line">xiaoming.name = &apos;Xiao Ming&apos;</div><div class="line">xiaoming.gender = &apos;Male&apos;</div><div class="line">xiaoming.birth = &apos;1990-1-1&apos;</div><div class="line">// 给对象的属性赋值</div></pre></td></tr></table></figure>
+          <div class="post-more-link text-center">
+            <a class="btn" href="/2016/11/20/Python/Python之面向对象/#more" rel="contents">
+              Read more &raquo;
             </a>
           </div>
         
@@ -681,7 +664,7 @@
             <span class="post-meta-item-icon">
               <i class="fa fa-calendar-o"></i>
             </span>
-            <span class="post-meta-item-text">Veröffentlicht am</span>
+            <span class="post-meta-item-text">Posted on</span>
             <time itemprop="dateCreated" datetime="2016-11-19T00:00:00+08:00" content="2016-11-19">
               2016-11-19
             </time>
@@ -693,7 +676,7 @@
               <span class="post-meta-item-icon">
                 <i class="fa fa-folder-o"></i>
               </span>
-              <span class="post-meta-item-text">in</span>
+              <span class="post-meta-item-text">In</span>
               
                 <span itemprop="about" itemscope itemtype="https://schema.org/Thing">
                   <a href="/categories/Python/" itemprop="url" rel="index">
@@ -743,7 +726,7 @@
 <figure class="highlight plain"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div></pre></td><td class="code"><pre><div class="line">// 定义一个求绝对值的函数</div><div class="line">def my_abs(x):</div><div class="line">    if x &gt;= 0:</div><div class="line">        return x</div><div class="line">    else:</div><div class="line">        return -x</div></pre></td></tr></table></figure>
           <div class="post-more-link text-center">
             <a class="btn" href="/2016/11/19/Python/Python中的函数/#more" rel="contents">
-              Weiterlesen &raquo;
+              Read more &raquo;
             </a>
           </div>
         
@@ -806,7 +789,7 @@
             <span class="post-meta-item-icon">
               <i class="fa fa-calendar-o"></i>
             </span>
-            <span class="post-meta-item-text">Veröffentlicht am</span>
+            <span class="post-meta-item-text">Posted on</span>
             <time itemprop="dateCreated" datetime="2016-11-05T00:00:00+08:00" content="2016-11-05">
               2016-11-05
             </time>
@@ -818,7 +801,7 @@
               <span class="post-meta-item-icon">
                 <i class="fa fa-folder-o"></i>
               </span>
-              <span class="post-meta-item-text">in</span>
+              <span class="post-meta-item-text">In</span>
               
                 <span itemprop="about" itemscope itemtype="https://schema.org/Thing">
                   <a href="/categories/Python/" itemprop="url" rel="index">
@@ -872,7 +855,7 @@
 <figure class="highlight plain"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div></pre></td><td class="code"><pre><div class="line">1 + 2.0    # ==&gt; 浮点数 3.0</div><div class="line">11 / 4    # ==&gt; 2</div><div class="line">11.0 / 4    # ==&gt; 2.75</div></pre></td></tr></table></figure>
           <div class="post-more-link text-center">
             <a class="btn" href="/2016/11/05/Python/Python语法基础/#more" rel="contents">
-              Weiterlesen &raquo;
+              Read more &raquo;
             </a>
           </div>
         
@@ -935,7 +918,7 @@
             <span class="post-meta-item-icon">
               <i class="fa fa-calendar-o"></i>
             </span>
-            <span class="post-meta-item-text">Veröffentlicht am</span>
+            <span class="post-meta-item-text">Posted on</span>
             <time itemprop="dateCreated" datetime="2016-10-11T00:00:00+08:00" content="2016-10-11">
               2016-10-11
             </time>
@@ -947,7 +930,7 @@
               <span class="post-meta-item-icon">
                 <i class="fa fa-folder-o"></i>
               </span>
-              <span class="post-meta-item-text">in</span>
+              <span class="post-meta-item-text">In</span>
               
                 <span itemprop="about" itemscope itemtype="https://schema.org/Thing">
                   <a href="/categories/PHP/" itemprop="url" rel="index">
@@ -997,7 +980,7 @@
 <p><img src="http://ocepa5xqq.bkt.clouddn.com/1460615487271_2.jpeg" alt=""></p>
           <div class="post-more-link text-center">
             <a class="btn" href="/2016/10/11/PHP/Curl/#more" rel="contents">
-              Weiterlesen &raquo;
+              Read more &raquo;
             </a>
           </div>
         
@@ -1060,7 +1043,7 @@
             <span class="post-meta-item-icon">
               <i class="fa fa-calendar-o"></i>
             </span>
-            <span class="post-meta-item-text">Veröffentlicht am</span>
+            <span class="post-meta-item-text">Posted on</span>
             <time itemprop="dateCreated" datetime="2016-10-08T23:24:00+08:00" content="2016-10-08">
               2016-10-08
             </time>
@@ -1072,7 +1055,7 @@
               <span class="post-meta-item-icon">
                 <i class="fa fa-folder-o"></i>
               </span>
-              <span class="post-meta-item-text">in</span>
+              <span class="post-meta-item-text">In</span>
               
                 <span itemprop="about" itemscope itemtype="https://schema.org/Thing">
                   <a href="/categories/C/" itemprop="url" rel="index">
@@ -1121,7 +1104,7 @@
 </blockquote>
           <div class="post-more-link text-center">
             <a class="btn" href="/2016/10/08/C/指针与链表/#more" rel="contents">
-              Weiterlesen &raquo;
+              Read more &raquo;
             </a>
           </div>
         
@@ -1184,7 +1167,7 @@
             <span class="post-meta-item-icon">
               <i class="fa fa-calendar-o"></i>
             </span>
-            <span class="post-meta-item-text">Veröffentlicht am</span>
+            <span class="post-meta-item-text">Posted on</span>
             <time itemprop="dateCreated" datetime="2016-10-07T10:38:00+08:00" content="2016-10-07">
               2016-10-07
             </time>
@@ -1196,7 +1179,7 @@
               <span class="post-meta-item-icon">
                 <i class="fa fa-folder-o"></i>
               </span>
-              <span class="post-meta-item-text">in</span>
+              <span class="post-meta-item-text">In</span>
               
                 <span itemprop="about" itemscope itemtype="https://schema.org/Thing">
                   <a href="/categories/C/" itemprop="url" rel="index">
@@ -1313,7 +1296,7 @@
             <span class="post-meta-item-icon">
               <i class="fa fa-calendar-o"></i>
             </span>
-            <span class="post-meta-item-text">Veröffentlicht am</span>
+            <span class="post-meta-item-text">Posted on</span>
             <time itemprop="dateCreated" datetime="2016-10-06T16:18:00+08:00" content="2016-10-06">
               2016-10-06
             </time>
@@ -1325,7 +1308,7 @@
               <span class="post-meta-item-icon">
                 <i class="fa fa-folder-o"></i>
               </span>
-              <span class="post-meta-item-text">in</span>
+              <span class="post-meta-item-text">In</span>
               
                 <span itemprop="about" itemscope itemtype="https://schema.org/Thing">
                   <a href="/categories/C/" itemprop="url" rel="index">
@@ -1375,7 +1358,7 @@
 </blockquote>
           <div class="post-more-link text-center">
             <a class="btn" href="/2016/10/06/C/数据文件/#more" rel="contents">
-              Weiterlesen &raquo;
+              Read more &raquo;
             </a>
           </div>
         
@@ -1438,7 +1421,7 @@
             <span class="post-meta-item-icon">
               <i class="fa fa-calendar-o"></i>
             </span>
-            <span class="post-meta-item-text">Veröffentlicht am</span>
+            <span class="post-meta-item-text">Posted on</span>
             <time itemprop="dateCreated" datetime="2016-10-05T12:42:00+08:00" content="2016-10-05">
               2016-10-05
             </time>
@@ -1450,7 +1433,7 @@
               <span class="post-meta-item-icon">
                 <i class="fa fa-folder-o"></i>
               </span>
-              <span class="post-meta-item-text">in</span>
+              <span class="post-meta-item-text">In</span>
               
                 <span itemprop="about" itemscope itemtype="https://schema.org/Thing">
                   <a href="/categories/C/" itemprop="url" rel="index">
@@ -1499,7 +1482,7 @@
 </blockquote>
           <div class="post-more-link text-center">
             <a class="btn" href="/2016/10/05/C/指针/#more" rel="contents">
-              Weiterlesen &raquo;
+              Read more &raquo;
             </a>
           </div>
         
@@ -1574,7 +1557,7 @@
           <div class="site-state-item site-state-posts">
             <a href="/archives">
               <span class="site-state-item-count">25</span>
-              <span class="site-state-item-name">ATRIKEL</span>
+              <span class="site-state-item-name">posts</span>
             </a>
           </div>
 
@@ -1582,7 +1565,7 @@
             <div class="site-state-item site-state-categories">
               <a href="/categories">
                 <span class="site-state-item-count">7</span>
-                <span class="site-state-item-name">CATE</span>
+                <span class="site-state-item-name">categories</span>
               </a>
             </div>
           
@@ -1591,7 +1574,7 @@
             <div class="site-state-item site-state-tags">
               <a href="/tags">
                 <span class="site-state-item-count">23</span>
-                <span class="site-state-item-name">TAGS</span>
+                <span class="site-state-item-name">tags</span>
               </a>
             </div>
           
@@ -1655,7 +1638,7 @@
 </div>
 
 <div class="powered-by">
-  Erstellt mit  <a class="theme-link" href="https://hexo.io">Hexo</a>
+  Powered by <a class="theme-link" href="https://hexo.io">Hexo</a>
 </div>
 
 <div class="theme-info">
