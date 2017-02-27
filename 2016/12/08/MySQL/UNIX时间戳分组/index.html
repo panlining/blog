@@ -110,7 +110,7 @@
 <meta property="og:site_name" content="Echo's Blog">
 <meta property="og:description" content="UNIX时间戳 按月分组 按年月分组 按日分组 mysql语句1select month(FROM_UNIXTIME(time)) from table_name group by month(FROM_UNIXTIME(time))
 按月分组：1select month(FROM_UNIXTIME(time)) from table_name group by month(FROM_UNIXTI">
-<meta property="og:updated_time" content="2016-12-08T07:47:09.000Z">
+<meta property="og:updated_time" content="2017-02-27T05:42:56.000Z">
 <meta name="twitter:card" content="summary">
 <meta name="twitter:title" content="UNIX时间戳分组">
 <meta name="twitter:description" content="UNIX时间戳 按月分组 按年月分组 按日分组 mysql语句1select month(FROM_UNIXTIME(time)) from table_name group by month(FROM_UNIXTIME(time))
@@ -195,7 +195,7 @@
             
               <i class="menu-item-icon fa fa-fw fa-home"></i> <br />
             
-            HOME
+            Home
           </a>
         </li>
       
@@ -205,7 +205,7 @@
             
               <i class="menu-item-icon fa fa-fw fa-th"></i> <br />
             
-            CATE
+            Categories
           </a>
         </li>
       
@@ -215,7 +215,7 @@
             
               <i class="menu-item-icon fa fa-fw fa-user"></i> <br />
             
-            ME
+            About
           </a>
         </li>
       
@@ -225,7 +225,7 @@
             
               <i class="menu-item-icon fa fa-fw fa-archive"></i> <br />
             
-            ARCHIVES
+            Archives
           </a>
         </li>
       
@@ -235,7 +235,7 @@
             
               <i class="menu-item-icon fa fa-fw fa-tags"></i> <br />
             
-            TAGS
+            Tags
           </a>
         </li>
       
@@ -288,7 +288,7 @@
             <span class="post-meta-item-icon">
               <i class="fa fa-calendar-o"></i>
             </span>
-            <span class="post-meta-item-text">Veröffentlicht am</span>
+            <span class="post-meta-item-text">Posted on</span>
             <time itemprop="dateCreated" datetime="2016-12-08T15:29:48+08:00" content="2016-12-08">
               2016-12-08
             </time>
@@ -300,7 +300,7 @@
               <span class="post-meta-item-icon">
                 <i class="fa fa-folder-o"></i>
               </span>
-              <span class="post-meta-item-text">in</span>
+              <span class="post-meta-item-text">In</span>
               
                 <span itemprop="about" itemscope itemtype="https://schema.org/Thing">
                   <a href="/categories/MySQL/" itemprop="url" rel="index">
@@ -347,6 +347,7 @@
 <h4 id="按月分组："><a href="#按月分组：" class="headerlink" title="按月分组："></a>按月分组：</h4><figure class="highlight plain"><table><tr><td class="gutter"><pre><div class="line">1</div></pre></td><td class="code"><pre><div class="line">select month(FROM_UNIXTIME(time)) from table_name group by month(FROM_UNIXTIME(time))</div></pre></td></tr></table></figure>
 <h4 id="按年月分组："><a href="#按年月分组：" class="headerlink" title="按年月分组："></a>按年月分组：</h4><figure class="highlight plain"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div></pre></td><td class="code"><pre><div class="line">select DATE_FORMAT(FROM_UNIXTIME(time),&quot;%Y-%m&quot;) from tcm_fund_list group by DATE_FORMAT(FROM_UNIXTIME(time),&quot;%Y-%m&quot;)</div><div class="line"></div><div class="line">// 或者：</div><div class="line"></div><div class="line">select FROM_UNIXTIME(time,&quot;%Y-%m&quot;) from tcm_fund_list group by FROM_UNIXTIME(time,&quot;%Y-%m&quot;)</div></pre></td></tr></table></figure>
 <h4 id="按年月日分组："><a href="#按年月日分组：" class="headerlink" title="按年月日分组："></a>按年月日分组：</h4><figure class="highlight plain"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div><div class="line">7</div></pre></td><td class="code"><pre><div class="line">select DATE_FORMAT(FROM_UNIXTIME(time),&quot;%Y-%m-%d&quot;) from tcm_fund_list group by DATE_FORMAT(FROM_UNIXTIME(time),&quot;%Y-%m-%d&quot;)</div><div class="line"></div><div class="line">// 或者：</div><div class="line"></div><div class="line">select FROM_UNIXTIME(time,&quot;%Y-%m-%d&quot;) from tcm_fund_list group by FROM_UNIXTIME(time,&quot;%Y-%m-%d&quot;)</div><div class="line"></div><div class="line">// 其中FROM_UNIXTIME(time,&quot;%Y-%m-%d&quot;)中的time代表UNIX时间戳的字段名称</div></pre></td></tr></table></figure>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div><div class="line">7</div><div class="line">8</div></pre></td><td class="code"><pre><div class="line">// 利用在一条语句中count出不同的条件</div><div class="line">SELECT   </div><div class="line">SUM( goods_amount ) AS money,   </div><div class="line">count( * ) AS num,  </div><div class="line">count(if(pay_status=1,true,null)) AS success,   </div><div class="line">count(if(pay_status=2,true,null)) AS fall   </div><div class="line">FROM `tab_order_info`     </div><div class="line">WHERE user_id = 11</div></pre></td></tr></table></figure>
       
     </div>
 
@@ -384,6 +385,10 @@
           </div>
 
           <div class="post-nav-prev post-nav-item">
+            
+              <a href="/2017/02/22/MySQL/随笔记/" rel="prev" title="MySql随笔记">
+                MySql随笔记 <i class="fa fa-chevron-right"></i>
+              </a>
             
           </div>
         </div>
@@ -436,10 +441,10 @@
       
         <ul class="sidebar-nav motion-element">
           <li class="sidebar-nav-toc sidebar-nav-active" data-target="post-toc-wrap" >
-            Inhaltsverzeichnis
+            Table of Contents
           </li>
           <li class="sidebar-nav-overview" data-target="site-overview">
-            Übersicht
+            Overview
           </li>
         </ul>
       
@@ -455,8 +460,8 @@
         <nav class="site-state motion-element">
           <div class="site-state-item site-state-posts">
             <a href="/archives">
-              <span class="site-state-item-count">27</span>
-              <span class="site-state-item-name">ATRIKEL</span>
+              <span class="site-state-item-count">28</span>
+              <span class="site-state-item-name">posts</span>
             </a>
           </div>
 
@@ -464,7 +469,7 @@
             <div class="site-state-item site-state-categories">
               <a href="/categories">
                 <span class="site-state-item-count">7</span>
-                <span class="site-state-item-name">CATE</span>
+                <span class="site-state-item-name">categories</span>
               </a>
             </div>
           
@@ -473,7 +478,7 @@
             <div class="site-state-item site-state-tags">
               <a href="/tags">
                 <span class="site-state-item-count">23</span>
-                <span class="site-state-item-name">TAGS</span>
+                <span class="site-state-item-name">tags</span>
               </a>
             </div>
           
@@ -540,7 +545,7 @@
         <div class="copyright" >
   
   &copy; 
-  <span itemprop="copyrightYear">2016</span>
+  <span itemprop="copyrightYear">2017</span>
   <span class="with-love">
     <i class="fa fa-heart"></i>
   </span>
@@ -548,7 +553,7 @@
 </div>
 
 <div class="powered-by">
-  Erstellt mit  <a class="theme-link" href="https://hexo.io">Hexo</a>
+  Powered by <a class="theme-link" href="https://hexo.io">Hexo</a>
 </div>
 
 <div class="theme-info">
